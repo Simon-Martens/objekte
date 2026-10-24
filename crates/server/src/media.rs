@@ -79,9 +79,10 @@ pub fn render(
     }
     body += "</div><section class=\"surface media-list\" aria-label=\"Media files\"><div class=\"list-toolbar\">";
     body += &format!(
-        "<form class=\"search-form\" action=\"{base}\" data-indicator:_pending data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{{filterSignals:{{include:/^$/}}}})\"><input type=\"hidden\" name=\"path\" value=\"{}\"><label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search files</span><input name=\"q\" type=\"search\" value=\"{}\" placeholder=\"Search this collection…\"></label><button>Search</button></form><div class=\"actions\">",
+        "<form class=\"search-form\" action=\"{base}\" data-indicator:_pending data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{{filterSignals:{{include:/^$/}}}})\"><input type=\"hidden\" name=\"path\" value=\"{}\"><label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search files</span><input name=\"q\" type=\"search\" value=\"{}\" placeholder=\"Search this collection…\"></label><button>Search</button>{}</form><div class=\"actions\">",
         views::escape(path),
-        views::escape(q)
+        views::escape(q),
+        if q.trim().is_empty() { String::new() } else { format!("<a class=\"button quiet\" data-nav href=\"{base}?path={}\">Show All</a>", views::encode(path)) }
     );
     if actor.editable() {
         if editor.allows(name, "mkdir") {

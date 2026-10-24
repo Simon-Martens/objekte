@@ -406,6 +406,16 @@ async fn templates_escape_record_content() {
 }
 
 #[tokio::test]
+async fn active_collection_search_offers_show_all() {
+    let (_temp, state, cookie, _) = fixture().await;
+    let (_, plain) = request(state.clone(), "GET", "/collections/notes", &cookie, &HashMap::new(), false).await;
+    assert!(!plain.contains(">Show All</a>"));
+    let (_, searched) = request(state, "GET", "/collections/notes?q=First&offset=50", &cookie, &HashMap::new(), false).await;
+    assert!(searched.contains(">Show All</a>"));
+    assert!(searched.contains("href=\"/collections/notes\""));
+}
+
+#[tokio::test]
 async fn create_rename_and_delete_use_revision_checked_commands() {
     let (_temp, state, cookie, actor) = fixture().await;
     let session = state
@@ -443,7 +453,7 @@ async fn create_rename_and_delete_use_revision_checked_commands() {
     let mut input = form(&current, &actor);
     input.insert("record_id".into(), "renamed".into());
     let (_, body) = request(state.clone(), "POST", &url, &cookie, &input, true).await;
-    assert!(body.contains("Saved to disk"));
+    assert!(body.contains("ID changed. 0 referenced items updated."));
     assert!(state.editor.get("notes", "created").is_err());
     let saved = state.editor.get("notes", "renamed").unwrap();
     let mut deletion = HashMap::from([

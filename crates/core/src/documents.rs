@@ -35,6 +35,27 @@ pub struct Document {
     pub revision: String,
 }
 
+/// The saved record and the number of other files whose references were updated.
+pub struct RenameResult {
+    pub document: Document,
+    pub updated_items: usize,
+}
+
+#[derive(Clone)]
+enum ReferenceSource {
+    Record(String),
+    Document(String),
+    Settings,
+}
+
+struct ReferenceUpdate {
+    path: PathBuf,
+    source: ReferenceSource,
+    previous: Vec<u8>,
+    value: Value,
+    bytes: Vec<u8>,
+}
+
 #[derive(Debug, Clone, Serialize)]
 pub struct RecordSummary {
     pub id: String,
@@ -674,6 +695,19 @@ impl Editor {
                             Ok(())
                         },
                     )?;
+                    visit_markdown_links(&value, "", &mut |destination, path| {
+                        if let Some((target, referenced_id)) = record_link_target(destination) {
+                            index
+                                .entry((target, referenced_id))
+                                .or_default()
+                                .push(Reference {
+                                    document: Some(name.clone()),
+                                    collection: String::new(),
+                                    record_id: file.clone(),
+                                    path: path.into(),
+                                });
+                        }
+                    });
                 }
             }
             if let Some(settings) = &self.config.settings {
@@ -704,6 +738,19 @@ impl Editor {
                             Ok(())
                         },
                     )?;
+                    visit_markdown_links(&value, "", &mut |destination, path| {
+                        if let Some((target, referenced_id)) = record_link_target(destination) {
+                            index
+                                .entry((target, referenced_id))
+                                .or_default()
+                                .push(Reference {
+                                    document: Some(String::new()),
+                                    collection: String::new(),
+                                    record_id: settings.path.clone(),
+                                    path: path.into(),
+                                });
+                        }
+                    });
                 }
             }
             let index = Arc::new(index);
@@ -975,11 +1022,27 @@ impl Editor {
         collection: &str,
         old_id: &str,
         new_id: &str,
-        mut value: Value,
+        value: Value,
         expected: &str,
     ) -> Result<Document> {
+        Ok(self
+            .rename_with_references(collection, old_id, new_id, value, expected)?
+            .document)
+    }
+
+    pub fn rename_with_references(
+        &self,
+        collection: &str,
+        old_id: &str,
+        new_id: &str,
+        mut value: Value,
+        expected: &str,
+    ) -> Result<RenameResult> {
         if old_id == new_id {
-            return self.save(collection, old_id, value, Some(expected));
+            return Ok(RenameResult {
+                document: self.save(collection, old_id, value, Some(expected))?,
+                updated_items: 0,
+            });
         }
         let _write_guard = self.write_guard.lock().unwrap();
         self.require_operation(collection, "rename")?;
@@ -1001,12 +1064,7 @@ impl Editor {
         if hash(&old_bytes) != expected {
             return Err(Error::Conflict("record changed on disk".into()));
         }
-        if let Some(reference) = self.references_to(collection, old_id)?.first() {
-            return Err(Error::Conflict(format!(
-                "record is referenced by {}/{} at {}; update that reference before changing the ID",
-                reference.collection, reference.record_id, reference.path
-            )));
-        }
+        let references = self.references_to(collection, old_id)?;
         if let IdStrategy::Frontmatter(field_name) = &collection_config.id {
             let object = value.as_object_mut().ok_or_else(|| {
                 Error::Validation(vec![ValidationIssue {
@@ -1016,10 +1074,13 @@ impl Editor {
             })?;
             object.insert(field_name.clone(), Value::String(new_id.into()));
         }
-        let issues = self.validate(collection, &value)?;
-        if !issues.is_empty() {
-            return Err(Error::Validation(issues));
-        }
+        rewrite_references(
+            &collection_config.schema_value,
+            &mut value,
+            collection,
+            old_id,
+            new_id,
+        )?;
         let new_path = self
             .config
             .collection_dir(collection)?
@@ -1030,22 +1091,222 @@ impl Editor {
                 return Err(Error::Conflict("target filename already exists".into()));
             }
         }
+        // Resolve every incoming source before touching disk. A single source may hold
+        // several references, and a mapped JSON document may also be a collection record.
+        let mut sources = BTreeMap::<PathBuf, ReferenceSource>::new();
+        for reference in references {
+            let (path, source) = if let Some(document) = reference.document {
+                let path = crate::contained(&self.config.root, &reference.record_id)?;
+                let source = if document.is_empty() {
+                    ReferenceSource::Settings
+                } else {
+                    ReferenceSource::Document(document)
+                };
+                (path, source)
+            } else {
+                (
+                    self.find_path(&reference.collection, &reference.record_id)?,
+                    ReferenceSource::Record(reference.collection),
+                )
+            };
+            if path != old_path {
+                sources
+                    .entry(path)
+                    .and_modify(|existing| {
+                        if matches!(source, ReferenceSource::Record(_)) {
+                            *existing = source.clone();
+                        }
+                    })
+                    .or_insert(source);
+            }
+        }
+        let mut updates = Vec::new();
+        for (path, source) in sources {
+            reject_symlink(&path)?;
+            if let ReferenceSource::Record(name) = &source {
+                self.require_operation(name, "update")?;
+            } else {
+                for (name, config) in &self.config.collections {
+                    if config.format == "json"
+                        && path.parent() == Some(self.config.collection_dir(name)?.as_path())
+                    {
+                        self.require_operation(name, "update")?;
+                    }
+                }
+            }
+            let previous = fs::read(&path)?;
+            let mut changed = match &source {
+                ReferenceSource::Record(name) => parse(self.config.collection(name)?, &previous)?,
+                ReferenceSource::Document(_) | ReferenceSource::Settings => {
+                    serde_json::from_slice(&previous)
+                        .map_err(|e| Error::Data(format!("{}: {e}", path.display())))?
+                }
+            };
+            let schema = match &source {
+                ReferenceSource::Record(name) => &self.config.collection(name)?.schema_value,
+                ReferenceSource::Document(name) => self.document_schema(name)?,
+                ReferenceSource::Settings => self.settings_schema()?,
+            };
+            let mut rewritten =
+                rewrite_references(schema, &mut changed, collection, old_id, new_id)?;
+            if let Some(name) = self.mapped_document_name(&path) {
+                rewritten |= rewrite_references(
+                    self.document_schema(name)?,
+                    &mut changed,
+                    collection,
+                    old_id,
+                    new_id,
+                )?;
+            }
+            if self.config.settings.as_ref().is_some_and(|settings| {
+                crate::contained(&self.config.root, &settings.path)
+                    .ok()
+                    .as_deref()
+                    == Some(path.as_path())
+            }) {
+                rewritten |= rewrite_references(
+                    self.settings_schema()?,
+                    &mut changed,
+                    collection,
+                    old_id,
+                    new_id,
+                )?;
+            }
+            if !rewritten {
+                return Err(Error::Conflict(format!(
+                    "could not update a reference in {}",
+                    path.display()
+                )));
+            }
+            let bytes = match &source {
+                ReferenceSource::Record(name) => {
+                    serialize(self.config.collection(name)?, &changed)?
+                }
+                _ => {
+                    let mut bytes = serde_json::to_vec_pretty(&changed)
+                        .map_err(|e| Error::Data(e.to_string()))?;
+                    bytes.push(b'\n');
+                    bytes
+                }
+            };
+            updates.push(ReferenceUpdate {
+                path,
+                source,
+                previous,
+                value: changed,
+                bytes,
+            });
+        }
         let bytes = serialize(collection_config, &value)?;
+        // Make the new ID visible while validating updated relations. All writes use
+        // the same project write lock; on an error, restore each changed file.
         if new_path == old_path {
             atomic_write(&old_path, &bytes)?;
         } else {
             atomic_create(&new_path, &bytes)?;
-            if let Err(error) = fs::remove_file(&old_path) {
-                let _ = fs::remove_file(&new_path);
-                return Err(error.into());
+        }
+        let mut written = 0;
+        let result = (|| -> Result<()> {
+            let issues = self.validate(collection, &value)?;
+            if !issues.is_empty() {
+                return Err(Error::Validation(issues));
             }
-            fs::File::open(self.config.collection_dir(collection)?)?.sync_all()?;
+            for update in &updates {
+                let issues = match &update.source {
+                    ReferenceSource::Record(name) => self.validate(name, &update.value)?,
+                    ReferenceSource::Document(name) => {
+                        self.validate_document(name, &update.value)?
+                    }
+                    ReferenceSource::Settings => self.validate_settings(&update.value)?,
+                };
+                if !issues.is_empty() {
+                    return Err(Error::Validation(issues));
+                }
+                if let Some(name) = self.mapped_document_name(&update.path) {
+                    let issues = self.validate_document(name, &update.value)?;
+                    if !issues.is_empty() {
+                        return Err(Error::Validation(issues));
+                    }
+                }
+                if !matches!(update.source, ReferenceSource::Record(_)) {
+                    for (name, config) in &self.config.collections {
+                        if config.format == "json"
+                            && update.path.parent()
+                                == Some(self.config.collection_dir(name)?.as_path())
+                        {
+                            let issues = self.validate(name, &update.value)?;
+                            if !issues.is_empty() {
+                                return Err(Error::Validation(issues));
+                            }
+                        }
+                    }
+                }
+                if self.config.settings.as_ref().is_some_and(|settings| {
+                    crate::contained(&self.config.root, &settings.path)
+                        .ok()
+                        .as_deref()
+                        == Some(update.path.as_path())
+                }) {
+                    let issues = self.validate_settings(&update.value)?;
+                    if !issues.is_empty() {
+                        return Err(Error::Validation(issues));
+                    }
+                }
+            }
+            for update in &updates {
+                if fs::read(&update.path)? != update.previous {
+                    return Err(Error::Conflict(format!(
+                        "{} changed on disk",
+                        update.path.display()
+                    )));
+                }
+                atomic_write(&update.path, &update.bytes)?;
+                written += 1;
+            }
+            if new_path != old_path {
+                if fs::read(&old_path)? != old_bytes {
+                    return Err(Error::Conflict("record changed on disk".into()));
+                }
+                fs::remove_file(&old_path)?;
+                fs::File::open(self.config.collection_dir(collection)?)?.sync_all()?;
+            }
+            if !self.references_to(collection, old_id)?.is_empty() {
+                return Err(Error::Conflict(
+                    "some references still use the old ID".into(),
+                ));
+            }
+            Ok(())
+        })();
+        if let Err(error) = result {
+            let rollback = (|| -> Result<()> {
+                for update in updates.iter().take(written).rev() {
+                    atomic_write(&update.path, &update.previous)?;
+                }
+                if new_path == old_path {
+                    atomic_write(&old_path, &old_bytes)?;
+                } else {
+                    if !old_path.exists() {
+                        atomic_create(&old_path, &old_bytes)?;
+                    }
+                    fs::remove_file(&new_path)?;
+                }
+                Ok(())
+            })();
+            if let Err(rollback_error) = rollback {
+                return Err(Error::Data(format!(
+                    "rename failed: {error}; rollback failed: {rollback_error}"
+                )));
+            }
+            return Err(error);
         }
         self.clear_field_values(collection);
-        Ok(Document {
-            id: new_id.into(),
-            value,
-            revision: hash(&bytes),
+        Ok(RenameResult {
+            document: Document {
+                id: new_id.into(),
+                value,
+                revision: hash(&bytes),
+            },
+            updated_items: updates.len(),
         })
     }
 
@@ -1600,6 +1861,116 @@ fn record_link_target(destination: &str) -> Option<(String, String)> {
         return None;
     }
     Some((collection, id))
+}
+
+fn rewrite_references(
+    schema: &Value,
+    value: &mut Value,
+    collection: &str,
+    old_id: &str,
+    new_id: &str,
+) -> Result<bool> {
+    let mut paths = BTreeSet::new();
+    visit_relations(schema, schema, value, "", 0, &mut |target, id, _, path| {
+        if target == collection && id == old_id {
+            paths.insert(path.to_owned());
+        }
+        Ok(())
+    })?;
+    let mut changed = false;
+    for path in paths {
+        if let Some(slot) = value.pointer_mut(&path)
+            && slot.as_str() == Some(old_id)
+        {
+            *slot = Value::String(new_id.into());
+            changed = true;
+        }
+    }
+    let mut links = BTreeSet::new();
+    visit_markdown_links(value, "", &mut |destination, path| {
+        if record_link_target(destination).as_ref() == Some(&(collection.into(), old_id.into())) {
+            links.insert(path.to_owned());
+        }
+    });
+    for path in links {
+        if let Some(slot) = value.pointer_mut(&path)
+            && let Some(text) = slot.as_str()
+        {
+            let updated = rewrite_markdown_source(text, collection, old_id, new_id);
+            if updated != text {
+                *slot = Value::String(updated);
+                changed = true;
+            }
+        }
+    }
+    Ok(changed)
+}
+
+fn rewrite_markdown_source(text: &str, collection: &str, old_id: &str, new_id: &str) -> String {
+    use percent_encoding::{NON_ALPHANUMERIC, utf8_percent_encode};
+    let mut replacements = BTreeMap::<(usize, usize), String>::new();
+    let mut definitions = BTreeSet::<String>::new();
+    for (event, range) in Parser::new(text).into_offset_iter() {
+        let Event::Start(Tag::Link { dest_url, .. } | Tag::Image { dest_url, .. }) = event else {
+            continue;
+        };
+        let destination = dest_url.as_ref();
+        if record_link_target(destination).as_ref() != Some(&(collection.into(), old_id.into())) {
+            continue;
+        }
+        let Some((prefix, _)) = destination.rsplit_once('/') else {
+            continue;
+        };
+        let next = format!("{prefix}/{}", utf8_percent_encode(new_id, NON_ALPHANUMERIC));
+        let source = &text[range.clone()];
+        // Inline links include their destination in the event's source span.
+        // Reference-style links point to a definition elsewhere in the text.
+        let destination_start = source.rfind("](").map(|start| start + 2).unwrap_or(0);
+        if let Some(found) = source[destination_start..].find(destination) {
+            let start = range.start + destination_start + found;
+            replacements.insert((start, start + destination.len()), next);
+        } else {
+            definitions.insert(destination.to_owned());
+        }
+    }
+    let mut line_start = 0;
+    for line in text.split_inclusive('\n') {
+        let trimmed = line.trim_start_matches([' ', '\t']);
+        if trimmed.starts_with('[') {
+            if let Some((_, rest)) = trimmed.split_once("]:") {
+                let destination_source = rest.trim_start_matches([' ', '\t']);
+                let wrapped = destination_source.starts_with('<');
+                let source = destination_source
+                    .strip_prefix('<')
+                    .unwrap_or(destination_source);
+                for destination in &definitions {
+                    if source.starts_with(destination)
+                        && matches!(
+                            source[destination.len()..].chars().next(),
+                            None | Some('>' | ' ' | '\t' | '\r' | '\n')
+                        )
+                    {
+                        let start = line_start
+                            + (line.len() - trimmed.len())
+                            + (trimmed.len() - rest.len())
+                            + (rest.len() - destination_source.len())
+                            + usize::from(wrapped);
+                        let prefix = destination.rsplit_once('/').unwrap().0;
+                        replacements.insert(
+                            (start, start + destination.len()),
+                            format!("{prefix}/{}", utf8_percent_encode(new_id, NON_ALPHANUMERIC)),
+                        );
+                    }
+                }
+            }
+        }
+        line_start += line.len();
+    }
+    let mut updated = text.to_owned();
+    for ((start, end), next) in replacements.into_iter().rev() {
+        updated.replace_range(start..end, &next);
+    }
+    updated
 }
 
 fn extension(c: &Collection) -> &'static str {

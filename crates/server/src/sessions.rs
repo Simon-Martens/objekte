@@ -495,7 +495,7 @@ impl EditSession {
     pub fn save(
         &mut self,
         editor: &Editor,
-    ) -> std::result::Result<(), structured_editor_core::Error> {
+    ) -> std::result::Result<Option<usize>, structured_editor_core::Error> {
         let value = self
             .value()
             .map_err(structured_editor_core::Error::Validation)?;
@@ -516,32 +516,33 @@ impl EditSession {
                 self.raw = Some(serde_json::to_string_pretty(&saved.value).unwrap());
             }
             self.mark_clean();
-            return Ok(());
+            return Ok(None);
         }
-        let saved = if let Some(parent) = &self.parent {
-            editor.create_child(
+        let (saved, updated_items) = if let Some(parent) = &self.parent {
+            (editor.create_child(
                 &parent.collection,
                 &parent.id,
                 &parent.field,
                 &parent.revision,
                 &self.proposed_id,
                 value,
-            )?
+            )?, None)
         } else if self.revision.is_some() && self.proposed_id != self.record_id {
-            editor.rename(
+            let result = editor.rename_with_references(
                 &self.collection,
                 &self.record_id,
                 &self.proposed_id,
                 value,
                 self.revision.as_deref().unwrap(),
-            )?
+            )?;
+            (result.document, Some(result.updated_items))
         } else {
-            editor.save(
+            (editor.save(
                 &self.collection,
                 &self.proposed_id,
                 value,
                 self.revision.as_deref(),
-            )?
+            )?, None)
         };
         self.schema_warning = editor
             .config()
@@ -558,6 +559,6 @@ impl EditSession {
             self.raw = Some(serde_json::to_string_pretty(&saved.value).unwrap());
         }
         self.mark_clean();
-        Ok(())
+        Ok(updated_items)
     }
 }

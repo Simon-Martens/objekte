@@ -95,14 +95,23 @@ pub fn closed(
     actor: &Actor,
     headers: &HeaderMap,
     session: &EditSession,
+    notice: Option<&str>,
 ) -> Result<Response> {
     state.sessions.lock().unwrap().remove(&session.id, actor)?;
     let url = session.close_url();
     if !routes::fragment(headers) {
         return Ok(Redirect::to(&url).into_response());
     }
+    let notice = notice
+        .map(|message| {
+            format!(
+                "<template data-notification=\"success\">{}</template>",
+                views::escape(message)
+            )
+        })
+        .unwrap_or_default();
     let body = format!(
-        "<main id=\"workspace\" data-closed-draft=\"{}\" data-navigate-to=\"{}\"><p>Editor closed.</p><a data-nav href=\"{}\">Return to record</a></main>",
+        "<main id=\"workspace\" data-closed-draft=\"{}\" data-navigate-to=\"{}\">{notice}<p>Editor closed.</p><a data-nav href=\"{}\">Return to record</a></main>",
         views::escape(&session.id),
         views::escape(&url),
         views::escape(&url)

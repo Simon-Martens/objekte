@@ -172,7 +172,7 @@ code, .mono, .source { font-family: var(--mono); font-size: 11px; font-variant-l
 .edit-heading > .actions { flex-shrink: 0; }
 /* Dense lists, shared by records and media. */
 .list-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 12px 14px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
-.search-form { display: flex; align-items: center; gap: .5rem; min-width: 220px; flex: 1; max-width: 470px; }
+.search-form { display: flex; align-items: center; gap: .5rem; min-width: 220px; flex: 1; }
 .search-input { position: relative; flex: 1; min-width: 0; }
 .search-input > i { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--faint); font-size: 16px; }
 .search-input input { padding-left: 32px !important; font-size: 13px; background: var(--subtle) !important; }

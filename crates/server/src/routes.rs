@@ -642,8 +642,8 @@ async fn perform(
         let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
         let before_input=session.snapshot();
         session.apply(&form)?;
-        if action == "discard" || action == "discard-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
-        if action == "close" && (!session.dirty() || form.get("confirm_discard").is_some_and(|value| value == "false")) { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
+        if action == "discard" || action == "discard-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session,None); }
+        if action == "close" && (!session.dirty() || form.get("confirm_discard").is_some_and(|value| value == "false")) { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session,None); }
         if action == "close" || action == "keep-editing" {
             session.close_requested = action == "close";
             session.history.record(before_input,&session.snapshot());
@@ -696,8 +696,13 @@ async fn perform(
                     Err(errors) => issues = errors,
                 },
                 "save" | "save-close" => match session.save(&state.editor) {
-                    Ok(()) => {
-                        message_kind = "success"; message = "Saved to disk.".into();
+                    Ok(updated_items) => {
+                        message_kind = "success";
+                        message = if let Some(count) = updated_items {
+                            format!("ID changed. {count} referenced {} updated.", if count == 1 { "item" } else { "items" })
+                        } else {
+                            "Saved to disk.".into()
+                        };
                         session.close_requested = false;
                         session.parent = None;
                         if let Some((parent_id, field)) = session.return_to.take() {
@@ -711,7 +716,7 @@ async fn perform(
                                 message = "Related record created and selected. Save the parent record to retain the reference.".into();
                             } else { message_kind = "warning"; message = "Saved. The parent draft has expired; select this record from a new draft.".into(); }
                         }
-                        if action == "save-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
+                        if action == "save-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session,Some(&message)); }
                     },
                     Err(structured_editor_core::Error::Validation(errors)) => issues = errors,
                     Err(error) => message = error.to_string(),

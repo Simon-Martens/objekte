@@ -58,6 +58,9 @@ pub fn highlighted(text: &str, query: &str, excerpt: bool) -> String {
 fn query_url(base: &str, params: &HashMap<String, String>) -> String {
     let mut values: Vec<_> = params.iter().filter(|(_, v)| !v.is_empty()).collect();
     values.sort_by(|a, b| a.0.cmp(b.0));
+    if values.is_empty() {
+        return base.into();
+    }
     format!(
         "{base}?{}",
         values
@@ -396,8 +399,20 @@ pub fn render(
             escape(&query_url(&base, &clear))
         );
     }
+    let show_all = if q.trim().is_empty() {
+        String::new()
+    } else {
+        let mut all = params.clone();
+        all.retain(|key, _| {
+            key != "q" && key != "offset" && key != "tree" && !key.starts_with("filter.")
+        });
+        format!(
+            "<a class=\"button quiet\" data-nav href=\"{}\">Show All</a>",
+            escape(&query_url(&base, &all))
+        )
+    };
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button>{show_all}</form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
         hidden(params, &["q", "offset"]),
         escape(&q),
         hidden(params, &["column.", "columns", "offset"])
