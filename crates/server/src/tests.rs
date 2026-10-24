@@ -3652,6 +3652,8 @@ async fn regex_search_renders_toggle_errors_and_library_highlights() {
     assert!(html.contains("aria-pressed=\"true\""));
     assert!(html.contains("<mark>First</mark>"));
     assert!(html.contains("regex=1"));
+    assert_eq!(html.matches("aria-label=\"Actions for First\"").count(), 1);
+    assert!(html.contains("</strong> match "));
     let (_, literal) = request(
         state.clone(),
         "GET",
@@ -3676,5 +3678,125 @@ async fn regex_search_renders_toggle_errors_and_library_highlights() {
         assert!(invalid.contains("aria-invalid=\"true\""));
         assert!(invalid.contains("search-pattern-error"));
         assert!(invalid.contains("data-regex-search"));
+        assert!(!invalid.contains("No matching records"));
     }
+}
+
+#[tokio::test]
+async fn literal_case_matching_survives_navigation_and_show_all_resets_it() {
+    let (temp, state, cookie, _) = fixture().await;
+    state
+        .editor
+        .save("notes", "two", json!({"name":"first","count":2}), None)
+        .unwrap();
+    state
+        .editor
+        .save(
+            "notes",
+            "three",
+            json!({"name":"First again","count":3}),
+            None,
+        )
+        .unwrap();
+    for (options, has_lowercase) in [
+        ("", true),
+        ("&case_sensitive=1", false),
+        ("&case_sensitive=0", true),
+    ] {
+        let (status, html) = request(
+            state.clone(),
+            "GET",
+            &format!("/collections/notes?q=First{options}"),
+            &cookie,
+            &HashMap::new(),
+            false,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(html.contains("<mark>first</mark>"), has_lowercase);
+        assert!(html.contains("<mark>First</mark>"));
+        assert!(html.contains(&format!(
+            "data-case-toggle aria-label=\"Match case\" aria-pressed=\"{}\"",
+            !has_lowercase
+        )));
+        let search_form = html
+            .split("data-regex-search")
+            .nth(1)
+            .unwrap()
+            .split("</form>")
+            .next()
+            .unwrap();
+        assert_eq!(search_form.matches("name=\"case_sensitive\"").count(), 1);
+        assert_eq!(search_form.matches("name=\"regex\"").count(), 1);
+    }
+    // Small pages make preservation in sorting/paging links and column/filter
+    // forms observable without constructing a large collection.
+    std::fs::write(
+        temp.path().join("project/settings.json"),
+        r#"{"pageSize":1}"#,
+    )
+    .unwrap();
+    state.editor.refresh_read_cache();
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes?q=First&case_sensitive=1&sort=_label",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    let links: Vec<_> = html
+        .split("href=\"")
+        .skip(1)
+        .map(|s| {
+            percent_encoding::percent_decode_str(s.split('"').next().unwrap())
+                .decode_utf8_lossy()
+                .into_owned()
+        })
+        .collect();
+    assert!(
+        links.iter().any(|link| link.contains("offset=1")
+            && link.contains("case_sensitive=1")
+            && link.contains("q=First")),
+        "{links:?}"
+    );
+    assert!(
+        links
+            .iter()
+            .any(|link| link.contains("direction=desc") && link.contains("case_sensitive=1"))
+    );
+    for form in html
+        .split("<form")
+        .skip(1)
+        .map(|s| s.split("</form>").next().unwrap())
+    {
+        if form.contains("Visible columns") || form.contains("Apply filters") {
+            assert!(form.contains("name=\"case_sensitive\" value=\"1\""));
+        }
+    }
+    let show_all = html
+        .split(">Show All</a>")
+        .next()
+        .unwrap()
+        .rsplit("href=\"")
+        .next()
+        .unwrap()
+        .trim_end_matches('"');
+    assert!(!show_all.contains("case%5Fsensitive"));
+    assert!(!show_all.contains("regex="));
+    assert!(!show_all.contains("q="));
+    assert!(show_all.contains("sort=%5Flabel"));
+    let (status, partial) = request(
+        state,
+        "GET",
+        "/collections/notes?q=First&case_sensitive=1&sort=_label&offset=1",
+        &cookie,
+        &HashMap::new(),
+        true,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(partial.contains("<mark>First</mark> again"));
+    assert!(partial.contains("data-case-toggle aria-label=\"Match case\" aria-pressed=\"true\""));
 }

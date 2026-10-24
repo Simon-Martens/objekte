@@ -8,7 +8,7 @@
     "build:search": "node ../../../scripts/build-search-wasm.mjs",
     "prebuild": "npm run build:search",
     "predev": "npm run build:search",
-    "test:search": "npm run build:search && node --test ../../../scripts/search-wasm.test.mjs"
+    "test:search": "npm run build:search && node --test --test-isolation=none ../../../scripts/search-wasm.test.mjs tests/search-controls.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/source-sans-3": "^5.3.1",
@@ -23,6 +23,7 @@
     }
   },
   "devDependencies": {
+    "jsdom": "^30.1.3",
     "typescript": "^5.9.0",
     "vite": "^8.0.0"
   }

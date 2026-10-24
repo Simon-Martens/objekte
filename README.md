@@ -239,12 +239,15 @@ filters, sorting, cache invalidation, and UTF-8 highlight ranges. Relation picke
 use the same query path. The server renders the library's ranges as escaped HTML.
 The Node binding exposes `queryCollection(name, requestJson)` and `refreshReadCache()`.
 
-Literal search is the default and is Unicode case-insensitive. The `.*` button
-inside the collection search box enables Rust `regex` syntax, including `(?i)`,
+Literal search is the default and is Unicode case-insensitive. The `Aa` (Match
+case) button enables case-sensitive matching in both literal and regex mode.
+The `.*` button inside the collection search box enables Rust `regex` syntax,
+including `(?i)`,
 `(?m)`, Unicode classes, alternation, and anchors. Matching is against each
 normalized field independently, including IDs and labels. Markdown syntax and
 link destinations are not searched as raw source. Regex input is preserved
-verbatim. Lookaround and backreferences are unsupported. Library callers can set
+verbatim. Lookaround and backreferences are unsupported. Inline regex flags such
+as `(?i)` override the case toggle within the pattern. Library callers can set
 `search_options.case_sensitive`; patterns are limited to 4,096 UTF-8 bytes, 4 MiB
 of compiled regex, and a 2 MiB DFA cache. Only the visible page gets highlights,
 with at most 64 matches per field; zero-width matches select rows without marks.
@@ -279,6 +282,10 @@ cargo test -p structured-editor-core -p structured-editor-search -p structured-e
 npm --prefix crates/server/assets run test:search
 SEARCH_BENCH_RECORDS=100000 cargo test -p structured-editor-core --release measure_markdown_search -- --ignored --nocapture
 ```
+
+The search tests cover case-sensitive Unicode literals, cache separation and edit
+invalidation, HTTP option persistence, WASM compilation, and DOM interactions
+(invalid input, toggling, pending submissions, navigation races, and load failure).
 
 The manual benchmark creates Markdown fields and frontmatter references. On the
 development machine, 100,000 records took about 7.5 seconds to prepare initially,

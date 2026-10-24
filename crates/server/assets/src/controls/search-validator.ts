@@ -7,15 +7,15 @@ interface SearchWasm extends WebAssembly.Exports {
   search_validate(pointer: number, length: number, capacity: number, caseSensitive: number): number;
 }
 let engine: Promise<SearchWasm> | undefined;
-export async function validatePattern(pattern: string): Promise<string> {
-  const wasm = await (engine ??= init().then(instance => instance.exports as SearchWasm).catch(error => { engine = undefined; throw error; }));
+export async function validatePattern(pattern: string, caseSensitive = false): Promise<string> {
   const bytes = new TextEncoder().encode(pattern);
   if (bytes.length > 4096) return 'Search pattern exceeds 4096 bytes';
+  const wasm = await (engine ??= init().then(instance => instance.exports as SearchWasm).catch(error => { engine = undefined; throw error; }));
   const capacity = 8192;
   const pointer = wasm.search_alloc(capacity);
   try {
     new Uint8Array(wasm.memory.buffer, pointer, bytes.length).set(bytes);
-    const length = wasm.search_validate(pointer, bytes.length, capacity, 0);
+    const length = wasm.search_validate(pointer, bytes.length, capacity, Number(caseSensitive));
     return new TextDecoder().decode(new Uint8Array(wasm.memory.buffer, pointer, length));
   } finally { wasm.search_free(pointer, capacity); }
 }

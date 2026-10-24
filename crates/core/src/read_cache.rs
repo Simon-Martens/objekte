@@ -459,6 +459,54 @@ mod tests {
     }
 
     #[test]
+    fn literal_case_options_have_separate_query_caches_and_follow_edits() {
+        let (t, e) = fixture("filename");
+        write(&t, &e, "a", json!({"name":"Über"}));
+        write(&t, &e, "b", json!({"name":"über"}));
+        let request = ListRequest {
+            query: "über".into(),
+            limit: 10,
+            ..Default::default()
+        };
+        let sensitive = ListRequest {
+            search_options: crate::SearchOptions {
+                case_sensitive: true,
+                ..Default::default()
+            },
+            ..request.clone()
+        };
+        let page = e.query_collection("items", &request).unwrap();
+        assert_eq!(page.matched, 2);
+        let parsed = e.read_cache.parses.load(Ordering::Relaxed);
+        let prepared = e.read_cache.prepared.lock().unwrap()[0].2.clone();
+        for _ in 0..3 {
+            let page = e.query_collection("items", &sensitive).unwrap();
+            assert_eq!(page.matched, 1);
+            assert_eq!(page.rows[0].id, "b");
+            assert_eq!(
+                page.rows[0].highlights["name"],
+                vec![crate::MatchRange { start: 0, end: 5 }]
+            );
+            assert_eq!(e.query_collection("items", &request).unwrap().matched, 2);
+        }
+        assert_eq!(e.read_cache.parses.load(Ordering::Relaxed), parsed);
+        assert!(Arc::ptr_eq(
+            &prepared,
+            &e.read_cache.prepared.lock().unwrap()[0].2
+        ));
+        let original = e.get("items", "b").unwrap();
+        e.save(
+            "items",
+            "b",
+            json!({"name":"ÜBER"}),
+            Some(&original.revision),
+        )
+        .unwrap();
+        assert_eq!(e.query_collection("items", &sensitive).unwrap().matched, 0);
+        assert_eq!(e.query_collection("items", &request).unwrap().matched, 2);
+    }
+
+    #[test]
     fn retained_sort_orders_follow_edits_additions_and_deletions() {
         let (t, e) = fixture("filename");
         for i in 0..40 {

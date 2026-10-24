@@ -128,6 +128,44 @@ mod browser {
 mod tests {
     use super::*;
     #[test]
+    fn match_case_preserves_literal_punctuation_and_unicode_highlights() {
+        let sensitive = SearchMatcher::new(
+            "Ü.a",
+            SearchOptions {
+                case_sensitive: true,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let insensitive = SearchMatcher::new("Ü.a", SearchOptions::default()).unwrap();
+        let text = "ü.A Ü.a Üxa";
+        assert_eq!(
+            sensitive.ranges(text),
+            vec![MatchRange { start: 5, end: 9 }]
+        );
+        assert_eq!(
+            insensitive.ranges(text),
+            vec![
+                MatchRange { start: 0, end: 4 },
+                MatchRange { start: 5, end: 9 }
+            ]
+        );
+        assert!(!sensitive.is_match("ü.a"));
+        assert!(insensitive.is_match("ü.a"));
+        for case_sensitive in [false, true] {
+            let matcher = SearchMatcher::new(
+                "(?i)^über$",
+                SearchOptions {
+                    regex: true,
+                    case_sensitive,
+                },
+            )
+            .unwrap();
+            assert!(matcher.is_match("ÜBER"));
+        }
+    }
+
+    #[test]
     fn literals_regex_unicode_and_limits() {
         let literal = SearchMatcher::new("a.b", SearchOptions::default()).unwrap();
         assert!(literal.is_match("A.B"));

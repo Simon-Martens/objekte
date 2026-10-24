@@ -160,7 +160,7 @@ pub fn render(
         query: q.clone(),
         search_options: structured_editor_core::SearchOptions {
             regex: params.get("regex").is_some_and(|v| v == "1"),
-            case_sensitive: false,
+            case_sensitive: params.get("case_sensitive").is_some_and(|v| v == "1"),
         },
         search_fields: None,
         display_field: None,
@@ -422,6 +422,7 @@ pub fn render(
         all.retain(|key, _| {
             key != "q"
                 && key != "regex"
+                && key != "case_sensitive"
                 && key != "offset"
                 && key != "tree"
                 && !key.starts_with("filter.")
@@ -432,9 +433,12 @@ pub fn render(
         )
     };
     let regex_enabled = request.search_options.regex;
-    let regex_control = format!(
-        "<input type=\"hidden\" name=\"regex\" value=\"{}\"><button type=\"button\" class=\"regex-toggle\" data-regex-toggle aria-label=\"Use regular expression\" aria-pressed=\"{}\" title=\"Use regular expression\"><span aria-hidden=\"true\">.*</span></button>",
+    let case_sensitive = request.search_options.case_sensitive;
+    let search_controls = format!(
+        "<input type=\"hidden\" name=\"case_sensitive\" value=\"{}\"><input type=\"hidden\" name=\"regex\" value=\"{}\"><span class=\"search-options\"><button type=\"button\" class=\"search-toggle\" data-case-toggle aria-label=\"Match case\" aria-pressed=\"{}\" title=\"Match case\"><span aria-hidden=\"true\">Aa</span></button><button type=\"button\" class=\"search-toggle\" data-regex-toggle aria-label=\"Use regular expression\" aria-pressed=\"{}\" title=\"Use regular expression\"><span aria-hidden=\"true\">.*</span></button></span>",
+        if case_sensitive { "1" } else { "0" },
         if regex_enabled { "1" } else { "0" },
+        case_sensitive,
         regex_enabled
     );
     let validation = format!(
@@ -447,8 +451,8 @@ pub fn render(
         "false"
     };
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" data-regex-search action=\"{base}\" {get}>{}<div class=\"search-input has-regex\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" aria-invalid=\"{invalid}\" aria-describedby=\"search-pattern-error\" type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\">{regex_control}</div><button>Search</button>{show_all}</form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
-        hidden(params, &["q", "regex", "offset"]),
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" data-regex-search action=\"{base}\" {get}>{}<div class=\"search-input has-options\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" aria-invalid=\"{invalid}\" aria-describedby=\"search-pattern-error\" type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\">{search_controls}</div><button>Search</button>{show_all}</form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
+        hidden(params, &["q", "regex", "case_sensitive", "offset"]),
         escape(&q),
         hidden(params, &["column.", "columns", "offset"])
     );
@@ -500,9 +504,9 @@ pub fn render(
         "<div class=\"result-summary\"><span><strong>{}</strong> {} {}</span><nav class=\"summary-pagination\" aria-label=\"List pagination\">{page_controls}<span class=\"mono\">{}–{}</span></nav></div><div class=\"table-scroll\"><table class=\"data-table\"><thead><tr>",
         page.matched,
         if q.is_empty() && request.filters.values().all(|v| v.is_empty()) {
-            "entries"
+            if page.matched == 1 { "entry" } else { "entries" }
         } else {
-            "matches"
+            if page.matched == 1 { "match" } else { "matches" }
         },
         if page.matched == page.total {
             String::new()
@@ -648,26 +652,11 @@ pub fn render(
                     highlighted(&m.text, &m.ranges, true)
                 );
             }
-            body += &crate::hierarchy::record_actions(
-                editor,
-                actor,
-                name,
-                &row.id,
-                &row.label,
-                placement.as_ref().map(|(parent, id, field, revision)| {
-                    (
-                        parent.as_str(),
-                        id.as_str(),
-                        field.as_str(),
-                        revision.as_str(),
-                    )
-                }),
-            )?;
             body += "</div></td></tr>";
         }
     }
     body += "</tbody></table></div>";
-    if page.rows.is_empty() {
+    if page.rows.is_empty() && pattern_error.is_none() {
         body += "<div class=\"empty-state\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><h2>No matching records</h2><p>Try a broader search or clear a filter.</p></div>";
     }
     body += "<footer class=\"list-footer\"><div class=\"actions\">";

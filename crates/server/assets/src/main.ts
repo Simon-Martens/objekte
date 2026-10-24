@@ -78,4 +78,6 @@ import './controls/discard-confirmation';
 
 import './controls/suggestion-select';
 
-import './controls/regex-search';
+import { installSearchControls } from './controls/regex-search';
+import { validatePattern } from './controls/search-validator';
+installSearchControls(document, validatePattern);
