@@ -21,7 +21,6 @@ The Rust server implements the [revised MVP](MVP.md): typed drafts and raw JSON,
 From the repository root:
 
 ```bash
-rustup target add wasm32-unknown-unknown
 npm --prefix crates/server/assets ci
 npm --prefix crates/server/assets run build
 cargo run -p structured-editor-server -- admin-create
@@ -123,11 +122,7 @@ Global UI supports `groups: [{"name":"Content","label":"Content","position":0}]`
 
 `fields` maps JSON Pointers into the collection schema to `title`, `description`, `x-editor`, `x-options`, `x-autocomplete`, `x-create`, `x-visible`, and `x-presentation`. Controls include text, numeric values, boolean, typed enums, Markdown, HTML source, date, date-time, relation, media, arrays and JSON fallback. Arrays support any supported item control, including nested arrays. Objects, unions and tuple arrays use raw JSON. Nullable relations/media accept a JSON string or `null` and also work with pickers.
 
-Use **Add field** (or a nested **Add…** button) to supply an optional property; absence remains distinct from empty string, zero, false, null and empty arrays. New drafts initialize only explicit schema `default`/`const` values and requested contextual values. Array items without a default start incomplete. Invalid input stays in the draft. Defaults are not injected into existing records.
-
-Record references show their resolved names and a **Choose** or **Change** button; **Enter ID manually** retains access to the stored value. `x-presentation.hideEmpty` hides empty values in record previews and folds empty optional edit controls into **More fields** without removing their data. Set `x-presentation.primary: true` on individual controls to keep them visible when empty. Required controls remain visible; `secondary: true` groups optional metadata under **Additional details**. These options inherit, so set them at the intended field level.
-
-Embedded object arrays follow the other fields. Their edit tables show ten rows in the overview and use `x-presentation.table.pageSize` (default 25) when focused. Opening, adding, reordering and paging rows retain the draft; returning from a row restores its table page. Table positions reflect the stored array order.
+Check **Include field** to supply a property; absence remains distinct from empty string, zero, false, null and empty arrays. New drafts initialize only explicit schema `default`/`const` values and requested contextual values. Array items without a default start incomplete. Invalid input stays in the draft. Defaults are not injected into existing records.
 
 Ownership is declared in the data schema as `x-ownership: "user" | "generated" | "immutable"`, or `{"kind":"imported","editable":false}`. Omission means user-editable. Hidden values remain in the draft; ownership still applies in raw JSON and core writes. Imported example provenance fields are optional on creation and preserved on update. Arbitrary generated values need a defined system operation or explicit default; the editor invents none.
 
@@ -141,7 +136,7 @@ Enums preserve JSON types and restrict allowed values. Suggestions accept new va
 
 `_editor.schema_revision` stores the latest schema-changing Git commit whose schema bytes exactly match the schema loaded by the editor. Existing records remain unchanged until saved. An uncommitted/untracked schema produces a visible warning; saving omits any stale schema stamp. This is separate from the content hash used for concurrent-write checks. Schema changes require restarting the server. Automatic schema migration is deferred.
 
-`x-relation: {"collection":"people"}` declares a record reference. The picker searches, resolves configured reference labels, and opens targets. UI `x-create` can define `nameField`, `copyTo`, `parentField`, and `sourceField` for creating a related record without losing the parent draft. Target IDs must be valid IDs of existing records in the declared collection, including nested references and raw JSON edits. The legacy `allowUnresolved` flag no longer bypasses this check. Schema-mapped JSON documents and editor settings use the same validation. Incoming references, including Markdown record links, block deletion. Changing a record ID updates incoming references through the Rust core, including mapped documents and settings, and reports the number of other files changed. Markdown link insertion/replacement is a server draft operation using the editor's selected source range.
+`x-relation: {"collection":"people"}` declares a record reference. The picker searches, resolves configured reference labels, and opens targets. UI `x-create` can define `nameField`, `copyTo`, `parentField`, and `sourceField` for creating a related record without losing the parent draft. Target IDs must be valid IDs of existing records in the declared collection, including nested references and raw JSON edits. The legacy `allowUnresolved` flag no longer bypasses this check. Schema-mapped JSON documents and editor settings use the same validation. Saving a changed Record ID automatically rewrites incoming relation IDs, child-list entries, and Markdown record links, then reports the number of references renamed. Referencing files retain their update permissions, ownership rules, and schema validation; stale drafts cannot overwrite these updates. Incoming references still block deletion. Markdown link insertion/replacement is a server draft operation using the editor's selected source range.
 
 An explicit media field uses `x-content: "media"` and optionally `x-media: {"collection":"assets"}`; the default collection name is `media`. These fields protect referenced files/folders from move/delete. Markdown media links do not participate in protection. File-existence and type validation remain deferred; pickers browse existing files.
 
@@ -235,64 +230,3 @@ Astro exposes `/api/auth/*`, `/api/collections/*`, `/api/relations/*`, `/api/med
 The React form covers common JSON Schema controls and offers raw JSON for structures it cannot render clearly. Cookie sessions are implemented; bearer API tokens are outside the current scope.
 
 The native methods run synchronously and searches scan files on demand. For very large projects, indexing or worker threads will be needed to avoid blocking the Astro request loop.
-
-## Collection search
-
-`Editor::query_collection` owns normalized field text, literal/regex matching,
-filters, sorting, cache invalidation, and UTF-8 highlight ranges. Relation pickers
-use the same query path. The server renders the library's ranges as escaped HTML.
-The Node binding exposes `queryCollection(name, requestJson)` and `refreshReadCache()`.
-
-Literal search is the default and is Unicode case-insensitive. The `Aa` (Match
-case) button enables case-sensitive matching in both literal and regex mode.
-The `.*` button inside the collection search box enables Rust `regex` syntax,
-including `(?i)`,
-`(?m)`, Unicode classes, alternation, and anchors. Matching is against each
-normalized field independently, including IDs and labels. Markdown syntax and
-link destinations are not searched as raw source. Regex input is preserved
-verbatim. Lookaround and backreferences are unsupported. Inline regex flags such
-as `(?i)` override the case toggle within the pattern. Library callers can set
-`search_options.case_sensitive`; patterns are limited to 4,096 UTF-8 bytes, 4 MiB
-of compiled regex, and a 2 MiB DFA cache. Only the visible page gets highlights,
-with at most 64 matches per field; zero-width matches select rows without marks.
-
-The browser validates locally with the same `structured-editor-search` Rust
-library compiled to WebAssembly. Invalid patterns turn the input red and show
-an accessible error. Vite's `prebuild`/`predev` builds the module; install the
-`wasm32-unknown-unknown` Rust target first. No wasm-bindgen CLI is required.
-The module loads when regex validation is first needed. If it cannot load,
-the server still validates patterns and returns the editable search form.
-
-Collection snapshots use `notify` events, coalescing dirty paths. Editor writes
-mark their paths immediately, including reference renames, rollback, mapped
-JSON writes, and deletes. Only changed records and their display dependencies
-are prepared again. Prepared rows, facet options, sorted orders, compiled
-patterns, and query results are reused; cached result sets contain row indexes,
-not copies of matching field text. On an edit, existing sort orders retain their
-unchanged rows and insert changed rows in order. There are bounded caches (16
-queries/projections/patterns, 8 sort orders per projection, 10,000 parsed files).
-
-External edits normally become visible when watcher events arrive. A full
-metadata reconciliation runs on the next access after 30 seconds, or after one
-second if watching is unavailable. Watcher errors/overflow and
-`Editor::refresh_read_cache()` force reconciliation on the next read; a browser
-reload also requests this. Reconciliation preserves unchanged normalized rows.
-Frontmatter ID uniqueness is synchronously reconciled before writes.
-
-Verification:
-
-```sh
-cargo test -p structured-editor-core -p structured-editor-search -p structured-editor-server
-npm --prefix crates/server/assets run test:search
-SEARCH_BENCH_RECORDS=100000 cargo test -p structured-editor-core --release measure_markdown_search -- --ignored --nocapture
-```
-
-The search tests cover case-sensitive Unicode literals, cache separation and edit
-invalidation, HTTP option persistence, WASM compilation, and DOM interactions
-(invalid input, toggling, pending submissions, navigation races, and load failure).
-
-The manual benchmark creates Markdown fields and frontmatter references. On the
-development machine, 100,000 records took about 7.5 seconds to prepare initially,
-0.19 ms for a cached page, 55–82 ms for the tested new literal/regex searches,
-and 0.40 seconds to refresh after a single edit. These are synthetic measurements,
-not guarantees; arbitrary regex still scans eligible normalized text.

@@ -1,57 +1,93 @@
-use super::table::{GET_FORM, TableColumns, hidden, query_url};
 use super::*;
 use std::collections::HashMap;
 use structured_editor_core::ListRequest;
 
-/// Only presentation lives here; the library supplies UTF-8 match ranges.
-pub fn highlighted(
-    text: &str,
-    ranges: &[structured_editor_core::MatchRange],
-    excerpt: bool,
-) -> String {
-    let first = ranges.first().map(|r| r.start).unwrap_or(0);
+pub(super) const GET: &str = "data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{filterSignals:{include:/^$/}})\"";
+
+/// Escape first; match ranges are computed against Unicode characters, never HTML.
+pub fn highlighted(text: &str, query: &str, excerpt: bool) -> String {
+    let chars: Vec<char> = text.chars().collect();
+    let mut folded = String::new();
+    let mut mapping = Vec::new();
+    for (index, c) in chars.iter().enumerate() {
+        for lower in c.to_lowercase() {
+            let start = folded.len();
+            folded.push(lower);
+            mapping.extend(std::iter::repeat_n(index, folded.len() - start));
+        }
+    }
+    let needle = query.trim().to_lowercase();
+    let ranges: Vec<(usize, usize)> = if needle.is_empty() {
+        Vec::new()
+    } else {
+        folded
+            .match_indices(&needle)
+            .map(|(i, m)| (mapping[i], mapping[i + m.len() - 1] + 1))
+            .collect()
+    };
     let start = if excerpt {
-        text[..first]
-            .char_indices()
-            .rev()
-            .nth(59)
-            .map(|(i, _)| i)
-            .unwrap_or(0)
+        ranges.first().map(|r| r.0.saturating_sub(60)).unwrap_or(0)
     } else {
         0
     };
     let end = if excerpt {
-        text[start..]
-            .char_indices()
-            .nth(230)
-            .map(|(i, _)| start + i)
-            .unwrap_or(text.len())
+        (start + 230).min(chars.len())
     } else {
-        text.len()
+        chars.len()
     };
     let mut html = if start > 0 {
-        "…".to_owned()
+        "…".into()
     } else {
         String::new()
     };
-    let mut cursor = start;
-    for range in ranges {
-        let a = range.start.max(start);
-        let b = range.end.min(end);
-        if a >= b {
-            continue;
+    for i in start..end {
+        if ranges.iter().any(|r| r.0 == i) {
+            html += "<mark>";
         }
-        html += &escape(&text[cursor..a]);
-        html += "<mark>";
-        html += &escape(&text[a..b]);
-        html += "</mark>";
-        cursor = b;
+        html += &escape(&chars[i].to_string());
+        if ranges.iter().any(|r| r.1 == i + 1) {
+            html += "</mark>";
+        }
     }
-    html += &escape(&text[cursor..end]);
-    if end < text.len() {
+    if ranges.iter().any(|r| r.0 < end && r.1 > end) {
+        html += "</mark>";
+    }
+    if end < chars.len() {
         html += "…";
     }
     html
+}
+pub(crate) fn query_url(base: &str, params: &HashMap<String, String>) -> String {
+    let mut values: Vec<_> = params.iter().filter(|(_, v)| !v.is_empty()).collect();
+    if values.is_empty() {
+        return base.into();
+    }
+    values.sort_by(|a, b| a.0.cmp(b.0));
+    format!(
+        "{base}?{}",
+        values
+            .into_iter()
+            .map(|(k, v)| format!("{}={}", encode(k), encode(v)))
+            .collect::<Vec<_>>()
+            .join("&")
+    )
+}
+pub(super) fn hidden(params: &HashMap<String, String>, exclude: &[&str]) -> String {
+    params
+        .iter()
+        .filter(|(k, _)| {
+            !exclude
+                .iter()
+                .any(|e| k.as_str() == *e || e.ends_with('.') && k.starts_with(e))
+        })
+        .map(|(k, v)| {
+            format!(
+                "<input type=\"hidden\" name=\"{}\" value=\"{}\">",
+                escape(k),
+                escape(v)
+            )
+        })
+        .collect()
 }
 pub fn render(
     editor: &Editor,
@@ -111,15 +147,7 @@ pub fn render(
             "Incomplete parent list context",
         ));
     }
-    let table_columns = TableColumns::new(&c.editor_schema, &ui, params, "", &["_label", "_id"]);
     let request = ListRequest {
-        fields: Some(
-            table_columns
-                .selected
-                .iter()
-                .map(|(key, _)| key.clone())
-                .collect(),
-        ),
         ids: if let (Some(parent), Some(id), Some(field)) = (
             params.get("parent_collection"),
             params.get("parent_id"),
@@ -135,10 +163,6 @@ pub fn render(
             None
         },
         query: q.clone(),
-        search_options: super::search::options(params, ""),
-        search_fields: None,
-        display_field: None,
-        label_view: String::new(),
         category,
         sort: sort.into(),
         descending: direction == "desc",
@@ -152,25 +176,21 @@ pub fn render(
             })
             .collect(),
     };
-    let (page, pattern_error) = match editor.query_collection_with_ui(name, &request, &ui) {
-        Ok(page) => (page, None),
-        Err(structured_editor_core::Error::SearchPattern(message)) => (
-            structured_editor_core::ListPage {
-                rows: Vec::new(),
-                total: 0,
-                matched: 0,
-                facets: Vec::new(),
-            },
-            Some(message),
-        ),
-        Err(error) => return Err(error.into()),
-    };
+    let page = editor.query_collection_with_ui(name, &request, &ui)?;
+    let props = c.editor_schema["properties"]
+        .as_object()
+        .cloned()
+        .unwrap_or_default();
+    let choices = columns::Columns::new(&c.editor_schema, &ui, params, "", &["_label", "_id"]);
+    let available = &choices.available;
+    let columns = &choices.selected;
     let url = query_url(&base, params);
     let mut body = format!(
-        "<main id=\"workspace\" class=\"collection-workspace\" data-url=\"{}\" data-section=\"{base}\" tabindex=\"-1\"><div class=\"page-heading\"><div><p class=\"eyebrow\">{ui_text_0}</p><h1>{} <span class=\"heading-count mono\">{}</span></h1></div><div class=\"actions\">",
+        "<main id=\"workspace\" class=\"collection-workspace\" data-url=\"{}\" data-section=\"{base}\" tabindex=\"-1\"><div class=\"page-heading\"><div><p class=\"eyebrow\">Content / Collection</p><h1>{} <span class=\"heading-count mono\">{}</span></h1></div><div class=\"actions\">",
         escape(&url),
-        escape(crate::i18n::text(&c.ui,"label", &c.label)),
-        page.total, ui_text_0 = crate::views::escape(&crate::i18n::t("Content / Collection")));
+        escape(&c.label),
+        page.total
+    );
     if request.ids.is_some() {
         let marker = format!(
             " data-record-url=\"{}\"",
@@ -259,19 +279,20 @@ pub fn render(
         body += "</nav>";
     }
     body += "<div class=\"collection-layout\">";
-    let get = GET_FORM;
+    let get = GET;
     if !page.facets.is_empty() {
         body += &format!(
-            "<details class=\"surface filter-panel\" open><summary><i class=\"ri-filter-3-line\" aria-hidden=\"true\"></i>{ui_text_0}<span class=\"badge\">{}</span></summary><form action=\"{base}\" {get}>{}",
+            "<details class=\"surface filter-panel\" open><summary><i class=\"ri-filter-3-line\" aria-hidden=\"true\"></i>Filters<span class=\"badge\">{}</span></summary><form action=\"{base}\" {get}>{}",
             request.filters.values().filter(|v| !v.is_empty()).count(),
-            hidden(params, &["offset", "filter."]), ui_text_0 = crate::views::escape(&crate::i18n::t("Filters")));
+            hidden(params, &["offset", "filter."])
+        );
         for facet in &page.facets {
             let key = format!("filter.{}", facet.field);
             let value = params.get(&key).map(String::as_str).unwrap_or("");
             body += &format!(
                 "<div class=\"filter-field\"><label for=\"filter-{}\">{}</label>",
                 escape(&facet.field),
-                escape(crate::i18n::field(&c.editor_schema["properties"][&facet.field], &facet.label))
+                escape(&facet.label)
             );
             match facet.kind.as_str() {
                 "boolean" => {
@@ -300,7 +321,7 @@ pub fn render(
                             "<input type=\"number\" step=\"any\" name=\"{}\" value=\"{}\" placeholder=\"{label}\" aria-label=\"{} {label}\">",
                             escape(&key),
                             escape(params.get(&key).map(String::as_str).unwrap_or("")),
-                            escape(crate::i18n::field(&c.editor_schema["properties"][&facet.field], &facet.label))
+                            escape(&facet.label)
                         );
                     }
                 }
@@ -314,10 +335,11 @@ pub fn render(
                 }
                 _ => {
                     body += &format!(
-                        "<select id=\"filter-{}\" name=\"{}\"><option value=\"\">{ui_text_0}</option><option value=\"__missing\" {}>{ui_text_1}</option>",
+                        "<select id=\"filter-{}\" name=\"{}\"><option value=\"\">All values</option><option value=\"__missing\" {}>Not set</option>",
                         escape(&facet.field),
                         escape(&key),
-                        if value == "__missing" { "selected" } else { "" }, ui_text_0 = crate::views::escape(&crate::i18n::t("All values")), ui_text_1 = crate::views::escape(&crate::i18n::t("Not set")));
+                        if value == "__missing" { "selected" } else { "" }
+                    );
                     for (v, label, count) in &facet.options {
                         body += &format!(
                             "<option value=\"{}\" {}>{} ({count})</option>",
@@ -338,36 +360,94 @@ pub fn render(
             escape(&query_url(&base, &clear))
         );
     }
-    let show_all = if q.is_empty() {
-        String::new()
-    } else {
-        let mut all = params.clone();
-        all.retain(|key, _| {
-            key != "q"
-                && key != "regex"
-                && key != "case_sensitive"
-                && key != "offset"
-                && key != "tree"
-                && !key.starts_with("filter.")
-        });
-        format!(
-            "<a class=\"button quiet\" data-nav href=\"{}\">{ui_text_0}</a>",
-            escape(&query_url(&base, &all)), ui_text_0 = crate::views::escape(&crate::i18n::t("Show All")))
-    };
-    let search_form = super::search::form(
-        &base,
-        params,
-        "",
-        "search-pattern",
-        "Search all indexed fields…",
-        pattern_error.as_deref(),
-        &show_all,
-    );
-    let column_picker = table_columns.picker("collection", &base, params, "");
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\">{search_form}{column_picker}</div>"
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form>{}</div>",
+        hidden(params, &["q", "offset"]),
+        escape(&q),
+        choices.picker(&base, params)
     );
-    body += &super::search::validation("search-pattern", pattern_error.as_deref());
+    let mut page_controls = String::new();
+    for (enabled, next_offset, label, icon) in [
+        (
+            offset > 0,
+            offset.saturating_sub(limit),
+            "Previous page",
+            "ri-arrow-left-s-line",
+        ),
+        (
+            offset.saturating_add(limit) < page.matched,
+            offset.saturating_add(limit),
+            "Next page",
+            "ri-arrow-right-s-line",
+        ),
+    ] {
+        if enabled {
+            let mut next = params.clone();
+            next.insert("offset".into(), next_offset.to_string());
+            page_controls += &format!(
+                "<a class=\"icon-button\" data-nav href=\"{}\" aria-label=\"{label}\"><i class=\"{icon}\" aria-hidden=\"true\"></i></a>",
+                escape(&query_url(&base, &next))
+            );
+        } else {
+            page_controls += &format!(
+                "<button type=\"button\" class=\"icon-button\" disabled aria-label=\"{label}\"><i class=\"{icon}\" aria-hidden=\"true\"></i></button>"
+            );
+        }
+    }
+    body += &format!(
+        "<div class=\"result-summary\"><span><strong>{}</strong> {} {}</span><nav class=\"summary-pagination\" aria-label=\"List pagination\">{page_controls}<span class=\"mono\">{}–{}</span></nav></div><div class=\"table-scroll\"><table class=\"data-table\"><thead><tr>",
+        page.matched,
+        if q.is_empty() && request.filters.values().all(|v| v.is_empty()) {
+            "entries"
+        } else {
+            "matches"
+        },
+        if page.matched == page.total {
+            String::new()
+        } else {
+            format!("<span class=\"muted\">of {} entries</span>", page.total)
+        },
+        if page.rows.is_empty() { 0 } else { offset + 1 },
+        (offset + page.rows.len()).min(page.matched)
+    );
+    for (key, label) in columns {
+        let mut p = params.clone();
+        p.insert("sort".into(), key.clone());
+        p.insert(
+            "direction".into(),
+            if sort == key && direction == "asc" {
+                "desc"
+            } else {
+                "asc"
+            }
+            .into(),
+        );
+        p.remove("offset");
+        body += &format!(
+            "<th scope=\"col\" aria-sort=\"{}\"><a data-nav href=\"{}\">{}<i class=\"{}\" aria-hidden=\"true\"></i></a></th>",
+            if sort == key {
+                if direction == "desc" {
+                    "descending"
+                } else {
+                    "ascending"
+                }
+            } else {
+                "none"
+            },
+            escape(&query_url(&base, &p)),
+            escape(label),
+            if sort == key {
+                if direction == "desc" {
+                    "ri-arrow-down-line"
+                } else {
+                    "ri-arrow-up-line"
+                }
+            } else {
+                "ri-expand-up-down-line"
+            }
+        );
+    }
+    body += "<th scope=\"col\"><span class=\"sr-only\">Actions</span></th></tr></thead><tbody>";
     let placement = if request.ids.is_some() {
         Some((
             &params["parent_collection"],
@@ -380,24 +460,128 @@ pub fn render(
     } else {
         None
     };
-    body += &super::record_table::RecordTable {
-        base: &base,
-        params,
-        columns: &table_columns,
-        request: &request,
-        page: &page,
-        pattern_error: pattern_error.as_deref(),
-        navigation: "data-nav",
-        placement: placement.as_ref().map(|(parent, id, field, revision)| {
-            (
-                parent.as_str(),
-                id.as_str(),
-                field.as_str(),
-                revision.as_str(),
-            )
-        }),
+    for row in &page.rows {
+        let link = record_url(name, &row.id);
+        body += "<tr>";
+        for (key, label) in columns {
+            let text = match key.as_str() {
+                "_id" => Some(&row.id),
+                "_label" => Some(&row.label),
+                _ => row.display.get(key),
+            };
+            let text = text
+                .map(|s| highlighted(s, &q, true))
+                .unwrap_or_else(|| "<span class=\"muted\">—</span>".into());
+            let numeric = matches!(
+                props.get(key).and_then(|s| s["type"].as_str()),
+                Some("integer" | "number" | "boolean")
+            );
+            let primary = key == "_label" || key == &c.display;
+            body += &format!(
+                "<td data-label=\"{}\" class=\"{}\"><a data-nav class=\"{}\" href=\"{link}\">{text}</a></td>",
+                escape(label),
+                if key == "_id" {
+                    "mono id-cell"
+                } else if numeric {
+                    "numeric-cell mono"
+                } else {
+                    ""
+                },
+                if primary {
+                    "table-record-link"
+                } else {
+                    "table-cell-link"
+                }
+            );
+        }
+        body += &format!(
+            "<td class=\"row-actions\"><div class=\"row-action-buttons\"><a class=\"icon-button\" data-nav href=\"{link}\" aria-label=\"Open record\"><i class=\"ri-arrow-right-up-line\" aria-hidden=\"true\"></i></a>"
+        );
+        if actor.editable() && editor.allows(name, "update") {
+            body += &format!(
+                "<a class=\"icon-button\" data-nav href=\"{link}/edit\" aria-label=\"Edit\"><i class=\"ri-edit-line\" aria-hidden=\"true\"></i></a>"
+            );
+        }
+        body += &crate::hierarchy::record_actions(
+            editor,
+            actor,
+            name,
+            &row.id,
+            &row.label,
+            placement.as_ref().map(|(parent, id, field, revision)| {
+                (
+                    parent.as_str(),
+                    id.as_str(),
+                    field.as_str(),
+                    revision.as_str(),
+                )
+            }),
+        )?;
+        body += "</div></td></tr>";
+        let extra_matches: Vec<_> = row
+            .matches
+            .iter()
+            .filter(|m| !columns.iter().any(|(key, _)| key == &m.field))
+            .collect();
+        if !q.is_empty() && !extra_matches.is_empty() {
+            body += &format!(
+                "<tr class=\"match-row\"><td colspan=\"{}\"><div class=\"match-excerpts\">",
+                columns.len() + 1
+            );
+            for m in extra_matches.iter().take(4) {
+                let label = available
+                    .iter()
+                    .find(|(k, _)| k == &m.field)
+                    .map(|(_, l)| l.as_str())
+                    .unwrap_or(&m.field);
+                body += &format!(
+                    "<p><span class=\"match-field\">{}</span>{}</p>",
+                    escape(label),
+                    highlighted(&m.text, &q, true)
+                );
+            }
+            body += &crate::hierarchy::record_actions(
+                editor,
+                actor,
+                name,
+                &row.id,
+                &row.label,
+                placement.as_ref().map(|(parent, id, field, revision)| {
+                    (
+                        parent.as_str(),
+                        id.as_str(),
+                        field.as_str(),
+                        revision.as_str(),
+                    )
+                }),
+            )?;
+            body += "</div></td></tr>";
+        }
     }
-    .render(editor, name, actor)?;
-    body += "</section></div></main>";
+    body += "</tbody></table></div>";
+    if page.rows.is_empty() {
+        body += "<div class=\"empty-state\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><h2>No matching records</h2><p>Try a broader search or clear a filter.</p></div>";
+    }
+    body += "<footer class=\"list-footer\"><div class=\"actions\">";
+    for (enabled, n, label) in [
+        (offset > 0, offset.saturating_sub(limit), "Previous"),
+        (
+            offset.saturating_add(limit) < page.matched,
+            offset.saturating_add(limit),
+            "Next",
+        ),
+    ] {
+        if enabled {
+            let mut p = params.clone();
+            p.insert("offset".into(), n.to_string());
+            body += &format!(
+                "<a class=\"button\" data-nav href=\"{}\">{label}</a>",
+                escape(&query_url(&base, &p))
+            );
+        } else {
+            body += &format!("<button type=\"button\" disabled>{label}</button>");
+        }
+    }
+    body += "</div></footer></section></div></main>";
     Ok(body)
 }

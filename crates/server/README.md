@@ -12,7 +12,7 @@ Requires the repository's Rust toolchain and Node/npm for the asset build. From 
 npm --prefix crates/server/assets ci
 npm --prefix crates/server/assets run build
 cargo run -p structured-editor-server -- admin-create
-EDITOR_INSECURE_COOKIE=1 cargo run --release -p structured-editor-server
+EDITOR_INSECURE_COOKIE=1 cargo run -p structured-editor-server
 ```
 
 Open http://127.0.0.1:4322. `admin-create` prompts for email, display name, and a password of at least 12 characters. Noninteractive use accepts those as three stdin lines. It only creates the first administrator.
@@ -21,12 +21,11 @@ To delete all Rust server accounts and sessions, stop the server and run `cargo 
 
 | Variable | Default / meaning |
 | --- | --- |
-| `EDITOR_ROOT` | Optional single repository; otherwise load the project registry |
-| `EDITOR_PROJECTS` | Workspace `examples/projects.json`; project registry (overrides `EDITOR_ROOT`) |
+| `EDITOR_ROOT` | Workspace `examples/lenz-archiv`; repository to edit |
 | `EDITOR_DATA_DIR` | Workspace `.data`; must be outside the repository |
 | `EDITOR_BIND` | `127.0.0.1:4322` |
 | `EDITOR_ASSETS_DIR` | This crate's `assets/dist` |
-| `EDITOR_DEV` | Set to `1` (or pass `--dev`) for live Vite assets, disk templates, HTTP cookies and request timing logs |
+| `EDITOR_DEV` | Set to `1` (or pass `--dev`) for live Vite assets, disk templates and HTTP cookies |
 | `EDITOR_VITE_URL` | `http://127.0.0.1:5173` in dev mode; otherwise unset. Override with a local Vite HTTP origin |
 | `EDITOR_INSECURE_COOKIE` | Optional `1` for HTTP outside dev mode; dev mode automatically omits `Secure`. Otherwise cookies require HTTPS |
 | `RUST_LOG` | `structured_editor_server=info` |
@@ -54,7 +53,6 @@ Open **http://127.0.0.1:4322**, the Rust server URL. Run `cargo run -p structure
 - Vite at `http://127.0.0.1:5173`, without needing an `assets/dist` build. CSS updates in place; TypeScript updates use Vite's reload behavior.
 - HTML templates loaded from `crates/server/templates/` on each render, including nested includes. Vite watches this folder and refreshes the page when an HTML file changes. Rust stays running, preserving server-side edit sessions.
 - Session cookies without `Secure` for local HTTP. `HttpOnly`, `SameSite=Strict`, authentication and CSRF protection still apply.
-- Console logs for each HTTP request and response, including a matching request ID, method, path, response status and elapsed milliseconds. Timing measures server processing until the response is ready, including project dispatch; it does not include transferring the response body to the client. Datastar error responses also report their original `error_status`. Query strings, headers and bodies are omitted. Logs use the existing `RUST_LOG` filter at `info` level and are disabled outside dev mode.
 
 To use another Vite port, set the same `EDITOR_VITE_URL` in both terminals and pass that port to Vite, for example `EDITOR_VITE_URL=http://127.0.0.1:5174 npm --prefix crates/server/assets run dev -- --port 5174` and `EDITOR_VITE_URL=http://127.0.0.1:5174 cargo run -p structured-editor-server -- --dev`.
 
@@ -62,27 +60,11 @@ Rust source changes (including HTML built by Rust functions) still require a reb
 
 Without dev mode, templates are embedded in the binary and parsed at startup, assets use the built Vite manifest, and cookies require HTTPS by default. There is no runtime dependency on the source template folder or Node. Recompile after production template changes and restart after a production asset build.
 
-## Schema-driven array controls
-
-Object arrays use editable tables; other arrays use inline items. Editing uses icon buttons and `+ Add`. Every editable array item has a left handle: drag within the visible page, or focus the handle and use Up/Down to move one position (including across pages). Moves submit the current form with its draft version and retain item identity, incomplete input and undo history.
-
-Arrays whose item schema declares `x-relation.collection` or a scalar `enum` use ordered multi-selects. Selected records show configured reference labels. Type in the field to find existing options, use ↑/↓ and Enter to select, or click Browse for the searchable, paginated picker, which stays open for several choices and closes with Done. Query text is never stored as a value: only schema enum values or existing records are accepted. Suggestions are read without changing the draft version. Selecting, removing, or reordering chips updates local form input immediately, including selections in Browse; it does not submit or save the record. The next version-checked form action reconciles the ordered choices, validates enum membership or referenced records, and preserves existing item identities. Dirty tracking, refresh recovery, undo, and read-only validation include this input. Selected chips retain their drag handles. There is no manual ID input on these arrays. Explicit raw editors and complex/tuple arrays keep their existing controls. Object row labels follow `x-presentation.primary`, `fieldOrder`, and visible schema fields; no collection or project names are special-cased.
-
 ## Read caching and concurrent editing
 
-The core caches parsed records, prepared list values, query results, ID-to-file lookups, parent membership and incoming references. Collection snapshots follow filesystem watcher events, with a 30-second safety reconciliation (1 second if watching is unavailable). `Editor::refresh_read_cache()` requests an explicit reconciliation. Individual record reads still check file identity, size and timestamps. Parsed records retain up to 10,000 entries; prepared lists and queries each retain up to 16 entries.
+The core caches parsed collection records, prepared list values, paginated query results, ID-to-file lookups and incoming-reference indexes. Reads check file metadata for external changes; on Unix this includes modification time, change time, size and file identity. Additions, deletions and atomic replacements invalidate affected results without a TTL. List and reference dependencies include other collections so changed relation labels and derived values are refreshed. Reference indexes also track mapped documents and settings. Parsed-record entries are capped at 10,000; prepared lists and sorted queries each retain up to 16 entries.
 
-Cold indexes for large collections use up to four workers. Concurrent list requests for the same collection share preparation; scoped child reads do not wait for a full collection build. Tables request only their selected columns; the core also prepares the fields needed for search, filters and sorting. Search-only text is retained in normalized form without a second raw copy, and Unicode sort keys are computed once per row. Changing columns builds the appropriate projection. A single changed record rebuilds its row and dependent rows; unchanged rows, facets and sort orders remain shared. Filename-based child tables inspect only their members, including detecting missing or newly created member files.
-
-Record pages check incoming links independently in the background. Sources appear as separate tables by collection, using that collection’s configured columns and the same row renderer, sorting, search controls and pagination as its main list. Each source record appears once even if several fields or embedded items link to the target. Each table keeps its own search, column choices and page; the project’s table page size applies. Empty and still-loading groups stay hidden. Refresh failures preserve existing rows and offer retry. Mapped JSON documents appear in a separate table. Nested tables and items do not show links to their parent record. `Editor::cached_references_to()` reuses collection snapshots and updates only changed sources and derived dependents. The existing `Editor::references_to()` forces a fresh disk reconciliation for rename/delete integrity checks, including external changes whose watcher events have not arrived. Parent links have a separate incremental membership index, so they do not build the project-wide backlink index.
-
-The server prepares the reference index in the background at startup and saves an optional snapshot under `read-cache` in its administrative storage, outside project content. Restarts restore that snapshot and reconcile source file stamps before serving links. Schema/configuration changes invalidate the snapshot; corrupt or unavailable snapshots fall back to scanning source files. Other indexes remain in memory, so the first full collection query after restart still reads its sources. For production timings, build with `--release`. The profiler can measure a real project without changing its records; its optional last argument enables reference snapshots in a separate cache directory:
-
-```bash
-cargo run --release -p structured-editor-core --example profile_reads -- examples/musenalm entries
-cargo run --release -p structured-editor-core --example profile_reads -- examples/musenalm entries RECORD_ID
-cargo run --release -p structured-editor-core --example profile_reads -- examples/musenalm entries RECORD_ID /tmp/musenalm-read-cache
-```
+Metadata directory scans still run to detect external edits. New searches filter cached values in memory; pagination reuses sorted results. Filename-based child lists load only their members. Configuration and schema changes still require restarting the server.
 
 Editing commands serialize per draft, rather than holding the global session registry during file access, validation or rendering. Related-record saves lock parent and child drafts in a consistent order. Version checks continue to reject stale commands. The project write lock remains in place to protect reference integrity across writes, and blocking work stays on Tokio's blocking pool.
 
@@ -203,7 +185,7 @@ Each collection's `ui.json` can define:
 }
 ```
 
-Columns use top-level schema field names, plus `_label` and `_id`. `_manual` is supported as a default sort key. Every collection table and embedded child table has a show/hide columns button. Column checkboxes update that table immediately and keep its chooser open; Escape or clicking outside dismisses it. At least one data column remains visible. Runtime column choices, sort direction, search, category and filters are URL parameters and survive pagination. Sorting does not rewrite stored order. Numeric columns sort numerically; missing values remain last. Search returns matching field values, including fields outside the selected columns, with escaped Unicode-aware highlighting.
+Columns use top-level schema field names, plus `_label` and `_id`. `_manual` is supported as a default sort key. Column checkboxes update the list immediately and keep the chooser open; Done dismisses it. Runtime column choices, sort direction, search, category and filters are URL parameters and survive pagination. Sorting does not rewrite stored order. Numeric columns sort numerically; missing values remain last. Search returns matching field values, including fields outside the selected columns, with escaped Unicode-aware highlighting.
 
 `filters` chooses desirable fields explicitly. `autoFilters: true` also derives filters from visible scalar fields: numbers get ranges; booleans get true/false/not-set; relations, enums and strings with at most 40 distinct values get selectors; larger string vocabularies get a contains input. Rich text and hidden fields are not automatically included. Counts are computed over the category before query/filter application, with a separate matching count. The Rust core owns query semantics, matching, counts and ordering.
 
@@ -211,9 +193,7 @@ Absent fields are not rendered as empty controls. Add field inserts them into th
 
 ## Instance UI defaults
 
-`settings.json` contains project defaults for the editor. The sample and Musenalm schemas declare `defaultTheme`, `density`, `pageSize`, `tablePageSize`, `editorFontSize`, `validationDelay`, `markdownPreview` and `mediaThumbnails`. `/settings` groups these controls into appearance, lists and tables, editing, and media, with normal validation and revision checks. Additional schema properties appear under Other settings, and unrelated existing values are preserved. `tablePageSize` controls focused embedded tables in both read and edit views (1–100 rows); a field's `x-presentation.table.pageSize` overrides it. Collection lists use `pageSize` unless their collection UI overrides it.
-
-**Your appearance**, available in Editor settings and Your account, saves personal theme and spacing choices in this browser. Choose the project default, follow the device theme, or select light/dark; **Use project appearance** clears both personal overrides. The header's computer button returns the theme to the project default. Project changes require **Save settings** and apply immediately; personal appearance is saved automatically. Settings values remain empty in the examples until explicitly saved.
+`settings.json` is still editor instance data. The example's `.editor/settings.schema.json` now declares `defaultTheme`, `density`, `pageSize`, `editorFontSize`, `validationDelay`, `markdownPreview` and `mediaThumbnails`. `/settings` generates controls from that schema and uses normal validation and revision checks. Unrelated existing properties are preserved. A user's saved color choice overrides the instance default. The example settings values remain empty until explicitly saved; schema defaults supply the initial controls.
 
 ## Media and invitations
 
@@ -250,7 +230,9 @@ Collection defaults resolve from global `defaults`, the collection UI file, then
 }
 ```
 
-Embedded previews and their **Browse list** pages use the same resolved columns, sort, and filter configuration. `list.previewSize` controls preview rows (default 10, range 1–200); `pageSize` controls the full list. Preview columns are no longer capped at four. Runtime choices are independent for each child table, survive a page reload through the URL, and carry into its Browse list page without changing stored configuration. These overrides belong to that parent/list occurrence and do not alter the target collection elsewhere. They do not propagate across reference navigation into another record's child lists.
+Embedded previews and their **Browse list** pages use the same resolved columns, sort, and filter configuration. `list.previewSize` controls preview rows (default 10, range 1–200); `pageSize` controls the full list. Preview columns are no longer capped at four. These overrides belong to that parent/list occurrence and do not alter the target collection elsewhere. They do not propagate across reference navigation into another record's child lists.
+
+Each child table in an object's view also has a **Columns** selector. Checkbox changes update that table immediately and keep its selector open. Each table's choices are stored separately in the page URL, survive reloads, and carry into **Browse list**. They do not change the configured defaults or saved records.
 
 General assigned JSON documents now offer a typed preview and an **Edit** button in the document list, using the same draft controls, array actions, undo/redo, validation, and conflict-checked saves as records. Documents keep their assigned paths and have no record-ID controls. Arrays and scalar values are also supported at the document root. The dedicated `/settings` screen remains available.
 
@@ -296,85 +278,6 @@ The renderer has a safety boundary after 64 nesting levels; deeper values use th
 Removal actions describe the stored data: **Unlink from this list** removes an ID reference while retaining the separate record; **Delete item** removes an embedded array value and its nested contents on save; **Remove field** leaves a property unset on save. Child-list unlinking updates the saved parent immediately; reference-array unlinking happens in the draft. Linked records also offer **Delete <type>…** (or **Delete record…** without a configured `singularLabel`), opening the existing incoming-reference review. Unlink and delete permissions are checked independently. Deletion remains blocked while saved references exist; opening its review does not save an editing draft.
 
 
-ID references declared with `x-relation` are checked by the server against their target collection before saving, including nested arrays/objects, mapped JSON documents, and raw editing. Missing or invalid IDs produce errors at the JSON path and leave the saved file unchanged. `allowUnresolved` no longer bypasses validation. Incoming references from mapped documents/settings block deletion and are updated automatically when a record ID changes. Rename also updates Markdown record links and reports the number of other files changed. Standalone document saves recheck references under the same write lock as deletion. External edits to repository files can still introduce invalid data; the editor rejects saving it until the references are repaired.
+ID references declared with `x-relation` are checked by the server against their target collection before saving, including nested arrays/objects, mapped JSON documents, and raw editing. Missing or invalid IDs produce errors at the JSON path and leave the saved file unchanged. `allowUnresolved` no longer bypasses validation. Incoming references from mapped documents/settings participate in deletion checks and automatic rename updates. Standalone document saves recheck references under the same write lock as deletion. External edits to repository files can still introduce invalid data; the editor rejects saving it until the references are repaired.
 
-### Multiple projects
-
-The large **Project** select above the sidebar opens a registered repository.
-By default the server loads `examples/projects.json`, containing Lenz-Archiv and
-Musenalm. Set `EDITOR_PROJECTS=/path/to/projects.json` to use your own registration:
-
-```json
-{
-  "default": "archive",
-  "projects": [
-    { "id": "archive", "name": "Archive", "path": "./archive" },
-    { "id": "catalogue", "name": "Catalogue", "path": "./catalogue" }
-  ]
-}
-```
-
-Use the release build for large collections; the first search and backlink index build reads the imported files, and subsequent requests reuse the cache.
-
-Paths are relative to the registration file (absolute paths also work). IDs must
-be unique and contain only letters, digits, `_` or `-`. Project directories cannot
-contain one another. Set `EDITOR_ROOT` without `EDITOR_PROJECTS` for the existing
-single-project mode. Restart after changing registrations.
-
-Accounts and roles apply to all projects registered in this server instance.
-Each project has its own Rust Editor, cache and draft sessions. Selection is
-remembered in an HttpOnly, SameSite cookie and switches via a CSRF-protected full
-page reload. Draft recovery keys and CSRF tokens are scoped to the project;
-requests from an older tab after a switch require a reload. Unsaved changes show
-the existing leave-view confirmation before switching.
-
-### Interface languages
-
-Configure available languages in the project's `.editor/ui.json`. The language
-picker is shown only when this map is nonempty. Built-in controls support English
-and German; other language codes can supply their own collection and field labels,
-with English controls as the fallback.
-
-```json
-{
-  "i18n": {
-    "defaultLanguage": "en",
-    "languages": { "en": "English", "de": "Deutsch" }
-  }
-}
-```
-
-Collection UI files (and global collection overrides) accept translations for
-`label`, `singularLabel`, and `sidebarLabel`. Field translations use the existing
-schema pointers; they may change `title`, `description`, and `x-optionLabels` only:
-
-```json
-{
-  "label": "Books",
-  "singularLabel": "Book",
-  "translations": { "de": { "label": "Bücher", "singularLabel": "Buch" } },
-  "fields": {
-    "/properties/title": {
-      "title": "Title",
-      "translations": { "de": { "title": "Titel" } }
-    },
-    "/properties/languages/items": {
-      "x-optionLabels": { "eng": "English", "deu": "German" },
-      "translations": { "de": { "x-optionLabels": { "eng": "Englisch", "deu": "Deutsch" } } }
-    }
-  }
-}
-```
-
-Sidebar groups use the same `translations.<language>.label` convention. Missing
-translations fall back to the base label; region codes such as `de-AT` fall back to
-`de`. Language choice is remembered in a cookie and checked against each project's
-configured languages. Switching in an editor captures unsent input in the same
-version-checked draft, including invalid values and array ordering. It does not
-save records, alter schema constraints, or translate stored content.
-
-Multi-selects open below their fields, filter as you type, and keep choices open
-for repeated selection. Search is a read-only request, so it does not advance the
-draft version or interrupt typing. Late results are discarded. Clicking a choice
-uses the regular draft command, preserving unsent input and undo history. Search
-and Enter also work explicitly. Selected chips retain their drag handles.
+Changing **Record ID** and saving automatically updates incoming relation fields (including nested values and child lists), self-references, mapped JSON documents, settings, and Markdown record links. **Save** and **Save & Close** report the number of reference occurrences renamed. Plain text and references to other collections are preserved. Markdown link labels, titles, and surrounding source formatting are preserved, including reference-style links. The operation validates all changed files against the final IDs, stages file contents before writing, and rolls back completed writes on ordinary errors. Existing revisions and target-ID conflicts are checked; a stale draft cannot overwrite an automatically updated reference. Referencing collections must permit updates, and protected fields and schema constraints still apply. Like child creation, this multi-file operation is not crash-atomic.

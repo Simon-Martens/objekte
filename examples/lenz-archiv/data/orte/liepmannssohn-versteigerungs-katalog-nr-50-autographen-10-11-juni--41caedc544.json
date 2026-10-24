@@ -1,8 +1,11 @@
 {
-  "name": "Liepmannssohn, Versteigerungs-Katalog Nr. 50. Autographen, 10.-11. Juni 1927",
-  "short": "Liepmannssohn-1927",
-  "sammlungen": [],
+  "_editor": {
+    "schema_revision": "b486fde0998e179d96b9723b22be2700a581f47b"
+  },
   "handschriften": [
-    "liepmannssohn-versteigerungs-katalog-nr-50-autographen-10-11-juni--entry-1--56ac8cea33"
-  ]
+    "75aec07f-e4a1-45f1-8dc7-2c587bc8ae3b"
+  ],
+  "name": "Liepmannssohn, Versteigerungs-Katalog Nr. 50. Autographen, 10.-11. Juni 1927",
+  "sammlungen": [],
+  "short": "Liepmannssohn-1927"
 }

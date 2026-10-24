@@ -25,17 +25,11 @@ pub fn router(state: Arc<AppState>) -> Router {
         .merge(crate::hierarchy::router())
         .merge(crate::deletion::router())
         .route("/", get(index))
-        .route("/projects/select", post(crate::projects::select))
-        .route("/ui/language", post(crate::i18n::select))
         .route("/health", get(|| async { "ok" }))
         .route("/auth/login", get(login_page).post(login))
         .route("/auth/logout", post(logout))
         .route("/collections/{name}", get(collection))
         .route("/collections/{name}/records/{id}", get(record))
-        .route(
-            "/collections/{name}/records/{id}/references",
-            get(record_references),
-        )
         .route("/collections/{name}/records/{id}/export", get(export))
         .route("/collections/{name}/edit-sessions", post(create))
         .route("/collections/{name}/records/{id}/edit", get(edit_entry))
@@ -46,7 +40,6 @@ pub fn router(state: Arc<AppState>) -> Router {
         )
         .route("/edit-sessions/{id}", get(edit))
         .route("/edit-sessions/{id}/live-validation", post(live_validation))
-        .route("/edit-sessions/{id}/fields/{field}/choices", get(picker_choices))
         .route("/edit-sessions/{id}/{action}", post(command))
         .route(
             "/edit-sessions/{id}/fields/{field}/suggestions",
@@ -62,7 +55,6 @@ pub fn router(state: Arc<AppState>) -> Router {
         )
         .layer(DefaultBodyLimit::max(4 * 1024 * 1024))
         .layer(axum::middleware::from_fn(response_headers))
-        .layer(axum::middleware::from_fn_with_state(state.clone(), crate::i18n::middleware))
         .with_state(state)
 }
 async fn response_headers(
@@ -141,13 +133,12 @@ pub(crate) fn page(
     if fragment(headers) {
         Ok(stream(vec![
             crate::preferences::fragment(&state.editor),
-            views::header(state, actor)?,
-            views::project_navigation(state, actor, &html)?,
+            views::navigation(&state.editor, &html)?,
             html,
             views::notice(""),
         ]))
     } else {
-        Ok(Html(views::shell(state, actor, &html)?).into_response())
+        Ok(Html(views::shell(&state.editor, actor, &html, &state.assets)?).into_response())
     }
 }
 pub(crate) async fn page_actor(
@@ -172,7 +163,7 @@ async fn index(State(state): App, headers: HeaderMap) -> Result<Response> {
         Err(r) => return Ok(r),
     };
     blocking(move || {
-        let html = if let Some((name, _)) = state.editor.config().collections.iter().filter(|(n, _)| state.editor.allows(n, "read")).min_by_key(|(_, c)| c.ui["position"].as_i64().unwrap_or(0)) {
+        let html = if let Some(name) = state.editor.config().collections.keys().find(|n| state.editor.allows(n, "read")) {
             views::collection(&state.editor, name, "", 0, &actor)?
         } else if let Some(name) = state.editor.config().media_collections.keys().find(|n| state.editor.allows(n, "read")) {
             crate::media::render(&state, &actor, name, "", "", 0, "")?
@@ -256,13 +247,6 @@ async fn collection(
         Err(r) => return Ok(r),
     };
     blocking(move || {
-        if headers
-            .get("cache-control")
-            .and_then(|v| v.to_str().ok())
-            .is_some_and(|v| v.contains("no-cache") || v.contains("max-age=0"))
-        {
-            state.editor.refresh_read_cache();
-        }
         let html = views::list::render(&state.editor, &name, &query, &actor)?;
         page(&state, &actor, &headers, html)
     })
@@ -271,40 +255,19 @@ async fn collection(
 async fn record(
     State(state): App,
     Path((name, id)): Path<(String, String)>,
-    Query(mut query): Query<HashMap<String, String>>,
+    Query(query): Query<HashMap<String, String>>,
     headers: HeaderMap,
 ) -> Result<Response> {
     let actor = match page_actor(&state, &headers).await {
         Ok(a) => a,
         Err(r) => return Ok(r),
     };
-    query.remove("datastar");
     blocking(move || {
         let html = views::record_at(&state.editor, &name, &id, &actor, &query)?;
         page(&state, &actor, &headers, html)
     })
     .await
 }
-async fn record_references(
-    State(state): App,
-    Path((name, id)): Path<(String, String)>,
-    Query(query): Query<HashMap<String, String>>,
-    headers: HeaderMap,
-) -> Result<Response> {
-    let actor = state.auth.actor(&headers).await?;
-    blocking(move || {
-        Ok(Html(views::references::render(
-            &state.editor,
-            &name,
-            &id,
-            &query,
-            &actor,
-        )?)
-        .into_response())
-    })
-    .await
-}
-
 pub(crate) async fn mutation_actor(
     state: &AppState,
     headers: &HeaderMap,
@@ -562,17 +525,13 @@ async fn suggestions(
     blocking(move || {
         // Decode current input on a clone: a lookup never changes draft/version or disk.
         let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
-        session.apply(&state.editor, &form)?;
+        session.apply(&form)?;
         let input = session
             .draft
             .field(&field)
             .filter(|f| !f.hidden && !f.read_only)
             .ok_or_else(|| WebError::bad("Unknown editable field"))?;
-        let search = if query.get("all").is_some_and(|value| value == "1") {
-            ""
-        } else {
-            input.raw.as_str()
-        };
+        let search = if query.get("all").is_some_and(|value| value == "1") { "" } else { input.raw.as_str() };
         let context = session.value().unwrap_or(serde_json::json!({}));
         let mut values = if session.document.is_some() {
             Vec::new()
@@ -592,11 +551,7 @@ async fn suggestions(
         }
         values.sort_by(|a, b| structured_editor_core::alphabetic_cmp(a, b).then(a.cmp(b)));
         values.dedup();
-        let mut html = format!(
-            "<datalist id=\"suggestions-{}\" data-query=\"{}\">",
-            views::escape(&field),
-            views::escape(search)
-        );
+        let mut html = format!("<datalist id=\"suggestions-{}\" data-query=\"{}\">", views::escape(&field), views::escape(search));
         for value in values {
             html += &format!("<option value=\"{}\"></option>", views::escape(&value));
         }
@@ -624,7 +579,7 @@ async fn live_validation(
         if form.get("version").and_then(|v| v.parse::<u64>().ok()) != Some(session.version) {
             return Ok(StatusCode::NO_CONTENT.into_response());
         }
-        session.apply(&state.editor, &form)?;
+        session.apply(&form)?;
         let mut issues = session.validate(&state.editor)?;
         if session.document.is_none() && (session.proposed_id != session.record_id || session.revision.is_none()) {
             issues.extend(
@@ -680,9 +635,9 @@ async fn perform(
         let _guards: Vec<_> = gates.iter().map(|gate| gate.lock().unwrap()).collect();
         let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
         let before_input=session.snapshot();
-        session.apply(&state.editor, &form)?;
-        if action == "discard" || action == "discard-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session,None); }
-        if action == "close" && (!session.dirty() || form.get("confirm_discard").is_some_and(|value| value == "false")) { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session,None); }
+        session.apply(&form)?;
+        if action == "discard" || action == "discard-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
+        if action == "close" && (!session.dirty() || form.get("confirm_discard").is_some_and(|value| value == "false")) { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session); }
         if action == "close" || action == "keep-editing" {
             session.close_requested = action == "close";
             session.history.record(before_input,&session.snapshot());
@@ -691,50 +646,13 @@ async fn perform(
         }
         if action == "save-close" { session.close_requested = false; }
         session.history.record(before_input,&session.snapshot());
-        if action == "language" {
-            let code = form.get("ui_language").map(String::as_str).unwrap_or("");
-            crate::i18n::validate(&state.editor, code)?;
-            state.sessions.lock().unwrap().update(&actor, session.clone())?;
-            return crate::i18n::with_language(code, || {
-                let mut response = page(&state, &actor, &headers, views::edit(&state.editor, &session, &actor, &state.fields, &[], "")?)?;
-                crate::i18n::cookie(&state, &mut response, code);
-                Ok(response)
-            });
-        }
         let before_command=session.snapshot();
         let mut issues = Vec::new();
         let mut message = String::new();
         let mut message_kind = "error";
         if let Some(field) = field {
             if action == "browse" {
-                if let Some((path, f)) = session.draft.paths().into_iter().find(|(_, f)| f.id == field && crate::tree::navigable(f)) {
-                    if views::embedded::is_table(f) {
-                        if let Some(index) = session.view_path.strip_prefix(&format!("{path}/")).and_then(|p| p.split('/').next()).and_then(|p| p.parse::<usize>().ok()) {
-                            let size = views::embedded::edit_page_size(&state.editor, f);
-                            session.table_offsets.insert(field.clone(), index / size * size);
-                        }
-                    }
-                    session.view_path = path;
-                }
-            } else if action == "table-search" || action == "table-search-clear" {
-                session.draft.field(&field).filter(|f| views::embedded::is_table(f) && crate::tree::navigable(f)).ok_or_else(|| WebError::bad("Table not found"))?;
-                if action == "table-search-clear" {
-                    session.table_search.remove(&field);
-                } else {
-                    session.table_search.insert(field.clone(), crate::sessions::TableSearch {
-                        query: form.get(&format!("table-query.{field}")).cloned().unwrap_or_default(),
-                        regex: form.get(&format!("table-regex.{field}")).is_some_and(|value| value == "1"),
-                        case_sensitive: form.get(&format!("table-case.{field}")).is_some_and(|value| value == "1"),
-                    });
-                }
-                session.table_offsets.insert(field.clone(), 0);
-            } else if action == "table-page" {
-                let array = session.draft.field(&field).filter(|f| views::embedded::is_table(f) && crate::tree::navigable(f)).ok_or_else(|| WebError::bad("Table not found"))?;
-                let size = views::embedded::edit_page_size(&state.editor, array);
-                let offset = item.as_deref().and_then(|v| v.parse::<usize>().ok()).ok_or_else(|| WebError::bad("Invalid table page"))?;
-                let search = session.table_search.get(&field).cloned().unwrap_or_default();
-                let count = views::embedded::matching_edit_rows(&state.editor, array, &search).map(|rows| rows.len()).unwrap_or(array.items.len());
-                session.table_offsets.insert(field.clone(), (offset / size * size).min(count.saturating_sub(1) / size * size));
+                if let Some((path, _)) = session.draft.paths().into_iter().find(|(_, f)| f.id == field && crate::tree::navigable(f)) { session.view_path = path; }
             } else if action == "create-related" {
                 // Persist the parent before opening the child, including incomplete input.
                 state.sessions.lock().unwrap().update(&actor, session.clone())?;
@@ -746,27 +664,11 @@ async fn perform(
             } else {
                 let result = if action == "include" || action == "omit" {
                     if action == "include" { session.draft.include_field(&session.schema, &field) } else { session.draft.set_presence(&field, false) }.map_err(WebError::bad)
-                } else if action == "move" {
-                    session.draft.array_move(&field, item.as_deref().unwrap_or(""), form.get("array_before").map(String::as_str).filter(|s| !s.is_empty())).map_err(WebError::bad)
                 } else if ["add", "remove", "up", "down"].contains(&action.as_str()) {
                     session.draft.array_action(&session.schema, &field, &action, item.as_deref()).map_err(WebError::bad)
                 } else {
                     crate::pickers::action(&state.editor, &mut session, &field, &action, &form)
                 };
-                if result.is_ok() {
-                    if action == "include" { session.revealed_fields.insert(field.clone()); }
-                    if action == "omit" { session.revealed_fields.remove(&field); }
-                }
-                if result.is_ok() && ["add", "up", "down", "move"].contains(&action.as_str()) {
-                    if let Some((path, array)) = session.draft.paths().into_iter().find(|(_, f)| f.id == field && views::embedded::is_table(f)) {
-                        let index = if action == "add" { Some(array.items.len() - 1) } else { array.items.iter().position(|f| Some(f.id.as_str()) == item.as_deref()) };
-                        if let Some(index) = index {
-                            let size = views::embedded::edit_page_size(&state.editor, array);
-                            session.table_offsets.insert(field.clone(), index / size * size);
-                            if action == "add" { session.view_path = structured_editor_core::draft::child_path(&path, &index.to_string()); }
-                        }
-                    }
-                }
                 if let Err(error) = result { message = error.1; }
             }
         } else {
@@ -788,12 +690,12 @@ async fn perform(
                     Err(errors) => issues = errors,
                 },
                 "save" | "save-close" => match session.save(&state.editor) {
-                    Ok(updated_items) => {
+                    Ok(references_renamed) => {
                         message_kind = "success";
-                        message = if let Some(count) = updated_items {
-                            format!("ID changed. {count} referenced {} updated.", if count == 1 { "item" } else { "items" })
-                        } else {
-                            "Saved to disk.".into()
+                        message = match references_renamed {
+                            Some(1) => "Saved to disk. 1 reference renamed.".into(),
+                            Some(count) => format!("Saved to disk. {count} references renamed."),
+                            None => "Saved to disk.".into(),
                         };
                         session.close_requested = false;
                         session.parent = None;
@@ -808,7 +710,16 @@ async fn perform(
                                 message = "Related record created and selected. Save the parent record to retain the reference.".into();
                             } else { message_kind = "warning"; message = "Saved. The parent draft has expired; select this record from a new draft.".into(); }
                         }
-                        if action == "save-close" { return crate::draft_lifecycle::closed(&state,&actor,&headers,&session,Some(&message)); }
+                        if action == "save-close" {
+                            if references_renamed.is_some() {
+                                let html = views::record(&state.editor, &session.collection, &session.record_id, &actor)?;
+                                let html = html.replacen("id=\"workspace\"", &format!("id=\"workspace\" data-closed-draft=\"{}\"", views::escape(&session.id)), 1);
+                                let html = html.replacen("</main>", &format!("<template data-notification=\"success\">{}</template></main>", views::escape(&message)), 1);
+                                state.sessions.lock().unwrap().remove(&session.id, &actor)?;
+                                return page(&state, &actor, &headers, html);
+                            }
+                            return crate::draft_lifecycle::closed(&state,&actor,&headers,&session);
+                        }
                     },
                     Err(structured_editor_core::Error::Validation(errors)) => issues = errors,
                     Err(error) => message = error.to_string(),
@@ -926,17 +837,4 @@ async fn export(
             .into_response())
     })
     .await
-}
-
-// Searching does not mutate a draft or block typing. Selection still uses the
-// normal version-checked command and captures all unsent form input.
-async fn picker_choices(State(state): App, headers: HeaderMap, Path((id, field)): Path<(String,String)>, Query(query): Query<HashMap<String,String>>) -> Result<Response> {
-    let actor = state.auth.actor(&headers).await?;
-    blocking(move || {
-        let mut session = state.sessions.lock().unwrap().get(&id, &actor)?.clone();
-        // Autocomplete can read suggestions without opening a picker or changing the draft.
-        crate::pickers::action(&state.editor, &mut session, &field, "multiple", &HashMap::new())?;
-        session.picker.as_mut().unwrap().query = query.get("q").cloned().unwrap_or_default();
-        Ok(Html(crate::pickers::render_multiple(&state.editor, &session)?).into_response())
-    }).await
 }

@@ -5,10 +5,7 @@ use crate::{
     blocking,
     error::{Result, WebError},
     routes::{mutation_actor, page, page_actor},
-    views::{
-        self, encode, escape, record_url,
-        table::{TableColumns, query_url},
-    },
+    views::{self, encode, escape, record_url},
 };
 use axum::{
     Router,
@@ -159,36 +156,25 @@ pub fn sections(
         }
         let c = editor.config().collection(&child.collection)?;
         let ui = editor.child_list_ui(parent, &child.field)?;
+        // Scope by the parent field: two tables can reference the same collection.
+        let prefix = format!("children.{}.", encode(&child.field));
+        let columns =
+            views::columns::Columns::new(&c.editor_schema, &ui, params, &prefix, &["_label"]);
         let preview_size = ui
             .pointer("/list/previewSize")
             .and_then(|v| v.as_u64())
             .unwrap_or(10)
             .clamp(1, 200) as usize;
-        let scope = format!("children-{}", encode(&child.field));
-        let prefix = format!("child.{}.", encode(&child.field));
-        let columns = TableColumns::new(&c.editor_schema, &ui, params, &prefix, &["_label"]);
-        let mut browse = HashMap::from([
-            ("parent_collection".into(), parent.into()),
-            ("parent_id".into(), id.into()),
-            ("parent_field".into(), child.field.clone()),
-        ]);
+        let mut url = scoped_url(parent, id, &child.field, &child.collection);
         if params
             .get(&format!("{prefix}columns"))
             .is_some_and(|v| v == "custom")
         {
-            browse.insert("columns".into(), "custom".into());
+            url += "&columns=custom";
             for (key, _) in &columns.selected {
-                browse.insert(format!("column.{key}"), "1".into());
+                url += &format!("&{}=1", encode(&format!("column.{key}")));
             }
         }
-        let url = if browse.contains_key("columns") {
-            query_url(
-                &format!("/collections/{}", encode(&child.collection)),
-                &browse,
-            )
-        } else {
-            scoped_url(parent, id, &child.field, &child.collection)
-        };
         let base = format!(
             "{}/children/{}",
             record_url(parent, id),
@@ -199,13 +185,6 @@ pub fn sections(
         let rows = editor.query_collection_with_ui(
             &child.collection,
             &ListRequest {
-                fields: Some(
-                    columns
-                        .selected
-                        .iter()
-                        .map(|(key, _)| key.clone())
-                        .collect(),
-                ),
                 ids: Some(child_ids),
                 sort: ui
                     .pointer("/list/defaultSort/field")
@@ -224,11 +203,12 @@ pub fn sections(
         let missing_count = missing_count.saturating_sub(rows.total);
         let editable = actor.editable() && editor.allows(parent, "update");
         html += &format!(
-            "<section class=\"surface child-list\" id=\"children-{}\"><div class=\"child-heading\"><div><h2><i class=\"{}\" aria-hidden=\"true\"></i>{}<span class=\"badge mono\">{}</span></h2></div><div class=\"actions\"><a class=\"button quiet small\" data-nav href=\"{}\"><i class=\"ri-list-check\" aria-hidden=\"true\"></i>Browse list</a>",
+            "<section class=\"surface child-list\" id=\"children-{}\"><div class=\"child-heading\"><div><h2><i class=\"{}\" aria-hidden=\"true\"></i>{}<span class=\"badge mono\">{}</span></h2></div><div class=\"actions\">{}<a class=\"button quiet small\" data-nav href=\"{}\"><i class=\"ri-list-check\" aria-hidden=\"true\"></i>Browse list</a>",
             encode(&child.field),
             views::icon_class(ui["icon"].as_str(), "ri-folder-line"),
             escape(&child.label),
             rows.total,
+            columns.picker(&record_url(parent, id), params),
             escape(&url)
         );
         if editable {
@@ -249,7 +229,6 @@ pub fn sections(
                 );
             }
         }
-        html += &columns.picker(&scope, &record_url(parent, id), params, &prefix);
         html += "</div></div>";
         if missing_count > 0 {
             html += &format!(
@@ -264,25 +243,25 @@ pub fn sections(
         } else {
             html +=
                 "<div class=\"table-scroll\"><table class=\"data-table child-table\"><thead><tr>";
-            for (key, title) in &columns.selected {
+            for (key, label) in &columns.selected {
                 html += &format!(
                     "<th><a data-nav href=\"{}&amp;sort={}\">{}<i class=\"ri-arrow-up-down-line\" aria-hidden=\"true\"></i></a></th>",
                     escape(&url),
                     encode(key),
-                    escape(title)
+                    escape(label)
                 );
             }
             html += "<th class=\"row-actions-heading\"><span class=\"sr-only\">Actions</span></th></tr></thead><tbody>";
             for row in rows.rows {
                 let record = record_url(&child.collection, &row.id);
                 html += "<tr>";
-                for (index, (key, title)) in columns.selected.iter().enumerate() {
+                for (index, (key, label)) in columns.selected.iter().enumerate() {
                     let text = match key.as_str() {
                         "_label" => row.label.clone(),
                         "_id" => row.id.clone(),
                         _ => row.display.get(key).cloned().unwrap_or_else(|| "—".into()),
                     };
-                    html += &format!("<td data-label=\"{}\">", escape(title));
+                    html += &format!("<td data-label=\"{}\">", escape(label));
                     if index == 0 {
                         html += &format!(
                             "<a class=\"record-link\" data-nav href=\"{record}\">{}</a>",
@@ -324,7 +303,6 @@ pub fn sections(
     }
     Ok(html)
 }
-
 pub fn router() -> Router<Arc<AppState>> {
     Router::new()
         .route(

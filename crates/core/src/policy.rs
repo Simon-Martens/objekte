@@ -275,28 +275,7 @@ impl Editor {
         let original = previous
             .cloned()
             .unwrap_or(self.initial_value(collection, &json!({}))?);
-        let mut issues = Vec::new();
-        if let Some(props) = c.schema_value["properties"].as_object() {
-            for (k, s) in props {
-                if k == "_editor"
-                    || (c.schema_path.is_some()
-                        && matches!(&c.id, crate::IdStrategy::Frontmatter(field) if field == k))
-                {
-                    continue;
-                }
-                ownership(
-                    &c.schema_value,
-                    s,
-                    original.get(k),
-                    value.get(k),
-                    &format!("/{k}"),
-                    &mut issues,
-                );
-            }
-        }
-        if !issues.is_empty() {
-            return Err(Error::Validation(issues));
-        }
+        self.check_record_ownership(collection, &original, &value)?;
         if let Some(props) = c.schema_value["properties"].as_object() {
             for (k, s) in props {
                 if let Some(via) = s.pointer("/x-derived/via").and_then(Value::as_str) {
@@ -334,6 +313,37 @@ impl Editor {
             }
         }
         Ok(value)
+    }
+    pub(crate) fn check_record_ownership(
+        &self,
+        collection: &str,
+        original: &Value,
+        value: &Value,
+    ) -> Result<()> {
+        let c = self.config().collection(collection)?;
+        let mut issues = Vec::new();
+        if let Some(props) = c.schema_value["properties"].as_object() {
+            for (k, s) in props {
+                if k == "_editor"
+                    || (c.schema_path.is_some()
+                        && matches!(&c.id, crate::IdStrategy::Frontmatter(field) if field == k))
+                {
+                    continue;
+                }
+                ownership(
+                    &c.schema_value,
+                    s,
+                    original.get(k),
+                    value.get(k),
+                    &format!("/{k}"),
+                    &mut issues,
+                );
+            }
+        }
+        if !issues.is_empty() {
+            return Err(Error::Validation(issues));
+        }
+        Ok(())
     }
     pub fn label(&self, collection: &str, value: &Value, id: &str, view: &str) -> Result<String> {
         let v = self.projected_value(collection, value)?;

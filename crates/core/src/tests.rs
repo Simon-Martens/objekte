@@ -2,6 +2,8 @@ use super::*;
 use serde_json::json;
 use std::fs;
 use tempfile::TempDir;
+#[path = "rename_tests.rs"]
+mod rename;
 
 fn fixture() -> (TempDir, Editor) {
     let temp = tempfile::tempdir().unwrap();
@@ -219,7 +221,7 @@ fn renaming_checks_revision_uniqueness_and_updates_incoming_references() {
     let person = editor
         .save("people", "ada", json!({"kind":"person","name":"Ada"}), None)
         .unwrap();
-    editor
+    let record = editor
         .save(
             "records",
             "one",
@@ -235,16 +237,6 @@ fn renaming_checks_revision_uniqueness_and_updates_incoming_references() {
             None,
         )
         .unwrap();
-    let person = editor
-        .rename_with_references("people", "ada", "ada-new", person.value, &person.revision)
-        .unwrap();
-    assert_eq!(person.updated_items, 1);
-    assert_eq!(
-        editor.get("records", "one").unwrap().value["owner"],
-        "ada-new"
-    );
-    assert!(editor.references_to("people", "ada").unwrap().is_empty());
-    let record = editor.get("records", "one").unwrap();
     assert!(matches!(
         editor.rename("records", "one", "two", record.value.clone(), "stale"),
         Err(Error::Conflict(_))
@@ -265,12 +257,32 @@ fn renaming_checks_revision_uniqueness_and_updates_incoming_references() {
         editor.get("records", "two").unwrap().revision,
         renamed.revision
     );
+    let result = editor
+        .rename_with_references("people", "ada", "ada-new", person.value, &person.revision)
+        .unwrap();
+    assert_eq!(result.references_renamed, 1);
+    assert_eq!(
+        editor.get("records", "two").unwrap().value["owner"],
+        "ada-new"
+    );
+    assert!(editor.references_to("people", "ada").unwrap().is_empty());
+    assert_eq!(editor.references_to("people", "ada-new").unwrap().len(), 1);
+    // A draft opened before the automatic update cannot overwrite the new reference.
+    assert!(matches!(
+        editor.save(
+            "records",
+            "two",
+            renamed.value.clone(),
+            Some(&renamed.revision)
+        ),
+        Err(Error::Conflict(_)) | Err(Error::Validation(_))
+    ));
     editor
         .save(
             "records",
             "two",
             json!({"kind":"record","name":"One","nested":[]}),
-            Some(&renamed.revision),
+            Some(&editor.get("records", "two").unwrap().revision),
         )
         .unwrap();
     assert!(matches!(
@@ -278,8 +290,8 @@ fn renaming_checks_revision_uniqueness_and_updates_incoming_references() {
             "people",
             "ada-new",
             "two",
-            person.document.value,
-            &person.document.revision
+            result.document.value,
+            &result.document.revision
         ),
         Ok(_)
     ));
@@ -745,33 +757,15 @@ fn markdown_record_links_are_incoming_references() {
             "linked",
             json!({
                 "kind":"record", "name":"Linked", "nested":[],
-                "comments":[
-                    "See [Ada](#/collections/people/ada) and [another](#/collections/people/ada-extra).",
-                    "[Ada][person]\n\n[person]: #/collections/people/ada \"Title\""
-                ]
+                "comments":["See [Ada](#/collections/people/ada)."]
             }),
             None,
         )
         .unwrap();
     let references = editor.references_to("people", "ada").unwrap();
-    assert_eq!(references.len(), 2);
+    assert_eq!(references.len(), 1);
     assert_eq!(references[0].record_id, "linked");
     assert_eq!(references[0].path, "/comments/0");
-    let person = editor.get("people", "ada").unwrap();
-    let renamed = editor
-        .rename_with_references("people", "ada", "a-new", person.value, &person.revision)
-        .unwrap();
-    assert_eq!(renamed.updated_items, 1);
-    assert_eq!(
-        editor.get("records", "linked").unwrap().value["comments"][0],
-        "See [Ada](#/collections/people/a%2Dnew) and [another](#/collections/people/ada-extra)."
-    );
-    assert_eq!(
-        editor.get("records", "linked").unwrap().value["comments"][1],
-        "[Ada][person]\n\n[person]: #/collections/people/a%2Dnew \"Title\""
-    );
-    assert!(editor.references_to("people", "ada").unwrap().is_empty());
-    assert_eq!(editor.references_to("people", "a-new").unwrap().len(), 2);
 }
 
 #[cfg(unix)]
@@ -1136,7 +1130,7 @@ fn mapped_collection_files_keep_record_validation_and_reference_guards() {
 }
 
 #[test]
-fn strict_references_cover_nested_mapped_documents_and_follow_rename() {
+fn strict_references_cover_nested_mapped_documents_and_update_on_rename() {
     let temp = split_fixture();
     let root = temp.path();
     fs::write(root.join("links.json"), "{}").unwrap();
@@ -1146,8 +1140,7 @@ fn strict_references_cover_nested_mapped_documents_and_follow_rename() {
         "dictionary":{"type":"object","patternProperties":{"^ref":{"$ref":"#/$defs/ref"}}},
         "conditional":{"type":"object","if":{"required":["owner"]},"then":{"properties":{"owner":{"$ref":"#/$defs/ref"}}}},
         "typed":{"x-relation":{"collection":"people"}},
-        "contained":{"type":"array","contains":{"$ref":"#/$defs/ref"}},
-        "note":{"type":"string"}
+        "contained":{"type":"array","contains":{"$ref":"#/$defs/ref"}}
     }});
     add_document_mapping(root, "links", schema, &["links.json"]);
     let e = Editor::open(root).unwrap();
@@ -1182,13 +1175,14 @@ fn strict_references_cover_nested_mapped_documents_and_follow_rename() {
             original.revision
         );
     }
-    e.save_json_document(
-        "links",
-        "links.json",
-        json!({"rows":[{"owner":"valid"}],"choice":null,"note":"See [person](/collections/people/valid)."}),
-        &original.revision,
-    )
-    .unwrap();
+    let saved = e
+        .save_json_document(
+            "links",
+            "links.json",
+            json!({"rows":[{"owner":"valid"}],"choice":null}),
+            &original.revision,
+        )
+        .unwrap();
     let incoming = e.references_to("people", "valid").unwrap();
     assert!(
         incoming
@@ -1200,100 +1194,22 @@ fn strict_references_cover_nested_mapped_documents_and_follow_rename() {
         Err(Error::Conflict(_))
     ));
     let renamed = e
-        .rename_with_references("people", "valid", "renamed", person.value, &person.revision)
+        .rename_with_references(
+            "people",
+            "valid",
+            "renamed",
+            person.value.clone(),
+            &person.revision,
+        )
         .unwrap();
-    assert_eq!(renamed.updated_items, 1);
-    let links = e.json_document("links", "links.json").unwrap();
-    assert_eq!(links.value["rows"][0]["owner"], "renamed");
-    assert_eq!(
-        links.value["note"],
-        "See [person](/collections/people/renamed)."
-    );
-    assert_eq!(e.references_to("people", "renamed").unwrap().len(), 2);
-    assert!(e.references_to("people", "valid").unwrap().is_empty());
-    e.save_json_document("links", "links.json", json!({}), &links.revision)
+    assert_eq!(renamed.references_renamed, 1);
+    let updated = e.json_document("links", "links.json").unwrap();
+    assert_eq!(updated.value["rows"][0]["owner"], "renamed");
+    assert_ne!(updated.revision, saved.revision);
+    e.save_json_document("links", "links.json", json!({}), &updated.revision)
         .unwrap();
     e.delete("people", "renamed", &renamed.document.revision)
         .unwrap();
-}
-
-#[test]
-fn rename_updates_each_referencing_file_once_including_settings_and_self_links() {
-    let temp = split_fixture();
-    let root = temp.path();
-    let schema_path = root.join(".editor/objects.schema.json");
-    let mut schema: serde_json::Value =
-        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
-    schema["anyOf"][0]["properties"]["friend"] =
-        json!({"type":"string","x-relation":{"collection":"people"}});
-    fs::write(schema_path, schema.to_string()).unwrap();
-    let settings_schema = json!({"type":"object","required":["title"],"properties":{
-        "title":{"type":"string"},"owner":{"type":"string","x-relation":{"collection":"people"}}
-    },"additionalProperties":false});
-    fs::write(
-        root.join(".editor/settings.schema.json"),
-        settings_schema.to_string(),
-    )
-    .unwrap();
-    let e = Editor::open(root).unwrap();
-    let person = e.save("people", "a", json!({"name":"A"}), None).unwrap();
-    let person = e
-        .save(
-            "people",
-            "a",
-            json!({"name":"A","friend":"a"}),
-            Some(&person.revision),
-        )
-        .unwrap();
-    e.save(
-        "notes",
-        "one",
-        json!({"text":"[A](/collections/people/records/a)","owner":"a"}),
-        None,
-    )
-    .unwrap();
-    let settings = e.settings().unwrap();
-    e.save_settings(json!({"title":"Example","owner":"a"}), &settings.revision)
-        .unwrap();
-
-    let result = e
-        .rename_with_references("people", "a", "b", person.value, &person.revision)
-        .unwrap();
-    assert_eq!(result.updated_items, 2);
-    assert_eq!(result.document.value["friend"], "b");
-    let note = e.get("notes", "one").unwrap();
-    assert_eq!(note.value["owner"], "b");
-    assert_eq!(note.value["text"], "[A](/collections/people/records/b)");
-    assert_eq!(e.settings().unwrap().value["owner"], "b");
-    assert!(e.references_to("people", "a").unwrap().is_empty());
-    assert_eq!(e.references_to("people", "b").unwrap().len(), 4);
-}
-
-#[test]
-fn failed_reference_update_restores_the_original_id_and_files() {
-    let temp = split_fixture();
-    let root = temp.path();
-    let settings_schema = json!({"type":"object","required":["title"],"properties":{
-        "title":{"type":"string"},
-        "owner":{"type":"string","const":"a","x-relation":{"collection":"people"}}
-    },"additionalProperties":false});
-    fs::write(
-        root.join(".editor/settings.schema.json"),
-        settings_schema.to_string(),
-    )
-    .unwrap();
-    let e = Editor::open(root).unwrap();
-    let person = e.save("people", "a", json!({"name":"A"}), None).unwrap();
-    let settings = e.settings().unwrap();
-    e.save_settings(json!({"title":"Example","owner":"a"}), &settings.revision)
-        .unwrap();
-    assert!(matches!(
-        e.rename("people", "a", "b", person.value.clone(), &person.revision),
-        Err(Error::Validation(_))
-    ));
-    assert_eq!(e.get("people", "a").unwrap().revision, person.revision);
-    assert!(matches!(e.get("people", "b"), Err(Error::NotFound(_))));
-    assert_eq!(e.settings().unwrap().value["owner"], "a");
 }
 
 #[test]

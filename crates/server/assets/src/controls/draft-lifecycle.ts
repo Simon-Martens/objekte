@@ -100,10 +100,10 @@ export function syncDraft() {
       if (saved && saved.version !== version) sessionStorage.removeItem(inputPrefix+draftId);
     } catch { sessionStorage.removeItem(inputPrefix+draftId); }
   }
-  if (closedDraft && navigateTo && lastClosed !== closedDraft) {
+  if (closedDraft && lastClosed !== closedDraft) {
     lastClosed = closedDraft;
     forget(closedDraft);
-    window.dispatchEvent(new CustomEvent('navigate', {detail:{url:navigateTo}}));
+    if (navigateTo) window.dispatchEvent(new CustomEvent('navigate', {detail:{url:navigateTo}}));
   }
   const form = workspace.querySelector<HTMLFormElement>('form[data-draft-entry]');
   if (form?.dataset.expired === 'true' || expiredDraft === 'true') {

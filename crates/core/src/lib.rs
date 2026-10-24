@@ -7,16 +7,13 @@ mod json_documents;
 mod media;
 mod policy;
 mod project_config;
-pub mod projects;
 pub mod ui;
 pub use collation::alphabetic_cmp;
-pub use structured_editor_search::{MatchRange, SearchMatcher, SearchOptions};
 
 pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy, MediaCollection};
 pub use documents::{
     CategoryNode, ChildCollection, Document, Editor, HierarchyNode, ListFacet, ListMatch, ListPage,
-    ListRequest, ListRow, ParentLink, RecordSummary, Reference, RenameResult, ValidationIssue,
-    display_text, plain_markdown,
+    ListRequest, ListRow, ParentLink, RecordSummary, Reference, RenameResult, ValidationIssue, display_text,
 };
 pub use media::{MediaEntry, MediaKind};
 
@@ -34,8 +31,6 @@ pub enum Error {
     Conflict(String),
     #[error("validation failed")]
     Validation(Vec<ValidationIssue>),
-    #[error("Invalid search pattern: {0}")]
-    SearchPattern(String),
     #[error("{0}")]
     Data(String),
     #[error(transparent)]
