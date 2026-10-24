@@ -77,3 +77,5 @@ import './controls/notifications';
 import './controls/discard-confirmation';
 
 import './controls/suggestion-select';
+
+import './controls/regex-search';

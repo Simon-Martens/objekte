@@ -1,3 +1,5 @@
+#[path = "file_changes.rs"]
+mod file_changes;
 #[path = "hierarchy.rs"]
 mod hierarchy;
 #[path = "listing.rs"]
@@ -117,8 +119,8 @@ impl Editor {
             collections.insert(name.clone(), validator);
         }
         Ok(Self {
+            read_cache: Arc::new(read_cache::ReadCache::new(&config)),
             config: Arc::new(config),
-            read_cache: Arc::new(read_cache::ReadCache::default()),
             validators: Arc::new(Validators {
                 project,
                 collections,
@@ -202,7 +204,7 @@ impl Editor {
         let mut bytes =
             serde_json::to_vec_pretty(&value).map_err(|e| Error::Data(e.to_string()))?;
         bytes.push(b'\n');
-        atomic_write(&path, &bytes)?;
+        self.write_file(&path, &bytes)?;
         Ok(Document {
             id: "settings".into(),
             value,
@@ -445,90 +447,43 @@ impl Editor {
         limit: usize,
     ) -> Result<Vec<RecordSummary>> {
         let c = self.config.collection(collection)?;
-        if category.len() > c.categories.len() {
-            return Err(Error::Data("category path is too deep".into()));
-        }
-        let display = display.unwrap_or(&c.display);
-        let search = search.unwrap_or(&c.search);
-        let q = query.to_lowercase();
-        let mut result = Vec::new();
-        let mut ids = HashSet::new();
-        let mut orders = HashMap::new();
-        for path in self.files(collection)? {
-            let doc = self.cached_document(collection, &path)?;
-            let value = self.view_value(collection, &doc.value)?;
-            let id = doc.id.clone();
-            if !ids.insert(id.clone()) {
-                return Err(Error::Data(format!("duplicate ID {id} in {collection}")));
-            }
-            if !category.iter().zip(&c.categories).all(|(expected, level)| {
-                field(&value, &level.field).and_then(Value::as_str) == Some(expected.as_str())
-            }) {
-                continue;
-            }
-            let label = display_label(&value, c, display, &id);
-            if q.is_empty()
-                || id.to_lowercase().contains(&q)
-                || search.iter().any(|s| {
-                    field(&value, s)
-                        .map(|v| v.to_string().to_lowercase().contains(&q))
-                        .unwrap_or(false)
-                })
-            {
-                orders.insert(
-                    id.clone(),
-                    value
-                        .pointer("/_editor/manual_order")
-                        .and_then(Value::as_i64),
-                );
-                let label = if display == c.display {
-                    self.label(
-                        collection,
-                        &value,
-                        &id,
-                        if query.is_empty() { "list" } else { "search" },
-                    )?
+        let view = if query.is_empty() { "list" } else { "search" };
+        let page = self.query_collection(
+            collection,
+            &ListRequest {
+                query: query.into(),
+                category: category.to_vec(),
+                search_fields: search
+                    .filter(|fields| *fields != c.search.as_slice())
+                    .map(<[String]>::to_vec),
+                display_field: display
+                    .filter(|field| *field != c.display)
+                    .map(str::to_owned),
+                label_view: if c.ui.pointer(&format!("/labels/{view}")).is_some() && view != "list"
+                {
+                    view.into()
                 } else {
-                    label
-                };
-                result.push(RecordSummary { id, label });
-            }
-        }
-        result.sort_by(|a, b| {
-            let manual = if c.ui.pointer("/ordering/by").and_then(Value::as_str) == Some("manual") {
-                let a = orders[&a.id];
-                let b = orders[&b.id];
-                let missing_first =
-                    c.ui.pointer("/ordering/unordered").and_then(Value::as_str) == Some("first");
-                match (a, b) {
-                    (Some(a), Some(b)) => a.cmp(&b),
-                    (None, Some(_)) => {
-                        if missing_first {
-                            std::cmp::Ordering::Less
-                        } else {
-                            std::cmp::Ordering::Greater
-                        }
-                    }
-                    (Some(_), None) => {
-                        if missing_first {
-                            std::cmp::Ordering::Greater
-                        } else {
-                            std::cmp::Ordering::Less
-                        }
-                    }
-                    _ => std::cmp::Ordering::Equal,
+                    String::new()
+                },
+                sort: if c.ui.pointer("/ordering/by").and_then(Value::as_str) == Some("manual") {
+                    "_manual"
+                } else {
+                    "_label"
                 }
-            } else {
-                std::cmp::Ordering::Equal
-            };
-            manual
-                .then(crate::alphabetic_cmp(&a.label, &b.label))
-                .then(a.id.cmp(&b.id))
-        });
-        Ok(result
+                .into(),
+                offset,
+                limit: limit.min(100).max(1),
+                ..Default::default()
+            },
+        )?;
+        Ok(page
+            .rows
             .into_iter()
-            .skip(offset)
-            .take(limit.min(100))
+            .take(limit)
+            .map(|row| RecordSummary {
+                id: row.id,
+                label: row.label,
+            })
             .collect())
     }
 
@@ -940,6 +895,7 @@ impl Editor {
         value: Value,
         expected: Option<&str>,
     ) -> Result<Document> {
+        self.reconcile_ids_for_write(collection)?;
         self.require_operation(
             collection,
             if expected.is_some() {
@@ -1036,7 +992,7 @@ impl Editor {
             }
         }
         let bytes = serialize(c, &value)?;
-        atomic_write(&path, &bytes)?;
+        self.write_file(&path, &bytes)?;
         self.clear_field_values(collection);
         Ok(Document {
             id: id.into(),
@@ -1073,6 +1029,7 @@ impl Editor {
             });
         }
         let _write_guard = self.write_guard.lock().unwrap();
+        self.reconcile_ids_for_write(collection)?;
         self.require_operation(collection, "rename")?;
         self.require_operation(collection, "update")?;
         value = self.prepare_save(
@@ -1229,9 +1186,9 @@ impl Editor {
         // Make the new ID visible while validating updated relations. All writes use
         // the same project write lock; on an error, restore each changed file.
         if new_path == old_path {
-            atomic_write(&old_path, &bytes)?;
+            self.write_file(&old_path, &bytes)?;
         } else {
-            atomic_create(&new_path, &bytes)?;
+            self.create_file(&new_path, &bytes)?;
         }
         let mut written = 0;
         let result = (|| -> Result<()> {
@@ -1288,14 +1245,14 @@ impl Editor {
                         update.path.display()
                     )));
                 }
-                atomic_write(&update.path, &update.bytes)?;
+                self.write_file(&update.path, &update.bytes)?;
                 written += 1;
             }
             if new_path != old_path {
                 if fs::read(&old_path)? != old_bytes {
                     return Err(Error::Conflict("record changed on disk".into()));
                 }
-                fs::remove_file(&old_path)?;
+                self.remove_file(&old_path)?;
                 fs::File::open(self.config.collection_dir(collection)?)?.sync_all()?;
             }
             if !self.references_to(collection, old_id)?.is_empty() {
@@ -1308,15 +1265,15 @@ impl Editor {
         if let Err(error) = result {
             let rollback = (|| -> Result<()> {
                 for update in updates.iter().take(written).rev() {
-                    atomic_write(&update.path, &update.previous)?;
+                    self.write_file(&update.path, &update.previous)?;
                 }
                 if new_path == old_path {
-                    atomic_write(&old_path, &old_bytes)?;
+                    self.write_file(&old_path, &old_bytes)?;
                 } else {
                     if !old_path.exists() {
-                        atomic_create(&old_path, &old_bytes)?;
+                        self.create_file(&old_path, &old_bytes)?;
                     }
-                    fs::remove_file(&new_path)?;
+                    self.remove_file(&new_path)?;
                 }
                 Ok(())
             })();
@@ -1356,7 +1313,7 @@ impl Editor {
             return Err(Error::Conflict("record changed on disk".into()));
         }
         self.guard_document_location(&path)?;
-        fs::remove_file(path)?;
+        self.remove_file(&path)?;
         self.clear_field_values(collection);
         Ok(())
     }

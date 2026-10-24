@@ -1364,12 +1364,24 @@ async fn field_removal_undo_redo_and_live_preview_preserve_raw_input() {
 }
 #[test]
 fn search_highlights_unicode_without_interpreting_markup() {
-    let html = views::list::highlighted("<script>İstanbul & HERDER</script>", "herder", true);
+    let html = views::list::highlighted(
+        "<script>İstanbul & HERDER</script>",
+        &structured_editor_core::SearchMatcher::new("herder", Default::default())
+            .unwrap()
+            .ranges("<script>İstanbul & HERDER</script>"),
+        true,
+    );
     assert!(html.contains("<mark>HERDER</mark>"));
     assert!(html.contains("&lt;script&gt;"));
     assert!(!html.contains("<script>"));
     assert_eq!(
-        views::list::highlighted("Über", "über", false),
+        views::list::highlighted(
+            "Über",
+            &structured_editor_core::SearchMatcher::new("über", Default::default())
+                .unwrap()
+                .ranges("Über"),
+            false
+        ),
         "<mark>Über</mark>"
     );
 }
@@ -3622,5 +3634,47 @@ async fn exit_uses_actual_changes_and_confirms_only_once() {
             assert!(!html.contains("<dialog"));
         }
         assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], r"A \[caption\]");
+    }
+}
+
+#[tokio::test]
+async fn regex_search_renders_toggle_errors_and_library_highlights() {
+    let (_temp, state, cookie, _) = fixture().await;
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes?q=%5Ef.rst%24&regex=1",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(html.contains("aria-pressed=\"true\""));
+    assert!(html.contains("<mark>First</mark>"));
+    assert!(html.contains("regex=1"));
+    let (_, literal) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes?q=%5Ef.rst%24",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert!(!literal.contains("<mark>First</mark>"));
+    for pattern in ["%5B", "%28%3F%3Da%29", "%28a%29%5C1"] {
+        let (status, invalid) = request(
+            state.clone(),
+            "GET",
+            &format!("/collections/notes?q={pattern}&regex=1"),
+            &cookie,
+            &HashMap::new(),
+            false,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(invalid.contains("aria-invalid=\"true\""));
+        assert!(invalid.contains("search-pattern-error"));
+        assert!(invalid.contains("data-regex-search"));
     }
 }

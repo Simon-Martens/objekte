@@ -42,7 +42,7 @@ impl From<structured_editor_core::Error> for WebError {
             NotFound(_) => StatusCode::NOT_FOUND,
             Conflict(_) => StatusCode::CONFLICT,
             Validation(_) => StatusCode::UNPROCESSABLE_ENTITY,
-            InvalidPath(_) | Data(_) | Config(_) => StatusCode::BAD_REQUEST,
+            InvalidPath(_) | Data(_) | Config(_) | SearchPattern(_) => StatusCode::BAD_REQUEST,
             Io(_) => return Self::internal(value),
         };
         Self(status, value.to_string())

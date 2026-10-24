@@ -9,6 +9,7 @@ mod policy;
 mod project_config;
 pub mod ui;
 pub use collation::alphabetic_cmp;
+pub use structured_editor_search::{MatchRange, SearchMatcher, SearchOptions};
 
 pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy, MediaCollection};
 pub use documents::{
@@ -32,6 +33,8 @@ pub enum Error {
     Conflict(String),
     #[error("validation failed")]
     Validation(Vec<ValidationIssue>),
+    #[error("Invalid search pattern: {0}")]
+    SearchPattern(String),
     #[error("{0}")]
     Data(String),
     #[error(transparent)]

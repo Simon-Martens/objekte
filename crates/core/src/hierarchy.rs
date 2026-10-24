@@ -266,7 +266,7 @@ impl Editor {
         document.value[field] = Value::Array(ids);
         if let Err(error) = self.save_unlocked(parent, id, document.value, Some(expected)) {
             let path = self.find_path(&target.collection, child_id)?;
-            if let Err(rollback) = fs::remove_file(path) {
+            if let Err(rollback) = self.remove_file(&path) {
                 return Err(Error::Data(format!(
                     "{error}; new record {}/{child_id} remains unattached: {rollback}",
                     target.collection

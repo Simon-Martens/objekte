@@ -4,7 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build"
+    "build": "tsc --noEmit && vite build",
+    "build:search": "node ../../../scripts/build-search-wasm.mjs",
+    "prebuild": "npm run build:search",
+    "predev": "npm run build:search",
+    "test:search": "npm run build:search && node --test ../../../scripts/search-wasm.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/source-sans-3": "^5.3.1",

@@ -21,6 +21,7 @@ The Rust server implements the [revised MVP](MVP.md): typed drafts and raw JSON,
 From the repository root:
 
 ```bash
+rustup target add wasm32-unknown-unknown
 npm --prefix crates/server/assets ci
 npm --prefix crates/server/assets run build
 cargo run -p structured-editor-server -- admin-create
@@ -230,3 +231,57 @@ Astro exposes `/api/auth/*`, `/api/collections/*`, `/api/relations/*`, `/api/med
 The React form covers common JSON Schema controls and offers raw JSON for structures it cannot render clearly. Cookie sessions are implemented; bearer API tokens are outside the current scope.
 
 The native methods run synchronously and searches scan files on demand. For very large projects, indexing or worker threads will be needed to avoid blocking the Astro request loop.
+
+## Collection search
+
+`Editor::query_collection` owns normalized field text, literal/regex matching,
+filters, sorting, cache invalidation, and UTF-8 highlight ranges. Relation pickers
+use the same query path. The server renders the library's ranges as escaped HTML.
+The Node binding exposes `queryCollection(name, requestJson)` and `refreshReadCache()`.
+
+Literal search is the default and is Unicode case-insensitive. The `.*` button
+inside the collection search box enables Rust `regex` syntax, including `(?i)`,
+`(?m)`, Unicode classes, alternation, and anchors. Matching is against each
+normalized field independently, including IDs and labels. Markdown syntax and
+link destinations are not searched as raw source. Regex input is preserved
+verbatim. Lookaround and backreferences are unsupported. Library callers can set
+`search_options.case_sensitive`; patterns are limited to 4,096 UTF-8 bytes, 4 MiB
+of compiled regex, and a 2 MiB DFA cache. Only the visible page gets highlights,
+with at most 64 matches per field; zero-width matches select rows without marks.
+
+The browser validates locally with the same `structured-editor-search` Rust
+library compiled to WebAssembly. Invalid patterns turn the input red and show
+an accessible error. Vite's `prebuild`/`predev` builds the module; install the
+`wasm32-unknown-unknown` Rust target first. No wasm-bindgen CLI is required.
+The module loads when regex validation is first needed. If it cannot load,
+the server still validates patterns and returns the editable search form.
+
+Collection snapshots use `notify` events, coalescing dirty paths. Editor writes
+mark their paths immediately, including reference renames, rollback, mapped
+JSON writes, and deletes. Only changed records and their display dependencies
+are prepared again. Prepared rows, facet options, sorted orders, compiled
+patterns, and query results are reused; cached result sets contain row indexes,
+not copies of matching field text. On an edit, existing sort orders retain their
+unchanged rows and insert changed rows in order. There are bounded caches (16
+queries/projections/patterns, 8 sort orders per projection, 10,000 parsed files).
+
+External edits normally become visible when watcher events arrive. A full
+metadata reconciliation runs on the next access after 30 seconds, or after one
+second if watching is unavailable. Watcher errors/overflow and
+`Editor::refresh_read_cache()` force reconciliation on the next read; a browser
+reload also requests this. Reconciliation preserves unchanged normalized rows.
+Frontmatter ID uniqueness is synchronously reconciled before writes.
+
+Verification:
+
+```sh
+cargo test -p structured-editor-core -p structured-editor-search -p structured-editor-server
+npm --prefix crates/server/assets run test:search
+SEARCH_BENCH_RECORDS=100000 cargo test -p structured-editor-core --release measure_markdown_search -- --ignored --nocapture
+```
+
+The manual benchmark creates Markdown fields and frontmatter references. On the
+development machine, 100,000 records took about 7.5 seconds to prepare initially,
+0.19 ms for a cached page, 55–82 ms for the tested new literal/regex searches,
+and 0.40 seconds to refresh after a single edit. These are synthetic measurements,
+not guarantees; arbitrary regex still scans eligible normalized text.

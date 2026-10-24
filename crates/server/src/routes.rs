@@ -247,6 +247,13 @@ async fn collection(
         Err(r) => return Ok(r),
     };
     blocking(move || {
+        if headers
+            .get("cache-control")
+            .and_then(|v| v.to_str().ok())
+            .is_some_and(|v| v.contains("no-cache") || v.contains("max-age=0"))
+        {
+            state.editor.refresh_read_cache();
+        }
         let html = views::list::render(&state.editor, &name, &query, &actor)?;
         page(&state, &actor, &headers, html)
     })

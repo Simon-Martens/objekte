@@ -2,55 +2,52 @@ use super::*;
 use std::collections::HashMap;
 use structured_editor_core::ListRequest;
 
-/// Escape first; match ranges are computed against Unicode characters, never HTML.
-pub fn highlighted(text: &str, query: &str, excerpt: bool) -> String {
-    let chars: Vec<char> = text.chars().collect();
-    let mut folded = String::new();
-    let mut mapping = Vec::new();
-    for (index, c) in chars.iter().enumerate() {
-        for lower in c.to_lowercase() {
-            let start = folded.len();
-            folded.push(lower);
-            mapping.extend(std::iter::repeat_n(index, folded.len() - start));
-        }
-    }
-    let needle = query.trim().to_lowercase();
-    let ranges: Vec<(usize, usize)> = if needle.is_empty() {
-        Vec::new()
-    } else {
-        folded
-            .match_indices(&needle)
-            .map(|(i, m)| (mapping[i], mapping[i + m.len() - 1] + 1))
-            .collect()
-    };
+/// Only presentation lives here; the library supplies UTF-8 match ranges.
+pub fn highlighted(
+    text: &str,
+    ranges: &[structured_editor_core::MatchRange],
+    excerpt: bool,
+) -> String {
+    let first = ranges.first().map(|r| r.start).unwrap_or(0);
     let start = if excerpt {
-        ranges.first().map(|r| r.0.saturating_sub(60)).unwrap_or(0)
+        text[..first]
+            .char_indices()
+            .rev()
+            .nth(59)
+            .map(|(i, _)| i)
+            .unwrap_or(0)
     } else {
         0
     };
     let end = if excerpt {
-        (start + 230).min(chars.len())
+        text[start..]
+            .char_indices()
+            .nth(230)
+            .map(|(i, _)| start + i)
+            .unwrap_or(text.len())
     } else {
-        chars.len()
+        text.len()
     };
     let mut html = if start > 0 {
-        "…".into()
+        "…".to_owned()
     } else {
         String::new()
     };
-    for i in start..end {
-        if ranges.iter().any(|r| r.0 == i) {
-            html += "<mark>";
+    let mut cursor = start;
+    for range in ranges {
+        let a = range.start.max(start);
+        let b = range.end.min(end);
+        if a >= b {
+            continue;
         }
-        html += &escape(&chars[i].to_string());
-        if ranges.iter().any(|r| r.1 == i + 1) {
-            html += "</mark>";
-        }
-    }
-    if ranges.iter().any(|r| r.0 < end && r.1 > end) {
+        html += &escape(&text[cursor..a]);
+        html += "<mark>";
+        html += &escape(&text[a..b]);
         html += "</mark>";
+        cursor = b;
     }
-    if end < chars.len() {
+    html += &escape(&text[cursor..end]);
+    if end < text.len() {
         html += "…";
     }
     html
@@ -161,6 +158,13 @@ pub fn render(
             None
         },
         query: q.clone(),
+        search_options: structured_editor_core::SearchOptions {
+            regex: params.get("regex").is_some_and(|v| v == "1"),
+            case_sensitive: false,
+        },
+        search_fields: None,
+        display_field: None,
+        label_view: String::new(),
         category,
         sort: sort.into(),
         descending: direction == "desc",
@@ -174,7 +178,19 @@ pub fn render(
             })
             .collect(),
     };
-    let page = editor.query_collection_with_ui(name, &request, &ui)?;
+    let (page, pattern_error) = match editor.query_collection_with_ui(name, &request, &ui) {
+        Ok(page) => (page, None),
+        Err(structured_editor_core::Error::SearchPattern(message)) => (
+            structured_editor_core::ListPage {
+                rows: Vec::new(),
+                total: 0,
+                matched: 0,
+                facets: Vec::new(),
+            },
+            Some(message),
+        ),
+        Err(error) => return Err(error.into()),
+    };
     let props = c.editor_schema["properties"]
         .as_object()
         .cloned()
@@ -399,21 +415,40 @@ pub fn render(
             escape(&query_url(&base, &clear))
         );
     }
-    let show_all = if q.trim().is_empty() {
+    let show_all = if q.is_empty() {
         String::new()
     } else {
         let mut all = params.clone();
         all.retain(|key, _| {
-            key != "q" && key != "offset" && key != "tree" && !key.starts_with("filter.")
+            key != "q"
+                && key != "regex"
+                && key != "offset"
+                && key != "tree"
+                && !key.starts_with("filter.")
         });
         format!(
             "<a class=\"button quiet\" data-nav href=\"{}\">Show All</a>",
             escape(&query_url(&base, &all))
         )
     };
+    let regex_enabled = request.search_options.regex;
+    let regex_control = format!(
+        "<input type=\"hidden\" name=\"regex\" value=\"{}\"><button type=\"button\" class=\"regex-toggle\" data-regex-toggle aria-label=\"Use regular expression\" aria-pressed=\"{}\" title=\"Use regular expression\"><span aria-hidden=\"true\">.*</span></button>",
+        if regex_enabled { "1" } else { "0" },
+        regex_enabled
+    );
+    let validation = format!(
+        "<span id=\"search-pattern-error\" class=\"search-pattern-error\" role=\"status\">{}</span>",
+        escape(pattern_error.as_deref().unwrap_or(""))
+    );
+    let invalid = if pattern_error.is_some() {
+        "true"
+    } else {
+        "false"
+    };
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button>{show_all}</form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
-        hidden(params, &["q", "offset"]),
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" data-regex-search action=\"{base}\" {get}>{}<div class=\"search-input has-regex\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" aria-invalid=\"{invalid}\" aria-describedby=\"search-pattern-error\" type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\">{regex_control}</div><button>Search</button>{show_all}</form><details class=\"action-menu column-picker\"><summary class=\"button icon-button\" aria-label=\"Columns\" data-tooltip=\"Columns\"><i class=\"ri-layout-column-line\" aria-hidden=\"true\"></i></summary><form class=\"menu-panel\" action=\"{base}\" {get} data-on:change=\"el.requestSubmit()\" data-indicator:_columns-pending>{}<input type=\"hidden\" name=\"columns\" value=\"custom\"><p class=\"eyebrow\">Visible columns</p><fieldset data-attr:inert=\"$_columnsPending\">",
+        hidden(params, &["q", "regex", "offset"]),
         escape(&q),
         hidden(params, &["column.", "columns", "offset"])
     );
@@ -432,6 +467,7 @@ pub fn render(
         );
     }
     body += "</fieldset><noscript><button class=\"primary\">Apply columns</button></noscript></form></details></div>";
+    body += &validation;
     let mut page_controls = String::new();
     for (enabled, next_offset, label, icon) in [
         (
@@ -536,7 +572,13 @@ pub fn render(
                 _ => row.display.get(key),
             };
             let text = text
-                .map(|s| highlighted(s, &q, true))
+                .map(|s| {
+                    highlighted(
+                        s,
+                        row.highlights.get(key).map(Vec::as_slice).unwrap_or(&[]),
+                        true,
+                    )
+                })
                 .unwrap_or_else(|| "<span class=\"muted\">—</span>".into());
             let numeric = matches!(
                 props.get(key).and_then(|s| s["type"].as_str()),
@@ -603,7 +645,7 @@ pub fn render(
                 body += &format!(
                     "<p><span class=\"match-field\">{}</span>{}</p>",
                     escape(label),
-                    highlighted(&m.text, &q, true)
+                    highlighted(&m.text, &m.ranges, true)
                 );
             }
             body += &crate::hierarchy::record_actions(

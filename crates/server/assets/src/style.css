@@ -799,3 +799,10 @@ suggestion-select > datalist { display:none; }
 .suggestion-menu [role=option] { padding:8px 10px;border-radius:2px;cursor:pointer;overflow-wrap:anywhere; }
 .suggestion-menu [role=option]:hover,.suggestion-menu [role=option].active { background:var(--hover); }
 .suggestion-menu [aria-selected=true] { color:var(--accent);font-weight:600; }
+
+.search-input.has-regex input[type="search"] { padding-right: 42px; }
+.regex-toggle { position: absolute; right: 7px; top: 50%; transform: translateY(-50%); width: 27px; height: 25px; padding: 0; display: grid; place-items: center; font: 600 16px var(--mono); background: transparent; border: 1px solid transparent; border-radius: 4px; color: var(--muted); }
+.regex-toggle[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--subtle); }
+.search-input.has-regex input[aria-invalid="true"] { color: var(--danger); border-color: var(--danger); }
+.search-pattern-error { display: block; color: var(--danger); font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; padding: 0 14px 10px; }
+.search-pattern-error:empty { display: none; }

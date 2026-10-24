@@ -1,5 +1,5 @@
 //! Schema-bound JSON files are independent of collection records and UI controls.
-use crate::documents::{atomic_write, hash, record_id, reject_symlink};
+use crate::documents::{hash, record_id, reject_symlink};
 use crate::{Document, Editor, Error, Result, ValidationIssue, contained};
 use serde_json::Value;
 use std::{
@@ -109,7 +109,7 @@ impl Editor {
         let mut bytes =
             serde_json::to_vec_pretty(&value).map_err(|e| Error::Data(e.to_string()))?;
         bytes.push(b'\n');
-        atomic_write(&self.document_path(name, file)?, &bytes)?;
+        self.write_file(&self.document_path(name, file)?, &bytes)?;
         Ok(Document {
             id: file.into(),
             value,

@@ -10,7 +10,9 @@ fn error(value: CoreError) -> napi::Error {
         CoreError::Validation(issues) => ("validation", json!(issues)),
         CoreError::Conflict(_) => ("conflict", json!([])),
         CoreError::NotFound(_) => ("not_found", json!([])),
-        CoreError::InvalidPath(_) | CoreError::Data(_) => ("bad_request", json!([])),
+        CoreError::InvalidPath(_) | CoreError::Data(_) | CoreError::SearchPattern(_) => {
+            ("bad_request", json!([]))
+        }
         _ => ("internal", json!([])),
     };
     napi::Error::from_reason(
@@ -34,6 +36,17 @@ impl Project {
         Ok(Self {
             editor: Editor::open(root).map_err(error)?,
         })
+    }
+
+    #[napi]
+    pub fn query_collection(&self, name: String, request: String) -> napi::Result<String> {
+        let request = serde_json::from_str(&request)
+            .map_err(|e| error(CoreError::Data(format!("search request: {e}"))))?;
+        output(self.editor.query_collection(&name, &request))
+    }
+    #[napi]
+    pub fn refresh_read_cache(&self) {
+        self.editor.refresh_read_cache();
     }
 
     #[napi]
