@@ -1,0 +1,98 @@
+{
+  "annotation": "o.J.; weitere Jgg nicht ermittelt; KVK mit Standorten f. Jg 1816",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS 1-64 darin 12 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Der Gesellschaftswagen (Wien) [oJ]",
+    "norm": "~",
+    "biblio": 409222,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4296,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Der Gesellschaftswagen (Wien) [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / Gesellschaftswagen / Ein unterhaltendes / TASCHENBUCH / mit zwölf Kupfern /. / Zum neuen Jahr / gewidmet. / Wien / by Joseph Riedler / Buchbinder im Krammergässchen No 679",
+  "updated": "2026-06-11 10:18:55.607Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "astssjljav0lkik"
+  ],
+  "contents": [
+    "1oiyhdptgc4noi9",
+    "4737o0fz5lkaqbb",
+    "bv1d489f7q1hxe8",
+    "yxm8so85cxtxt25",
+    "vlj45vpwk70qk9o",
+    "4xr7qg3nl943h1m",
+    "l4qkzezt8s9z5xg",
+    "4va3iq84isz1cf1",
+    "v5hya2m69h3jvxo",
+    "hs60fdxptldnf7j",
+    "szije6hbzesn0xu",
+    "1vqoj52f9ltrna2",
+    "egl8702wj86jobg",
+    "k5omyrchrwe222m",
+    "tb0bqdmfelfo8t1",
+    "d3vbqzmsu1ekb9l",
+    "e5822fb29a1li38",
+    "49jb13vnfe5hizm",
+    "6sgesjw0ygvqte9",
+    "c8seew2fv3m9jw2",
+    "goe74lqtezx8jnl",
+    "y0tiksatyed8o98",
+    "08s7xs9ppq84fol",
+    "6nqtlz6j2phtlmx",
+    "4ausos3cgazuv8s",
+    "4rd3sismhobyy1m",
+    "nwdpuf9x1qgju3m",
+    "4tph0a78t9080p5",
+    "46ojach0ms3k388",
+    "04nvunuvrgn76u2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.142Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.142Z",
+      "agent": "vahgb1mrxxo0sin",
+      "source_id": "sho4zq431d4zcw6"
+    }
+  ]
+}

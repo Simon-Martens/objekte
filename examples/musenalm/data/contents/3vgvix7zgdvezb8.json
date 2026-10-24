@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Iphigenie auf Tauris« von J. W. von Goethe s.Textbezug INr 40734, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40742,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iphigenie auf Tauris III. Aufz. 1r. Auftr. / Orest. Zerreisse diesen Busen und eröffne / Den Strömen, die hier sieden einen Weg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc. 1826",
+  "scans": [
+    "alm_531_40742_llaqiuzums.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Iphigenie auf Tauris III. Aufz. 1r. Auftr. / Orest. Zerreisse diesen Busen und eröffne / Den Strömen, die hier sieden einen Weg",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.118Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "6emto479k2rk0ko"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.118Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "alj1sjx9cgnoypu"
+    }
+  ]
+}

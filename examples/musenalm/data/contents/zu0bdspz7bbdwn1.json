@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Einige reisen ihrer Gesundheit wegen. Mögen sie gut Wetter haben! Keine Alterationen!",
+  "language": [],
+  "musenalm_id": 7691,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klassifikation der Reisenden: / (Als Fortsetzung des Aufsatzes im vorjährigen Taschenbuch, und aus dem Portefeuille desselben, verstorbenen, berühmten Schriftstellers...Lavater's!)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet u. Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klassifikation der Reisenden: / (Als Fortsetzung des Aufsatzes im vorjährigen Taschenbuch, und aus dem Portefeuille desselben, verstorbenen, berühmten Schriftstellers...Lavater's!)",
+  "updated": "2000-12-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.359Z",
+      "agent": "adxjhf2nm1jjsuh",
+      "source_id": "otrq16svlorax05"
+    }
+  ]
+}

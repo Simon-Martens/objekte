@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5 /) Graphik im KalendariumOktober /) s. Textbezug INr 76544, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76488,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ah! ça ira! ça ira!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. & sc.",
+  "scans": [
+    "alm_3709_76488_yzgvvpey6p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ah! ça ira! ça ira!",
+  "updated": "2011-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.849Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "21j91h3orvb5lb4"
+    }
+  ]
+}

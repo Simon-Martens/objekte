@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Sehnsucht nach ländlichem Glück« von F. W. A. Schmidt (von Werneuchen) INr 48742, Obj 90",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50084,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 90.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Können wir vorm Bänkchen an der Pforte, / Dann die Erdbeer'n, die wir selbst gesucht, / Oder unsrer Himbeerhekke Frucht / Schmausen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowieki del.",
+  "scans": [
+    "alm_665_50084_mqcfb6h2wa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Können wir vorm Bänkchen an der Pforte, / Dann die Erdbeer'n, die wir selbst gesucht, / Oder unsrer Himbeerhekke Frucht / Schmausen",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.518Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "btnne9ot5vamwgz"
+    }
+  ]
+}

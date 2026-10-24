@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Spangensteine und der Liebenbach, zu Spangenberg« von Christian Karl Kehr INr 98042, Obj 20 /) # Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Spangensteine zu Spangenberg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dondorf",
+  "scans": [
+    "alm_3503_98043_iee0jtl03x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Spangensteine zu Spangenberg",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.472Z",
+      "agent": "5fc2fy392haquun",
+      "source_id": "l0nc18pfry0162i"
+    }
+  ]
+}

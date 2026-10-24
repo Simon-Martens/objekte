@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S 1 T, SS 3-125 darin 3 GG, SS 126-127 VrlgM, S C, B Kal",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rauracis 1827",
+    "norm": "~",
+    "biblio": 406916,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-11-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3731,
+  "parallel_title": "",
+  "place_statement": "Basel (Schweighauser)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Rauracis 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; ADB XIX, 714",
+  "responsibility_statement": "Markus Lutz",
+  "subtitle_statement": "",
+  "title_statement": "Rauracis. / Ein / Taschenbuch / für / 1827 / den Freunden der Vaterlandskunde / gewidmet / von / Markus Lutz. / Mit lithogr. Portrait und Ansichten. / Basel / in der Schweighauserschen Buchhand- / lung",
+  "updated": "2026-06-11 10:18:55.946Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "vgp2vcnwht8xean"
+  ],
+  "contents": [
+    "htej7c89g0s9mj7",
+    "jutor17lgyx4d0a",
+    "9qqply5d6d4qygy",
+    "jx2xtvam1q73aur",
+    "hoywa4fw5qgetjq",
+    "nqzom26dzog9p5b",
+    "mp45rtebbstt656",
+    "fcvzd1hqon6l4b7",
+    "0o78ttycv6wpz9r",
+    "7zmmkelpxivv2g8",
+    "f2uk86ob7syta97",
+    "i0bc3r0bvirn8b0",
+    "9phmfon6a5n5oo0",
+    "vb37ww4o5zo2sxq",
+    "airvc8z0f3m3ux5",
+    "rlz6txjxgcogetv",
+    "898h8p7rry9wuhi",
+    "fqjex1grzn2eeiq",
+    "gdnvzwe2wt0kq1o",
+    "ggqg9jfrubh6g49",
+    "svy6qeqjtc5fyjz",
+    "h7jg6pb3uiotdxt",
+    "0k6ikwq0a0mjqyk",
+    "1ktfqqsd2vm3dtz",
+    "2er2qbnq3dvfbv6",
+    "g087rx7ptpd4d1m",
+    "t4cz89cm61x3mig",
+    "dst1ee5zohdxj05"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.151Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.151Z",
+      "agent": "sdel9pv3gwbaibx",
+      "source_id": "iy5mp75ifkkn7e6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.287Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.287Z",
+      "agent": "bpbq38swi2zmert",
+      "source_id": "vkqhd86arreqnok"
+    }
+  ]
+}

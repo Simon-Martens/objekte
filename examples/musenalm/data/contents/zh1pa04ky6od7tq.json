@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Besuch (Sammlung INr 15244, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Ich soll sie sehn! / Fass' ich die Wonne? / O goldne Sonne! / Ich soll sie sehn!",
+  "language": [],
+  "musenalm_id": 15246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Mittag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "TIECK",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Mittag",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.786Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "vglirfz65qeoxrx"
+    }
+  ]
+}

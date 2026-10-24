@@ -1,0 +1,104 @@
+{
+  "annotation": "§§ Es fehlen 20 BB Tab: 12 »Tabellen zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens« (Diese Sammlung (Maillard del. J. Gerstner sc.) zuerst in: Taschenbuch, Wiener 1803; dort auch als Vollbild) und 8 »Cassa Conto« Tabellen (Dort ebenfalls als Vollbild)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, B Tab, 8 BB Kal, zT, G, SS 1-42 darin 8 GG, SS 43-153, 2 SS C, 3 BB Tab, §§ 20 BB Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Wiener 1808",
+    "norm": "~",
+    "biblio": 100722,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3103,
+  "parallel_title": "",
+  "place_statement": "Wien (Degen)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Wiener 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 147",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Taschenbuch / für / 1808. / Wird jährlich fortgesetzt. / WIEN. / Bey J. B. Degen, / Buchdrucker und Buchhändler",
+  "updated": "2026-06-11 10:18:55.275Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "oouy0tr49khywg9"
+  ],
+  "contents": [
+    "l46o8th12g8krbc",
+    "fjraa79lvx29xdt",
+    "7g7w6zenfgto76e",
+    "hc2lf1o36clewf9",
+    "4cwptfpwernqjxq",
+    "d7qniik4wpjs7aw",
+    "ppm1nhr8ryoshsc",
+    "6qtgjv54gnnvz1q",
+    "xh4rlzn8rnob0cw",
+    "a0aaqdm84tnxpeb",
+    "0e8o07eyanhsio4",
+    "fm4s7cnm790hibk",
+    "g0exzusr23f8guf",
+    "agxrnutoeo284gd",
+    "aicwv1n821zp9zl",
+    "a6d2iq1a88v6c0b",
+    "l3if3sagnxxroij",
+    "bxwi5qihcecmgcw",
+    "ju3nqbjcb0jg8ag",
+    "l6g4uegxzhqxd9u",
+    "kh3jkwi0l381gn2",
+    "hfi4aqgpaavvqvl",
+    "c68gfl0dpg5hr4k",
+    "sxuxncksm3f78ej",
+    "ad8zdku5tnagxn5",
+    "dnlpqlq5yiflo33",
+    "kayoa2ot1hg44kw",
+    "asn839jny6s8t7e",
+    "n0bhl03u69onux2",
+    "zpi5qo77a9ksv2t",
+    "w46h5z4d1xns2x1",
+    "ujjb5ndhwo4tntz",
+    "7z06i3qrle9y5i1",
+    "n2ykh9w7xayx5pe",
+    "bbcqjh6eekscgyf",
+    "8r07sac61dvisnq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.717Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.717Z",
+      "agent": "uelm0e03nkq3tde",
+      "source_id": "c50jd2m24duudlz"
+    }
+  ]
+}

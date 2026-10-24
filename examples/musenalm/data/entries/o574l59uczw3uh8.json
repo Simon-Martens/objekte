@@ -1,0 +1,78 @@
+{
+  "annotation": "15 Jgg 1796-1810; Leipzig (Voß); Hrsg: W. G. Becker",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Erholungen (W. G. Becker) 1796",
+    "norm": "",
+    "biblio": 200369,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1737,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Voß und Compagnie)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Erholungen (W. G. Becker) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 44; nicht bei L/R; Goed VIII. 485",
+  "responsibility_statement": "W. G. Becker",
+  "subtitle_statement": "",
+  "title_statement": "Erholungen / Herausgegeben / von / W. G. Becker. / Erstes Bändchen, / 1796. / Leipzig, / bei Voß und Compagnie",
+  "updated": "2026-06-11 10:18:55.617Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "kzwqrmoyeylhk01"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.177Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.177Z",
+      "agent": "opicouvq1odrmvd",
+      "source_id": "8w6ibt2m7k2wkxu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.958Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.958Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "s0l06exmlylryhn"
+    }
+  ]
+}

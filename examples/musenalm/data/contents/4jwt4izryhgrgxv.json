@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Seht die Veilchen, seht die Hyacinthen, / Beide haben Himmelsreitz geerbt;",
+  "language": [],
+  "musenalm_id": 83689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lenzempfindung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Burmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lenzempfindung",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.119Z",
+      "agent": "bzzrah5fx2452jq",
+      "source_id": "zpzfejnqin7eywj"
+    }
+  ]
+}

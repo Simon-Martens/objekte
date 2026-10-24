@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Wenn auch von dir nichts dieser Erde bliebe, / Weil Hoheit, Ehre, Macht, und Glanz vergeht,",
+  "language": [],
+  "musenalm_id": 47999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Irdische Unsterblichkeit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Christ. Westphalen, geb. Axen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Irdische Unsterblichkeit",
+  "updated": "2007-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.423Z",
+      "agent": "jxzegmwnprfq0ub",
+      "source_id": "62md2g40cc8w5fj"
+    }
+  ]
+}

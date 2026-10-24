@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Für meine Dienste schenkst du mir / Dein Bildniß. Prinz, ich danke dir,",
+  "language": [],
+  "musenalm_id": 4675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gleiche Münze. / Nach dem Französischen des / D'Aubigné",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Katzner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gleiche Münze. / Nach dem Französischen des / D'Aubigné",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.031Z",
+      "agent": "ssz57bubxm06v2p",
+      "source_id": "4wq2twur6g3y98y"
+    }
+  ]
+}

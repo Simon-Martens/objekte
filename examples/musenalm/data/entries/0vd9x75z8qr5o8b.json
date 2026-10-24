@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelauflage des unterdrückten: Vergötterungs -Almanach für das Jahr 1801. Monument, Grabschriften, Stand- und Leichenreden auf Lebendige nebst einem verbesserten Heiligenkalender nach der Kantischen Kategorientabelle. Mit einem Kupfer. Ueberall und Nirgends; alm-4645",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Galgenreden, Monumente, Grabschriften, Stand- und Leichenreden auf noch lebende Armesünder 1801 (TA. von: Vergötterungs-Almanach 1801)",
+    "norm": "",
+    "biblio": 404435,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3451,
+  "parallel_title": "",
+  "place_statement": "Berlin und Leipzig",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Galgenreden, Monumente, Grabschriften, Stand- und Leichenreden auf noch lebende Armesünder 1801 (TA. von: Vergötterungs-Almanach 1801)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 166; nicht bei L/R; Goed VIII. 57, 35",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Galgenreden, / Monumente, Grabschriften, Stand- / und Leichenreden / auf / noch lebende Armesünder. / Mit einem Kupfer. / Berlin und Leipzig, / 1801",
+  "updated": "2026-06-11 10:18:54.690Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "1pj0ju89h2w55dm"
+  ],
+  "contents": [],
+  "agents": []
+}

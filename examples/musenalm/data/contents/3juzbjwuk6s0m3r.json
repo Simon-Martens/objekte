@@ -1,0 +1,45 @@
+{
+  "annotation": "Parabeln und Gnomen (Sammlung INr 85498, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Die Liebe ist die Mondnacht des Lebens;",
+  "language": [],
+  "musenalm_id": 85505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Wolf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.079Z",
+      "agent": "scp900xx95d632n",
+      "source_id": "2s5he1t2xewg1os"
+    }
+  ]
+}

@@ -1,0 +1,972 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.391Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Dichter; starb durch Freitod"
+      ],
+      "dateOfBirth": [
+        "1777-10-18"
+      ],
+      "dateOfDeath": [
+        "1811-11-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anton Graff"
+          ],
+          "creditText": [
+            "Gemäldegalerie Alte Meister The original uploader was Hajotthu at German Wikipedia."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Anton%20Graff%20Heinrich%20von%20Kleist%20%281%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Anton%20Graff%20Heinrich%20von%20Kleist%20%281%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Anton%20Graff%20Heinrich%20von%20Kleist%20%281%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1243982098"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-02T13:22:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118563076/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Bernd Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Joachim Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Julianne Ulrike"
+          ],
+          "surname": [
+            "Pannwitz"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrike Philippine"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold Friedrich"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Juliane (Julchen)"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine (Minetti)"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Katharine"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118563076",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118563076",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-101c)310579325",
+        "(DE-588a)127342362",
+        "(DE-588a)127342370",
+        "(DE-588a)126488444",
+        "(DE-588a)134889320",
+        "(DE-588a)126488436",
+        "(DE-588a)118563076",
+        "(DE-588c)4031121-1",
+        "(DE-588)1243982098"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018122-4",
+          "label": "Frankfurt (Oder)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4018122-4",
+          "label": "Frankfurt (Oder)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/5193755-4",
+          "label": "Wannsee (Ort)"
+        }
+      ],
+      "preferredName": "Kleist, Heinrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Kleist"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Der zerbrochne Krug",
+        "Amphitryon",
+        "Prinz Friedrich von Homburg",
+        "Die Familie Schroffenstein",
+        "Über das Marionettentheater",
+        "Das Bettelweib von Locarno",
+        "Die heilige Cäcilie oder die Gewalt der Musik. Eine Legende",
+        "Der Zweikampf",
+        "Das Erdbeben in Chili",
+        "Die Hermannsschlacht",
+        "Robert Guiskard, Herzog der Normänner",
+        "Michael Kohlhaas. Aus einer alten Chronik",
+        "Das Käthchen von Heilbronn oder Die Feuerprobe. Ein großes historisches Ritterschauspiel",
+        "Katechismus der Deutschen",
+        "Die Verlobung in St. Domingo",
+        "Penthesilea",
+        "Die Marquise von O....",
+        "Über die allmähliche Verfertigung der Gedanken beim Reden,",
+        "Der Findling"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Bernd Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119098487"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80126229"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/kleist-heinrich-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7392307"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11639.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q28494"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118563076/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1243982098"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118563076"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Heinrich_von_Kleist"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_von_Kleist"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Heinrich_von_Kleist"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_von_Kleist"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121192337"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118563076"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118563076"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563076.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563076.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118563076"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/241B5D5B01D446A2AB2FF46148A1B968"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118563076"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118563076"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "克來斯特",
+        "Kleist, H. V.",
+        "크라이스트 하인리히 폰",
+        "Kleist, Bernhard Heinrich Wilhelm von",
+        "Kleist, Heinrich Wilhelm von",
+        "Kleist, B. Wilhelm Heinrich von",
+        "하인리히 폰 크라이스트",
+        "海因里希‧冯‧克莱斯特",
+        "Ha in li hi pon Keu la i seu teu",
+        "Kleist, Bernd Wilhelm Heinrich von",
+        "קלייסט, היינריך פון",
+        "Kleist, Henrich von",
+        "Kleist, Bernd Heinrich Wilhelm von",
+        "Kleist, Enrico von",
+        "Klejst, Genrich fon",
+        "Ḳlaisṭ, Hainrikh fon",
+        "クライスト, ハインリヒ/フォン",
+        "Klajst, Genrich",
+        "Kleist, Henricus de",
+        "Kuraisuto",
+        "克莱斯特, 冯/海因里希",
+        "Klaïst, Errikos phon",
+        "Kleist, Henryk von",
+        "Kleist, Henryk",
+        "Klajst, Chajnric fon",
+        "Kleist, Henri de",
+        "Kleist, Bernd H. von",
+        "Kuraisuto, Hainrihi fon",
+        "Kleist, Bernd W. von",
+        "Keu la i seu teu, Ha in li hi pon",
+        "Klajst, Hajnrik fon",
+        "Kleist, H. v.",
+        "Kleist, Genrikh",
+        "Klajst, Hajnrih fon",
+        "Клейст, Генрих фон",
+        "Kleist, Bernd Heinrich von",
+        "Qleist, Heinrik fon",
+        "Klayst, Hāynriš fūn",
+        "Kleist, Enric de",
+        "Kleist",
+        "Klaïst, Herrikos phon",
+        "Kljajst, Genrich",
+        "ハインリヒ・フォン・クライスト"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Hainrikh"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Ḳlaisṭ"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrik"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Qleist"
+          ]
+        },
+        {
+          "forename": [
+            "Bernd Wilhelm Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Ha in li hi"
+          ],
+          "prefix": [
+            "pon"
+          ],
+          "surname": [
+            "Keu la i seu teu"
+          ]
+        },
+        {
+          "forename": [
+            "Bernd Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Genrich"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Klejst"
+          ]
+        },
+        {
+          "forename": [
+            "Genrich"
+          ],
+          "surname": [
+            "Klajst"
+          ]
+        },
+        {
+          "forename": [
+            "B. Wilhelm Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "personalName": [
+            "克來斯特"
+          ]
+        },
+        {
+          "forename": [
+            "Henrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "היינריך פון"
+          ],
+          "surname": [
+            "קלייסט"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Wilhelm von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Genrikh"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "personalName": [
+            "海因里希‧冯‧克莱斯特"
+          ]
+        },
+        {
+          "forename": [
+            "Bernd Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Bernd Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Генрих"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Клейст"
+          ]
+        },
+        {
+          "forename": [
+            "冯/海因里希"
+          ],
+          "surname": [
+            "克莱斯特"
+          ]
+        },
+        {
+          "forename": [
+            "Hajnrik"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Klajst"
+          ]
+        },
+        {
+          "forename": [
+            "Henri"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "personalName": [
+            "크라이스트 하인리히 폰"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Henryk"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Errikos"
+          ],
+          "prefix": [
+            "phon"
+          ],
+          "surname": [
+            "Klaïst"
+          ]
+        },
+        {
+          "forename": [
+            "Enrico"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "ハインリヒ/フォン"
+          ],
+          "surname": [
+            "クライスト"
+          ]
+        },
+        {
+          "forename": [
+            "Chajnric"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Klajst"
+          ]
+        },
+        {
+          "personalName": [
+            "Kuraisuto"
+          ]
+        },
+        {
+          "forename": [
+            "H. V."
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "personalName": [
+            "하인리히 폰 크라이스트"
+          ]
+        },
+        {
+          "forename": [
+            "Genrich"
+          ],
+          "surname": [
+            "Kljajst"
+          ]
+        },
+        {
+          "personalName": [
+            "Ha in li hi pon Keu la i seu teu"
+          ]
+        },
+        {
+          "personalName": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Hāynriš"
+          ],
+          "prefix": [
+            "fūn"
+          ],
+          "surname": [
+            "Klayst"
+          ]
+        },
+        {
+          "forename": [
+            "Hainrihi"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Kuraisuto"
+          ]
+        },
+        {
+          "forename": [
+            "Enric"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Bernd W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Henryk"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Hajnrih"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Klajst"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "personalName": [
+            "ハインリヒ・フォン・クライスト"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Herrikos"
+          ],
+          "prefix": [
+            "phon"
+          ],
+          "surname": [
+            "Klaïst"
+          ]
+        },
+        {
+          "forename": [
+            "Bernd H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_von_Kleist",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_von_Kleist"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:56:15Z",
+    "gnd_query_biographical_data": "1777-1811",
+    "gnd_query_name": "kleist, heinrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1405,
+  "name": "Kleist, Heinrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 96",
+  "updated": "2026-06-11 13:29:23.223Z",
+  "uri": "https://d-nb.info/gnd/118563076",
+  "editor": ""
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1806, 1808; Augsburg (Rollwagen); Hrsg: G. A. Neufifer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Toilettengeschenk (Augsburg; Neuhofer) 1808",
+    "norm": "",
+    "biblio": 409134,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-11-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4241,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Toilettengeschenk (Augsburg; Neuhofer) 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 162; nicht bei L/R; Goed VII, 171, 16, 6; Goed VIII. 64, 92",
+  "responsibility_statement": "Neuhofer",
+  "subtitle_statement": "",
+  "title_statement": "Toiletten Geschenk / zur angenehmen / Unterhaltung / für / Frauenzimmer / auf das Jahr / 1808. / Augsburg / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:54.971Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "zqe6h7yy75qrrhh"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.348Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.348Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "r7rj6xl7gw45vhw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.144Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.144Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "ys0b89iiq51oewd"
+    }
+  ]
+}

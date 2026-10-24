@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Februar; nummeriert 2. /) Illustration zu »Cecilia oder Geschichte einer reichen Waisen« s. G-Verz 108285, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108273,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J'ai promis a Miss Beverley, Madame, que vous / la recevrés avec bonté. / I. T. p. 304 / Ich habe Miß Beverly versprochen, dass / Sie sie gütig aufnehmen würden. I. T. 273. S.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fec.",
+  "scans": [
+    "alm_2167_108273_8dzyqbfjeq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J'ai promis a Miss Beverley, Madame, que vous / la recevrés avec bonté. / I. T. p. 304 / Ich habe Miß Beverly versprochen, dass / Sie sie gütig aufnehmen würden. I. T. 273. S.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.326Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "i3cbfw1pdvg3vx9"
+    }
+  ]
+}

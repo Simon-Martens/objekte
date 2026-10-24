@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Humoristische Gedichte (INr 93428, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Preiset immer die ländlichen Freuden, / Redet freundlich den Dörfern das Wort,",
+  "language": [],
+  "musenalm_id": 93431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anti-Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anti-Idylle",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.419Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "z49wbuyhkt1gfwq"
+    }
+  ]
+}

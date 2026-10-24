@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Der Lorbeer den für dich die Freudschaft wand - ihn bleichet / in kurzem schon die rauhe Hand der Zeit,",
+  "language": [],
+  "musenalm_id": 101232,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Prandt / Regisseur und Mitglied des Frankfurter / Nationaltheaters zu seinem Geburts- / tag 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Prandt / Regisseur und Mitglied des Frankfurter / Nationaltheaters zu seinem Geburts- / tag 1793",
+  "updated": "2014-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.792Z",
+      "agent": "jpru4ovquk7hzv8",
+      "source_id": "e7fczswr2gpuu13"
+    }
+  ]
+}

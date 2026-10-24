@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember /) s. folgenden Textbezug INr 82720, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82719,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. Berka inve. sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka inve. sc.",
+  "scans": [
+    "alm_3817_82719_9skvxck7w2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.936Z",
+      "agent": "jlkwrxo4vggz8uy",
+      "source_id": "yzfz3scmyn0taq0"
+    }
+  ]
+}

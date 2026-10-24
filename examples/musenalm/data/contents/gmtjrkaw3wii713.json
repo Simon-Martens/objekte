@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Gießen wir überflüssig den Wein in den schäu- / menden Römer,",
+  "language": [],
+  "musenalm_id": 97096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viele zu stark Fühlende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. J. F. Kinderling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viele zu stark Fühlende",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.906Z",
+      "agent": "mwzrgbhkb92s8o7",
+      "source_id": "q90rdu9xw8dksm4"
+    }
+  ]
+}

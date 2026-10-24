@@ -1,0 +1,45 @@
+{
+  "annotation": "Ritornelle (Sammlung INr 45465, Obj 174)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Weiße Hundszunge! / Sonst klang ihr Stimmchen wie ein Silberglöckchen:",
+  "language": [],
+  "musenalm_id": 45480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weiße Hundszunge! / Sonst klang ihr Stimmchen wie ein Silberglöckchen:…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Schimper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.192Z",
+      "agent": "u5s6hi2kvh4f7vh",
+      "source_id": "bg342dipap6vvzg"
+    }
+  ]
+}

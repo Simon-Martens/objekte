@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Vom Kloster Corvei (Sammlung INr 117066, Obj 21) Balladen (Sammlung INr 117064, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Feierlich vor allen Festen / Ward zu Corvei von den Brüdern / Der St. Vitus begangen.",
+  "language": [],
+  "musenalm_id": 117068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Ungenügsamen Strafe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Nep.Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Ungenügsamen Strafe",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.574Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "0hbim2mix3o4sow"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Glühe nur, Flamme der Pein, / Glühe mir tief in's Gebein!",
+  "language": [],
+  "musenalm_id": 68113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein andres",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Immermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein andres",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.309Z",
+      "agent": "47huvmykx9z6337",
+      "source_id": "c2p8jcfot5vsnsb"
+    }
+  ]
+}

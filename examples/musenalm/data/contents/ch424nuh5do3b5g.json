@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Brunnen auf dem neuen Markte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blascke sc.",
+  "scans": [
+    "alm_4014_91045_ne7h09jtcf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Brunnen auf dem neuen Markte",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.316Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "qpl29yew4f4ldt4"
+    }
+  ]
+}

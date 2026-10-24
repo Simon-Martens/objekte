@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Täuscht mich die süßeste Erinn'rung nicht, / Versprachst drei Küsse du für ein Gedicht.",
+  "language": [],
+  "musenalm_id": 93951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adelaiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Freiherr von Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adelaiden",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.667Z",
+      "agent": "ox2w0lw2pa3no6e",
+      "source_id": "9g2u431ojh941ir"
+    }
+  ]
+}

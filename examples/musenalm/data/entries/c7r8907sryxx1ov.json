@@ -1,0 +1,97 @@
+{
+  "annotation": "lt. Holzmann Bohatta: Verf.: Joseph August Schultes",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 5 SS Vrwrt d Hrsg, S I-Verz, zT, 15 SS Kal, SS 1-299 darin G, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ehestandsalmanach 1799",
+    "norm": "",
+    "biblio": 411488,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1728,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Montag und Weiß)",
+  "places": [],
+  "preferred_title": "Ehestandsalmanach 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 43; L/R 170",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Ehestandsalmanach / für / das Jahr 1799. / Ein / Taschenbuch / für / Eheleute und Ehelustige. / Regensburg, / bey Montag und Weiß",
+  "updated": "2026-06-11 10:18:55.611Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "ib8fb51k9n1dnqc"
+  ],
+  "contents": [
+    "jd8mre64ysb3ltr",
+    "izz3w1yqmm01ejn",
+    "aar47xw5ngwjdpt",
+    "abo77uzrjvfmk5t",
+    "cr0c06qa4hutwzr",
+    "59m57jqwebukvhw",
+    "vmojcesn9r55kwe",
+    "5tdoa3jt0a2pfc9",
+    "owbkt5zait34uld",
+    "82z1xur70f0fsag",
+    "9pxwb59oareh2dh",
+    "gw00mj5biwdneca",
+    "2agljgpnukfa1ob",
+    "zzo4sf3tj04p7r0",
+    "sf8f9s220ohwx1f",
+    "2joli03mf6e7i0g",
+    "vk8r1sg2qnug0wb",
+    "1acgw8t1fg1q0rz",
+    "vfnulec212azuqe",
+    "ifruuu50uojq8dr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "jc0tm322n6jhz3l",
+      "source_id": "0zuu4q8uah3lwin"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "cd11rvd1kfhc02z",
+      "source_id": "gfur30hut17r0xa"
+    }
+  ]
+}

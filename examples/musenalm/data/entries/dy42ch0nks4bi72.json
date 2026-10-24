@@ -1,0 +1,87 @@
+{
+  "annotation": "Format 7,5 x 9. Mit Kalendarium, 8 Graphiken und 7 poetischen Beiträgen. Der Almanach ist  offenbar nicht Bestandteil der Reihe »Taschenkalender, Berlinischer (Berlin, Königl. Preuß. Kalender-Deputation)« 1816-1826 oder der Reihe »Kalender, Berliner (Berlin, Königl. Preuß. Kalender-Deputation« 1827-1850. s. Jg 1844 in gleicher Aufmachung mit Kompilation von 6 zusätzlichen Suiten aus 8 Graphiken mit 8 Gedichten: Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1841; Alm-898",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 7 BB Kal darin 7 GG, SS 1-79, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1836",
+    "norm": "~",
+    "biblio": 409285,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-05-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4315,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Königl. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr 1836, / mit / Gedichten und 8 dazu gehörigen Kupfern. / Für die Römisch-Katholischen bedeutet † einen gebotenen / Fasttag und * einen in den Preußischen Landen auf- / gehobenen Festtag. / Herausgegeben von der Königl. / Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.269Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "x4lnhlwm1yo1s8j"
+  ],
+  "contents": [
+    "mf2r3n5cx3b1ru1",
+    "83ogky4snl8qxsq",
+    "yw9wjbb9hpviv57",
+    "hhgkeejw14b0bdb",
+    "868iaqrijnw7ygo",
+    "1ioev5pw8wzou39",
+    "grr1thdg8hxphia",
+    "c37k3q4zgpum2hs",
+    "cyf0uvkv9najul1",
+    "cpk8cbe7jmlv9n5",
+    "ksi8lwrie0fv14t",
+    "tjedhtwuq69ypbn",
+    "jl6qppmoj837t95",
+    "txnewckn1aazpgm",
+    "ej0zgne391c2yk6",
+    "a4orhy9w3ddbz42",
+    "b98t80xa8sa5szx",
+    "5p81qcl191wk7iw",
+    "rwqd14d2jorfqe7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "vcd4efcitsj197u"
+    }
+  ]
+}

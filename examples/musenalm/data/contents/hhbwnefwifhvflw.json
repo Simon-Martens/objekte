@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus den Küssen des Johannes Secundus (Sammlung INr 89215, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Hinter die Schläfe zog der Idalische Kna- / be den Bogen, / Schöne Neära, mit Groll, dich zu ver- / wunden gedacht.",
+  "language": [],
+  "musenalm_id": 89218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Amors Schwur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Amors Schwur",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.032Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "2czdfutbsaclsw6"
+    }
+  ]
+}

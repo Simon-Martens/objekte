@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alpenrosen 1854",
+    "norm": "",
+    "biblio": 106601,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-05-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4423,
+  "parallel_title": "",
+  "place_statement": "Basel (Schweighauser)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Alpenrosen 1854",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 22; nicht bei L/R; nicht bei Goed VIII. 76, 134",
+  "responsibility_statement": "A. E. Fröhlich",
+  "subtitle_statement": "",
+  "title_statement": "Alpenrosen / auf / das Jahr 1854. / Herausgegeben / von / A. E. Fröhlich, / Mit Beiträgen / von /Jeremias Gotthelf, K. R. Hagenbach, / M. A. Feierabend, Fr. / Isenschmid, Fr. Krutter, Th. Meyer-Merian, / Friedr. Oser, / B. Reber, Heinr. Weber. / Basel, / Schweighauser'sche Verlags-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.193Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "items": [
+    "tjucjn5xrtbmxcx"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.150Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.150Z",
+      "agent": "sdel9pv3gwbaibx",
+      "source_id": "zmnepbheaag5z8o"
+    }
+  ]
+}

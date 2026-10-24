@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Nach einem der heißen Tage, von denen im Langedoc die Redensart gilt, daß sie den Trauben Saft, dem Mais Mehl, den Oliven Oel und den Menschen einen Vorgeschmack des Fegefeuers geben,",
+  "language": [],
+  "musenalm_id": 44627,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Esclarmonda. / Historische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Claire von Glümer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Esclarmonda. / Historische Erzählung",
+  "updated": "2006-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.472Z",
+      "agent": "f7yofsy89poj4im",
+      "source_id": "1589j1gmr3j9w7b"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "annotation": "<div>KVK; Landesbibliothek Coburg: Jgg 1823-1834</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 17 SS Kal darin 6 GG, 7 SS Tabb, S 1 zT, SS 3-107, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Liebe und Freundschaft (Wien) 1832",
+    "norm": "",
+    "biblio": 411531,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2025-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4880,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [],
+  "preferred_title": "Almanach der Liebe und Freundschaft (Wien) 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / der / Liebe und Freundschaft / für 1832. / Edlen Frauen und Mädchen gewidmet. / WIEN, / Pfautsch's Verlag, Kurrentgasse No. 414",
+  "updated": "2026-06-17 10:44:43.615Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "e7ji0z29ywxx462",
+    "z9hs2psc5gd81bc",
+    "ljct3d1a4mzhflt",
+    "97qdysbxlk438da",
+    "q6yzd76e1n088we",
+    "oltmsas9tk9o5q9",
+    "9qu3n4defjd8kwj",
+    "jr2u8j6wsf40okx",
+    "i3820plgry5zw9e",
+    "6tepjoktjkc8mio",
+    "vztqjap6l3vfncm",
+    "q74ch5dhoysktc4",
+    "30kp7dk0ktcne22",
+    "3quutchbumw13oi",
+    "iqc38r5i7fyil9j",
+    "h78o3f637y0ru6b",
+    "o0koc87qb0g4yis",
+    "uclfhj1bcbc42t7",
+    "s3aan2elftuw96f",
+    "hznzo9n907gc88q",
+    "9q6t201k69xbps5",
+    "j6yocmeihdu3ak5",
+    "eaxglaupkbd3q4c",
+    "mysy5pgf1dodojf",
+    "78omf06agmgir7f",
+    "i1hhfq6r3f0veht",
+    "o8w5a2jge6lp0p7",
+    "4ldf2gwi65bs9up",
+    "1ji6f2bahkrs27b",
+    "s86cjzsiyv5bmvg",
+    "r6vwbzabsk04xv6",
+    "uvslyf2cxv051dp",
+    "lia5qv1r1a6mlrd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.205Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-17 10:44:43.615Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "tzkyoa3birubdlk"
+    }
+  ]
+}

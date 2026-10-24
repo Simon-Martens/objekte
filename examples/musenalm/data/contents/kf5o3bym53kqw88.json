@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3. /) Graphik im Kalendarium März /) Illustration zu »Die Jäger« von A. W. Iffland. Textbezug INr 70118, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70104,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da, - da bring ich Dir Dein Riekchen, mein Goldmädchen. / I. Aufz. 8. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec.",
+  "scans": [
+    "alm_798_70104_yhzy1z56um.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da, - da bring ich Dir Dein Riekchen, mein Goldmädchen. / I. Aufz. 8. Auftr.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.247Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "sebj5xlm4dpdsky"
+    }
+  ]
+}

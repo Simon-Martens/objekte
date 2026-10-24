@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Aber den Menschen erfreun süßreifende Gaben des / Fruchtbaums,",
+  "language": [],
+  "musenalm_id": 42707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 240,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anti-Arabeske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anti-Arabeske",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.188Z",
+      "agent": "3otd6uv72ls66y4",
+      "source_id": "fmqm37866jj203v"
+    }
+  ]
+}

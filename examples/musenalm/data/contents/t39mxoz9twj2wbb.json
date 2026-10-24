@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 88, 16005; Obj 78, 79",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FABLES / TRADUITES DE L'ALLEMAND DE MR. PFEFFEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "PFEFFEL (nach Fréderique P.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "FABLES / TRADUITES DE L'ALLEMAND DE MR. PFEFFEL",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.776Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "s9zgp09u54mqtvn"
+    }
+  ]
+}

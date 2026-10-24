@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Der Feldzug von 1796 ist zu unermeßlichreich an Thaten und Katastrophen, als daß der im vorigen Jahrgange",
+  "language": [],
+  "musenalm_id": 9110,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VorErinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Posselt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VorErinnerung",
+  "updated": "2001-01-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.994Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "led1rv5xhnp8ozz"
+    }
+  ]
+}

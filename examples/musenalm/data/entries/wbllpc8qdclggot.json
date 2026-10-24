@@ -1,0 +1,109 @@
+{
+  "annotation": "<div>Fortsetzung von: Kalender, Historischer für Damen (Archenholz, Wieland) (Schiller) 1790-1793; alm-2141-alm-2144 /) Anm. am Schluß des Beitrags »Abriß der Begebenheiten des allgemeinen Kriegs der Spanischen Erbfolge« S. 144: Der Schluß, bey welchem sich eine Schilderung des Einflusses finden wird, den dieser Krieg in politischer, mitlitärischer und moralischer Rücksicht auf unser Jahrhundert gehabt hat, folgt im nächsten Almanach. /) Ein Folgejahrgang ist nicht nachweisbar</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G T, 16 BB Kal darin 12 GG, 8 BB G-Verz, G, ar: SS 1-100, ar1: SS 1-144, 2 GG, SS I-XC, S I-Verz u VrlgM, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer (Göschen) 1794",
+    "norm": "~",
+    "biblio": 200655,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2140,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender, Historischer (Göschen) 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / CALENDER / für / das Jahr 1794. / Geschichte / des / achtzehnten Jahrhunderts. / Leipzig, / bey G. J. Göschen",
+  "updated": "2026-07-23 10:14:01.432Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "wggh28pqw4wbplm"
+  ],
+  "contents": [
+    "ihlqj5bvea47nxt",
+    "cjuj9cj9fwz46f8",
+    "vyri5vloawpa032",
+    "la22c4fjlltxs3g",
+    "g1n3wclebij8q49",
+    "9t6166fe60t4nk2",
+    "k73eesst95k8wln",
+    "wlrciwgvpf5edyx",
+    "akyy66t5q15bfne",
+    "wod1l7lk1bhx42u",
+    "82d5f16mkrexi1n",
+    "bka6i9e06kx48cj",
+    "mlhdzs4yfdssiyv",
+    "t8i25em91isuvdj",
+    "5jdrc5ch2or1xy5",
+    "ulo9k8pqzzkcgxy",
+    "xhvd2vnnlvdk5zg",
+    "gheqj8gjd8ivr92",
+    "2zv7dfho1p9a3dp",
+    "kkjk2ol7rjrjsmj",
+    "wlb6ueuoqitg4ar",
+    "7rpns7oscx78vdn",
+    "l9ux1uehxt0py7n",
+    "4tazpkc0apcw6lf",
+    "ruyiywha8hpckna",
+    "oeesd4j8f173wfs",
+    "0i95395e8h082h7",
+    "f2lwhw4g5hp3i1j",
+    "7oyg6vpasaqt10h",
+    "3i8u4lvmv1a20w2",
+    "2uc7s1nt2qvqbqo",
+    "8es5zu981idl1ja",
+    "1qhvmbgp0nuihn7",
+    "jjtvgm5lb63h5fa",
+    "as3quacrasoubd6",
+    "7m1syie5zi6yasi",
+    "1hyap3jctoqxwvh",
+    "g0wdb54y1raemzy",
+    "833ewaybtyj48b1",
+    "ncfmhpog15boavm",
+    "q2i1f8gw06x1kd3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.918Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-23 10:14:01.439Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "hm7sxu7tvwazcg7"
+    }
+  ]
+}

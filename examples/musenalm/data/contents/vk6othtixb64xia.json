@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) llIustration zu »Die Zaubrer und der Ritter« von Fouqué INr 26394, Obj 24 s. a. Textbezug INr 26386, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26387,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zaubrer und der Ritter von de la Motte Fouqué. / S. 8",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. F. Geißler sc.",
+  "scans": [
+    "alm_340_26387_ebq7wqns5y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Zaubrer und der Ritter von de la Motte Fouqué. / S. 8",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.075Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "67ofmg71iz7igjy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.075Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "fzifhwercvk8g7w"
+    }
+  ]
+}

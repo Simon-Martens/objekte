@@ -1,0 +1,45 @@
+{
+  "annotation": "Giseke",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Der Gunst der Großen kann man sicher / trauen, / Und Häuser, aber nur von Karten, darauf / bauen.",
+  "language": [],
+  "musenalm_id": 3681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gnade der Großen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hlodowich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gnade der Großen",
+  "updated": "2000-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.883Z",
+      "agent": "41u796off43ym0d",
+      "source_id": "kvf8yuxqjyq3d90"
+    }
+  ]
+}

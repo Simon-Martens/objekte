@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 8951, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Bildschöner Tag! Von Herzen, denk' ich dein, / Als wir, redselig froh, beysammen sassen,",
+  "language": [],
+  "musenalm_id": 8952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.352Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "olf5zae4b1pnawj"
+    }
+  ]
+}

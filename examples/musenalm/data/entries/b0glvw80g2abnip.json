@@ -1,0 +1,113 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, B VrlgM, 11 BB Kal darin 12 GG u. 2 GG, SS 1-245, S VrlgM, 42 BB Tab, 33 SS Tab, VrlgM, 36 SS Tab, 2 SS Tab, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Berlinischer 1802",
+    "norm": "~",
+    "biblio": 105963,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 441,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Damenkalender, Berlinischer 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 70; Goed VIII. 49, 8; Goed VI. 384, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "BERLINISCHER / DAMEN- / KALENDER / auf das Jahr / 1802. / mit 15 Kupfern / BERLIN / bei Joh. Fr. Unger",
+  "updated": "2026-06-11 10:18:55.604Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "lsn4dbz20oh6tir"
+  ],
+  "contents": [
+    "mtlo9ejj9dw8li8",
+    "ash3d3vdm31f5vy",
+    "iw6wtj2qaufn4h7",
+    "b9wufu15j6r55f0",
+    "qnft0p90o6rizei",
+    "tnnl01ts5fsk61t",
+    "ki3tiklr59142f7",
+    "mw0huda4m40djc9",
+    "80r9f2ehkdsmmel",
+    "hrdeqi6vezsn3w3",
+    "ot5x1cpenvq0dup",
+    "lz6od2vkwcz5ygw",
+    "0vagkqkqwyl9ztm",
+    "bgxxo1yhzofcl7p",
+    "fnj83onzvereon7",
+    "hdupz20m42tmnk4",
+    "v90xmcs6m0xkw3e",
+    "eepe6rw1o86s1lr",
+    "isorulj87vbpkoz",
+    "aak53fkyqqpo1jz",
+    "6ypsz7htwzdc5pm",
+    "6h5tjwhua4laz1s",
+    "zrzxrfdjypo6idt",
+    "7c68j3rpqk2v679",
+    "5h3181siiimqbxd",
+    "rzcqdr7125f271f",
+    "2fpfx3ms0jmup84",
+    "byi2ry2puwcqj55",
+    "092zh3lmhdd9fbv",
+    "os6s4muval8ekkz",
+    "mzxbr4dxkz1gztw",
+    "6rtwzymoofsylb8",
+    "yduo6p3dic8bvsb",
+    "d5zzdo0vu3mu82n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.665Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.665Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "p55z8gljj3oqg3j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "rfg9ssx6iialxse"
+    }
+  ]
+}

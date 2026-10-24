@@ -1,0 +1,96 @@
+{
+  "annotation": "2 Jgg 1843, 1844;  Wien: Tauer & Sohn; Hrsg.: Andreas Schumacher",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, S I-Verz, nT, SS 1-400",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Österreichischer 1843",
+    "norm": "~",
+    "biblio": 404374,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-07-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1093,
+  "parallel_title": "",
+  "place_statement": "Wien (Tauer u. Sohn)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Österreichischer 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 91; nicht bei L/R; Radtke 12, 13, 15, 16",
+  "responsibility_statement": "Andreas Schumacher",
+  "subtitle_statement": "",
+  "title_statement": "Oesterreichischer / Novellen-Almanach. / Herausgegeben / von / Andreas Schumacher. / Wien, 1843. / Verlag von Tauer & Sohn, / Schulhof No. 413",
+  "updated": "2026-06-11 10:18:55.343Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "78nvuw3yown2e92"
+  ],
+  "contents": [
+    "awl4rszn2wwftjd",
+    "0jb6onwnr1gyk2p",
+    "ohhulkigqjuxkdj",
+    "60n7lzjvxwhv06l",
+    "kcm9fx6r8z0cjed",
+    "wwb4vle9t4n3zfk",
+    "8pvqdg450aj8gt7",
+    "g590dgeecxyao2d",
+    "pgn1zckvr77w0tc",
+    "csgy7ffr3y3goe5",
+    "behffqikioo1hey",
+    "72cx0vh1q80dj1t",
+    "ilfzyb5suxnztws",
+    "8rtsxtq6xty6za7",
+    "bwht7zw6vyfwwkn",
+    "8ys71kwgztqghjn",
+    "ixqsnh0vm0flaan"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.820Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.820Z",
+      "agent": "w54qzevkgviemdi",
+      "source_id": "i3lli6xt14psi4n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.161Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.161Z",
+      "agent": "46u8ced8j2y0r4z",
+      "source_id": "tuj7vs5xnbzt5s1"
+    }
+  ]
+}

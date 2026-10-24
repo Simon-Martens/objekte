@@ -1,0 +1,70 @@
+{
+  "annotation": "Die franz. Ausgabe mit 2 statt 15 Modekupfern und abweichender Paginierung /) Titel und Titelportrait als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 2 GG, 15 BB Kal darin 12 GG, B, ar: SS 1-75, 3 SS, ar1: SS 1-126, 2 SS I-Verz VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1783 (franz. Ausgabe: Almanac genealogique pour l’année 1783)",
+    "norm": "~",
+    "biblio": 408136,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-09-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4020,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg)",
+  "places": [
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1783 (franz. Ausgabe: Almanac genealogique pour l’année 1783)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / Genealogique / pour l'Année / 1783. / Lauenbourg / chez / J. C. Berenberg",
+  "updated": "2026-06-11 10:18:55.889Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "erf9oeflw37rpbx"
+  ],
+  "contents": [
+    "h8mqniz7sirxqap",
+    "yy5gpvzre3lgd5c"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.532Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.532Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "cwvqqzvnncbxzkd"
+    }
+  ]
+}

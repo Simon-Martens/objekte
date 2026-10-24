@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zur Sammlung »Reliquien« von v. Schenkendorf",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Diese von theurer Freundeshand mir zugekommenen, nur in einem kleinen Kreise bekannt gewordenen Lieder werden gewiß allen Lesern, die des Verewigten frommen, ächt deutschen Sinn zu schätzen wissen, eine sehr angenehme Gabe seyn.",
+  "language": [],
+  "musenalm_id": 123141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diese von theurer Freundeshand mir zugekommenen, nur in einem kleinen Kreise bekannt gewordenen Lieder werden gewiß allen Lesern, die des Verewigten frommen, ächt deutschen Sinn zu schätzen wissen, eine sehr angenehme Gabe seyn.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2019-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.828Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "w4dp5m6750bsx77"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87983, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87995,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabmal des Elabelus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3101_87995_8innwvv2mk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Grabmal des Elabelus",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.903Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "dgf9kt2hk0759nl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.903Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "gzevfxu68b98eol"
+    }
+  ]
+}

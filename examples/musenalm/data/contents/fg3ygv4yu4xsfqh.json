@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Sommer (Sammlung INr 99263, Obj 169) III. Rheinland (Sammlung INr 99244, Obj 150)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Jetzt bricht der Sturm mit wilder Macht herein, / An's Fenster pochen windgeschlagne Aeste;",
+  "language": [],
+  "musenalm_id": 99266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 172,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.527Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "ewkp7ylvceaaohi"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spenden aus dem Archive des Sonntagsvereins 1829",
+    "norm": "",
+    "biblio": 409209,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4287,
+  "parallel_title": "",
+  "place_statement": "Berlin ( Maurer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Spenden aus dem Archive des Sonntagsvereins 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 102; nicht bei L/R, Goed VIII. 122, 320",
+  "responsibility_statement": "Ludwig Liber",
+  "subtitle_statement": "",
+  "title_statement": "Spenden / aus dem Archive / des / Sonntagsvereins. / Zum Besten der in den Preuß. Niederungen durch / Ueberschwemmungen Verunglückten. / Berlin, 1829. / Maurer'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.412Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "4cfg286ljvjmcu7"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.104Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.104Z",
+      "agent": "uacpcajd0vzsizs",
+      "source_id": "fegrnfnd6zwwa23"
+    }
+  ]
+}

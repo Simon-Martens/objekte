@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Die Erwartung von ganz Europa war auf Lüneville gerichtet, wo seit dem Waffenstillstande von Steyer (28. December 1800) dem auch bald der von Treviso (28. Jäner 1801) gefolgt war, der Graf von Cobenzl und Joseph Bonaparte den Frieden",
+  "language": [],
+  "musenalm_id": 91017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lüneviller Friede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Lüneviller Friede",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.255Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "cg790nha4lf5dan"
+    }
+  ]
+}

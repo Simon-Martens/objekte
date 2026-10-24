@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelportrait  Fr. Bolz del et sculp. »Wieland« fehlt hier; s. deutsche Ausgabe Alm Nr 30",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "ar: S 1 T, 4 GG, SS 3-60 Kal darin 4 GG, ar1: S 1 T, SS 3-217 darin 8 GG, SS 218-222 G-Verz, 3 SS I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1806 (franz. Ausg.: Almanach de Goettingue 1806)",
+    "norm": "~",
+    "biblio": 407167,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-05-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3971,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1806 (franz. Ausg.: Almanach de Goettingue 1806)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / de / GOETTINGUE / an XIV. (1806.) / A Goettingue / chez Henri Dieterich",
+  "updated": "2026-06-11 10:18:55.218Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "nm4i5suk5azfpe4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.941Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.941Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "25jmey5rou1zuf3"
+    }
+  ]
+}

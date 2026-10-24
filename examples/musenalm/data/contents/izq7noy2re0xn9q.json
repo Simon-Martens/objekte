@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Carlsruhe durch Kunst Verlag",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102954,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ADELAIDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schuler fils. sculpsit",
+  "scans": [
+    "alm_3381_102954_dlx6pf465p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ADELAIDE",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.804Z",
+      "agent": "v51vo0pn5wj1lc4",
+      "source_id": "b125pzdf75lh6mj"
+    }
+  ]
+}

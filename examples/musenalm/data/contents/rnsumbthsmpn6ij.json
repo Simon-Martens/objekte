@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "Es überkömmt mich manchesmal, / Ich weiß dann selbst nicht, was?",
+  "language": [],
+  "musenalm_id": 95683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bewusstsein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bewusstsein",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.777Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "6h3gjkf28zxgubt"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. /) s. Textbezug INr 26495, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26497,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß u. Servitenkloster Schönbühl an der Donau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Klein del. Fr. Geißler sc.",
+  "scans": [
+    "alm_347_26497_0o34w0bau3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß u. Servitenkloster Schönbühl an der Donau",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.397Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "1o7n5ltt834clf3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.397Z",
+      "agent": "0ub57ews0fgevuy",
+      "source_id": "7nbiryhtldhl7vv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Distichen INr 22553-22562, Obj 67-75 /) Distichen (Sammlung INr 22522, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Asteria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Asteria",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.994Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "4jpax7y7df1nder"
+    }
+  ]
+}

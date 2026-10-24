@@ -1,0 +1,125 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 7 GG dazu 7 BB G-Verz, B I-Verz, S 1 nT, SS 3-467, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauentaschenbuch 1829",
+    "norm": "~",
+    "biblio": 100165,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 359,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (J. L. Schrag)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Frauentaschenbuch 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 47; L/R 75; Goed VIII. 86, 165",
+  "responsibility_statement": "Georg Döring",
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1829, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "updated": "2026-06-11 10:18:54.644Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "w395n98p9rpna8w"
+  ],
+  "contents": [
+    "62k6274hlud54pm",
+    "sxas6c7feliqx00",
+    "x5tpa3qk6rookpt",
+    "0r2q4mahxcytmxk",
+    "vpjszccplk06wb8",
+    "zardnr9784xy9ev",
+    "1tzgu5zyaz0o1fc",
+    "so7jku310vmzzcb",
+    "ic4ewbktpmnqjr2",
+    "e7woefwfvbbi7yb",
+    "mzi3lddh4fea3zd",
+    "5stwlp4rx8cpuav",
+    "uwlbpv3pfriweov",
+    "qi7uwbqq1ftu4tg",
+    "9l0icu38wqtpkqj",
+    "2w9cgp19a5c5x8l",
+    "i3neqck9hvzy8e8",
+    "do1zuxo92crx6iu",
+    "e1tyacj2mxrjet8",
+    "iat4eosbtrx5whl",
+    "av06inovsc680x6",
+    "56oj27m8k5y6liq",
+    "w66whnash3l0md7",
+    "4y48xv1zzw9srit",
+    "r1vz8h5f5p6offm",
+    "n0act7ry2eit4t5",
+    "uyw1cfm28bpji9p",
+    "j6m6x1lhzb43pyw",
+    "iwm041zsmwd0npq",
+    "u0708krkiuyxzyj",
+    "bjymyipkmak5010",
+    "g8f43dqkzrbvipa",
+    "262jce70vu0hkly",
+    "k156y3mqrrxondb",
+    "ukgwot29zo60sr8",
+    "1d5qsyynu78c2p2",
+    "loa0b6iqsj1boeu",
+    "y74cd00v8c9yd2a",
+    "14qftol0pbgeieh",
+    "qp4y4hvpcjavc8u",
+    "e86vbqto8dy3snl",
+    "vqnfpfvx8idg0sx",
+    "udeeiloxjnr9vkf",
+    "io9eutjrofw9qut",
+    "rgbxhwdsworsvst",
+    "hv1l03rti7xe0c6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.070Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.070Z",
+      "agent": "spbxl251etd1dvt",
+      "source_id": "8rvtzko22wlqoxz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.626Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.626Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "bwf2lyrdzx1mr76"
+    }
+  ]
+}

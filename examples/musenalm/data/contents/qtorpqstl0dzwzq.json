@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Voll Andacht senk' ich meinen Blick zur Erde, / Den Geist erhebt ein wonneselig Schau'n;",
+  "language": [],
+  "musenalm_id": 101517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Christ an das Kreuz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Harro Harring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Christ an das Kreuz",
+  "updated": "2013-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.917Z",
+      "agent": "8z1guozb85nkm4q",
+      "source_id": "yrt3wjig1cikq98"
+    }
+  ]
+}

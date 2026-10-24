@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Libussa 1856",
+    "norm": "",
+    "biblio": 106601,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2228,
+  "parallel_title": "",
+  "place_statement": "Prag (Calve); Leipzig (Mayer)",
+  "places": [
+    "d7kbujq7399g22j",
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Libussa 1856",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; nicht bei L/R",
+  "responsibility_statement": "Paul Aloys Klar",
+  "subtitle_statement": "",
+  "title_statement": "Libussa. / Jahrbuch für 1856. / Herausgegeben / von / Paul Aloys Klar, / [...] / Fünfzehnter Jahrgang. / Mit zwei gestochenen Portraiten und zwei gestochenen Kunstblättern. / Prag. / J. G. Calve's / Buchhandlung / in Prag. / C. H. Mayer's / Buchhandlung / in Leipzig",
+  "updated": "2026-06-11 10:18:55.917Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "items": [
+    "17e0pkdiyidxb0p"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.104Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.104Z",
+      "agent": "w7fv2ee9xso2h80",
+      "source_id": "5qg97q8k61nto5m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.637Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.637Z",
+      "agent": "ysfde24avhult3h",
+      "source_id": "fhqrpfczqczhvgl"
+    }
+  ]
+}

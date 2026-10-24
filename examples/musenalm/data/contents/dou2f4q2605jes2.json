@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Soll ich bei dir Ruhe finden, / Die du nicht als Unruh bist?",
+  "language": [],
+  "musenalm_id": 66006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Flüchtige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Messow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Flüchtige",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.929Z",
+      "agent": "u3h0otg4lapzo9f",
+      "source_id": "fz6foniefqnlcqe"
+    }
+  ]
+}

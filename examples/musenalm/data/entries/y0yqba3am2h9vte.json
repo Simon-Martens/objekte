@@ -1,0 +1,93 @@
+{
+  "annotation": "§ TG fehlt, §§ 2 GG fehlen /) 4 Jgg 1837-1840; Bunzlau (Appler); Hrsg.: L. Schefer /) Der Jg 1837 auch: als TA: Vergissmeinnicht, eine Prämiengabe zum Thüringer Stadt- und Landboten 1840",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "§ verso G, VB, T, 3 SS, S I- Verz G-Verz, 3 GG, SS 1-479, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Helena 1837",
+    "norm": "~",
+    "biblio": 106549,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1832,
+  "parallel_title": "",
+  "place_statement": "Bunzlau (Appun)",
+  "places": [
+    "0iaibicwu3uxte6"
+  ],
+  "preferred_title": "Helena 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 56; nicht bei L/R",
+  "responsibility_statement": "Leopold Schefer",
+  "subtitle_statement": "",
+  "title_statement": "Helena / Taschenbuch / für / 1837. / Erster Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+  "updated": "2026-06-11 10:18:55.649Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "la5lod4wqimromw"
+  ],
+  "contents": [
+    "bac0kyiboli3td7",
+    "7bjxbr9q56u07ki",
+    "wgx4uabuje975p8",
+    "3j6k0nsachjc543",
+    "qn9os0infu1dehh",
+    "f6x23gcmm3wa6dv",
+    "00kcy82ri9o8x8s",
+    "icnwn36ajqy1pqd",
+    "w7hhc914qyn31el",
+    "ozanufyv2edqme5",
+    "fpirwznf2wkfqx7",
+    "000z5w8l6bdqftr",
+    "2rjbr5c70ciyjzg",
+    "jx0c4eejpm818bv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.479Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.479Z",
+      "agent": "fohx9p9stkubrj5",
+      "source_id": "aixtjws5cqvejo8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.975Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.975Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "dzbek7y0zgwklix"
+    }
+  ]
+}

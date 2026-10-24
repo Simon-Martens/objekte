@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Willig nahmst du, zarter Stamm der Linde, / Meinen und Sophiens Namen auf.",
+  "language": [],
+  "musenalm_id": 11165,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. / An eine Linde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. / An eine Linde",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.175Z",
+      "agent": "z30t9keae9ak7mu",
+      "source_id": "piiwdqkx94h7psk"
+    }
+  ]
+}

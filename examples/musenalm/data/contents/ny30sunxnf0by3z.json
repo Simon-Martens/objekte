@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verlag v. J. D. Sauerländer / Druck v. F. W. Maas] s. Textbezug INr 44104, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44103,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE GRABLEGUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. F. W. Schadow Gest. v. Const. Müller",
+  "scans": [
+    "alm_598_44103_kqm9i1p7hf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE GRABLEGUNG",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "26vitnec2l92noy",
+      "source_id": "nb4wk4gx2hcaj7q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "0bmeck77h5fvi5x",
+      "source_id": "o3rq2zi03spjml5"
+    }
+  ]
+}

@@ -1,0 +1,1416 @@
+{
+  "annotation": "",
+  "biographical_data": "1313-1375",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.265Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "forename": [
+            "Caius"
+          ],
+          "surname": [
+            "Plinius Caecilius Secundus"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11901808X",
+          "label": "Badius Ascensius, Jodocus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119779978",
+          "label": "Paganutius, Marcus Antonius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118614215",
+          "label": "Sigmund, Österreich, Erzherzog"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118647180",
+          "label": "Aesopus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118657119",
+          "label": "Barbarus, Hermolaus, Iunior"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119730472",
+          "label": "Köler, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118632272",
+          "label": "Wickram, Jörg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118516132",
+          "label": "Bruni, Leonardo"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118747681",
+          "label": "Nepos, Cornelius"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Italienischer Humanist und Dichter; einige Werke in Latein"
+      ],
+      "dateOfBirth": [
+        "1313-06-16"
+      ],
+      "dateOfDeath": [
+        "1375-12-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Raffaello Sanzio Morghen / After Vincenzo Gozzini"
+          ],
+          "creditText": [
+            "Sumner, Charles (1875) The Best Portraits in Engraving (5th ed.), New York City: Keppel &amp; Co. OCLC: 17144657. , 2 August 2008 (upload date) by Xn4"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Boccaccio%20by%20Morghen.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boccaccio%20by%20Morghen.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Boccaccio%20by%20Morghen.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/138039623",
+        "https://d-nb.info/gnd/160580439",
+        "https://d-nb.info/gnd/159731771"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11851217X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "11851217X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11851217X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ita",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ita"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)138039623",
+        "(DE-588a)159731771",
+        "(DE-588a)160580439",
+        "(DE-588a)135428734",
+        "(DE-101c)311118739",
+        "(DE-588a)11851217X",
+        "(DE-588)160580439",
+        "(DE-588)159731771",
+        "(DE-588)138039623",
+        "(DE-588a)119623935",
+        "(DE-588c)4007319-1"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4085198-9",
+          "label": "Certaldo"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4085198-9",
+          "label": "Certaldo"
+        }
+      ],
+      "preferredName": "Boccaccio, Giovanni",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Giovanni"
+        ],
+        "surname": [
+          "Boccaccio"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Pauli, Johannes: Decamerone. 1583. (VD16 P 969)",
+        "Ein Hübsche history von eines reichen burgers sun vß der schoenẽ inseln Cippern geborn der ... 1516. (VD16 B 5830)",
+        "CEnto Nouella Johannis Boccatij. Hundert newer Historien welche ein erbar geselschafft ... 1547. (VD16 B 5823)",
+        "Mythica historia Ioannis Boccacij: \\[pro] Philippũ Beraaldu de Italico in latinum translata. In qua ... 1505. (VD16 B 5835)",
+        "De nobilitate et praecellentia feminei sexus ... 1566. (VD16 B 5818)",
+        "Decamerone. 1509. (VD16 B 5819)",
+        "Beroaldo, Filippo <der Ältere>: Declamatio ebriosi, scortatoris, aleatoris de vitiositate disceptantium. 1517. (VD16 B 2137)",
+        "Ein seer lustig vñ kürtzweilig Histori, von zweyen gesellen, die beyd vmb ein Edle Frawen ... 1530. (VD16 B 5831)",
+        "EJn Schoene Cronica oder Hystori bůch von den fürnaemlichsten Weybern so von Adams zeyten ... 1543. (VD16 B 5817)",
+        "Decamerone, Ausz. 1550. (VD16 ZV 7161)",
+        "Von Florio vnd Bianceffora. Ein gantz kurtzweilige History was diese beyde liebhabende ... 1559. (VD16 B 5845)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78087605"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64002165"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1402"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11851217X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/138039623"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159731771"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160580439"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/11851217X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Giovanni_Boccaccio"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Giovanni_Boccaccio"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Giovanni_Boccaccio"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Giovanni_Boccaccio"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121018590"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11851217X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11851217X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11851217X"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/239475B9FEE24C29A2A8AD296080ED5E"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11851217X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Boccatius von Certaldus, Joannes",
+        "Boccatius, Joannes",
+        "Boccaz",
+        "Boccaccio da Certaldo, Giovanni",
+        "Bokkaččo, ǅovanni",
+        "Boccacio, Juan",
+        "Certaldo, Johannes B. de",
+        "Boccace, Iean",
+        "Boccacio, Joannes",
+        "Bocacius, Johannes",
+        "Johannes, Boccatius",
+        "Di Boccaccio, Giovanni",
+        "Johannes, Boccarius",
+        "Boccacci, Giovanni",
+        "Boccaccio, Giouanni",
+        "Certaldus, Joannes Boccaccius",
+        "Certaldus, Joannes B.",
+        "Boccacius, Johannes",
+        "Boccatius von Certaldo, Joannes",
+        "Bocace",
+        "Boccage, Jean",
+        "Boccacius, Ioannes",
+        "Boccaccio, John",
+        "Bocace, Jehan",
+        "Boccatius, Johannes",
+        "Bocchaccio, Giovanni",
+        "Boccacio, Giovanne",
+        "Bocaz",
+        "Boccaccius Certaldus, Joannes",
+        "Bocacci, Giovanni",
+        "Giovanni, Boccaccio",
+        "Di Boccaccio aus Certaldo, Giovanni",
+        "Certaldo, Joannes Boccatius de",
+        "Boccaccio, Giovanni di",
+        "Boccatius de Certaldo, Joannes",
+        "Johannes, Boccacius",
+        "Bokkaččo, Džiovanni",
+        "Bocacio, Juan",
+        "Bocace, John",
+        "Boccaccio, Juan",
+        "Bocatio da Certaldo, Joanni",
+        "Bocatius, Johannes Cerdaldensis",
+        "Boccaccio, Ioannis",
+        "Bokkachcho, Zhowanni",
+        "Boccacius de Certaldo, Johann",
+        "Certaldo, Johannes Bocacius de",
+        "Boccazo, Johannes",
+        "Boccatius, Ioannes",
+        "Bochas, John",
+        "Boccacio, Johannes",
+        "Boccace",
+        "Boccaci, Giovanni",
+        "Boccaccius de Certaldo, Johannes",
+        "Bocaccius, Joannes",
+        "Boccacy, Johannes",
+        "Bocatius, Johannes, aus Florenz",
+        "Boccarius, Johannes",
+        "Bocacius de Certaldo, Johannes",
+        "Certaldo, Joanni B. de",
+        "Bocatius, Ioannes",
+        "Cercaldis, Johannes B. de",
+        "Bocace, Iehan",
+        "Boccatius de Cetaldo, Ioannes",
+        "Боккаччо, Жованни",
+        "B., G.",
+        "Bocaccius, Johannes",
+        "Certaldo, Johannes Boccaccius de",
+        "Boccace, Jehan",
+        "Boccaccio, Johannes",
+        "Boccace, Jean",
+        "Baccacius, Johannes",
+        "Boccatio, Joannes",
+        "Boccace, Giovanni",
+        "Bokačo, Đovani",
+        "Bocaccio, Giovanni",
+        "Giovanni, Giovanni",
+        "Bokačo, Dčovanni",
+        "Certaldo, Joannes Bocatius de",
+        "Boccace, Iehan",
+        "Boccaccio, Joan",
+        "Bokkāccō",
+        "Bokkačio",
+        "Bocace Florentin",
+        "Giovanni di Boccaccio",
+        "Bocatius, Johannis",
+        "Bocace, Iean",
+        "Boccatio da Certaldo, Johannes",
+        "Boccaccio, Giovan",
+        "Boccaccius, Johannes",
+        "Bocatius de Certaldo, Joannes",
+        "Cetaldo, Ioannes Boccatius de",
+        "Bocaci, Giovanni",
+        "Bocatius, Joannes",
+        "Certaldus, Joannes Boccatius von",
+        "Bocatius",
+        "Bokkaččʹo, Džʹovanni",
+        "Cercaldis, Johannes Bocaccius de",
+        "Bocaccius de Cercaldis, Johannes",
+        "Bocatius, Johanis",
+        "Bocoaci da Certaldo, Johannes",
+        "Bocace, Jean",
+        "Boccaci, Johan",
+        "Boccacius, Joannes",
+        "Certaldus, Joannes B. von",
+        "Boccacio, Giovanni",
+        "Bocatius, Johannes",
+        "Boccatus, Ioannes",
+        "Certaldo, Joannes B. de",
+        "Boccaccio, G.",
+        "Boccaccius, Joannes",
+        "Boccaccio"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Boccaci"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Bocaci"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Boccacci"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes B."
+          ],
+          "surname": [
+            "Certaldus"
+          ]
+        },
+        {
+          "personalName": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccatius von Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Bocacci"
+          ]
+        },
+        {
+          "forename": [
+            "Joan"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Bocaccio"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Boccaccio"
+          ],
+          "personalName": [
+            "Giovanni"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Boccace"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes B."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Boccaccio da Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannis"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccacius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Bocatius de Certaldo"
+          ]
+        },
+        {
+          "personalName": [
+            "Boccace"
+          ]
+        },
+        {
+          "forename": [
+            "Johanis"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Bocaccius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cercaldis"
+          ]
+        },
+        {
+          "forename": [
+            "ǅovanni"
+          ],
+          "surname": [
+            "Bokkaččo"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "B."
+          ]
+        },
+        {
+          "forename": [
+            "Dčovanni"
+          ],
+          "surname": [
+            "Bokačo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Bocacius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccacio"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes B."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Iehan"
+          ],
+          "surname": [
+            "Bocace"
+          ]
+        },
+        {
+          "forename": [
+            "Zhowanni"
+          ],
+          "surname": [
+            "Bokkachcho"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Di Boccaccio aus Certaldo"
+          ]
+        },
+        {
+          "personalName": [
+            "Bokkāccō"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Bocace"
+          ]
+        },
+        {
+          "forename": [
+            "Džʹovanni"
+          ],
+          "surname": [
+            "Bokkaččʹo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Giovanni"
+          ],
+          "personalName": [
+            "Giovanni"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccatio da Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes"
+          ],
+          "surname": [
+            "Boccacius"
+          ]
+        },
+        {
+          "forename": [
+            "Jehan"
+          ],
+          "surname": [
+            "Boccace"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanne"
+          ],
+          "surname": [
+            "Boccacio"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Bocatius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "personalName": [
+            "Bokkačio"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccacius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Boccarius"
+          ],
+          "personalName": [
+            "Johannes"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Boccacius"
+          ],
+          "personalName": [
+            "Johannes"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccatius de Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Baccacius"
+          ]
+        },
+        {
+          "forename": [
+            "Juan"
+          ],
+          "surname": [
+            "Bocacio"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccazo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Di Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Bocoaci da Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Johan"
+          ],
+          "surname": [
+            "Boccaci"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Bocaccius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Boccaccius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccatius von Certaldus"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Bocacius de Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Juan"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Iean"
+          ],
+          "surname": [
+            "Boccace"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Bocaccius de Cercaldis"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccarius"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Boccatius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cetaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "nameAddition": [
+            "aus Florenz"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Đovani"
+          ],
+          "surname": [
+            "Bokačo"
+          ]
+        },
+        {
+          "forename": [
+            "Joanni"
+          ],
+          "surname": [
+            "Bocatio da Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "prefix": [
+            "Cerdaldensis"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccaccius de Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes"
+          ],
+          "surname": [
+            "Boccatus"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes"
+          ],
+          "surname": [
+            "Boccatius"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes"
+          ],
+          "surname": [
+            "Boccatius de Cetaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccaccius Certaldus"
+          ]
+        },
+        {
+          "forename": [
+            "Joanni B."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Boccaccius"
+          ],
+          "surname": [
+            "Certaldus"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Boccage"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccatius"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Boccace"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccaccius"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Boccacio"
+          ]
+        },
+        {
+          "forename": [
+            "Johannis"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "Iehan"
+          ],
+          "surname": [
+            "Boccace"
+          ]
+        },
+        {
+          "personalName": [
+            "Boccaz"
+          ]
+        },
+        {
+          "forename": [
+            "Giouanni"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Iean"
+          ],
+          "surname": [
+            "Bocace"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes B."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Certaldus"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccacy"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccatius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Boccacio"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Bochas"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Boccacius de Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Bocacius"
+          ]
+        },
+        {
+          "personalName": [
+            "Bocace"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccaccius"
+          ]
+        },
+        {
+          "personalName": [
+            "Bocaz"
+          ]
+        },
+        {
+          "forename": [
+            "Juan"
+          ],
+          "surname": [
+            "Boccacio"
+          ]
+        },
+        {
+          "forename": [
+            "Jehan"
+          ],
+          "surname": [
+            "Bocace"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Boccatio"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Bocatius"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Bocace"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Bocchaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Džiovanni"
+          ],
+          "surname": [
+            "Bokkaččo"
+          ]
+        },
+        {
+          "personalName": [
+            "Giovanni di Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Boccatius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Certaldo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovan"
+          ],
+          "surname": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Bocaccius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes B."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cercaldis"
+          ]
+        },
+        {
+          "personalName": [
+            "Boccaccio"
+          ]
+        },
+        {
+          "personalName": [
+            "Bocace Florentin"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Boccatius"
+          ],
+          "personalName": [
+            "Johannes"
+          ]
+        },
+        {
+          "forename": [
+            "Жованни"
+          ],
+          "surname": [
+            "Боккаччо"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Boccatius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Certaldus"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Giovanni_Boccaccio",
+          "label": "https://de.wikipedia.org/wiki/Giovanni_Boccaccio"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:57:57Z",
+    "gnd_query_biographical_data": "1313-1375",
+    "gnd_query_name": "boccaccio, giovanni"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 227,
+  "name": "Boccaccio, Giovanni",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 53",
+  "updated": "2026-06-11 13:29:21.627Z",
+  "uri": "https://d-nb.info/gnd/11851217X",
+  "editor": ""
+}

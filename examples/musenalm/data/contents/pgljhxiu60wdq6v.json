@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Der Abend« von Fr. Schiller INr 77080, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abend v. Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec",
+  "scans": [
+    "alm_2397_77081_4rk1catzyp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Abend v. Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.665Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "cs68s7nv7uv4ip8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.665Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "gz72a5wio64duzw"
+    }
+  ]
+}

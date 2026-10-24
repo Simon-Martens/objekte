@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107528,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures Berlinoises / 1. Caprice de Voltaire 2. Chapeau a la Hamlet / 3. Colin gallant 4 & 5. Chaperon Lacedémonien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki f.",
+  "scans": [
+    "alm_2158_107528_cz495yjki2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures Berlinoises / 1. Caprice de Voltaire 2. Chapeau a la Hamlet / 3. Colin gallant 4 & 5. Chaperon Lacedémonien",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.155Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "vxtkfl7q5kvznip"
+    }
+  ]
+}

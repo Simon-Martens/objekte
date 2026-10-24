@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Dritte Lieferung. Gedichte (Sammlung INr 40472, Obj 6) mit einer Illustration s. Graphik INr 40481, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Da hatt' ich einen Kerl zu Gast, / Er war mir eben nicht zur Last;",
+  "language": [],
+  "musenalm_id": 40482,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Recensent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Recensent",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.080Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "emgs17ypxbw0o81"
+    }
+  ]
+}

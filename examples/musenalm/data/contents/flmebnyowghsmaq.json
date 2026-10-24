@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezüge INr 63570, 63571; Obj 7, 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63579,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Byron's Traum #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. J. Easlake gest. von Schuler",
+  "scans": [
+    "alm_1044_63579_f1prjqm3hg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Byron's Traum #",
+  "updated": "2009-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.288Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "80m982ky30my51c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.288Z",
+      "agent": "unszrhlds7zasso",
+      "source_id": "j1knzto38t56xm4"
+    }
+  ]
+}

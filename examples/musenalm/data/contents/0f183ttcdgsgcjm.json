@@ -1,0 +1,56 @@
+{
+  "annotation": "zus. Bezeichnung: Dr. b. Susemihl /) Illustration zu »Anna und Hedwig, die Töchter Kasimir's III. von Polen. Ein romantisches Gemälde« von J. Sartori d.i. J. Neumann INr 112646, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112640,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEDWIG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_2477_112640_cf68427qh1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEDWIG",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.494Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "j89notyzxmo5cb8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.494Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "kbhpzxe4r1itzyx"
+    }
+  ]
+}

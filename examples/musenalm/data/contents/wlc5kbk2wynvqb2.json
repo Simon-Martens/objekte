@@ -1,0 +1,45 @@
+{
+  "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Wüthrich, sage woher die menschenähnlichen Züge? / Keine Mutter hat je liebend im Schoos Dich ge- / wiegt.",
+  "language": [],
+  "musenalm_id": 74955,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ehrenfried Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marat",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.335Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "3y4mpuzb5058jcw"
+    }
+  ]
+}

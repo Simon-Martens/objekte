@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Gedicht INr 89474, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89454,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SEHNSUCHT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mezler gez. I. Krepp gest. in Stahl",
+  "scans": [
+    "alm_3349_89454_l846fcoblg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SEHNSUCHT",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.105Z",
+      "agent": "4ydtp3mjohkj17q",
+      "source_id": "pcuidrn6gaqlef5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.105Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "rf8rlq3a7ma5kjn"
+    }
+  ]
+}

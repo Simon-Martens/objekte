@@ -25,6 +25,7 @@ pub fn router(state: Arc<AppState>) -> Router {
         .merge(crate::hierarchy::router())
         .merge(crate::deletion::router())
         .route("/", get(index))
+        .route("/projects/select", post(crate::projects::select))
         .route("/health", get(|| async { "ok" }))
         .route("/auth/login", get(login_page).post(login))
         .route("/auth/logout", post(logout))
@@ -133,12 +134,12 @@ pub(crate) fn page(
     if fragment(headers) {
         Ok(stream(vec![
             crate::preferences::fragment(&state.editor),
-            views::navigation(&state.editor, &html)?,
+            views::project_navigation(state, actor, &html)?,
             html,
             views::notice(""),
         ]))
     } else {
-        Ok(Html(views::shell(&state.editor, actor, &html, &state.assets)?).into_response())
+        Ok(Html(views::shell(state, actor, &html)?).into_response())
     }
 }
 pub(crate) async fn page_actor(

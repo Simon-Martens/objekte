@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 12598, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Das erste Wort, man pflegts von mir zu sagen, / Wär' ich erwachsen schon,",
+  "language": [],
+  "musenalm_id": 12602,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Das Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winkler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Das Kind",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.727Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "1bf0unw5vzy6yl5"
+    }
+  ]
+}

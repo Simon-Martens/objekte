@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 18996, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1957,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER ABSCHIED DES REKRUTEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Beaume pinx E. Schuler sculp.",
+  "scans": [
+    "alm_54_1957_6z3fjfd3vf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER ABSCHIED DES REKRUTEN",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.056Z",
+      "agent": "ixzpwt1w674m68b",
+      "source_id": "geqii70pkz95ep6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.056Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "k8sm0xlfv4cvpmh"
+    }
+  ]
+}

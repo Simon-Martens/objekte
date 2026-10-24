@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36141,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 260,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. Kugler inv.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kugler inv.",
+  "scans": [
+    "alm_332_36141_mguwxygqi0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.657Z",
+      "agent": "dlauvagqjefeu2b",
+      "source_id": "35e49hef3rk5t56"
+    }
+  ]
+}

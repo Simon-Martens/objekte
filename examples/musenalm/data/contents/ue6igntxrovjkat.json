@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Dritter mahlerischer Streifzug nach Kalksburg, Schönbrunn, Hütteldorf und Dornbach« INr 92704, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dianentempel in Dornbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Loder del. Blaschke sc.",
+  "scans": [
+    "alm_4023_92709_ni4b2a41ax.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dianentempel in Dornbach",
+  "updated": "2013-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.367Z",
+      "agent": "5m3k81xtringcag",
+      "source_id": "0wne6cpm90sosei"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.367Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "z25c7dy5ecn7c71"
+    }
+  ]
+}

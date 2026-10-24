@@ -1,0 +1,91 @@
+{
+  "annotation": "ohne Kalendarium /) Bindefehler: S 113-128 sind zwischen S 96 und 97 eingebunden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, nT, B, SS 1-190, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1844",
+    "norm": "~",
+    "biblio": 405431,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1910,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch für das Jahr 1844. / Vier und zwanzigster Jahrgang. / Edlen Frauen und Mädchen gewidmet / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn",
+  "updated": "2026-06-11 10:18:55.706Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "1n15mu9j7gjxitf"
+  ],
+  "contents": [
+    "yzfgcle6e2ty3mi",
+    "yqqthml13t92q0l",
+    "rfe9nxvfy94rvyp",
+    "3k607xhqkx4ljtb",
+    "264rpdehxlq6apy",
+    "zy9wphouknajjgk",
+    "iyn4yknpmhbrbhg",
+    "223396jp4fy6u7l",
+    "wpd16f84sraf2ik",
+    "rz7q4nur5yfc364",
+    "varob6c31pz9u4a",
+    "rw5hrlnkye9kuyl",
+    "a4aajjnjxghut30",
+    "z4kn1y50h8pp3jg",
+    "uj9nzwty5xtd63i",
+    "d1uwlraae566fi9",
+    "ubq7bml1fg7pc99",
+    "mfjel388cu0kycq",
+    "bwzal1eu908ipsa",
+    "lahffcrnz7f13rr",
+    "9kkr7n2nmj5uk8n",
+    "fpq3kuseq40yxls",
+    "8s1fajjbmytco3k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "huu85p7vmqcv2m1"
+    }
+  ]
+}

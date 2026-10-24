@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Beiträgen INr 66026-66030, Obj 86-90",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brocken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brocken",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.298Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "0lhv5sfy9ln92zi"
+    }
+  ]
+}

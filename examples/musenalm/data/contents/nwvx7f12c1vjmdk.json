@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilage (INr 98783, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Auch einer von den preussischen Martissöhnen, welche mehr als Exerzieren gelernt haben, die ihre Freistunden lieber den Musen, als andern weniger renommirten Gottheiten widmen.",
+  "language": [],
+  "musenalm_id": 98786,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "v. Bonin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "v. Bonin",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.791Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "tqatlig8s2l4m2p"
+    }
+  ]
+}

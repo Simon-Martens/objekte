@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 31719-31721, Obj 92-94 Fortsetzung von INr 31722, 31694, 31695; Obj 66-68",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KRIEGSLIEDER. / (Fortsetzung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "KRIEGSLIEDER. / (Fortsetzung.)",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.689Z",
+      "agent": "fd94g9jto2pspie",
+      "source_id": "yiz6zvef6ttaynn"
+    }
+  ]
+}

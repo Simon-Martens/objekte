@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57808, Obj 6) mit einer Illustration s. Graphik INr 57809, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Vor'm Hüttel steht die Schwagerin, / Den Kübel in der Hand,",
+  "language": [],
+  "musenalm_id": 57810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jäger auf der Alm. / (Steierisch. Mit einem Stahlstich)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jäger auf der Alm. / (Steierisch. Mit einem Stahlstich)",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.735Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "ps11qsmwvgku0ap"
+    }
+  ]
+}

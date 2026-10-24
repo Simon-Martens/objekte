@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Logogryphen, Charaden und Räthsel (Sammlung INr 12216, Obj 166)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Vier Silben fassen mich. / Die erst' ist hoch, wenn man sie recht verglich;",
+  "language": [],
+  "musenalm_id": 12237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 187,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. W. A. v. Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21.",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.483Z",
+      "agent": "3euwjw9rlb5537y",
+      "source_id": "oqxop23n7n5yn3t"
+    }
+  ]
+}

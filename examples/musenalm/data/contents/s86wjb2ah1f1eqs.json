@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Es ist bekannt, was für prachtvolle und reizende Blumen die Cap-Zwiebeln liefern.",
+  "language": [],
+  "musenalm_id": 79841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIII. / Von der Behandlungsart / der / Cap-Zwiebeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wendland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIII. / Von der Behandlungsart / der / Cap-Zwiebeln",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.779Z",
+      "agent": "92x4wy4cu8wsssh",
+      "source_id": "i622l5d2hogyxjv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingslieder (Sammlung INr 133558, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Ja, ich habe fest beschlossen, / Wiederum hinaus zu geh'n, / Wo die jungen Saaten sprossen",
+  "language": [],
+  "musenalm_id": 133562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ausflug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ausflug",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.111Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "og64m4ubv4m7059"
+    }
+  ]
+}

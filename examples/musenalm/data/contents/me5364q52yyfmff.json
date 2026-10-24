@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Pisa vorbei stürzt nieder zum salzigen Meer der / Alfeios; Lenkt dann zur Quell' Arethusa die ölbäumtragenden / Wasser,",
+  "language": [],
+  "musenalm_id": 23299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des / Eros Macht. / Nach demselben [Moschos]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des / Eros Macht. / Nach demselben [Moschos]",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.937Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "hh8oj3157ib860i"
+    }
+  ]
+}

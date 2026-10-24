@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Blatt 1-3 der Suite. paginiert 4 s. Textbezug INr 29869, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Rmbg del. W. J. f.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rmbg del. W. J. f.",
+  "scans": [
+    "alm_386_29870_mshzbs6oal.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.372Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "bdn03l8o0kh63rz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.372Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "om8bwc5felequ4p"
+    }
+  ]
+}

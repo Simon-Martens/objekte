@@ -1,0 +1,67 @@
+{
+  "annotation": "2. Titel: Rudolstadt / und / Schwarzburg / nebst ihren Umgebungen, / historisch und topographisch dargestellt / von / Dr. Ludwig Friedrich Hesse, / Professor und Bibliothekar zu Rudolstadt. / Rudolstadt 1816 / im Verlag der Hof- Buch- und Kunst-Handlung",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Geschichte u. Topographie Thüringens 1816",
+    "norm": "",
+    "biblio": 409200,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4279,
+  "parallel_title": "",
+  "place_statement": "Rudolstadt (Hof-Buch- u. Kunst-Handlung)",
+  "places": [
+    "ky31gq2b2nkpn53"
+  ],
+  "preferred_title": "Taschenbuch der Geschichte u. Topographie Thüringens 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 123; L/R 149",
+  "responsibility_statement": "Dr. Ludwig Friedrich Hesse",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch, / DER GESCHICHTE u. TOPOGRAPHIE / Thüringens / gewidmet. / Erstes Bändchen / mit drei Kupfern. / Rudolstadt 1816, / im Verlag der Hof-Buch- u. Kunst-Handlung",
+  "updated": "2026-06-11 10:18:55.454Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "tr0tagoz1ddcmkq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.027Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.027Z",
+      "agent": "ya8nv4vf2vh6nag",
+      "source_id": "wtk3qyvfdcqounj"
+    }
+  ]
+}

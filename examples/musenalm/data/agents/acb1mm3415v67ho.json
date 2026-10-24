@@ -1,0 +1,588 @@
+{
+  "annotation": "",
+  "biographical_data": "1722-1791",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.385Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1312658703",
+          "label": "Grafe, Johann Christoph"
+        }
+      ],
+      "dateOfBirth": [
+        "1722-12-01"
+      ],
+      "dateOfDeath": [
+        "1791-10-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Karl Christian Kehrer"
+          ],
+          "creditText": [
+            "http://www.zeno.org/Kulturgeschichte/I/kars_por.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karschin%20bild.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karschin%20bild.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karschin%20bild.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T11:05:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118560328/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Dürbach"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Anna Luise"
+          ],
+          "surname": [
+            "Dürbach"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Dürbach"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1228102457",
+          "label": "Hempel, Heinrich Wilhelm"
+        },
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119360659",
+          "label": "Chézy, Helmina von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116222425",
+          "label": "Klencke, Caroline Luise von"
+        },
+        {
+          "forename": [
+            "Michael"
+          ],
+          "surname": [
+            "Hirsekorn"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118560328",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116222425",
+          "label": "Klencke, Caroline Luise von"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/119360659",
+          "label": "Chézy, Helmina von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118560328",
+      "oldAuthorityNumber": [
+        "(DE-588c)4029774-3",
+        "(DE-588a)118560328",
+        "(DE-588a)134596994",
+        "(DE-101c)310286999"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4053981-7",
+          "label": "Schwiebus"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Karsch, Anna Luise",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anna Luise"
+        ],
+        "surname": [
+          "Karsch"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4683584-2",
+          "label": "Librettistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Karschin"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Karsch, Anna L.: Auserlesene Gedichte",
+        "Karsch, Anna L.: Gesänge bey Gelegenheit der Feierlichkeiten Berlins",
+        "Bach, Carl P.: Die letzten Leiden des Erlösers",
+        "Karsch, Anna L.: Poetische Einfälle",
+        "Karsch, Anna L.: Einige Oden über verschiedene hohe Gegenstände",
+        "Karsch, Anna L.: Liebes von der alten Karschin",
+        "Karsch, Anna L.: Neue Gedichte",
+        "Karsch, Anna L.: Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81072195"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/karsch-anna-louisa-geb-durbach/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32075043"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q469571"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118560328/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Anna_Louisa_Karsch"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anna_Louisa_Karsch"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Anna_Louisa_Karsch"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Anna_Louisa_Karsch"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110514425"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118560328"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118560328"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118560328.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118560328.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118560328"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118560328"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118560328"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hirsekorn, Anna Louisa",
+        "Dürbach, Anna Luise",
+        "Dürbach, Anna Louisa",
+        "Karsch, Anna L.",
+        "Karsch, Anna Ludovica",
+        "Karsch, Anna Louise",
+        "Karsch, Anna Luisa",
+        "Karschinn, Anna Louise",
+        "Karschin, A. L.",
+        "Karschin, Anna Louise",
+        "Karschin, Anna Luise",
+        "Karschin",
+        "Karschinn, Anna L.",
+        "Karsch, Anna Louisa",
+        "Karschin, Anna Louisa",
+        "Hirsekorn, Anna Luise",
+        "Karschinn, Anna Louisa",
+        "Karstin, Anna Luise"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anna Louise"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Anna L."
+          ],
+          "surname": [
+            "Karschinn"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louise"
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Luise"
+          ],
+          "surname": [
+            "Dürbach"
+          ]
+        },
+        {
+          "forename": [
+            "A. L."
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Luise"
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Hirsekorn"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Dürbach"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Ludovica"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Karschinn"
+          ]
+        },
+        {
+          "forename": [
+            "Anna L."
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "personalName": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louise"
+          ],
+          "surname": [
+            "Karschinn"
+          ]
+        },
+        {
+          "personalName": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Luise"
+          ],
+          "surname": [
+            "Hirsekorn"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Luisa"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Luise"
+          ],
+          "surname": [
+            "Karstin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anna_Louisa_Karsch",
+          "label": "https://de.wikipedia.org/wiki/Anna_Louisa_Karsch"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:53:39Z",
+    "gnd_query_biographical_data": "1722-1791",
+    "gnd_query_name": "karschin, anna louisa"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1352,
+  "name": "Karschin, Anna Louisa",
+  "profession": "Text",
+  "pseudonyms": "Amarillis",
+  "refs": "Goed IV/1, 291",
+  "updated": "2026-06-11 13:29:23.143Z",
+  "uri": "https://d-nb.info/gnd/118560328",
+  "editor": ""
+}

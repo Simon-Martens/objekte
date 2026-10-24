@@ -1,0 +1,45 @@
+{
+  "annotation": "Die heiligen Wohnplätze der Venus (Sammlung INr 91547, Obj 71) Venus (Sammlung INr 91544, Obj 68) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgendes Gedicht INr 91551, Obj 75",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Auf diesem Eilande war der älteste Tempel der Venus in Griechenland.",
+  "language": [],
+  "musenalm_id": 91550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cythere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cythere",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.022Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "7pifmghf4ebfhxk"
+    }
+  ]
+}

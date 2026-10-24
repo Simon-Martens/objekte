@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Der Bauer Görg hatt' einstmals einen / Hund / So schlau als seine liebe Hälfte,",
+  "language": [],
+  "musenalm_id": 62113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Munera, crede mihi, placant homines- / que Deosque, / oder: / Der fromme Hund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. H. Reinwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Munera, crede mihi, placant homines- / que Deosque, / oder: / Der fromme Hund",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.051Z",
+      "agent": "n6qsoh59lz0ry1n",
+      "source_id": "9w7su95qjkkvwnv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anhang (Sammlung INr 52398, Obj 12) Beigabe zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Die Salzquellen im Sulzthal unsers Kantons waren schon vor Alters ein Gegenstand der Aufmerksamkeit.",
+  "language": [],
+  "musenalm_id": 52399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Ueber die Salzquellen im Sulzthal des / Cantons Aargau. Vorgelesen in der / Sitzung vom 24. Jenner 1815 der / staatswissenschaftlichen Klasse der Ge- / sellschaft für vaterländische Kultur. Von / Herrn Oberforst- und Berg-Inspektor / Zschokke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Oberforst- und Berg-Inspektor Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Ueber die Salzquellen im Sulzthal des / Cantons Aargau. Vorgelesen in der / Sitzung vom 24. Jenner 1815 der / staatswissenschaftlichen Klasse der Ge- / sellschaft für vaterländische Kultur. Von / Herrn Oberforst- und Berg-Inspektor / Zschokke",
+  "updated": "2007-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.519Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "5jexjiis5nnw8i0"
+    }
+  ]
+}

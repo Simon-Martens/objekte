@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert p. 125 /) Illustration zu »Luitegarde. Scenen aus dem zehenten Jahrhundert« INr 85902, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So lebt denn wohl, dieser Ruf gilt dem Va- / terlande, und ihm weicht Luitgarde gern.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Malvieux sc",
+  "scans": [
+    "alm_636_85903_273ckw96ta.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So lebt denn wohl, dieser Ruf gilt dem Va- / terlande, und ihm weicht Luitgarde gern.",
+  "updated": "2006-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.825Z",
+      "agent": "rpm3jfs7o8do52j",
+      "source_id": "44l22tc69g7z23z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.824Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "b7gsb1xm9fu6mgb"
+    }
+  ]
+}

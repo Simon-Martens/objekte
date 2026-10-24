@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 68572, Obj 2,12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.444Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2.11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIOLANTE PALMA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paris Bordone pt. F. John sc.",
+  "scans": [
+    "alm_235_68571_eys0h74ptg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VIOLANTE PALMA",
+  "updated": "2001-05-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.380Z",
+      "agent": "goloew0b9lvkvjs",
+      "source_id": "dtldcdn7rvwu82f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.380Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "fvegdefjgzvjhb7"
+    }
+  ]
+}

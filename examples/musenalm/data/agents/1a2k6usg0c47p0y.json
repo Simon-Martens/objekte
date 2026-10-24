@@ -1,0 +1,629 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1878",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.471Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Sammlung von Theaterzetteln und Porträts im Besitz der Staatsbibliothek zu Berlin.",
+        "Vorleser des preußischen Königs Friedrich Wilhelm IV."
+      ],
+      "dateOfBirth": [
+        "1805-04-29"
+      ],
+      "dateOfDeath": [
+        "1878-12-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lithographie v. C. Wildt n. Franz Krüger b. L. Sachse &amp; Co."
+          ],
+          "creditText": [
+            "https://www.zvab.com/servlet/BookDetailsPL?bi=22428010346&amp;cm_sp=collections-_-3RuCfynPR31dqwyk6Wxux8_item_1_36-_-bdp"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Louis%20Schneider%20%28actor%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Louis%20Schneider%20%28actor%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Louis%20Schneider%20%28actor%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-11T08:44:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116836709/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119503700",
+          "label": "Schneider, Georg Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133658694",
+          "label": "Schneider, Franz"
+        },
+        {
+          "forename": [
+            "Maschenka"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/133658864",
+          "label": "Schneider-Portmann, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116829397",
+          "label": "Schneider, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1057771643",
+          "label": "Buggenhagen, Ida"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117109525",
+          "label": "Schubert, Maschinka"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116836709",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/133658864",
+          "label": "Schneider-Portmann, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119503700",
+          "label": "Schneider, Georg Abraham"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/133658694",
+          "label": "Schneider, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116829397",
+          "label": "Schneider, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117109525",
+          "label": "Schubert, Maschinka"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1057771643",
+          "label": "Buggenhagen, Ida"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116836709",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4677383-6",
+        "(DE-588a)116836709"
+      ],
+      "periodOfActivity": [
+        "1845-1850"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1140505823",
+          "label": "Behlertbrücke (Potsdam)"
+        }
+      ],
+      "preferredName": "Schneider, Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Louis"
+        ],
+        "surname": [
+          "Schneider"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4169967-1",
+          "label": "Militärschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4179037-6",
+          "label": "Sammler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Both"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "surname": [
+            "Both"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "L. W."
+          ],
+          "surname": [
+            "Both"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Campe"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Retcliff"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Both"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "L. W."
+          ],
+          "surname": [
+            "Both"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Both"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Schauspieler-Novellen",
+        "Gallerie der Costüme. - [ca. 1840]",
+        "Geschichte der Oper und des Königlichen Opernhauses in Berlin",
+        "Die Kunst sich zu schmincken",
+        "Aus dem Leben Kaiser Wilhelms",
+        "Das Palais Sr. K. H. des Prinzen Albrecht von Preußen",
+        "Berlinische Nachrichten",
+        "König Wilhelm",
+        "Der böse Blick oder",
+        "Bühnen-Repertoir des Auslandes. - 1830 - 1835"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig Wilhelm"
+          ],
+          "surname": [
+            "Schneider"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1046828347",
+          "label": "Exlibris (Theatersammlung Louis Schneider), 01"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1111057451",
+          "label": "Theatersammlung Louis Schneider"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12475020d"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002099303"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/24701939"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q214659"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116836709"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116836709/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Louis_Schneider_(actor)"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Louis_Schneider"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Louis_Schneider_%28actor%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110465889"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116836709"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116836709"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116836709.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116836709"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schneider, Ludwig",
+        "Schneider, B. A.",
+        "Шнайдер, Луис",
+        "Both, L. W.",
+        "Schneider, Ludwig Wilhelm",
+        "Campe",
+        "Schneider, L.",
+        "Both, Louis",
+        "Retcliff, John, Sir",
+        "Both, Ludwig",
+        "Both",
+        "Schneider, Luis",
+        "Both, C. W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Luis"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "L. W."
+          ],
+          "surname": [
+            "Both"
+          ]
+        },
+        {
+          "forename": [
+            "L. W."
+          ],
+          "surname": [
+            "Both"
+          ]
+        },
+        {
+          "forename": [
+            "Луис"
+          ],
+          "surname": [
+            "Шнайдер"
+          ]
+        },
+        {
+          "personalName": [
+            "Both"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Retcliff"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Wilhelm"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Wilhelm"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "surname": [
+            "Both"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Both"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "B. A."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "personalName": [
+            "Campe"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Both"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Louis_Schneider",
+          "label": "https://de.wikipedia.org/wiki/Louis_Schneider"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:50:54Z",
+    "gnd_query_biographical_data": "1805-1878",
+    "gnd_query_name": "schneider, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2505,
+  "name": "Schneider, Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXII, 134",
+  "updated": "2026-06-11 13:29:24.739Z",
+  "uri": "https://d-nb.info/gnd/116836709",
+  "editor": ""
+}

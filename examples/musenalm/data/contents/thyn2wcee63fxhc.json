@@ -1,0 +1,45 @@
+{
+  "annotation": "Deutsches Künstlerfest in Rom. (Sammlung INr 27473, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Erhabne, unsre Mutter, Poesie! / Wie dank' ich deiner mütterlichen Gunst.",
+  "language": [],
+  "musenalm_id": 27475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musika",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.296Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "8bqu7z80tp8o9q1"
+    }
+  ]
+}

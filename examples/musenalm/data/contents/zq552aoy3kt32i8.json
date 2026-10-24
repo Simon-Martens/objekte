@@ -1,0 +1,45 @@
+{
+  "annotation": "Stickerei (Sammlung INr 76164, Obj 62) mit einer graph. Stickanleitung s. INr 76172, Obj 70",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Die feine Näherey mit durchbrochenem Hohlnädeln, welche ein so vortreffliches Ansehen gewährt, wird immer allgemeiner.",
+  "language": [],
+  "musenalm_id": 76170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Künstliche Näharbeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Künstliche Näharbeiten",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.679Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "a2debmrhjpxshf9"
+    }
+  ]
+}

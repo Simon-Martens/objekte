@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 36820, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Nimm auch meinen Dank Du edles Weib! / O! gewiß, auch meinem Kinde wären,",
+  "language": [],
+  "musenalm_id": 36822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Verfasserin von / Julchen Grünthal. / (Nach Lesung der dritten Ausgabe dieses Buchs.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Verfasserin von / Julchen Grünthal. / (Nach Lesung der dritten Ausgabe dieses Buchs.)",
+  "updated": "2004-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.749Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "7r3u2ddfq9bkxwl"
+    }
+  ]
+}

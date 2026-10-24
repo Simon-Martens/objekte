@@ -1,0 +1,377 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.426Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Historiker u. Leiter der Rhedigerschen Bibliothek, Breslau; 1833:  Consistorial- und Schulrath"
+      ],
+      "dateOfBirth": [
+        "1784-12-07"
+      ],
+      "dateOfDeath": [
+        "1855-08-19"
+      ],
+      "describedBy": {
+        "dateModified": "2025-08-25T05:36:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100209041/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100209041",
+      "id": "https://d-nb.info/gnd/100209041",
+      "oldAuthorityNumber": [
+        "(DE-588a)100209041"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Grünberg"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Menzel, Karl Adolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Adolf"
+        ],
+        "surname": [
+          "Menzel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398099-5",
+          "label": "Konsistorialrat"
+        }
+      ],
+      "publication": [
+        "Neuere Geschichte der Deutschen",
+        "Geschichte Schlesiens",
+        "Ueber die Undeutschheit des neuen Deutschthums",
+        "Hrsg. von: Fülleborn, Georg Gustav: Rhetorik",
+        "Topographische Chronik von Breslau",
+        "Die Geschichten der Deutschen",
+        "Die Reformationsgeschichte in einer kurzgefaßten Darstellung",
+        "Vorw. zu: Morgenbesser, Michael: Geschichte Schlesiens"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2003052582"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/menzel-karl-adolf/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/61892206"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q598730"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100209041/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/100209041"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Adolf_Menzel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110280315"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100209041"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100209041"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100209041.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100209041"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Menzel, Karl Adolph",
+        "Menzel, C.A.",
+        "M., C. A.",
+        "Menzel, Karl A.",
+        "Menzel, K.A.",
+        "Menzel, Carl Adolph",
+        "Menzel, K. A.",
+        "Menzel, Carl Adolf",
+        "M., C.A.",
+        "C. A. M.",
+        "Menzel, Adolf Karl",
+        "C.A.M.",
+        "Menzel, Carl A.",
+        "Menzel, C. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "K. A."
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "C.A."
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Adolph"
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Adolph"
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "personalName": [
+            "C. A. M."
+          ]
+        },
+        {
+          "forename": [
+            "K.A."
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "C.A."
+          ],
+          "surname": [
+            "M."
+          ]
+        },
+        {
+          "personalName": [
+            "C.A.M."
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Karl"
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Adolf"
+          ],
+          "surname": [
+            "Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "M."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Adolf_Menzel",
+          "label": "https://de.wikipedia.org/wiki/Karl_Adolf_Menzel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:15:18Z",
+    "gnd_query_biographical_data": "1784-1855",
+    "gnd_query_name": "menzel, karl adolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1788,
+  "name": "Menzel, Karl Adolf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXI, 380",
+  "updated": "2026-06-11 13:29:23.780Z",
+  "uri": "https://d-nb.info/gnd/100209041",
+  "editor": ""
+}

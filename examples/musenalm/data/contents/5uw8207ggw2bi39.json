@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz. /) paginiert S. 122. /) Illustration zu »Hellwied. Oder die Philosophie eines Unglücklichen« von K. A. Ragotzky INr 95673, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Actuarius?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen",
+  "scans": [
+    "alm_620_95674_pdqs83ys3n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Actuarius?",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.795Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "2ur9xvvicp6kp09"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.795Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "pa1idatd8pkxn65"
+    }
+  ]
+}

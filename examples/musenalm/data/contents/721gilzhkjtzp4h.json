@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 18989, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER GENFER SEE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leprince pinx. J. Poppel sc.",
+  "scans": [
+    "alm_55_1975_z3tdxgbc6l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER GENFER SEE",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.999Z",
+      "agent": "09vqyzz1zzz8g9y",
+      "source_id": "6utz8jc60nz2f9n"
+    }
+  ]
+}

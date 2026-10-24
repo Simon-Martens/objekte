@@ -1,0 +1,905 @@
+{
+  "annotation": "",
+  "biographical_data": "1750-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.488Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter, Übersetzer, Jurist, Diplomat"
+      ],
+      "dateOfBirth": [
+        "1750-11-07"
+      ],
+      "dateOfDeath": [
+        "1819-12-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Johann Christoph Rincklake"
+          ],
+          "creditText": [
+            "Own work, Wuselig"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Stadtmuseum%20M%C3%BCnster-Rincklake-Stolberg%20DSC9772.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Stadtmuseum%20M%C3%BCnster-Rincklake-Stolberg%20DSC9772.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Stadtmuseum%20M%C3%BCnster-Rincklake-Stolberg%20DSC9772.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/131190814"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118755552/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119267721",
+          "label": "Stolberg-Stolberg, Bernhard zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1033444537",
+          "label": "Castell-Remlingen, Carl Friedrich Gottlieb zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116151412",
+          "label": "Ketteler, Pauline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116577568",
+          "label": "Robiano, Marie Amalie Pauline Clementine von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137079141",
+          "label": "Saint-Genois, Gabriele Eleonore Josephine von"
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117267708",
+          "label": "Stolberg, Ernst zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121210863",
+          "label": "Stolberg, Christian Günther zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117267627",
+          "label": "Stolberg, Christiane Charlotte Friederike zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117286370",
+          "label": "Stolberg-Stolberg, Sophie, Gräfin zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137079893",
+          "label": "Stolberg-Stolberg, Marie Therese zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119101270",
+          "label": "Stolberg-Stolberg, Agnes zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118755544",
+          "label": "Stolberg-Stolberg, Christian zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117120200",
+          "label": "Stolberg-Wernigerode, Marie Agnes zu"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118755552",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116151412",
+          "label": "Ketteler, Pauline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117267708",
+          "label": "Stolberg, Ernst zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117120200",
+          "label": "Stolberg-Wernigerode, Marie Agnes zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137079893",
+          "label": "Stolberg-Stolberg, Marie Therese zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116577568",
+          "label": "Robiano, Marie Amalie Pauline Clementine von"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/137079141",
+          "label": "Saint-Genois, Gabriele Eleonore Josephine von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119267721",
+          "label": "Stolberg-Stolberg, Bernhard zu"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117267627",
+          "label": "Stolberg, Christiane Charlotte Friederike zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121210863",
+          "label": "Stolberg, Christian Günther zu"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118755544",
+          "label": "Stolberg-Stolberg, Christian zu"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118755552",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)131190814",
+        "(DE-588c)4106020-9",
+        "(DE-588a)13119075X",
+        "(DE-588a)118755552",
+        "(DE-588)131190814"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4007941-7",
+          "label": "Bad Bramstedt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4038554-1",
+          "label": "Melle"
+        }
+      ],
+      "preferredName": "Stolberg-Stolberg, Friedrich Leopold zu",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Leopold"
+        ],
+        "prefix": [
+          "zu"
+        ],
+        "surname": [
+          "Stolberg-Stolberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        }
+      ],
+      "publication": [
+        "Stolberg-Stolberg, Friedrich L. zu: Ueber die Schaubühne",
+        "Graf Friedrich Leopold von Stolberg und Doktor Paulus von Heidelberg",
+        "Stolberg-Stolberg, Friedrich L. zu: Leben Alfred des Großen, Königs von England",
+        "Stolberg-Stolberg, Friedrich L. zu: Betrachtungen und Beherzigungen der heiligen Schrift. - 1819 - 1821",
+        "Stolberg-Stolberg, Friedrich L. zu: Jamben",
+        "Stolberg-Stolberg, Friedrich L. zu: Reise in Deutschland, der Schweiz, Italien und Sici*",
+        "Stolberg-Stolberg, Friedrich L. zu: Kurze Abfertigung der langen Schmähschrift des Herr*",
+        "Augustinus, Aurelius: Zwo Schriften des heiligen Augustinus von der wahren Religion, und *",
+        "Stolberg-Stolberg, Friedrich L. zu: Die Insel"
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4165591-6",
+          "label": "Kreis von Münster"
+        }
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1190577356",
+          "label": "Initiale (Stolberg-Stolberg, Friedrich Leopold zu), 01"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1190579677",
+          "label": "Initiale (Stolberg-Stolberg, Friedrich Leopold zu), 02"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82209493"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32158450"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213737"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118755552/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131190814"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Leopold_zu_Stolberg-Stolberg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Leopold_zu_Stolberg-Stolberg"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Leopold_zu_Stolberg-Stolberg"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Leopold_zu_Stolberg-Stolberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108854164"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118755552"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1775_nn.eutin;2"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118755552"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118755552.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118755552.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118755552"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118755552"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Stolberg, Friedrich Leopold, Graf zu",
+        "Stolberg, Friedrich Leopold, Graf zu Stolberg",
+        "Stolberg, Leopold von",
+        "Stolberg-Stolberg, Friedrich Leopold, Reichsgraf zu",
+        "Stolberg-Stolberg, Friedrich L. zu",
+        "Leopoldo, Federico, conte",
+        "Stolberg, Frederic Leopold",
+        "Friedrich Leopold, Stolberg-Stolberg, Graf",
+        "Stollberg, Friedrich Lepold, Graf, Dichter",
+        "Stolberg",
+        "Stolberg, Leopold",
+        "Stolberg, Friedrich Leopold, Graf, Dichter",
+        "Stolberg, F. L.",
+        "Stolberg, Friedrich Leopold zu",
+        "Friedrich Leopold, Stolberg, Graf",
+        "Stolberg-Stolberg, Leopold Friedrich zu",
+        "Stolberg, Friedrich Leopold zu, Graf",
+        "Stollberg, Friedrich Leopold zu",
+        "Stolberg-Stolberg, Friedrich Leopold, Graf zu",
+        "Stollberg, Lepold, Graf, Dichter",
+        "Stolberg, Friedrich Leopold von",
+        "Stolberg, Leopold zu",
+        "Stolberg, Friedrich Leopold zu Stolberg-",
+        "Stolberg, Friedrich L.",
+        "Stolberg, Friedrich L. zu",
+        "Stollberg, Friedrich Leopold, Graf zu",
+        "Stolberg, Federico Leopoldo conte di",
+        "Stollberg, Leopold",
+        "Stolberg-Stolberg, Friedrich Leopold",
+        "Stolberg zu",
+        "Stolberg, Friz",
+        "Stolberg Stolberg, Friedrich Leopold zu",
+        "Stolberg-Sondermühlen, Friedrich Leopold, Graf zu",
+        "Stolberg, Friederich Leopold zu",
+        "Stolberg, Friedrich Ludwig zu, Graf",
+        "Stollberg, Leopold von",
+        "Stolberg, Fr. L. zu, Graf",
+        "Stolberg-Stolberg, Friedrich Lepold, Graf, Dichter"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf zu"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Reichsgraf zu"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Federico Leopoldo"
+          ],
+          "prefix": [
+            "conte di"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf zu"
+          ],
+          "surname": [
+            "Stolberg-Sondermühlen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Lepold"
+          ],
+          "nameAddition": [
+            "Graf, Dichter"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friederich Leopold"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Lepold"
+          ],
+          "nameAddition": [
+            "Graf, Dichter"
+          ],
+          "surname": [
+            "Stollberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf zu Stolberg"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "surname": [
+            "Stollberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf, Dichter"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Frederic Leopold"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf zu"
+          ],
+          "surname": [
+            "Stollberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Stolberg"
+          ],
+          "prefix": [
+            "zu"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold Friedrich"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Federico"
+          ],
+          "nameAddition": [
+            "conte"
+          ],
+          "surname": [
+            "Leopoldo"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. L."
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Graf zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stollberg"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Stolberg-Stolberg, Graf"
+          ],
+          "personalName": [
+            "Friedrich Leopold"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Stollberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friz"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Lepold"
+          ],
+          "nameAddition": [
+            "Graf, Dichter"
+          ],
+          "surname": [
+            "Stollberg"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Stolberg, Graf"
+          ],
+          "personalName": [
+            "Friedrich Leopold"
+          ]
+        },
+        {
+          "forename": [
+            "F. L."
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold zu Stolberg-"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Leopold_zu_Stolberg-Stolberg",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Leopold_zu_Stolberg-Stolberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:04:54Z",
+    "gnd_query_biographical_data": "1750-1819",
+    "gnd_query_name": "stolberg-stolberg, friedrich leopold zu"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2789,
+  "name": "Stolberg-Stolberg, Friedrich Leopold zu",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 1024; DBI 1988",
+  "updated": "2026-06-11 13:29:25.239Z",
+  "uri": "https://d-nb.info/gnd/118755552",
+  "editor": ""
+}

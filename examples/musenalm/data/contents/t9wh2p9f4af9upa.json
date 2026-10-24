@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Sie liebt, das ist gewiß, mit reiner / Zärtlichkeit; / Ihr holder Schmerz dient jedem zum Beweise.",
+  "language": [],
+  "musenalm_id": 5130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die junge Wittwe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Q.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die junge Wittwe",
+  "updated": "2000-10-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.140Z",
+      "agent": "5zi0b6u2dct0970",
+      "source_id": "c6mboe0xtb7lvt8"
+    }
+  ]
+}

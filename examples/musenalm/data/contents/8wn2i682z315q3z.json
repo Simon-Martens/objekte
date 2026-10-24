@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Titelgraphik s. Textbezug INr 68789, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68777,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ROMA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "die Aqua Tinta von J. B. Hoessel",
+  "scans": [
+    "alm_1187_68777_87gguab2h4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ROMA",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.057Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "btfu2spvgzyt1ck"
+    }
+  ]
+}

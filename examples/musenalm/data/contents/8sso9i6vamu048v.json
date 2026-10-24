@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. Portrait Bernadotte, Prinz von Ponte-Corvos in der Marschallsuniform; s.  Textbezug INr 130312, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130322,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg del. 1808 Geisler fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. 1808 Geisler fec.",
+  "scans": [
+    "alm_2206_130322_yvkswm2f8z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.064Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "fx1xaq2bivl5jt8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.065Z",
+      "agent": "iojwntogak3m4db",
+      "source_id": "gt324zy6n13tfia"
+    }
+  ]
+}

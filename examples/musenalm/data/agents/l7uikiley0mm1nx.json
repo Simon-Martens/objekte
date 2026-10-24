@@ -1,0 +1,836 @@
+{
+  "annotation": "",
+  "biographical_data": "1712-1778",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.460Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/117322962",
+          "label": "Usteri, Leonhard"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Bedeutender Aufklärer; Moralphilosoph, Schriftsteller, Komponist und Botaniker; zeitweilig im Exil in der Schweiz und in England"
+      ],
+      "dateOfBirth": [
+        "1712-06-28"
+      ],
+      "dateOfDeath": [
+        "1778-07-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Maurice Quentin de La Tour"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Jacques%20Rousseau%20%28painted%20portrait%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Jacques%20Rousseau%20%28painted%20portrait%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jean-Jacques%20Rousseau%20%28painted%20portrait%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1055321845"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118603426/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10056893",
+          "label": "http://lod.gesis.org/thesoz/concept_10056893"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119388316",
+          "label": "Rousseau, Isaac"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118727893",
+          "label": "Levasseur, Marie-Thérèse"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13239832X",
+          "label": "Rousseau, François"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1209113961",
+          "label": "Rousseau, Suzanne"
+        },
+        {
+          "forename": [
+            "Johann Baptist"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118603426",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1209113961",
+          "label": "Rousseau, Suzanne"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119388316",
+          "label": "Rousseau, Isaac"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/13239832X",
+          "label": "Rousseau, François"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118603426",
+      "oldAuthorityNumber": [
+        "(DE-588c)4050757-9",
+        "(DE-588a)127943587",
+        "(DE-588a)118603426",
+        "(DE-101c)310282578",
+        "(DE-588a)134592573",
+        "(DE-588a)126859949",
+        "(DE-588)1055321845"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4020137-5",
+          "label": "Genf"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4342057-6",
+          "label": "Ermenonville"
+        }
+      ],
+      "preferredName": "Rousseau, Jean-Jacques",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jean-Jacques"
+        ],
+        "surname": [
+          "Rousseau"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4170836-2",
+          "label": "Musikwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Du contract social; ou principes du droit politique. - 1762",
+        "The living thoughts of Rousseau",
+        "Emile ou de l'education",
+        "La Reine Fantasque",
+        "Julie",
+        "Julie oder die neue Heloise",
+        "Du contrat social. - s.a",
+        "Julia",
+        "La nouvelle Héloise"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119228797"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79008220"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/100184045"
+        },
+        {
+          "collection": {
+            "abbr": "HISTORICUMNET",
+            "icon": "https://www.historicum.net/favicon.ico",
+            "id": "http://www.historicum.net",
+            "name": "Klassiker der Geschichtswissenschaft",
+            "publisher": "historicum.net"
+          },
+          "id": "http://www.historicum.net/themen/klassiker-der-geschichtswissenschaft/a-z/art/Rousseau_Jean/html/artikel/1986/ca/d9faad4776/"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D9547.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q6527"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118603426"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1055321845"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118603426/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118603426"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jean-Jacques_Rousseau"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jean-Jacques_Rousseau"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Jean-Jacques_Rousseau"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jean-Jacques_Rousseau"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121451116"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118603426"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118603426"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118603426"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/1FE89A8345C54085958F91EA65058EC2"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118603426"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "رۇسسۇ",
+        "J. J. R.",
+        "ルソー, ジャン・ジャック",
+        "Lusuo",
+        "Jan Jak Rosso",
+        "Rousseau, G. Giacomo",
+        "Rousseau, Johann Jacob",
+        "Rousseau, J.J.",
+        "ژان ژاك روسسو",
+        "Rusō, Jan Jakku",
+        "盧騷",
+        "Rousseau, Giangiacomo",
+        "Rousseau, John James",
+        "Russo, Žan-Žak",
+        "Rusō",
+        "Rosso, Jan Jak",
+        "Russo, Ž.-Ž.",
+        "Руссо, Жан-Жак",
+        "Rousseau, Jean J.",
+        "Rousseau, Gian Giacomo",
+        "Russo, Jān Jāk",
+        "庐骚",
+        "Rousseau, Juan Jacobo",
+        "Rūssū, Ǧān Ǧāk",
+        "M. J. J. R. C. D. G.",
+        "Rūsū",
+        "Wovu-so",
+        "Rosso, Žan Žak",
+        "Rousseau, Johan Jakob",
+        "Lu, Suo",
+        "Russu",
+        "Lusao",
+        "Lu sao",
+        "Rousseau, J. J.",
+        "Rosseau, Jean Jacques",
+        "Rousseau, Jean Jaques",
+        "Bzhang-Bzhav-ko-Wovu-so",
+        "Rousseu, Jean Jacques",
+        "Rus̄su,̄ Gǎn̄ Gǎk̄",
+        "Rousseau, Johann J.",
+        "Ru-so",
+        "Rousseau, I. I.",
+        "Rousseau, Jean Jacques",
+        "D. J. J. R. C. D. C. D. G.",
+        "Rousseau, Jan Jakób",
+        "Rosseau, Jean-Jacques",
+        "Rousseau",
+        "Rousseau, J.-J.",
+        "Rousseau, Johann Jakob"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jean Jaques"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Rūsū"
+          ]
+        },
+        {
+          "forename": [
+            "Jan Jakób"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Lu sao"
+          ]
+        },
+        {
+          "personalName": [
+            "盧騷"
+          ]
+        },
+        {
+          "forename": [
+            "J.J."
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Jakob"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Gian Giacomo"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Johann J."
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "M. J. J. R. C. D. G."
+          ]
+        },
+        {
+          "forename": [
+            "Žan Žak"
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "personalName": [
+            "Ru-so"
+          ]
+        },
+        {
+          "personalName": [
+            "J. J. R."
+          ]
+        },
+        {
+          "forename": [
+            "Jān Jāk"
+          ],
+          "surname": [
+            "Russo"
+          ]
+        },
+        {
+          "personalName": [
+            "Russu"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Jan Jakku"
+          ],
+          "surname": [
+            "Rusō"
+          ]
+        },
+        {
+          "forename": [
+            "Juan Jacobo"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "J.-J."
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "John James"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Jan Jak Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Jacques"
+          ],
+          "surname": [
+            "Rosseau"
+          ]
+        },
+        {
+          "forename": [
+            "Gian Giacomo"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Rus̄su,̄ Gǎn̄ Gǎk̄"
+          ]
+        },
+        {
+          "forename": [
+            "Jean J."
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Lusuo"
+          ]
+        },
+        {
+          "forename": [
+            "Giangiacomo"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Ž.-Ž."
+          ],
+          "surname": [
+            "Russo"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Jakob"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Suo"
+          ],
+          "surname": [
+            "Lu"
+          ]
+        },
+        {
+          "personalName": [
+            "ژان ژاك روسسو"
+          ]
+        },
+        {
+          "personalName": [
+            "D. J. J. R. C. D. C. D. G."
+          ]
+        },
+        {
+          "forename": [
+            "Žan-Žak"
+          ],
+          "surname": [
+            "Russo"
+          ]
+        },
+        {
+          "forename": [
+            "I. I."
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧān Ǧāk"
+          ],
+          "surname": [
+            "Rūssū"
+          ]
+        },
+        {
+          "personalName": [
+            "Wovu-so"
+          ]
+        },
+        {
+          "forename": [
+            "Жан-Жак"
+          ],
+          "surname": [
+            "Руссо"
+          ]
+        },
+        {
+          "personalName": [
+            "Rusō"
+          ]
+        },
+        {
+          "personalName": [
+            "رۇسسۇ"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Jacques"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "G. Giacomo"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "personalName": [
+            "Lusao"
+          ]
+        },
+        {
+          "personalName": [
+            "庐骚"
+          ]
+        },
+        {
+          "personalName": [
+            "Bzhang-Bzhav-ko-Wovu-so"
+          ]
+        },
+        {
+          "forename": [
+            "Jan Jak"
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "ジャン・ジャック"
+          ],
+          "surname": [
+            "ルソー"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Jacques"
+          ],
+          "surname": [
+            "Rousseu"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Jacob"
+          ],
+          "surname": [
+            "Rousseau"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Jacques"
+          ],
+          "surname": [
+            "Rosseau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jean-Jacques_Rousseau",
+          "label": "https://de.wikipedia.org/wiki/Jean-Jacques_Rousseau"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:42:03Z",
+    "gnd_query_biographical_data": "1712-1778",
+    "gnd_query_name": "rousseau, jean jaques"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2328,
+  "name": "Rousseau, Jean Jaques",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 423",
+  "updated": "2026-06-11 13:29:24.418Z",
+  "uri": "https://d-nb.info/gnd/118603426",
+  "editor": ""
+}

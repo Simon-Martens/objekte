@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Es ist in mir so trübe, / Fort aller Sonnenschein;",
+  "language": [],
+  "musenalm_id": 65838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Herbste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Herbste",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.283Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "d7wzviss0sryx36"
+    }
+  ]
+}

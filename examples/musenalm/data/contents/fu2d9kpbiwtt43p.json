@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Eisenknapp und Waldborn« von K. G. Prätzel INr 21164, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21114,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eisenknapp' und Waldborn von Prätzel. 1. Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; H. C. Müller",
+  "scans": [
+    "alm_281_21114_5z40ti14v0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eisenknapp' und Waldborn von Prätzel. 1. Blatt",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.944Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "jwuojq34qvcbuj7"
+    }
+  ]
+}

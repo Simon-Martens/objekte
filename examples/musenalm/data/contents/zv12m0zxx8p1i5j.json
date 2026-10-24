@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Fabelbilder erfunden und gemalt von M. Disteli, gestochen von F. Buser, nachgezeichnet von A. E. Fröhlich (Sammlung INr 54857, Obj 17) s. Graphik INr 54862, Obj 202",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Wie majestätisch geht der Mann, / Den Federmantel umgethan;",
+  "language": [],
+  "musenalm_id": 54861,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Kauz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Kauz",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.749Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "om65je71avn86y8"
+    }
+  ]
+}

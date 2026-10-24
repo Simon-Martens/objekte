@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Sänger schweigen in den trübern Lüften, / Abgeblichen ist der Wiesen Pracht,",
+  "language": [],
+  "musenalm_id": 4673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schöne Herbsttag. / Der Fürstinn L. v. J. am 22. Sept- / tember geweiht. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der schöne Herbsttag. / Der Fürstinn L. v. J. am 22. Sept- / tember geweiht. / Sonett",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.030Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "osq6v99yqhbi1kc"
+    }
+  ]
+}

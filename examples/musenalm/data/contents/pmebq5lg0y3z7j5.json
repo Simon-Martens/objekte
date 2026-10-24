@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Eingehüllt in deinen Feenschleier / Fühl ich, Zukunft, himmlisch hohe Lust,",
+  "language": [],
+  "musenalm_id": 35588,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoffnung und Erinnern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoffnung und Erinnern",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.647Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "zsep7r34z4pse6t"
+    }
+  ]
+}

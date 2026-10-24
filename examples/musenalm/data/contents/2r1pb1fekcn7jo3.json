@@ -1,0 +1,45 @@
+{
+  "annotation": "Re 20 weist darauf hin, daß Reinhard die unter diesem Pseudonym 1788, 1789 veröffentlichten Stücke 1817 in die Ausgabe von Bürgers sämtlichen Werken aufgenomen hat",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Den Tückischen, dem Weise gerne weichen, / Dem Vogelscheu vergleichst du ihn?",
+  "language": [],
+  "musenalm_id": 3440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vogelscheu",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dietrich Menschenschreck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vogelscheu",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.087Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "8i9fkluc0tx6li9"
+    }
+  ]
+}

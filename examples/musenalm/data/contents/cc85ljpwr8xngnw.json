@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert p. 240 nummeriert 2. /) Illustration zu »Amalie Trunemann« INr 85917, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Werdet auch Greise, die einst so glücklich und zufrie- / den sind, wie ich es bin, und ihr könnt es seyn, wenn / ihr Tugend u. Thätigkeit euer schönstes Gesetz sein lasset",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1790",
+  "scans": [
+    "alm_636_85918_dnm16o66jp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Werdet auch Greise, die einst so glücklich und zufrie- / den sind, wie ich es bin, und ihr könnt es seyn, wenn / ihr Tugend u. Thätigkeit euer schönstes Gesetz sein lasset",
+  "updated": "2006-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.233Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "55usi70h8b3mp1x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.233Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "7ry3dip2rofryy4"
+    }
+  ]
+}

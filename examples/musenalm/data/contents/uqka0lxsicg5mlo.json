@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 125. /) Vertonung des Gedichts »Ständchen« von F. L. Gr. z. Stolberg INr 16988, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_118_16987_xt5j93m17l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.635Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "xsvmsugixfd8owa"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Wie heult der Schneesturm, wie pfeift der Wind, / In finst'rer Hütte friert Weib und Kind;",
+  "language": [],
+  "musenalm_id": 117888,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Stimme des Waldes. / Eine Winterfantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cajetan Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Stimme des Waldes. / Eine Winterfantasie",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.450Z",
+      "agent": "ett5544anganpff",
+      "source_id": "fdrj8dox4fihftk"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug (Gedicht) INr 77353, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77349,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Raphaela",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+  "scans": [
+    "alm_2403_77349_x4itjnw6i9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Raphaela",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.837Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "047togrultcvdzt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.837Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "97htgcgagoat8id"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12 /) Graphik im Kalendarium September /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Grossvater",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_821_70338_cay29jg1xv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Grossvater",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.507Z",
+      "agent": "rcmptupq08d0ih1",
+      "source_id": "azm93ispa2uu2ep"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.507Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "udq1kgdivrlr2ck"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Gedichte (Sammlung INr 66571, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Endlich grauet der Tag! Es hatte der sorgliche Förster / leise schon dreimal die Fenster der friedlichen Hütte geöfnet,",
+  "language": [],
+  "musenalm_id": 66572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Klapperjagd am Hubertustag. / Eine Jagd-Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Reg.-Rath Bunsen in Arolsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Klapperjagd am Hubertustag. / Eine Jagd-Idylle",
+  "updated": "2009-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.202Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "remm6a1obc5v67a"
+    }
+  ]
+}

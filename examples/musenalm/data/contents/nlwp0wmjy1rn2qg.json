@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 69453, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69452,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Delémont",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Juillrat del. F. Hegi sc.",
+  "scans": [
+    "alm_721_69452_puoz3lbi66.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Delémont",
+  "updated": "2007-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.383Z",
+      "agent": "xh6k6nw5l5dihva",
+      "source_id": "giq9ls0d9obv0ti"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.383Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "o247ay9upj7nzpy"
+    }
+  ]
+}

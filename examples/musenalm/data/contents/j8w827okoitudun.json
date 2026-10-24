@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Anm. INr 26796, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Nicht alles Gut' ist gut; Mensch überred' Dich nicht,",
+  "language": [],
+  "musenalm_id": 26887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "91) Nicht Alles Gute ist gut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Angelus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "91) Nicht Alles Gute ist gut",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.167Z",
+      "agent": "u6qx1yh697eqyvy",
+      "source_id": "4gku5ynuuvluabr"
+    }
+  ]
+}

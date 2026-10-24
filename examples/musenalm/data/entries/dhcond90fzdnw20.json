@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Calendarium Musarum Latinum 1786",
+    "norm": "",
+    "biblio": 409923,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-06-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4652,
+  "parallel_title": "",
+  "place_statement": "Leipzig (S. L. Crusi)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Calendarium Musarum Latinum 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 31; nicht bei L/R; Goed IV. 368, 26",
+  "responsibility_statement": "G. N. Fischer",
+  "subtitle_statement": "",
+  "title_statement": "CALENDARIUM / MUSARUM / LATINUM / ANNI AERAE CHRISTIANAE / MDCCLXXXVI. / EDIDIT / G. N. FISCHER, / STEPH. HALBERSTAD. RECT. / LIPSIAE. / EX OFFICINA S. L. CRUSII",
+  "updated": "2026-06-11 10:18:55.566Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "3wvlao837sdoazz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.145Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.145Z",
+      "agent": "p82wioeolehp74k",
+      "source_id": "l5p25pisd460uzk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.401Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.401Z",
+      "agent": "4iaot4jwwlq6r5e",
+      "source_id": "mogvt7zdfo9a5v3"
+    }
+  ]
+}

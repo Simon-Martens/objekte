@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Höret Niemand meine Klagen / Hier am öden Meeressaum,",
+  "language": [],
+  "musenalm_id": 67805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Traum und Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. von Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Traum und Leben",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.999Z",
+      "agent": "prvw4acsenveets",
+      "source_id": "4fv5uok4a8cmjf8"
+    }
+  ]
+}

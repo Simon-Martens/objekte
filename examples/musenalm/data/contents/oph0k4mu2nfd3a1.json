@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LA CHAUX DE FOND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Moritz del. F. Hegi sc.",
+  "scans": [
+    "alm_718_52432_zzssqdeli0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LA CHAUX DE FOND",
+  "updated": "2007-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.519Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "rua7kwnu0ap8jkh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Sonette (Sammlung INr 19370, Obj 72) s. Graphiken INr 9214-9217, Obj 19-22; # im I-Verz: Louise Schubert",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Gern reicht' ich Dir die schönste aller Kronen! / Doch was sind Kronen, könnt' ich sie auch geben?",
+  "language": [],
+  "musenalm_id": 1410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. An Madame Schütz, vormalige Hendel, / nach ihrer mimischen Darstellung / den 18. Februar 1811",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Henriette Schubert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. An Madame Schütz, vormalige Hendel, / nach ihrer mimischen Darstellung / den 18. Februar 1811",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.005Z",
+      "agent": "od6meihhmql1c8r",
+      "source_id": "41n49xpqg6cs6jl"
+    }
+  ]
+}

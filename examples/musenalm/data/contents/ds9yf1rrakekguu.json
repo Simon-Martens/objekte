@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Städterinnen, rasch zum Schiffe, / Schwingt die Ruder kühn und froh!",
+  "language": [],
+  "musenalm_id": 54147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Bank. / (Bey Unterseen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Bank. / (Bey Unterseen.)",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.711Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "njudvqpomwpgano"
+    }
+  ]
+}

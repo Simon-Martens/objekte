@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 68222, Obj 239)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Die erste Sylbe ist ein hoher Baum, / Durch Blüthenduft am Sommerabend labend,",
+  "language": [],
+  "musenalm_id": 68223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 240,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Zweisylbig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Saalmüller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Zweisylbig",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.262Z",
+      "agent": "xojpiwzkdga93tk",
+      "source_id": "yf88n8z0qx45cg8"
+    }
+  ]
+}

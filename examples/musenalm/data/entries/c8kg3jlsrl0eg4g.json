@@ -1,0 +1,121 @@
+{
+  "annotation": "Das I-Verz weist aus: Ein Tafelkalender für 1802 nebst der russischen Zeitrechnung. §1§ Eine Reisekarte durch Deutschland, nach Julius, von Sprögel angefangen und Carl Jäck vollendet. §2§ , beide Beigaben fehlen. Die Preisliste weist fünf verschiedene Ausgaben des Jg sowie Separatveröffentlichung der Karte und des Kalenders aus s. Photo 50407",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, recto G, verso G, T, SS 1-28 darin 11 GG, SS 29-192, S VrlgM G- Verz I-Verz, S Tab, gzT, 12 SS Tab §1§ §2§",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Vieweg) 1802",
+    "norm": "~ +++ 404571",
+    "biblio": 101355,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 9,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Vieweg)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Taschenbuch (Vieweg) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; L/R 51; Goed VIII. 49, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1802. / Braunschweig, / gedruckt und verlegt / bei Friedrich Vieweg",
+  "updated": "2026-06-11 10:18:55.446Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "9th6nulposgpug3",
+    "fom4gmm3bbepj9v"
+  ],
+  "contents": [
+    "t87kf9iwhy57nlj",
+    "hg7f0b64d7jj7g8",
+    "1h93akhcqxe767b",
+    "h507zltxnir29db",
+    "30mfhgn0jywza12",
+    "kf96wjzwdhoegbo",
+    "bpp3b1ywxz3zz7r",
+    "9ng14f1n6lwq6l8",
+    "rio5jj7yikoxw84",
+    "mg6x801jumodoqv",
+    "cw01a4u3gut90xi",
+    "zwfhjprno5qhkiy",
+    "d01xq1tekano9no",
+    "wtxyu0sub8ei2ml",
+    "ywlannh2pe3c5ar",
+    "6jklxlokfne0xbq",
+    "lp2hkvufs7lxh1b",
+    "c16vgui8ekta603",
+    "zey7qqu58kyr918",
+    "o6a89nomzwou7hs",
+    "4fhn59a04lkol5o",
+    "wsotafcxw0a3ef5",
+    "kb5b9h7fp81pm8l",
+    "y5qwb67azi8vgix",
+    "sw40938kab232oh",
+    "fb4nv2zk6se7qws",
+    "sfj5cpzgzxnm2wf",
+    "leodc0w9edt43in",
+    "d5mp0jidzvfr0rh",
+    "jfy9zkhy7xd3qmx",
+    "kz7m702aohl1n0l",
+    "0xz75p2j8t71ccu",
+    "2a4va23fmojyn29",
+    "drkpdgapzjs6wvq",
+    "71b2kgziodi15ri",
+    "rhfxyvqve2l8civ",
+    "8154y1fblr36sri",
+    "z4vlo2o7ojlcl7v",
+    "r25zg9thfr3zdex",
+    "s2qehsnt7a5tqtx",
+    "awrnq9ly071ghkw",
+    "wh1bqrl0urnxa67",
+    "nnqdhbr5227yuav",
+    "4kok5exuweo4tkw",
+    "29ckzptzykz2rhr",
+    "dz1cu6uqiqzvvgo",
+    "rpn0zgon4sh1gh1",
+    "ifs9crtpxmeaplx",
+    "sp6osq937nu28lb",
+    "co8fdiwxcqox4a3",
+    "jt2y3jon3v6kuhu",
+    "nnmriiqt5tpeueb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "q7iz8gs7x3z92f5"
+    }
+  ]
+}

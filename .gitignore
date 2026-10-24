@@ -11,3 +11,7 @@
 /crates/server/assets/dist
 
 /crates/server/assets/src/generated
+
+# Original local export; converted JSON is versioned in examples/musenalm.
+/import/
+/scripts/__pycache__/

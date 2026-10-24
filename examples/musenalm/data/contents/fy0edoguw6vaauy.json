@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Du kömmst, o Schlacht! schon wogen die Jünglinge / Hinab von den Hügeln, hinab in's Thal,",
+  "language": [],
+  "musenalm_id": 21898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod fürs Vaterland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod fürs Vaterland",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.682Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "1t4soar16yhw012"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. Musikbeigabe INr 42691, Obj 224 dem folgendes Gedicht INr 42693, Obj 226 vorangestellt s. a. Anmerkung INr 42694, Obj 227",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Dulces exuviae, dum fata Deusque sinebant, / Accipite hanc animam, meque his absolvite curis.",
+  "language": [],
+  "musenalm_id": 42692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 225,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dulces exuviae, dum fata Deusque sinebant, / Accipite hanc animam, meque his absolvite curis.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vergil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.100Z",
+      "agent": "ocp7wmob7p50c6i",
+      "source_id": "8qbcje34cnj9508"
+    }
+  ]
+}

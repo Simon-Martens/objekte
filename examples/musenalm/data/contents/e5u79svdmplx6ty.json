@@ -1,0 +1,45 @@
+{
+  "annotation": "13a /) Erstes Jahr (Sammlung INr 52031, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Träumend sah' ich dich; wie selig / Machte mich dein Engelbild!",
+  "language": [],
+  "musenalm_id": 52039,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gelübde, / an Henrietten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gelübde, / an Henrietten",
+  "updated": "2007-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.651Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "we390c9w8ptj7tc"
+    }
+  ]
+}

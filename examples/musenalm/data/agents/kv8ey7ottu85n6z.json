@@ -1,0 +1,472 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1846",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.323Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2018088-3",
+          "label": "Gewandhausorchester"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Sulza/Thüringen, Leipzig, Halle/Saale (Wirkungsorte); Dt. Liederkomponist, Theologe, Leiter einer Erziehungsanstalt, Privatdozent für Musik, Musikkritiker, Musikschriftsteller, Enzyklopädist",
+        "1812 bis 1813 Gewandhausorchester, Bratscher im Konzert"
+      ],
+      "dateOfBirth": [
+        "1783-03-07"
+      ],
+      "dateOfDeath": [
+        "1846-08-27"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Wildt"
+          ],
+          "creditText": [
+            "This image is part of the Portrait Collection Friedrich Nicolas Manskopf at the library of the Johann Wolfgang Goethe-University Frankfurt am Main. ID: {{{1}}} This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/GW%20Finck.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/GW%20Finck.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:GW%20Finck.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T15:03:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118687301/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1210053128",
+          "label": "Fink, Henriette Wilhelmine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135989205",
+          "label": "Fink, Charlotte"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118687301",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/135989205",
+          "label": "Fink, Charlotte"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1210053128",
+          "label": "Fink, Henriette Wilhelmine"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118687301",
+      "oldAuthorityNumber": [
+        "(DE-588a)118687301",
+        "(DE-588c)4092219-4",
+        "(DE-588a)160142415"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/105289769X",
+          "label": "Sulza"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Fink, Gottfried Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried Wilhelm"
+        ],
+        "surname": [
+          "Fink"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398810-6",
+          "label": "Bratschist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4504649-9",
+          "label": "Universitätsmusikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4120774-9",
+          "label": "Musikkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398800-3",
+          "label": "Musikschriftsteller"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116657839",
+          "label": "Gleich, Ferdinand"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Edinhard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Gedichte",
+        "Red. von: Allgemeine Musik-Zeitung",
+        "Erste Wanderung der ältesten Tonkunst, als Vorgeschichte der Musik od*",
+        "Der musikalische Hauslehrer",
+        "Musikalische Grammatik",
+        "Musikalischer Hausschatz der Deutschen",
+        "Encyclopädie der gesammten musicalischen Wissenschaften, oder Universallexicon der Tonkun*",
+        "Lieder und Balladen in thüringischer Mundart",
+        "Volkslieder mit und ohne Clavierbegleitung",
+        "Häusliche Andachten",
+        "Wesen und Geschichte der 0per"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85301384"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/47556228"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215325"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118687301"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118687301/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Wilhelm_Fink"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Fink"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010654172X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118687301"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118687301.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118687301.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118687301"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118687301"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Fink, Gottfried Wilhelm",
+        "Edinhard, Gustav",
+        "Fink, Christian Anton Wilhelm",
+        "Fink, ...",
+        "Fink, W.",
+        "Fink, G. W.",
+        "Fink, Gottfr. Wilh.",
+        "Fink, Gottfried W.",
+        "Fink, Christian Gottfried Wilhelm",
+        "Fink, Gottfried Wilh.",
+        "Fink, Gottfr. W.",
+        "Fink, Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Gottfried Wilhelm"
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Wilh."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Wilhelm"
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "G. W."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Edinhard"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Anton Wilhelm"
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfr. Wilh."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfr. W."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried W."
+          ],
+          "surname": [
+            "Fink"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Wilhelm_Fink",
+          "label": "https://de.wikipedia.org/wiki/Gottfried_Wilhelm_Fink"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:22:12Z",
+    "gnd_query_biographical_data": "1783-1846",
+    "gnd_query_name": "fink, gottfried wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 717,
+  "name": "Fink, Gottfried Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VII, 17",
+  "updated": "2026-06-11 13:29:22.255Z",
+  "uri": "https://d-nb.info/gnd/118687301",
+  "editor": ""
+}

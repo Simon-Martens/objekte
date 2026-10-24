@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert No. 2. /) # vollst. Bezeichnung und Titel s. Textbezug INr 65244, Obj 22; s.a. Beitrag INr 65252, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65231,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das steinerne Kreuz #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Stöver gez. Jöntzen gedr.",
+  "scans": [
+    "alm_1091_65231_0709akange.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das steinerne Kreuz #",
+  "updated": "2009-07-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.258Z",
+      "agent": "h46qu65kp4gpmhg",
+      "source_id": "kp7wrkfu5dppv39"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.258Z",
+      "agent": "wgx9xguy2prwz1c",
+      "source_id": "wb6s4xmqx08kcvt"
+    }
+  ]
+}

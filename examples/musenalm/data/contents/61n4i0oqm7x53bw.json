@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 97958, Obj 47) mit Anm",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Noverint universi et singuli Christi fideles praesentem paginam inspecturi, quod anno Dmi. millesimo centesimo nonagesimo,",
+  "language": [],
+  "musenalm_id": 97968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Abschrift einer alten Urkunde, die Stiftung / des deutschen Hauses und die St. Elisa- / beth-Kirche zu Marburg betreffend, welche / in der Pfarr-Repositur zu Gemünden be- / findlich ist.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Abschrift einer alten Urkunde, die Stiftung / des deutschen Hauses und die St. Elisa- / beth-Kirche zu Marburg betreffend, welche / in der Pfarr-Repositur zu Gemünden be- / findlich ist.",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.762Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "o9xe5f8cyeosarm"
+    }
+  ]
+}

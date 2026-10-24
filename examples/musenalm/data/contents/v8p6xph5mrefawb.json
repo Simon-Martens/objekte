@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64456, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64463,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Loge #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. M. Hay pinxt. E. Wagner sculpt.",
+  "scans": [
+    "alm_1073_64463_w39ytara8r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In der Loge #",
+  "updated": "2009-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.150Z",
+      "agent": "v8vzqigii70h128",
+      "source_id": "6z8eq2jte1hnxlw"
+    }
+  ]
+}

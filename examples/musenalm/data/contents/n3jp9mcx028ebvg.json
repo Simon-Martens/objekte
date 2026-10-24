@@ -1,0 +1,47 @@
+{
+  "annotation": "s. folgendes Gedicht INr 81649, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81648,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poesie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leudner del. Ausführung u. Stich d. Manz' Kunst-Verlag",
+  "scans": [
+    "alm_1814_81648_bazvjmv1n0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Poesie",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.821Z",
+      "agent": "bi3l84nage57jnv",
+      "source_id": "9zuqsh2y3lzl7ez"
+    }
+  ]
+}

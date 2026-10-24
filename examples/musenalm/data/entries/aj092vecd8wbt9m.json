@@ -1,0 +1,91 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S, G, SS 1–366 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1814",
+    "norm": "~",
+    "biblio": 100044,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1282,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hartmann)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Zwölfter Jahrgang / Leipzig 1814. / bei C. J. G. Hartmann",
+  "updated": "2026-06-11 10:18:54.999Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "5n1oomj62mxi991"
+  ],
+  "contents": [
+    "uihgyeh8umx37q2",
+    "xvcnxtz7jtnfpex",
+    "jv3golbsxij1m3l",
+    "j8kev68758lphhh",
+    "y0zoyksnnac4pd9",
+    "dg9il42t01n5f6c",
+    "11rq9x0fe0jf4gd",
+    "73cl5f3fzyvkmxw",
+    "x3vkxzx7a0dayr5",
+    "d0adr2jwp51hoy8",
+    "bkm9yytyr7wwqu1",
+    "7ik5b5c9en0m8om"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.967Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.967Z",
+      "agent": "p9ks1mekociw0y5",
+      "source_id": "kxvte1d7jom5ne3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.873Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.873Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "v5ni0t62wfvrhk0"
+    }
+  ]
+}

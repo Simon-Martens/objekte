@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 7. Blatt Suite /) Graphik im Kalendarium April; paginiert 5. /) s. Textbezug INr 96795, Obj 14 /) Illustration zu »Der Feldzug der Deutschen, gegen die / Neufranken vom Jahr 1793« INr 96918, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96908,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Non, Non, Coquins ca n'ira pas / folgt mir Kinder vorwärts Marsch!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner inv. de. & sc. 1794",
+  "scans": [
+    "alm_1967_96908_mshoigj9pl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Non, Non, Coquins ca n'ira pas / folgt mir Kinder vorwärts Marsch!",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.741Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "i6urak52fsgmib5"
+    }
+  ]
+}

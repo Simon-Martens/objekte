@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44179, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Im Morgengold der Frühthau blitzt, / Der Vogler in der Laubhütt' sitzt,",
+  "language": [],
+  "musenalm_id": 44181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vogler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vogler",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.458Z",
+      "agent": "knoskc7ee942ezb",
+      "source_id": "36puovbn8slhceb"
+    }
+  ]
+}

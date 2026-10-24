@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 14227, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "So zärtlich lieben sie, so treu,die schönen Seelen ! / O daß sie sich nur nicht vermählen!",
+  "language": [],
+  "musenalm_id": 14229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Das liebende Paar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Sonnleithner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Das liebende Paar",
+  "updated": "2001-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.269Z",
+      "agent": "v2707y6y5mu8c55",
+      "source_id": "rc5bwryiwv1mnbg"
+    }
+  ]
+}

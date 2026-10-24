@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Mischlinge (Sammlung INr 75462, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Wer möchte' im Ernste wohl zu läugnen wagen, / Daß unsre Kunst den Zirkelkreis der Welt, / Auf dem des Stumpfsinns düst' re Schatten lagen,",
+  "language": [],
+  "musenalm_id": 75465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Typographen. / An ***",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Typographen. / An ***",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.787Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "goqdmbr8582zccd"
+    }
+  ]
+}

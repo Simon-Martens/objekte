@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) 2. Illustration zu »Das Lied von der Glocke« von Fr. Schiller s. INr 76873, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76874,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schillers Lied von der Glocke 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+  "scans": [
+    "alm_2392_76874_ohelgbz95i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schillers Lied von der Glocke 2.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.752Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "1610ldownauhqr1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.752Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "diqv7cqt4ifw030"
+    }
+  ]
+}

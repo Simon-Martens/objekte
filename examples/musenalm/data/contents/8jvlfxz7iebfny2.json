@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. J. D. Sauerländer] s. Textbezug INr 44603, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44604,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DES SCHULMEISTER'S NAMENSTAG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hanno Rhomberg pinx. Adrian Schleich sc.",
+  "scans": [
+    "alm_610_44604_nusgldopij.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DES SCHULMEISTER'S NAMENSTAG",
+  "updated": "2006-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.454Z",
+      "agent": "60b46du0g6q8pcx",
+      "source_id": "49pwpdbdrcsdwud"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.454Z",
+      "agent": "x494ejn8uabo7dp",
+      "source_id": "uvor0vjzyzei28b"
+    }
+  ]
+}

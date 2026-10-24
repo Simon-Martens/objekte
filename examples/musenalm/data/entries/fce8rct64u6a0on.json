@@ -1,0 +1,111 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Graubünden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.819Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS 1-212 darin 7 GG, SS 196-212 G-Verz darin 2 GG, Kr, S 213 I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1806",
+    "norm": "~ ohne Kalendarium",
+    "biblio": 200416,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-09-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 706,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / für das Jahr / 1806. / Zürich. / bey Orell, Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.148Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "bydjtpcxe3garcr"
+  ],
+  "contents": [
+    "9o9a1ehidyjtbqx",
+    "a69pq3e6l0isuuk",
+    "okli5n15tbdy2zv",
+    "sjgg76gwxxww9a4",
+    "y76abns36fzm0dd",
+    "wd4gn1iab6ayveo",
+    "pmb1t5agvxdewvc",
+    "rv5l3ebpqg6ao0g",
+    "cels4y0709ju1fv",
+    "oazltz2i8n7tbxa",
+    "b9ikgqmlo48a4vz",
+    "m5bkvw1419zkmp4",
+    "se18vn5imzn620g",
+    "zcwl0hryctcesc8",
+    "g2bb1m2mxw11cul",
+    "bvn81zy9vvh1br3",
+    "u3oy8pqb6zw7ub1",
+    "3lk8ux38nv4hu59",
+    "7y9eeobgoo5bluo",
+    "ifepmydfnn4nzjt",
+    "dg4na4hww07o41z",
+    "m21trpob852fku7",
+    "bwvt33a7vfpiv2c",
+    "0luz03b42fsy55a",
+    "nha63erbydyhjrl",
+    "jbq91eub1m8x4lk",
+    "fp2n4q0cgih1j0t",
+    "qd6ayztrts2ox22",
+    "2tlwfgim8hh4ll6",
+    "bbcydgs7upnu29b",
+    "21lip0jeuxu6lc7",
+    "61pd1pwf7dr5ryt",
+    "tctfzvi2uek41z1",
+    "zw9jw2y2tehg8ph",
+    "qflbltt9eym6m3k",
+    "pg7ro8kf6yuflvg",
+    "d0c8wbhhtrs77j4",
+    "nofyafdfrdyogbd",
+    "mj68p9m2z2pjddo",
+    "bjq7uall4dr3jj1",
+    "g2fpnn6ycegja9r",
+    "o3i69tav8mnffvz",
+    "dbrd8hbv748j6og"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.116Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.116Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "qyubs8j7lfitiai"
+    }
+  ]
+}

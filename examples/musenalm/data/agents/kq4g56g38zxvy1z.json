@@ -1,0 +1,421 @@
+{
+  "annotation": "",
+  "biographical_data": "1757-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.251Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1169843441",
+          "label": "Lehranstalt der Forst- und Jagdkunde"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1045486-X",
+          "label": "Societät der Forst- und Jagdkunde"
+        },
+        {
+          "id": "https://d-nb.info/gnd/806636-X",
+          "label": "Erziehungsanstalt Schnepfenthal"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7728051-9",
+          "label": "Forstakademie Dreißigacker"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1801 Gründer und Direktor der Forstakademie in Dreißigacker (Forsthochschule des Herzogtums Sachsen-Meiningen)",
+        "1785 Lehrer für Naturwissenschaften und Mathematik am Gymnasium Schnepfenthal bei Gotha",
+        "1794 Gründer der Forstschule in Waltershausen"
+      ],
+      "dateOfBirth": [
+        "1757-07-11"
+      ],
+      "dateOfDeath": [
+        "1822-03-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Emil Eugen Sachse"
+          ],
+          "creditText": [
+            "Zweihundert deutsche Männer in Bildnissen und Lebensbeschreibungen, Leipzig&nbsp;1854, editor Ludwig Bechstein (Google Books )"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Matth%C3%A4us%20Bechstein.jpeg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Matth%C3%A4us%20Bechstein.jpeg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Matth%C3%A4us%20Bechstein.jpeg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-29T14:41:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-386",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-386"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11933237X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118654292",
+          "label": "Bechstein, Ludwig"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11933237X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#25.3p",
+          "label": "Personen zu Zoologie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#32.10p",
+          "label": "Personen zu Landwirtschaft, Garten"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11933237X",
+      "oldAuthorityNumber": [
+        "(DE-588a)11933237X",
+        "(DE-588c)4409455-3"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4064494-7",
+          "label": "Waltershausen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/16326266-4",
+          "label": "Dreißigacker"
+        }
+      ],
+      "preferredName": "Bechstein, Johann Matthäus",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Matthäus"
+        ],
+        "surname": [
+          "Bechstein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4385245-2",
+          "label": "Forstwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172846-4",
+          "label": "Ornithologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4604129-1",
+          "label": "Naturschützer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4300473-8",
+          "label": "Direktor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Bechstein, Johann M.: Kurzgefaßte gemeinnützige Natur-Geschichte des In- und Auslandes",
+        "Bechstein, Johann M.: Ornithologisches Taschenbuch von und für Deutschland",
+        "Bechstein, Johann M.: Naturgeschichte der Stubenthiere",
+        "Bechstein, Johann M.: Naturgeschichte der schädlichen Waldinsekten",
+        "Bechstein, Johann M.: Taschenblätter der Forstbotanik",
+        "Bechstein, Johann M.: Kurze aber gründliche Musterung ..",
+        "Bechstein, Johann M.: Gemeinnützige Naturgeschichte Deutschlands nach allen drey Reichen",
+        "Bechstein, Johann M.: Gründliche Anweisung, alle Arten von Vögeln zu fangen ..",
+        "Bechstein, Johann M.: Handbuch der Jagdwissenschaft. - 1801 - 1809"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84012077"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30344360"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213583"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11933237X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Matth%C3%A4us_Bechstein"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Matth%C3%A4us_Bechstein"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Matth%C3%A4us_Bechstein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Matth%C3%A4us_Bechstein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109627684"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11933237X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11933237X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11933237X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11933237X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11933237X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11933237X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bechstein, Johannes Matthaeus",
+        "Bechstein, J. M.",
+        "Bechstein, Johann Mathäus",
+        "Bechstein, Johannes Matthäus",
+        "Bechstein, Johann M.",
+        "Bechstein, Johann Mattäus",
+        "Bechstein, Johann Matthaeus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Mathäus"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Matthaeus"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Matthaeus"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Mattäus"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Johann M."
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Matthäus"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Matth%C3%A4us_Bechstein",
+          "label": "https://de.wikipedia.org/wiki/Johann_Matth%C3%A4us_Bechstein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:53:18Z",
+    "gnd_query_biographical_data": "1757-1822",
+    "gnd_query_name": "bechstein, johann matthäus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 133,
+  "name": "Bechstein, Johann Matthäus",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB II, 205",
+  "updated": "2026-06-11 13:29:21.502Z",
+  "uri": "https://d-nb.info/gnd/11933237X",
+  "editor": ""
+}

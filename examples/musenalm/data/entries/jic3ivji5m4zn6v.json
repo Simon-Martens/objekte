@@ -1,0 +1,67 @@
+{
+  "annotation": "franz. Ausgabe des Taschenkalenders. Keine detaillierte Aufnahme. Von den dem deutschsprachigen Taschenkalender beigegebenen Graphiken sind hier lediglich die 4 Modekupfer, 1 Graphik im Kalendarium, und 2 weitere Graphiken vorhanden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, T, 4 GG, 29 BB Kal, darin G, 8 BB Kal (rev.-franz.), S 1nT, 2 GG, SS 3-237, 2 SS I-Verz, 2 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1802 (franz. Ausg.: Almanac de Goettingue 1802)",
+    "norm": "~",
+    "biblio": 407845,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-05-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3947,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1802 (franz. Ausg.: Almanac de Goettingue 1802)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de GOETTINGUE / pour l'année 1802. / Goettingue / chez Henri Dieterich",
+  "updated": "2026-06-11 10:18:55.220Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "scomzw3tdelwf6u"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.941Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.941Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "i40jmimjvv1761f"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers mit Erläuterungen zu den Graphiken s. Graphiken INr 21680, 21686-21697; Obj 1, 7-18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn ich dieser ersten Abtheilung meines Göz von Berlichingen eine eben so nachsichtsvolle Aufnahme verspreche,",
+  "language": [],
+  "musenalm_id": 21683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meinen gütigen Lesern, / recht viel Gutes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Lang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meinen gütigen Lesern, / recht viel Gutes",
+  "updated": "2002-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.094Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "npdb8bvxg8pmhoi"
+    }
+  ]
+}

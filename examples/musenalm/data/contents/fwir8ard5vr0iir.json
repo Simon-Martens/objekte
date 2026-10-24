@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Hass und Liebe« von F. H. Slawik INr 90852, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung: Hass und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jn. Blaschke",
+  "scans": [
+    "alm_1775_90853_pxip2rzuco.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung: Hass und Liebe",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.267Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "bajw5cdxdz840wz"
+    }
+  ]
+}

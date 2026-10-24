@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK, GBV: 1836-1845 /) zu A. Asher s.: Thomas Keiderling: Ein jüdischer Buchhändler mit englischem Sortiment. in: Berlinische Monatsschrift 8/1996 SS 55-60",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ehret die Frauen (London: Ascher) 1836",
+    "norm": "",
+    "biblio": 409384,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4374,
+  "parallel_title": "",
+  "place_statement": "London (Bartholomew)",
+  "places": [
+    "ufsk13cgb3rh96j"
+  ],
+  "preferred_title": "Ehret die Frauen (London: Ascher) 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. Asher",
+  "subtitle_statement": "",
+  "title_statement": "EHRET DIE FRAUEN. / MDCCCXXXVI. / LONDON: / PRINTED FOR A. ASHER, / BATHOLOMEW CLOSE",
+  "updated": "2026-06-11 10:18:55.612Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "dnvut52qwubtp6k"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.494Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.494Z",
+      "agent": "txi5zzt6s86i4t1",
+      "source_id": "9m37ksdyx8s4cuw"
+    }
+  ]
+}

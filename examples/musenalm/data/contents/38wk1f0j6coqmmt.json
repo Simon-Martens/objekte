@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium /) Illustration zu »Philippine Welserinn« INr 120807, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120795,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philippine Welser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Maillard del. Cl. Kohl. sc.",
+  "scans": [
+    "alm_3285_120795_6iibytw41d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philippine Welser",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.680Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "9fy1s3v0vladlyj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.679Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "o59prajcsf3nn8z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122187, Obj 262)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Der Einaug sprang, die Faust geballt, / Vom Lager im Morgennebel, / Warf sich in’s Büffelwamms und schnallt’ / Sich an den Gurt den Säbel",
+  "language": [],
+  "musenalm_id": 122188,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 264,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Einaug. / Rheinbayrische Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Einaug. / Rheinbayrische Sage",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.815Z",
+      "agent": "szz6mzfzlpcduar",
+      "source_id": "t35u5wot3rhyka7"
+    }
+  ]
+}

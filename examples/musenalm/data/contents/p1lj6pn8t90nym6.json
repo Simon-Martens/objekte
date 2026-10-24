@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Mein armes Lebensschiffchen, / An Klippen angeschmettert,",
+  "language": [],
+  "musenalm_id": 17459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klagen des armen Schiffers. / Nach dem Spanischen des Lope de / Vega",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bk.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Klagen des armen Schiffers. / Nach dem Spanischen des Lope de / Vega",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.823Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "qmwqq2ehlvg5r1q"
+    }
+  ]
+}

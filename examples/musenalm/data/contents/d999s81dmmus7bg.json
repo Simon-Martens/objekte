@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Andenken Paulinens. 1843 (Sammlung INr 95491, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Ich hatte sie lieb, die Zimmer, / Worin ich mit ihr gewohnt;",
+  "language": [],
+  "musenalm_id": 95493,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Schreiner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Adam Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Schreiner",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.707Z",
+      "agent": "roqd4m2swedwv3j",
+      "source_id": "kf4adytkbxbc9my"
+    }
+  ]
+}

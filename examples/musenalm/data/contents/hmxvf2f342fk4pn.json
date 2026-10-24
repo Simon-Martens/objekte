@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75356, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75364,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / II. Aufz. 1. Sc. / Huon. Stirb ungläubiger Verräther!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+  "scans": [
+    "alm_2372_75364_t6qrmcux8g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / II. Aufz. 1. Sc. / Huon. Stirb ungläubiger Verräther!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.687Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "dvoe2khbx049fge"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.687Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "hl8uviagflm6tig"
+    }
+  ]
+}

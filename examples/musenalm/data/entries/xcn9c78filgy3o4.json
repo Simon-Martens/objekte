@@ -1,0 +1,78 @@
+{
+  "annotation": "lt. Kirchner 5964: Jgg 1799-1802; Hrsgg: S. C. H. Gittermann und J. G. Gerdes",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pallas. Eine Jahres-Schrift, zur Beförderung der Sittlichkeit und nützlichen Unterhaltung 1799",
+    "norm": "",
+    "biblio": 409649,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-08-01T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4584,
+  "parallel_title": "",
+  "place_statement": "Norden (Schulte)",
+  "places": [
+    "gmz7x1bidfoik0z"
+  ],
+  "preferred_title": "Pallas. Eine Jahres-Schrift, zur Beförderung der Sittlichkeit und nützlichen Unterhaltung 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Pallas. / Eine Jahres-Schrift, / zur Beförderung der Sittlichkeit / und nützlichen Unterhaltung. / Für das Jahr 1799. / Mens bona si qua Dea es, tua me in sacraia dono / PROPERTIUS. / Norden / bey Johann Adolph Schulte 1799",
+  "updated": "2026-06-11 10:18:55.323Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "gglf76uang51g86"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.149Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.149Z",
+      "agent": "hwznmc6x3rl9ccs",
+      "source_id": "6lwqc4784m3i2u1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.390Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.390Z",
+      "agent": "csr350ne0svibrz",
+      "source_id": "zi1nvm6s89g4fc8"
+    }
+  ]
+}

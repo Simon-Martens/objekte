@@ -1,0 +1,45 @@
+{
+  "annotation": "9. Kleine Notizen (Sammlung INr 97813, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Nach Seite 395 des Taschenbuchs: Vorzeit und Gegenwart an der Bergstraße, u.s.w. von A. L. Grimm (Darmstadt 1823)",
+  "language": [],
+  "musenalm_id": 97818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noch etwas über die Sage vom Burg- / geiste auf Rodenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Noch etwas über die Sage vom Burg- / geiste auf Rodenstein",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.794Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "e6y3s48tskzdzgz"
+    }
+  ]
+}

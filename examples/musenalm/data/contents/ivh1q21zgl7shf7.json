@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Karoline liegt hier, und ihr Brüderchen Thomas / zur Seite. / Beide waren so schön,",
+  "language": [],
+  "musenalm_id": 4203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter auf ihrer Kinder Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gräter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter auf ihrer Kinder Grab",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.988Z",
+      "agent": "6b95o6o4p7mql27",
+      "source_id": "9kpie4hmiknb51k"
+    }
+  ]
+}

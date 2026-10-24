@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium August /) Illustration zu »Albert und Albertine« von Friedrike Unger /) s. Textbezug INr 85858, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85819,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O mein Gott, ich bin hier nicht willkommen!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury sc.",
+  "scans": [
+    "alm_445_85819_mjan2cc4dq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O mein Gott, ich bin hier nicht willkommen!",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.172Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "jnj08m6kahpigp0"
+    }
+  ]
+}

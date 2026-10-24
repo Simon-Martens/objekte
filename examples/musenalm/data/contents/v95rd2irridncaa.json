@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 27923, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27923,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EZECHIEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. R.",
+  "scans": [
+    "alm_358_27923_jxa9s9zi33.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EZECHIEL",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.296Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "91tnp37qw5juzle"
+    }
+  ]
+}

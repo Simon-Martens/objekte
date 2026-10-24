@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, G, SS VII-XVI G-Verz darin 2 GG, SS 1-324, MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach fürs Theater (Iffland) 1808",
+    "norm": "~",
+    "biblio": 106364,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1341,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach fürs Theater (Iffland) 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; L/R 117; Goed VIII. 128, 2",
+  "responsibility_statement": "August Wilhelm Iffland",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / fürs / THEATER / 1808 / von / August Wilhelm Iffland. / Berlin 1808. / bey Oehmigke jun.",
+  "updated": "2026-06-11 10:18:54.931Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "b5iw7d8fmbddv1i"
+  ],
+  "contents": [
+    "r0z4jf1539a61k9",
+    "xjsq26rn90g0lps",
+    "vuld1qhyydufie9",
+    "yhzt5hxhigxh23h",
+    "owbh7fy8vgklzun",
+    "uxioxdcnde0516n",
+    "1w2dsmp7ilrepbg",
+    "royitd3tpad53rb",
+    "3bvpsxkorza0hh4",
+    "5cskl1annngdj0g",
+    "tcmggzeglydqjic",
+    "0kt0ybogpkweywm",
+    "wg36e8kan14ie6v",
+    "d10w720w9xfrpc2",
+    "d3fpk9y7le1mie4",
+    "b9x7j1k5zntg24t",
+    "jka2gtyj0quyue3",
+    "41wjfip1ezp9aq7",
+    "syqx4pynl7sp5hs",
+    "belxrrsv028t94e",
+    "9s39mfezd2vj6w9",
+    "59uof00787uia2t",
+    "qkkgbgufvbifclu",
+    "8bgajass4jvjbpd",
+    "q8ud4fdi1bk0ngd",
+    "oj8aszbzntvnv4u",
+    "axdtwqak1l95rue",
+    "ffymr0oitm4whca",
+    "usu8ugti6azir91",
+    "qnpp68ff5x2gp68",
+    "dnrp2r1nkwhwm5i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.880Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.880Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "7bodoesggv7uxzi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.114Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "cmkaex3nff6swa8"
+    }
+  ]
+}

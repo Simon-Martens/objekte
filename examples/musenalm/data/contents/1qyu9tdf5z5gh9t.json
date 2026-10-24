@@ -1,0 +1,58 @@
+{
+  "annotation": "unter der Graphik: gedruckt v. Altmeyer /) s. Textbezug INr 60541, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BERLIN-FRANKFURTER EISENBAHN-HOF",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von Loeillot Gestochen von H. Fincke",
+  "scans": [
+    "alm_880_60540_drhvz3s892.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BERLIN-FRANKFURTER EISENBAHN-HOF",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.843Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "5nn51wpoe0fem24"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.843Z",
+      "agent": "m78210s0uju9hn5",
+      "source_id": "ve3eyq7cpj9j37v"
+    }
+  ]
+}

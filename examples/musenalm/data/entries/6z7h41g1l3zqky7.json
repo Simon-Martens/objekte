@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "National-Kalender, Westphälischer historisch-geographischer 1805",
+    "norm": "",
+    "biblio": 404567,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2355,
+  "parallel_title": "",
+  "place_statement": "Kleinbremen",
+  "places": [
+    "wodal49inn54b35"
+  ],
+  "preferred_title": "National-Kalender, Westphälischer historisch-geographischer 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "P. F. Weddigen",
+  "subtitle_statement": "",
+  "title_statement": "Westphälischer / historisch-geographischer / National-Kalender / zum / Nutzen und Vergnügen, / auf das Jahr 1805. / von / P. F. Weddigen, / Dr. der Philosophie und Prediger zu Kleinbremen, / im Fürstenthum Minden. / Kleinbremen, / im Fürstenthum Minden, / 1805. / Preis 1 Rthlr.",
+  "updated": "2026-06-11 10:18:55.963Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "hq8i6fsfk5ywope"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.050Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.050Z",
+      "agent": "49nt94qkx1zsfm5",
+      "source_id": "vgyq0sj0vw8bqod"
+    }
+  ]
+}

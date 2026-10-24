@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50722,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Via mala, nahe bey Rongella in Bündten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wüst p. S. G. f.",
+  "scans": [
+    "alm_686_50722_q18wchcopp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf Via mala, nahe bey Rongella in Bündten",
+  "updated": "2007-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.979Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "g4xerdzc3v49m4t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.979Z",
+      "agent": "7thn4thoxcm3jik",
+      "source_id": "kgcldf4hcn49u5s"
+    }
+  ]
+}

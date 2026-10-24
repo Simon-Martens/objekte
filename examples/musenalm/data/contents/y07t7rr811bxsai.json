@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Ein biederber Ritter, Osmund von Rosenberg, der vor länger als vierhundert Jahren mit dem Tode turnierte und von dem Unbezwinglichen in den Sand gestreckt ward,",
+  "language": [],
+  "musenalm_id": 39278,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Der süße Brey. / Ein Volksmährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Der süße Brey. / Ein Volksmährchen",
+  "updated": "2005-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.008Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "5akq0rz42cma2xn"
+    }
+  ]
+}

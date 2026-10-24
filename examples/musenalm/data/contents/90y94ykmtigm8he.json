@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Antoinette, oder die uneigennützige Liebe« von ungenannt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28339,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antoinette, oder: die uneigennützige Liebe. / Der Graf stellt German, Antoinetten als seinen Freund vor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. et sculp.",
+  "scans": [
+    "alm_367_28339_9h8dgpnqd1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Antoinette, oder: die uneigennützige Liebe. / Der Graf stellt German, Antoinetten als seinen Freund vor",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.317Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "wkf0bfe5bxmjzcj"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Biographie. Eleonire Christine, Gräfin von Ulfeld« INr 47660, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie, Gräfin, Sie hätten das selbst gefertigt?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert, Johann David u. Haas, Meno",
+  "scans": [
+    "alm_649_47663_9gussf5yc3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wie, Gräfin, Sie hätten das selbst gefertigt?",
+  "updated": "2007-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.354Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "8aug14ybdph849x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.354Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "f3s6j1tg3mrvvi7"
+    }
+  ]
+}

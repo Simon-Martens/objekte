@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Ein Wanderer, wohl von weitem her / Ging einst am Wesergestade;  / Die Sonne lächelte Wiederkehr / Und die Woge winkte zum Bade.",
+  "language": [],
+  "musenalm_id": 131180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nixe der Weser. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nixe der Weser. / Romanze",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.024Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "w9si429acsv5e9z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli; paginiert 7. s. Textbezug INr 60945, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60879,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Heinrich der Fünfte läst den Pabst und die / Kardinäle vor Rom gefangen nehmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1794",
+  "scans": [
+    "alm_948_60879_zike4co4y1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Heinrich der Fünfte läst den Pabst und die / Kardinäle vor Rom gefangen nehmen",
+  "updated": "2008-11-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.607Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "ej2oj6f8t1ex7w9"
+    }
+  ]
+}

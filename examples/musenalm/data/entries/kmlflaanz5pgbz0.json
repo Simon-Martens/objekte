@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-XX darin 5 GG, SS 1-310, B G-Verz I-Verz, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1847",
+    "norm": "~",
+    "biblio": 200682,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1804,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Pfautsch u. Comp.)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke Mein! / TASCHENBUCH / für / 1847. / Sechzehnter Jahrgang. / Mit sechs Stahlstichen. / WIEN und LEIPZIG. / Verlag von Pfautsch & Compagnie",
+  "updated": "2026-06-11 10:18:55.638Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "rf182rldouuukfw"
+  ],
+  "contents": [
+    "94q0wx2869d6rm2",
+    "qrszv1bafmmvtsi",
+    "nv76jmimz1zwk82",
+    "70mfy106wm0jjbo",
+    "kq8srvsvgpnfcwi",
+    "ub44myrkxjwfd68",
+    "12k00cewx0dq5p3",
+    "xt2ya8l6xyziepw",
+    "3lf0dfiuca63ny4",
+    "5b6llj7o3fsthso",
+    "4gk5nwoxq9u0306",
+    "hi3nex44a8c87dk",
+    "yf0oi4ixa9xu1yi",
+    "ghny4wxnfdn1cp3",
+    "yg2jfki03g14ray",
+    "hiuls87ojo1jbfz",
+    "ytp4nrgn898x8s7",
+    "gv5nszac39dn25s",
+    "idxllim76us21mx",
+    "2ea7l48w5kqthgj",
+    "hy5jknkn25lzfvv",
+    "0mchmw9bjm8mdse",
+    "r0nnhhyi11yzjz4",
+    "o1pw2gksqvjkaco",
+    "ntmvjm31el374sg",
+    "rbfxg6jkk17vr4i",
+    "4eponwlm8vp1g6t",
+    "ikqw9ethqs51jqq",
+    "8jbrl6u6b5uxcvw",
+    "f2jcb4nwb86r20u",
+    "n5g5k4540kqxl87",
+    "c76yl7rtioct646",
+    "bk3ovf4lh2trh4t",
+    "kvnyd2urxnk83t6",
+    "1obsz1ihm9rxioa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.130Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.130Z",
+      "agent": "u4t2m1i1755p4j1",
+      "source_id": "5kw3z4k2r9etl4h"
+    }
+  ]
+}

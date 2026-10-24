@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Ach es drückt kein Schmerz so sehr / Als wenn man von Liebe läßt;",
+  "language": [],
+  "musenalm_id": 26423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verlorne Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Gr. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verlorne Liebe",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.328Z",
+      "agent": "bt92eejgtvavmav",
+      "source_id": "t4yl8d5k8v0s00i"
+    }
+  ]
+}

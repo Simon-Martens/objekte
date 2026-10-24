@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 167",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Frisch athmet des Morgens lebendiger Hauch, / Purpurisch zukt durch düstre Tannenrizen / Das junge Licht,",
+  "language": [],
+  "musenalm_id": 41730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenfantasie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenfantasie",
+  "updated": "2005-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.836Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "vw04pjwlj52txj4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "<div># Bez. aus dem I-Verz</div>",
+  "content_type": [],
+  "created": "2026-08-06 08:28:30.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Bei hellem Sonnenschein / Spielten im Waldbächlein / Unter plätschernden Wellen / Lustige, kleine Forellen",
+  "language": [],
+  "musenalm_id": 140294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Forellen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. F. #",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Forellen",
+  "updated": "2026-08-06 10:05:41.024Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-06 08:31:36.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-06 08:31:36.053Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "1y0qyj7v794htpb"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111248, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111247,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der erste Liebling #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brochart pinx. C. Geyer sc.",
+  "scans": [
+    "alm_3455_111247_hlxp74ycm2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der erste Liebling #",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.406Z",
+      "agent": "k9ac0a5lkd5h6nx",
+      "source_id": "o3oq8qc0ehqi3ch"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.406Z",
+      "agent": "ptk9sxq3py2mbck",
+      "source_id": "zj966cfjwlds17m"
+    }
+  ]
+}

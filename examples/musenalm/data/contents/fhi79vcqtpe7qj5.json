@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Gräfin: Dein Besuch, liebe Julie, freut mich sehr / Graf: Seit du am Hofe bist, haben wir das Vergnügen selten.",
+  "language": [],
+  "musenalm_id": 128368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Potsdammer Unteroffizier in / St. Petersburg. / (Dramatisirte Anekdote aus dem Leben des General von / Winterfeld.) / Versuch eines preußischen National-Schauspiels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius von Voß",
+  "scans": [
+    "alm_1773_128368_13tl1ai90s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Potsdammer Unteroffizier in / St. Petersburg. / (Dramatisirte Anekdote aus dem Leben des General von / Winterfeld.) / Versuch eines preußischen National-Schauspiels",
+  "updated": "2011-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.933Z",
+      "agent": "abhfgnguv4pxoz1",
+      "source_id": "djwirwgi0eon3x5"
+    }
+  ]
+}

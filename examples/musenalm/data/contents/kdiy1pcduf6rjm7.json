@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu den Opern. Fünfte Lieferung. Preciosa (Sammlung INr 75318, Obj 6) s. Graphik INr 75333, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Don Eugenio / Kommt, und überzeugt Euch selbst, / Daß mich keine Täuschung blende.",
+  "language": [],
+  "musenalm_id": 75332,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pius Alexander Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.789Z",
+      "agent": "txnoxc1duud05n7",
+      "source_id": "8y3g8xk1tcod0ug"
+    }
+  ]
+}

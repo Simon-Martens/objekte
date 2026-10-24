@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, S I-Verz, SS 701-898, SS 899-900 Nwrt d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für teutsche Schulmeister 1790",
+    "norm": "~",
+    "biblio": 406743,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3690,
+  "parallel_title": "",
+  "place_statement": "Ulm (Wohler)",
+  "places": [
+    "7j5sscot2sb7ova"
+  ],
+  "preferred_title": "Taschenbuch für teutsche Schulmeister 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "Christoph Ferdinand Moser",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / teutsche / Schulmeister / auf / das Jahr 1790. / Herausgegeben / von / Christoph Ferdinand Moser, / Pfarrer zu Wippingen und Lautern. / Fünfter Jahrgang. / Ulm / in der Wohlerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.055Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "7kwybqja5102p20"
+  ],
+  "contents": [
+    "hvym47k6whj1bm0",
+    "b3rfr1n4c0hlh1v",
+    "h892xo7yk6cc9lq",
+    "aopj1u7ulpo0xor",
+    "2af5qqd948lk2xs",
+    "p4brt4vln885ejj",
+    "pngr2jn9ns97hwl",
+    "67ag6itez2tvqx1",
+    "w159cdy43xnst3k",
+    "tm9r10flel22f79",
+    "eu1deb0j7oh1587",
+    "ryzbgma3bp3bzjm",
+    "bmmwx4tmef6f3e9",
+    "r2hfy48awbprhsn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.189Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.189Z",
+      "agent": "skp0g12v6742tpg",
+      "source_id": "j0l2c9xpieot6u8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.282Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.282Z",
+      "agent": "opllmisqfx4rssx",
+      "source_id": "sv51nfpno7yxlxn"
+    }
+  ]
+}

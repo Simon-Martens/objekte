@@ -1,0 +1,85 @@
+{
+  "annotation": "Kurzaufnahme: Umschlag, Titel und I-Verz als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, S I T, S III W, S IV I-Verz, SS V-XVI Kal, SS 1-283",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Berlinisches für Freunde der Gesundheit 1784",
+    "norm": "",
+    "biblio": 407524,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2012-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3900,
+  "parallel_title": "",
+  "place_statement": "Berlin (Nikolai)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch, Berlinisches für Freunde der Gesundheit 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 110; nicht bei L/R",
+  "responsibility_statement": "Konrad Friedrich Uden",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde der Gesundheit. / Auf das Jahr / MDCCLXXXIV. / [...] / Berlin, / bey Friedrich Nicolai, 1784",
+  "updated": "2026-06-11 10:18:54.571Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "lczs4xong09p1h4"
+  ],
+  "contents": [
+    "f4y87d71fubqpkr",
+    "parh707nfxh9f6a",
+    "rloxs2609gdc2le",
+    "xf0tjoz8wtafejy",
+    "qyv4ypdr5cc1cqd",
+    "s1jnt3q3uxj6scx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.112Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.112Z",
+      "agent": "w7iyhcuu36n6cfa",
+      "source_id": "2vtdvy3s0m0cvlz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.306Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.306Z",
+      "agent": "p372cosraxk6mib",
+      "source_id": "w6elaz9t6kmzfmu"
+    }
+  ]
+}

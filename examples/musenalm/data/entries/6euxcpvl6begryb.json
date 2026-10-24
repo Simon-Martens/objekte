@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Dames 1812",
+    "norm": "",
+    "biblio": 200907,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4386,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta); Paris (Treuttel u. Würtz)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Almanach des Dames 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; nicht bei L/R; G-C 359, 1377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES DAMES. / pour l'An 1812. / À TUBINGUE Chez Cotta Libraire. / À PARIS Chez Treuttel et Würtz Libraires. / Rue de Lille No. 17",
+  "updated": "2026-06-11 10:18:55.116Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "isdh2cjjfz4zmwr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.166Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.166Z",
+      "agent": "16leuy5yi4jkh5m",
+      "source_id": "3ulelozpjkowre8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.673Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.673Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "g3u9mjugov2z2yw"
+    }
+  ]
+}

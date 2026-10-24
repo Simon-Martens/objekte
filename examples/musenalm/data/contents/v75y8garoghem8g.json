@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Prosateil INr 19777, Obj 72 des Beitrags vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Welch ein wunderholdes Glänzen / Durch Ardenner Waldesnacht!",
+  "language": [],
+  "musenalm_id": 19776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ardennerwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ardennerwald",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.990Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "62jya9tfjaymziy"
+    }
+  ]
+}

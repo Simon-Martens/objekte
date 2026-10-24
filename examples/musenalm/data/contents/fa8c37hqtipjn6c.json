@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Persisch (Sammlung INr 99352, Obj 258) VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Wehe, Lüftchen, lind und lieblich / Um die Wange der Geliebten,",
+  "language": [],
+  "musenalm_id": 99357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 263,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Friedrich Daumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.786Z",
+      "agent": "t36jhwo4crudqp3",
+      "source_id": "eu6hryye7dgq49t"
+    }
+  ]
+}

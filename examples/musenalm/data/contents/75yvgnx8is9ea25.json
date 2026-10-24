@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Einleitungsgedicht vorangestellt: In den Ruinen der Burg Nassau geschreiben An ***",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Hast du nicht schon am lauen Sommertagen / Im Trümmer einer Burg, wie jetzt, gesessen, / Die schönen Hände still in eins geschlagen,",
+  "language": [],
+  "musenalm_id": 103995,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das erste Immergrün. / Weihe-Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das erste Immergrün. / Weihe-Gedicht",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.903Z",
+      "agent": "8xc9vhdufjuetwe",
+      "source_id": "fcq2qbpbk385818"
+    }
+  ]
+}

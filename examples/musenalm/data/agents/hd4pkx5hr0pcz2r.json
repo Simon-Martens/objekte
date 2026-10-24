@@ -1,0 +1,457 @@
+{
+  "annotation": "",
+  "biographical_data": "17?-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.326Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof.",
+        "Dr. phil."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/38329-6",
+          "label": "Universität Rostock"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Bedeutender dt. Kryptogamenforscher; Studium der Theologie in Bützow, anschließend Hauslehrer; Beschäftigung mit Biologie (Flechten) in Göttingen; 1794 Pfarrer in Kittendorf, gab diesen Beruf 1797 aus Gewissensgründen auf; Studium der Medizin in Jena; Mitarbeit an der Fortsetzung der Oeconomischen Encyclopädie von Johann Georg Krünitz und Bibliothekar der Gesellschaft der Naturforschenden Freunde in Berlin; ab 1816 Professor für Naturgeschichte in Rostock"
+      ],
+      "dateOfBirth": [
+        "1764-12-24"
+      ],
+      "dateOfDeath": [
+        "1835-11-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Steffen Prignitz: Warnemünde - Eine maritime Geschichte, Herausgeber: Hafen-Entwicklungsgesellschaft Rostock mbH, 2010"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Gustav%20Floerke%20%281764-1835%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Gustav%20Floerke%20%281764-1835%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Heinrich%20Gustav%20Floerke%20%281764-1835%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/175520275"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T14:17:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116616776/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/136788475",
+          "label": "Floerke, Friedrich Jakob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116616806",
+          "label": "Floerke, Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1121029558",
+          "label": "Flörke, Conrad"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116616776",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1121029558",
+          "label": "Flörke, Conrad"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116616806",
+          "label": "Floerke, Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136788475",
+          "label": "Floerke, Friedrich Jakob"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116616776",
+      "oldAuthorityNumber": [
+        "(DE-588a)116616776",
+        "(DE-588a)175520275",
+        "(DE-588)175520275"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4668431-1",
+          "label": "Kittendorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4669614-3",
+          "label": "Altkalen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        }
+      ],
+      "preferredName": "Flörke, Heinrich Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich Gustav"
+        ],
+        "surname": [
+          "Flörke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Enzyklopädist",
+        "Professor der Naturgeschichte"
+      ],
+      "publication": [
+        "Oekonomisch-technologische Encyklopädie, oder allgemeines System der*",
+        "Repertorium des Neuesten ... aus der ... Naturkunde. - 1811 - 1813",
+        "Die Münzkunst und Münzwissenschaft. - 1805",
+        "Oeconomische Encyclopädie, oder allgemeines System der Land- Haus- und Staats-Wirthschaft*",
+        "De Cladoniis, difficillimo Lichenum genere"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no90001874"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/42593665"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q4491255"
+        },
+        {
+          "collection": {
+            "abbr": "DE-28",
+            "id": "https://cpr.uni-rostock.de",
+            "name": "Catalogus Professorum Rostochiensium (CPR)",
+            "publisher": "Forschungsstelle Universitätsgeschichte Rostock"
+          },
+          "id": "https://cpr.uni-rostock.de/resolve/gnd/116616776"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116616776/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/175520275"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Gustav_Fl%C3%B6rke"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Gustav_Fl%C3%B6rke"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055346595"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116616776"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116616776.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116616776.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116616776"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Flörke, Gustav",
+        "Flörke, Henricus Gustavu",
+        "Floerke, Gustav",
+        "Floerke, Henricus Gustavus",
+        "Flörcke, Heinrich Gustav",
+        "Flörke, Heinrich G.",
+        "Floerke, Heinrich Gustav",
+        "Floerke, Henricus G.",
+        "Flörke, H. G.",
+        "Flörcke, H. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "H. G."
+          ],
+          "surname": [
+            "Flörke"
+          ]
+        },
+        {
+          "forename": [
+            "H. G."
+          ],
+          "surname": [
+            "Flörcke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Gustav"
+          ],
+          "surname": [
+            "Floerke"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus Gustavus"
+          ],
+          "surname": [
+            "Floerke"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus Gustavu"
+          ],
+          "surname": [
+            "Flörke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Gustav"
+          ],
+          "surname": [
+            "Flörcke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich G."
+          ],
+          "surname": [
+            "Flörke"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Flörke"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Floerke"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus G."
+          ],
+          "surname": [
+            "Floerke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Gustav_Fl%C3%B6rke",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Gustav_Fl%C3%B6rke"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:23:24Z",
+    "gnd_query_biographical_data": "17?-1835",
+    "gnd_query_name": "flörke, heinrich gustav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 741,
+  "name": "Flörke, Heinrich Gustav",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VII, 132",
+  "updated": "2026-06-11 13:29:22.291Z",
+  "uri": "https://d-nb.info/gnd/116616776",
+  "editor": ""
+}

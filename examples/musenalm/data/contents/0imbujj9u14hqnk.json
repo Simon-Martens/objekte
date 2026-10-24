@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die Brautwerbung« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1797 INr 10661",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11094,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus W. G. Beckers Taschenbuch für 1797. / Die Brautwerbung. S. 68",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_204_11094_7nic9jysf8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus W. G. Beckers Taschenbuch für 1797. / Die Brautwerbung. S. 68",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.500Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "mfty8fcn52npb0t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.500Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ta2mnulq3aytud8"
+    }
+  ]
+}

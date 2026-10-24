@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 92084, Obj 9; mit einer Beigabe s. Gedicht INr 92085, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Karlsbad nimmt in der Reihe der berühmten Bäder und Gesundbrunnen Europa's einen der ersten Plätze ein,",
+  "language": [],
+  "musenalm_id": 92083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Karlsbad und seine Umgebungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Jos. Polt, Verfasser des Aufsatzes über Teplitz Jahrg. 1812 des mahler. Taschenbuchs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Karlsbad und seine Umgebungen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.465Z",
+      "agent": "124n4uha887tew6",
+      "source_id": "aw2ms1ahn3ql62f"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, 5 BB G-Verz darin 4 GG, 8 BB Kal darin 3 BB Tabb, B Tab, SS 1-210, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1855",
+    "norm": "~",
+    "biblio": 404026,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1921,
+  "parallel_title": "",
+  "place_statement": "Wien (Lienhart) Leipzig (Liebeskind)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1855",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch / für / das Jahr 1855. / Fünf und dreissigster Jahrgang. / WIEN. / Bei Ignaz Lienhart. / Leipzig, bei G. A. Liebeskind",
+  "updated": "2026-06-11 10:18:55.708Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "items": [
+    "f4jdnqr6gvyxzjw"
+  ],
+  "contents": [
+    "kk657gzktcsg89z",
+    "z2hpue80pn7ytn1",
+    "fxtf53fwb9nwwq0",
+    "sqa8750dxn5lkr6",
+    "au6v5c8hjg38tku",
+    "x7jzgfbg3d1uwy7",
+    "rymvj263g7phsn6",
+    "mq5i3y908ln9x88",
+    "9c59tltckx1ll2e",
+    "2chztwneo07nqcc",
+    "4alahz5lfdjl3zi",
+    "ao4occo6i0u11uw",
+    "vdifhfnpz0hj7bz",
+    "hd7ybm71w0s4ko7",
+    "33k07o3y99u9vvd",
+    "wu50gcoyibg77sa",
+    "wv4idbi058g3qma",
+    "6vyu8jq1jm7xhum",
+    "w2t4kth7aciqck9",
+    "kony2rgpq1o7hdj",
+    "v5do9p6nwz67ei3",
+    "hrbyhiq51v62sce",
+    "x288cxsb4blcu2f",
+    "zh4ck8ejceiis3f",
+    "i11zfq2sjrnf6q7",
+    "1aixus4a8utgvxu",
+    "1vkzdk2qrn48mz8",
+    "ra2m2pvuvj5y3n9",
+    "2a8agztqmpk5l73",
+    "gm4v4p3osegbexi",
+    "r86skfn9xt1odx1",
+    "qn946swu7rshlac",
+    "erraarpe5ecbphi",
+    "ak3xb1ju100phwq",
+    "125apsxutfty1qo",
+    "havkggl8e9idr2c",
+    "9ssu1een2102a80",
+    "mvfggtia9735nls",
+    "yl9npswbpdz5anf",
+    "bmg0ft9dze8s5p9",
+    "l95x84sq2nyoqvi",
+    "8vz7nv3jxoe3aah",
+    "9t3v541svld30mc",
+    "3pt09vgulppwc0d",
+    "79x1u8dfcdretcl",
+    "suteqkam75svey3",
+    "lcxunerw2tm9uzh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.097Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.097Z",
+      "agent": "2gh9s9bmjxl8x1h",
+      "source_id": "b2rlssvrzvx9wux"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.098Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.098Z",
+      "agent": "w2bayedwdqvhj9v",
+      "source_id": "lca7raxubz6o338"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Vater, der mit stillem Wonneblicke / Leben in das Heer der Wesen senkt,",
+  "language": [],
+  "musenalm_id": 101569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blicke auf die Vergangenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Witschel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blicke auf die Vergangenheit",
+  "updated": "2013-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.782Z",
+      "agent": "mw3vx85yjchtpzu",
+      "source_id": "zf0wvmyam7vn83y"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Die dem Herrn in Demuth dienen, / All denen sind gar oft erschienen",
+  "language": [],
+  "musenalm_id": 22446,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gesichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gesichte",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.921Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "yj3652jpz81cviq"
+    }
+  ]
+}

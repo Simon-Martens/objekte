@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 59168, Obj 8 /) unter der Graphik: Gedruckt v. Altmayer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ST. PETRI KIRCHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Strack. Gest. v. Sagert",
+  "scans": [
+    "alm_883_59167_kvm0dtx2d7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ST. PETRI KIRCHE",
+  "updated": "2008-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.940Z",
+      "agent": "ixm1p6sgnt0khl8",
+      "source_id": "a21qn6c36ccfpvi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.940Z",
+      "agent": "kvb3cdehg6i8s0c",
+      "source_id": "ix7ddi5qkqe97ib"
+    }
+  ]
+}

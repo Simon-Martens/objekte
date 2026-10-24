@@ -1,0 +1,799 @@
+{
+  "annotation": "",
+  "biographical_data": "1804-1875",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.430Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1012175197",
+          "label": "Bauer, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012288641",
+          "label": "Meyer, Maria"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/16214670-X",
+          "label": "Sammlung Fritz Kauffmann"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Lyriker und Schriftsteller, Dichter, Übersetzer aus dem Griechischen und Lateinischen; 1834-1843 evangelischer Pfarrer; 1856-1866 Lehrer für Literatur in Stuttgart"
+      ],
+      "dateOfBirth": [
+        "1804-09-08"
+      ],
+      "dateOfDeath": [
+        "1875-06-04"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Eduard%20M%C3%B6rike.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Eduard%20M%C3%B6rike.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Eduard%20M%C3%B6rike.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160024064"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-18T13:43:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118583107/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1082314463",
+          "label": "Mörike, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11708798X",
+          "label": "Mörike, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118931830",
+          "label": "Mörike, Charlotte"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11708784X",
+          "label": "Mörike, Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012719170",
+          "label": "Möricke, Carl Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118583123",
+          "label": "Mörike, Margarethe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116802413",
+          "label": "Hildebrand, Franziska"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120475952",
+          "label": "Mörike, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117101796",
+          "label": "Mörike, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117087807",
+          "label": "Mörike, August"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118583107",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116802413",
+          "label": "Hildebrand, Franziska"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/1012175197",
+          "label": "Bauer, Marie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118931830",
+          "label": "Mörike, Charlotte"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11708798X",
+          "label": "Mörike, Carl Friedrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117087807",
+          "label": "Mörike, August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117101796",
+          "label": "Mörike, Karl"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118583123",
+          "label": "Mörike, Margarethe"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118583107",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/grc",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/grc"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4039911-4",
+        "(DE-588a)160024064",
+        "(DE-588a)118583107",
+        "(DE-588)160024064",
+        "(DE-588a)127922466",
+        "(DE-588a)138667187",
+        "(DE-588a)134600185",
+        "(DE-101c)31029018X"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Мёрике, Эдуард"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4036469-0",
+          "label": "Ludwigsburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4241330-8",
+          "label": "Cleversulzbach"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036469-0",
+          "label": "Ludwigsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Mörike, Eduard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eduard"
+        ],
+        "surname": [
+          "Mörike"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4391928-5",
+          "label": "Prosaist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Liebmund Maria"
+          ],
+          "surname": [
+            "Wispel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Gedichte",
+        "Miss Jenny Harrower",
+        "Vier Erzählungen",
+        "Maler Nolten",
+        "Mozart auf der Reise nach Prag",
+        "Das Stuttgarter Hutzelmännlein",
+        "Text zu: Schmidt, Martin: Agnes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119171528"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50006096"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12312842"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q63699"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118583107/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160024064"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Eduard_M%C3%B6rike"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Eduard_M%C3%B6rike"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Eduard_M%C3%B6rike"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Eduard_M%C3%B6rike"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110211467"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118583107"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=183x_mueller;18"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;35"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118583107"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118583107.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118583107.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118583107"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/3937983FD99E4B12972CF8BDF33A638F"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Mörike, E.",
+        "Μέρικε, Έντουαρντ Φρίντριχ",
+        "Mörike, Friedrich",
+        "Moerike",
+        "Mórike, Eduard",
+        "Mörike, Ed.",
+        "Moericke, Eduard",
+        "エドゥアルト・メーリケ",
+        "メーリケ, エドゥアルト",
+        "Mêrike, Ēduaruto",
+        "Mërike, Ėduard Fridrich",
+        "Mörike, Eduard Friedrich",
+        "Moerike, Édouard",
+        "Ai de hua Mo li ke",
+        "Mørike, Edward",
+        "Μέρικε, Έντουαρντ",
+        "Aidehua-Molike",
+        "Möricke",
+        "Wispel, Liebmund Maria",
+        "Merike, Eduards",
+        "Мёрике, Эдуард Фридрих",
+        "Molike, Aidehua",
+        "Mörike, Edouard",
+        "Mörike, Eduard Friedrich Phillip",
+        "뫼리케, 에두아르트",
+        "Mörike",
+        "Merike, Eduard",
+        "Мёрике, Эдуард",
+        "Möricke, Eduard",
+        "Moerike, Eduard",
+        "Mërike, Ėduard",
+        "Mêrike",
+        "Moricke, Eduardo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Mêrike"
+          ]
+        },
+        {
+          "forename": [
+            "エドゥアルト"
+          ],
+          "surname": [
+            "メーリケ"
+          ]
+        },
+        {
+          "forename": [
+            "Эдуард Фридрих"
+          ],
+          "surname": [
+            "Мёрике"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Moericke"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard Friedrich Phillip"
+          ],
+          "surname": [
+            "Mörike"
+          ]
+        },
+        {
+          "personalName": [
+            "Aidehua-Molike"
+          ]
+        },
+        {
+          "forename": [
+            "Aidehua"
+          ],
+          "surname": [
+            "Molike"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Mörike"
+          ]
+        },
+        {
+          "forename": [
+            "Edouard"
+          ],
+          "surname": [
+            "Mörike"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Moerike"
+          ]
+        },
+        {
+          "personalName": [
+            "Ai de hua Mo li ke"
+          ]
+        },
+        {
+          "personalName": [
+            "Möricke"
+          ]
+        },
+        {
+          "forename": [
+            "에두아르트"
+          ],
+          "surname": [
+            "뫼리케"
+          ]
+        },
+        {
+          "forename": [
+            "Eduards"
+          ],
+          "surname": [
+            "Merike"
+          ]
+        },
+        {
+          "forename": [
+            "Ėduard Fridrich"
+          ],
+          "surname": [
+            "Mërike"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Möricke"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Mórike"
+          ]
+        },
+        {
+          "personalName": [
+            "Moerike"
+          ]
+        },
+        {
+          "forename": [
+            "Ēduaruto"
+          ],
+          "surname": [
+            "Mêrike"
+          ]
+        },
+        {
+          "forename": [
+            "Ed."
+          ],
+          "surname": [
+            "Mörike"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard Friedrich"
+          ],
+          "surname": [
+            "Mörike"
+          ]
+        },
+        {
+          "forename": [
+            "Эдуард"
+          ],
+          "surname": [
+            "Мёрике"
+          ]
+        },
+        {
+          "forename": [
+            "Έντουαρντ Φρίντριχ"
+          ],
+          "surname": [
+            "Μέρικε"
+          ]
+        },
+        {
+          "forename": [
+            "Edward"
+          ],
+          "surname": [
+            "Mørike"
+          ]
+        },
+        {
+          "forename": [
+            "Έντουαρντ"
+          ],
+          "surname": [
+            "Μέρικε"
+          ]
+        },
+        {
+          "forename": [
+            "Liebmund Maria"
+          ],
+          "surname": [
+            "Wispel"
+          ]
+        },
+        {
+          "forename": [
+            "Eduardo"
+          ],
+          "surname": [
+            "Moricke"
+          ]
+        },
+        {
+          "forename": [
+            "Édouard"
+          ],
+          "surname": [
+            "Moerike"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Mörike"
+          ]
+        },
+        {
+          "forename": [
+            "Ėduard"
+          ],
+          "surname": [
+            "Mërike"
+          ]
+        },
+        {
+          "personalName": [
+            "Mörike"
+          ]
+        },
+        {
+          "forename": [
+            "Aidehua"
+          ],
+          "surname": [
+            "Molike"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Merike"
+          ]
+        },
+        {
+          "personalName": [
+            "エドゥアルト・メーリケ"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Eduard_M%C3%B6rike",
+          "label": "https://de.wikipedia.org/wiki/Eduard_M%C3%B6rike"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:18:45Z",
+    "gnd_query_biographical_data": "1804-1875",
+    "gnd_query_name": "mörike, eduard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1858,
+  "name": "Mörike, Eduard",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXII, 243; Goed (H) 338",
+  "updated": "2026-06-11 13:29:23.850Z",
+  "uri": "https://d-nb.info/gnd/118583107",
+  "editor": ""
+}

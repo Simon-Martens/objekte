@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Neapel (Sammlung INr 69069, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Täglich wächst meine Trägheit, zwar keine Heimath auf Erden / Hab' ich, und trenne mich doch mühsam von jeglichem Ort.",
+  "language": [],
+  "musenalm_id": 69089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19.",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.402Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "it1u1hjblsrgptd"
+    }
+  ]
+}

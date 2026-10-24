@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35685,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "C. M. Wieland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Graff pinx. C. Rahl sculp.1799",
+  "scans": [
+    "alm_489_35685_jmkpwsac6n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "C. M. Wieland",
+  "updated": "2003-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.525Z",
+      "agent": "d645btewd8dbrsc",
+      "source_id": "3ifz418iisjpmo0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.525Z",
+      "agent": "5sntayo8ftw7b4o",
+      "source_id": "qsccgey8uozzt8w"
+    }
+  ]
+}

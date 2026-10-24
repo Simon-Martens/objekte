@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1812 (Sammlung INr 13884, Obj 155)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13887,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quadrille I",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_219_13887_5glwcelcgg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quadrille I",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.493Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "p55d8wyxp4fn0ur"
+    }
+  ]
+}

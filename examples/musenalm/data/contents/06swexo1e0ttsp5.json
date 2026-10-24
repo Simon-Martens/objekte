@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 23367, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Naivetät",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del & sc. 1797",
+  "scans": [
+    "alm_309_23366_def7ephllr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Naivetät",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.155Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "bltkmto2lqm1kbb"
+    }
+  ]
+}

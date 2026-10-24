@@ -1,0 +1,113 @@
+{
+  "annotation": "ohne Kalendarium /) s.a. Titelauflage: Taschenbuch für das Jahr 1842 Wien, bei Franz Riedl's sel. Wittwe & Sohn, k.k. Hofbuchbinder, Schottenhof No. 196 /) Taschenbuch (Wien, Riedl) 1842 (alm 3353) /) § die Graphik INr 89505  Fr. W. del. L. B. sc. »Der Rattenfänger zu Hameln« aus dieser Titelauflage /) unter dem I-Verz: Gedruckt bei A. Strauß's sel. Witwe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S 1 nT, SS 3-151 darin 6 GG, S I-Verz, § 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1841",
+    "norm": "~+++405877 (6. Graphik)",
+    "biblio": 405876,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3352,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Das Veilchen. / EIN / TASCHENBUCH / für / Freunde / einer gemüthlichen und erheiternden / LECTÜRE. / Vier und zwanzigster Jahrgang. / 1841. / WIEN / bei Franz Riedl's / k.k. Hof- und bürgl. Buchbinders, / sel. Wittwe & Sohn, / im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:54.872Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "sbd0ojciboqu0i8",
+    "zyi9yt6g7c8ecbu"
+  ],
+  "contents": [
+    "ttzlm7nnkbmnsve",
+    "yzqu72c7s74fkww",
+    "6hx462cx1egmte8",
+    "78i54ex9gbz5feg",
+    "4kvwuqk38cdp1gu",
+    "5p9b7r46at34gf6",
+    "igarvvhqabcqeu6",
+    "2g522ws63whymqz",
+    "g9qphwhope2hdp3",
+    "1z8hnmuay16i922",
+    "1pqjy4m1rez9944",
+    "yo59rxxtxf5nqeh",
+    "4uhzbu4j53yct3r",
+    "qypqrt542n2main",
+    "8leavh09mrobasp",
+    "k79dwb30mlofyxb",
+    "2ch2o16ja0o1r4i",
+    "7kji2uo7nuh7zbh",
+    "o6f2l8p2qgmfd7h",
+    "abn3ib8xm8ut0ny",
+    "s7i5470occj6d00",
+    "f64zn3squwi50vy",
+    "1cdlgke2ykz859v",
+    "u1mtnhsqxltxx5m",
+    "fcc75ch5upec83n",
+    "c2nrdh4jtlcfsvx",
+    "mwu7c5xnww5iwbx",
+    "74qbxg4jyy4y6h1",
+    "zuvfh6x46zbqs0e",
+    "isbkpcyrp0ri1nk",
+    "4q8k12chrx09xmn",
+    "4c719tfw0828g6h",
+    "bub6bhe0gw7y9zo",
+    "i3a3gurmmx8uctw",
+    "ss7ueii8umr2pca",
+    "k7emju4b5jne44a",
+    "fmlxvto69nert0j",
+    "ehq9l4kvha3g5k7",
+    "0k9szj3m2e6dg94",
+    "rrxiwg74qsqcklq",
+    "k7h98w0c45mgkll",
+    "i0uboy18gykozhy",
+    "eoabdoqd195a92y",
+    "hwj75vnirkpeeln"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "azziptq7mfx41wy"
+    }
+  ]
+}

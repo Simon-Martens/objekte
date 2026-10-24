@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 40814, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40805,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust 8s. Blatt / Mephist. Er sprach! So ist man recht gesinnt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_532_40805_28ph0h6102.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust 8s. Blatt / Mephist. Er sprach! So ist man recht gesinnt",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.130Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "10xq9ibmsxxzj1z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.130Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7llgahqiirbhgl4"
+    }
+  ]
+}

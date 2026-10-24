@@ -1,0 +1,45 @@
+{
+  "annotation": "Teinach 1824 (Sammlung INr 54183, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Ohne Liebe und Haß ist euer Leben nicht mensch- / lich; / Darf nicht sprechen das Herz,",
+  "language": [],
+  "musenalm_id": 54194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. Der Weltscheue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. Der Weltscheue",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.736Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "0d9j3z5otk0l12k"
+    }
+  ]
+}

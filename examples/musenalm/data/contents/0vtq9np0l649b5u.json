@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "In stürmischen Tagen fisch aufgeschaut, / In Wind und Wellen auf Gott vertraut;",
+  "language": [],
+  "musenalm_id": 71174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sichere Bahn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rostorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sichere Bahn",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.471Z",
+      "agent": "nt4h9rywajl3p54",
+      "source_id": "k7xoaersd5aiied"
+    }
+  ]
+}

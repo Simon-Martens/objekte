@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Ich lobe mir den frischen Quell, / Aus hohler Hand getrunken.",
+  "language": [],
+  "musenalm_id": 12675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lob der Mumme. / Certamen serio-jocosum. / O cives, cives! quærenda est Mummia / primum! / Horat",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lob der Mumme. / Certamen serio-jocosum. / O cives, cives! quærenda est Mummia / primum! / Horat",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.467Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "trf75hh0u9x6vej"
+    }
+  ]
+}

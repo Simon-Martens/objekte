@@ -1,0 +1,246 @@
+{
+  "annotation": "",
+  "biographical_data": "1820-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.394Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "\"Exhibited at the Royal Academy 1859-1876, and developed a method of adding colour to photographs.\" (BM)"
+      ],
+      "dateOfBirth": [
+        "1820-02-09"
+      ],
+      "dateOfDeath": [
+        "1876"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Georg Koberwein"
+          ],
+          "creditText": [
+            "https://digital.belvedere.at/objects/8654/selbstbildnis"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Koberwein%20-%20Selbstbildnis%20-%202855%20-%20%C3%96sterreichische%20Galerie%20Belvedere.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Koberwein%20-%20Selbstbildnis%20-%202855%20-%20%C3%96sterreichische%20Galerie%20Belvedere.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Georg%20Koberwein%20-%20Selbstbildnis%20-%202855%20-%20%C3%96sterreichische%20Galerie%20Belvedere.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-06T16:47:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-17",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-17"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1122441118/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-17",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-17"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Auguste"
+          ],
+          "surname": [
+            "Anschütz"
+          ]
+        },
+        {
+          "forename": [
+            "Betty"
+          ],
+          "surname": [
+            "Fichtner-Koberwein"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "1122441118",
+      "id": "https://d-nb.info/gnd/1122441118",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4267026-3",
+          "label": "Sankt Petersburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Koberwein, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Koberwein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4332867-2",
+          "label": "Bildnismaler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "His Royal Highness Prince Arthur. - 1873"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96250385"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19117268"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1122441118/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Koberwein"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Koberwein, G.",
+        "Koberwein, George"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Koberwein"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Koberwein"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Koberwein",
+          "label": "https://de.wikipedia.org/wiki/Georg_Koberwein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:57:51Z",
+    "gnd_query_biographical_data": "1820-1876",
+    "gnd_query_name": "koberwein, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1437,
+  "name": "Koberwein, Georg",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXI, 60",
+  "updated": "2026-06-11 13:29:23.287Z",
+  "uri": "https://d-nb.info/gnd/1122441118",
+  "editor": ""
+}

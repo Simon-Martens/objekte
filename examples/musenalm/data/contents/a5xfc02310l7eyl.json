@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71662,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So segne dich das Glück!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jury sc. Berol.",
+  "scans": [
+    "alm_2669_71662_e9xk6hff1u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So segne dich das Glück!",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.226Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "bx81rwzsbwssnsf"
+    }
+  ]
+}

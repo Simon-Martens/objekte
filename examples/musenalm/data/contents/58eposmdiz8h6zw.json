@@ -1,0 +1,45 @@
+{
+  "annotation": "Von den auf der Erde befindlichen vermischten Körpern (Sammlung INr 75172, Obj 39) mit mehreren Tabellen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "wird bequem in vier Klassen eingetheilt",
+  "language": [],
+  "musenalm_id": 75175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mineralreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mineralreich",
+  "updated": "2011-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.613Z",
+      "agent": "58byfz890fzelu8",
+      "source_id": "hzsi6ot367afgey"
+    }
+  ]
+}

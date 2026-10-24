@@ -1,0 +1,45 @@
+{
+  "annotation": "Dornenkranz für Benöthigte (Sammlung INr 53173, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Erlösen Sie mich erst von meinen Qualen, / Dann will ich Sie ja gern und gut bezahlen",
+  "language": [],
+  "musenalm_id": 53181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. Der kranke Raps an seinen Arzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder v. Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. Der kranke Raps an seinen Arzt",
+  "updated": "2007-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.508Z",
+      "agent": "qn8g13ehspgkph8",
+      "source_id": "337jig93atitjxj"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Skizzenbuch. Rip van Winkle« von W. Irving ; am oberen rechten Rand: B. 1. S. 80. s. Textbezug INr 43793, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.507Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43792,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skizzenbuch. / (Rip van Winkle.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jb. Lips gest.",
+  "scans": [
+    "alm_585_43792_ll4jtxbbye.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Skizzenbuch. / (Rip van Winkle.)",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.406Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "jfpymzbgk2gbsrk"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Gedicht INr 81500, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81498,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisabeth / Kaiserin von Oesterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Theer gez. Stahlstich v. Carl Mayer's K. A. in Nbg",
+  "scans": [
+    "alm_1812_81498_740fcbnvol.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Elisabeth / Kaiserin von Oesterreich",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.819Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "7lb3b3u4ch8cbux"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.819Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "oa3pyxgdm6k9csm"
+    }
+  ]
+}

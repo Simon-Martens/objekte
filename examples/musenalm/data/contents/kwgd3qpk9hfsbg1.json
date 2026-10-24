@@ -1,0 +1,45 @@
+{
+  "annotation": "Zweytes Jahr (Sammlung INr 48675, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "O wie wohl ist mir bei dir! / Will dich lieben für und für.",
+  "language": [],
+  "musenalm_id": 48685,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O wie wohl ist mir bei dir! / Will dich lieben für und für.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Graf zu Stollberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.479Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "0zhbypw1ps1p1rw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Bei einer zweimaligen, wenn gleich nur kurzen Anwesenheit zu Livorno, fand ich mich zu wiederholter Besichtigung der gedachten Anstalten vranlaßt,",
+  "language": [],
+  "musenalm_id": 109710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die wohlthätigen / Unterrichts- und Erziehungsanstalten / der / Israeliten zu Livorno",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die wohlthätigen / Unterrichts- und Erziehungsanstalten / der / Israeliten zu Livorno",
+  "updated": "2016-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.262Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "mfh2xzm1refvmgt"
+    }
+  ]
+}

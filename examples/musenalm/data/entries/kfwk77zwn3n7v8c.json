@@ -1,0 +1,101 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 5 GG, S G-Verz, S 1 T, SS 2-346, S 347 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenlob 1838",
+    "norm": "~",
+    "biblio": 106497,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1783,
+  "parallel_title": "",
+  "place_statement": "Wien (Ludwig)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Frauenlob 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 47; L/R 100",
+  "responsibility_statement": "John. N. Vogl",
+  "subtitle_statement": "",
+  "title_statement": "Frauenlob. / Taschenbuch / für das Jahr / 1838. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / Wien",
+  "updated": "2026-06-11 10:18:54.638Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "0o3h4s098ergu13"
+  ],
+  "contents": [
+    "j0yfhs5cxvfn1al",
+    "pw0555zq2oop1w8",
+    "roxy8fogege4v5i",
+    "8zhakbg35po3chq",
+    "zmpo1mxrd62nbvq",
+    "ijpxc6qvwmeas0e",
+    "lhvm5kwn991kz7n",
+    "vttqjp5q6z5b8ne",
+    "6u8ovg6wisti6t9",
+    "h4h7b44fj8jzchl",
+    "r7jel37ziacksba",
+    "39c8fht9t8qt6dx",
+    "h1n7a0m8hqcsx6u",
+    "kim8ziium53b3uw",
+    "3yw91zp6gqo1gb4",
+    "gtl5jds6hat9l6m",
+    "vpvuk6y03mpyxyy",
+    "g725p80lhaypfrs",
+    "x3leyqoinuwq761",
+    "vcez4w0e3wbyimo",
+    "w6t7qd9l62c66oz",
+    "jxmwqbux3gnot6o"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.102Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.102Z",
+      "agent": "hazrisf8oiw6g6r",
+      "source_id": "az566b1wq1uzy7v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.973Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.973Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "rivssps0fv3ykbn"
+    }
+  ]
+}

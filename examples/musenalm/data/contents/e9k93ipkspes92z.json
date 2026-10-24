@@ -1,0 +1,45 @@
+{
+  "annotation": "Studien (Sammlung INr 118064, Obj 38) Dem Text vorangestellt: Es ist nichts schwerer, als sich zu erinnern, die meisten Menschen werden am Morgen geboren und sterben Abends. Grillparzer (mündlich)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Es war einmal ein armer Teufel, der sich selten satt essen konnte und fast immer zerrissene Stiefel trug.",
+  "language": [],
+  "musenalm_id": 118067,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Erinnerung",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.634Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "ykfgxpfbl8gketw"
+    }
+  ]
+}

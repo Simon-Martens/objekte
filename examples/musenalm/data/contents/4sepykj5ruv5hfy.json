@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Ja, gern will ich am Altar schwören, / Als meinen Mann dich zu verehren,",
+  "language": [],
+  "musenalm_id": 10448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27. / Die Versicherung einer Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiße",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27. / Die Versicherung einer Braut",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.444Z",
+      "agent": "b4ycj3ue3as52r2",
+      "source_id": "ofnsbql02y4qilv"
+    }
+  ]
+}

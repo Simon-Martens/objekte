@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 39910, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Cincinnatus! die Erde gehorcht mit freudigem / Stolze / Deinem belorberten Pflug und dem triumphirenden / Ack'rer.",
+  "language": [],
+  "musenalm_id": 39916,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cioncinnatus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cioncinnatus",
+  "updated": "2005-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.173Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "l8e7kog0cob3crw"
+    }
+  ]
+}

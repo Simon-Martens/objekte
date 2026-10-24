@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Siehe hier, o bester König, / Was Dein großer Oheim schrieb. / Ob er gleich Geschäfte trieb, / Schrieb er darum doch nicht wenig",
+  "language": [],
+  "musenalm_id": 127591,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Seine Majestät / den König von Preußen / Friedrich Wilhelm den Zweiten / als die französischen Schriften / des höchtselbigen Königs gedruckt wurden. / (Im Namen des Hofbuchdruckers.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Seine Majestät / den König von Preußen / Friedrich Wilhelm den Zweiten / als die französischen Schriften / des höchtselbigen Königs gedruckt wurden. / (Im Namen des Hofbuchdruckers.)",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.946Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "6kxbvloo9xpwoyo"
+    }
+  ]
+}

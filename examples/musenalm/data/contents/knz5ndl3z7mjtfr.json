@@ -1,0 +1,56 @@
+{
+  "annotation": "Einleitung zu: Fünf Briefe von Jean Paul Friederich Richter an einen Schweizer, nebst einem Stammbuchblatt und dem Bruchstück eines Briefes an J. P. Fr. R. (Sammlung INr 54246, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Der Hinscheid des trefflichen Jean Paul hat auch in der Schweiz zahlreiche Verehrer des genialischen, in seiner Art so einzigen Schriftstellers mit Schmerz betroffen.",
+  "language": [],
+  "musenalm_id": 54247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hinscheid des trefflichen Jean Paul hat auch in der Schweiz zahlreiche Verehrer des genialischen, in seiner Art so einzigen Schriftstellers mit Schmerz betroffen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.868Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "a93w1ryl2ulrib6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.868Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "cmc9oyfr24r7ka0"
+    }
+  ]
+}

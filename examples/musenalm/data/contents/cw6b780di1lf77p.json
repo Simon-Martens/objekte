@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 7846, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7845,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tanz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth pinx. Riepenhausen del. sc.",
+  "scans": [
+    "alm_170_7845_ffdiq5fnas.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Tanz",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.213Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "3nrz1wbyjokwt9p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.213Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "ivtyp5ixy86dtyf"
+    }
+  ]
+}

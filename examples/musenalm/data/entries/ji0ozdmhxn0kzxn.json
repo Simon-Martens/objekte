@@ -1,0 +1,88 @@
+{
+  "annotation": "§ von 5 kolorierten Graphiken sind lediglich No. 3 und 5 vorhanden.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–278, darin 2 GG, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele von Ehrig aus dem Thale 1825",
+    "norm": "~",
+    "biblio": 200819,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1270,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Comptoir für Literatur)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele von Ehrig aus dem Thale 1825",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 18; L/R 124; Goed VIII. 132, 32",
+  "responsibility_statement": "Ehrig aus dem Thale",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / von / Ehrig aus dem Thale. / Mit Kupfern. / Leipzig: Im Comptoir für Literatur. / 1825",
+  "updated": "2026-06-11 10:18:55.145Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "7rnmlrnvd5pgpfx"
+  ],
+  "contents": [
+    "2r12kl8tlpdfh4d",
+    "v7rdg1g5p73775z",
+    "0vmj0p0vgzzxuj1",
+    "t6vjmf6fg3lqzab",
+    "8wseizx1ohibs1r",
+    "r4t7zjx93kau4be",
+    "utl96nxverhs829",
+    "p1ov0nbn2gu8zdd",
+    "9ptul1z4y1dk03v"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.868Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.868Z",
+      "agent": "evf4zdjsze706g2",
+      "source_id": "7pwk98ny8dzff0c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.659Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.659Z",
+      "agent": "spwl3zhq6ms8de9",
+      "source_id": "ojrotsrlle7p7oz"
+    }
+  ]
+}

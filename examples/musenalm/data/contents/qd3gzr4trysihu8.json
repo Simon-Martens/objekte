@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Wer aus schöner Natur lauterm Borne schöpft, / Meidet niedriger Lüste Sumpf;",
+  "language": [],
+  "musenalm_id": 6020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Glückliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Frh. v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Glückliche",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.954Z",
+      "agent": "ftlu3x5ip5cgcvs",
+      "source_id": "y9tyl371rdiupgb"
+    }
+  ]
+}

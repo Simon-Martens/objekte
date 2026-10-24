@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder-Gallerie (Sammlung INr 16020, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Wetzt ihr die Pfeile? was soll, ihr Knaben, / die lästige Mühe?",
+  "language": [],
+  "musenalm_id": 16026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesgötter schleifen Pfeile. / Von Schiavone",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wyß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesgötter schleifen Pfeile. / Von Schiavone",
+  "updated": "2001-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.730Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "gk91qy08odpib8k"
+    }
+  ]
+}

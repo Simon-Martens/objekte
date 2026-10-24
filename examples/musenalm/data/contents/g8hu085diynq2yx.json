@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 56532, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Kommst du wieder, milde Stunde, / Die mich oft so traurig macht,",
+  "language": [],
+  "musenalm_id": 56533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Milde Stunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Milde Stunde",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.776Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "bjcsp1ea1dbwrj7"
+    }
+  ]
+}

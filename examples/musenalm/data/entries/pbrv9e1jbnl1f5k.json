@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 5 GG, T, S I-Verz, SS 1-415, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Lilien. Taschenbuch historisch-romantischer Erzählungen 1850",
+    "norm": "~",
+    "biblio": 406023,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2244,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Focke)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Lilien. Taschenbuch historisch-romantischer Erzählungen 1850",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; L/R 100",
+  "responsibility_statement": "C. von Wachsmann",
+  "subtitle_statement": "",
+  "title_statement": "Lilien. / Taschenbuch / historisch-romantischer / Erzählungen / für 1850, / von / C. von Wachsmann. / Zwölfter Jahrgang. / Mit sechs Stahlstichen. / Leipzig. / Verlag von Carl Focke",
+  "updated": "2026-06-11 10:18:55.921Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "items": [
+    "kvrdwoa8zpam4k6"
+  ],
+  "contents": [
+    "ezgwzm8p7t89y8j",
+    "seghtia95tvo7eq",
+    "2dbqypp9jx9axo0",
+    "sgawqcp2wmczr8a",
+    "354nsclbo917mmz",
+    "iqviv7f5w3l60at",
+    "39pqxj7cl5uiy0k",
+    "03ipcq1l91by0ys",
+    "b9ikiv5sxjm5ubv",
+    "vcuvqk1e7p9ujpd",
+    "iujah9ytpvue0nl",
+    "tdf0ixg1550ltde",
+    "rr4qfnbpasn15k7",
+    "jxpravbch2i1f6n",
+    "f3rkkeb9rtcnn4k",
+    "7kl2gm75qk0oj8k",
+    "3zwloafj9yyp1mv",
+    "b98hbfqq78ud689"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.863Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.863Z",
+      "agent": "ysi42tcohwq4olz",
+      "source_id": "6irlwpoqmb4zup8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.017Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.017Z",
+      "agent": "6kzqe6d8kkkucin",
+      "source_id": "ollwyjs5x8wxhdk"
+    }
+  ]
+}

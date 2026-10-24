@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Da hab' ich nun, wiewohl mit steifer / Und schwacher Hand, jedoch dabei / Mit wahrer Liebe",
+  "language": [],
+  "musenalm_id": 65547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückerts Bild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückerts Bild",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.089Z",
+      "agent": "yjnbioe01jyvf6s",
+      "source_id": "5lz9nyhej5tsonq"
+    }
+  ]
+}

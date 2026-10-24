@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Glückliche« von A. Mahlmann INr 11172, Obj 67 (Photos 23155,01; 23155,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 66.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Glückliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seydelmann",
+  "scans": [
+    "alm_206_23155_01_59pfncgxd7.jpg",
+    "alm_206_23155_02_xkrjan8joc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Glückliche",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.898Z",
+      "agent": "u644r69fyeumay0",
+      "source_id": "tgcjlwml4077ue2"
+    }
+  ]
+}

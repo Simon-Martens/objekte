@@ -1,0 +1,107 @@
+{
+  "annotation": "letzter Jahrgang mit Beiträgen des 1839 verstorbenen A. von Tromlitz /) s. Vorwort INr 111004",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, S III G-Verz, S IV I-Verz, SS V-VI Vrwrt d Hrsg, G VII-VIII, SS 1-437 darin 5 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1841",
+    "norm": "~",
+    "biblio": 100940,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3477,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1841",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. von Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1841. / Von / A. von Tromlitz. / Vierzehnter Jahrgang. / Mit 8 Stahlstichen",
+  "updated": "2026-06-11 10:18:54.502Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "6x5h0cgrrmp2881"
+  ],
+  "contents": [
+    "0cde6otp3ouyd71",
+    "20c0yi4mmgfkv51",
+    "9tryhxeajiq70wl",
+    "gfllztzeflutork",
+    "bjnl7ad8h190d9s",
+    "z6nwwoje0091ayt",
+    "fa4llxcze7fzs8h",
+    "zj38bw8t543q93a",
+    "52sk01q32g5llma",
+    "vsci0s1tkaet153",
+    "1kmlu5t662x4gfo",
+    "4dknebpcg35yv4f",
+    "9gfcx8169t9siwp",
+    "m5w214thp790ij1",
+    "hx8of4f1r22eweu",
+    "p2kgwmvnepcq4oy",
+    "hmh9wl496688gfd",
+    "f1g428al0kkq5l7",
+    "uxyrewnpfo7gm5g",
+    "bncefy0llu2380u",
+    "z0z7own6kpzf4pg",
+    "pisdlpn5r6g8eso",
+    "8itdq8syplgg2zc",
+    "dgq9zel9h5dmuu2",
+    "4qqo2r8238mbez3",
+    "mfyk9hkzk6ormzi",
+    "ujmfgz3sbgvby52",
+    "cc177xl92jow2l1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.232Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.232Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "jb8d5t5pyel2jfz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.517Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.517Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "jej9wgce6c9mddc"
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-1844",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.477Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/33769-9",
+          "label": "Académie de Strasbourg (1808-1870)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Archäologe, Kunsthistoriker, Philologe; 1792-1800 zunächst Soldat, 1800-1812 Hauslehrer, 1812-1829(?) Professor, 1815 auch Bibliothekar an der Universität Straßburg; dichtete in deutscher Sprache, publizierte (später) wissenschaftlich v.a. auf Französisch"
+      ],
+      "dateOfBirth": [
+        "1776-01-02"
+      ],
+      "dateOfDeath": [
+        "1844-03-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Godefroy Engelmann"
+          ],
+          "creditText": [
+            "Numistral [1]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean%20Geoffroy%20Schweighaeuser.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean%20Geoffroy%20Schweighaeuser.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jean%20Geoffroy%20Schweighaeuser.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1236550404"
+      ],
+      "describedBy": {
+        "dateModified": "2025-12-19T12:36:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119044064/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117401722",
+          "label": "Schweighäuser, Johann"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "119044064",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117401722",
+          "label": "Schweighäuser, Johann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119044064",
+      "oldAuthorityNumber": [
+        "(DE-588c)4288748-3",
+        "(DE-588)1236550404",
+        "(DE-588a)119044064"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        }
+      ],
+      "preferredName": "Schweighäuser, Johann Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottfried"
+        ],
+        "surname": [
+          "Schweighäuser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4191824-1",
+          "label": "Archäologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "publication": [
+        "Erklärung des neuaufgenommenen topographischen Plans der, die Umgebungen des Odilienbergs im niederrheinischen Departement, einschließenden Heidenmauer und der umliegenden Denkmäler",
+        "Vorr. von: Lichtenberger, Johann Friedrich: Geschichte der Erfindung der Buchdruckerkunst zur Ehrenrettung Straßburgs und vollständiger Widerlegung der Sagen von Harlem",
+        "Discours sur les services que les Grecs ont rendus à la civilisation",
+        "Antiquités de Rheinzabern. - ca. 1820",
+        "Hrsg. von: Athēnaiu Naukratitu Deipnosophistai",
+        "Bearb. von: Les caractères de Theophraste",
+        "Explication du plan topographique de l'enceinte antique appellée le mur payen, située autour de la montagne de Sainte-Odile, dans le département du Bas-Rhin, et des monumens environnans, dressé par M. Thommassin",
+        "Lettre de J. G. Schweighaeuser à Mr. Millin sur quelques passages de Théophraste, Suidas et Arrien",
+        "Vie de Christ. Guil. Koch Professeur d'histoire et de Droit public à l'ancienne Université de Strasbourg",
+        "Antiquités de l'Alsace ou châteaux, églises et autres monumens des départemens du Haut- et du Bas-Rhin"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119241982"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr92028881"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/24607947"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q3172270"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119044064/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1236550404"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schweigh%C3%A4user"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottfried_Schweigh%C3%A4user"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121244432"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119044064"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119044064.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119044064"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schweighäuser, Johann G.",
+        "Schweighäuser, Gottfried Johann",
+        "Schweighaeuser, Jean",
+        "Schweighaeuser, Johann G.",
+        "Schweighaeusser, Jean G.",
+        "Schweighäuser, Johann",
+        "Schweighauser, Gottfried",
+        "Schweighauser, Johann Gottfried",
+        "Schweighaeuser, Johann Gottfried",
+        "Schweighaeuser, Jean Geoffrey",
+        "Schweighaeuser, Jean G.",
+        "Schweighaeuser, Jean Geoffroy",
+        "Schweighaeuser, Jean-Geoffroy",
+        "Schweighaeuser, Johann Godfried",
+        "Schweighaeuser, Geoffroi",
+        "Schweighaeuser, Gottfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Godfried"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Jean G."
+          ],
+          "surname": [
+            "Schweighaeusser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schweighäuser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Schweighäuser"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Schweighauser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Schweighauser"
+          ]
+        },
+        {
+          "forename": [
+            "Jean G."
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Geoffroi"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Johann"
+          ],
+          "surname": [
+            "Schweighäuser"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Geoffrey"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Geoffroy"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Geoffroy"
+          ],
+          "surname": [
+            "Schweighaeuser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schweigh%C3%A4user",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schweigh%C3%A4user"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:55:42Z",
+    "gnd_query_biographical_data": "1776-1844",
+    "gnd_query_name": "schweighäuser, johann gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2602,
+  "name": "Schweighäuser, Johann Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXIII, 351",
+  "updated": "2026-06-11 13:29:24.922Z",
+  "uri": "https://d-nb.info/gnd/119044064",
+  "editor": ""
+}

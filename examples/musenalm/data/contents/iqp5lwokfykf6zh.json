@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 11. /) Graphik im Kalendarium September /) s. Textbezug INr 92560, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92537,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die alte Kokotte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_448_92537_ww94penkrn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die alte Kokotte",
+  "updated": "2003-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.340Z",
+      "agent": "rcmptupq08d0ih1",
+      "source_id": "a5nctqlnzdgkibf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.340Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "b8q80dypsqmhedi"
+    }
+  ]
+}

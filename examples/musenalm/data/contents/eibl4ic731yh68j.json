@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. und Titel vom Textbezug INr 76525, Obj 45 /) §8§ Musikbeigabe (Tanz) fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76529,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angloise #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dittersdorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Angloise #",
+  "updated": "2011-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.661Z",
+      "agent": "jxxgvhm0xpaepwr",
+      "source_id": "350dk1jbzc1lgk6"
+    }
+  ]
+}

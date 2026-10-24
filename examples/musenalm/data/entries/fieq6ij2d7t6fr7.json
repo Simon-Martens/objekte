@@ -1,0 +1,61 @@
+{
+  "annotation": "Der Jg ist vermutl. nicht erschienen, s. Goed IV/1, 951",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach (Hamburger) 1799",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2001-01-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 183,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Musenalmanach (Hamburger) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 85; L/R 26; Goed IV/1. 950, 4",
+  "responsibility_statement": "Voß",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:56.001Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.203Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.203Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "uw7o48c2gpfvw8f"
+    }
+  ]
+}

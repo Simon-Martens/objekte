@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.912Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Mein frohes Herz und meine kleine Leier / Bleibt mir getreu bis hin ins dunkle Thal!",
+  "language": [],
+  "musenalm_id": 6473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Herz und meine Leier. / Triolett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A-z.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Herz und meine Leier. / Triolett",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.860Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "lca9nh2hpmy769t"
+    }
+  ]
+}

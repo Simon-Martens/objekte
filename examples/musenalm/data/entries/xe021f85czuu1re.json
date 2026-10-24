@@ -1,0 +1,98 @@
+{
+  "annotation": "§$ vermutl. fehlen 6 Modekupfer;§$ vermutl. fehlt Kal; $§ vermutl fehlen 3 Tabellen /) Graphiken mit der Bezeichnung:  F. W. del. A. D. sc.: Weigl, Franz u. Dvoržak, Adolf /) unter dem I- Verz: Gedruckt bei A. Strauß sel. Witwe & Sommer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, nT, S, SS 3-190 darin 6 GG, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1846",
+    "norm": "~",
+    "biblio": 404814,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3357,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DAS / VEILCHEN. / Ein / Taschenbuch / für / FREUNDE / einer gemüthlichen und erheiternden / LECTÜRE. / Neun und zwanzigster Jahrgang. / 1846. / Wien / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hof- und bürgerl. Buchbinder, / im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:54.871Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "9j4nx8l6iyo5f4e"
+  ],
+  "contents": [
+    "cr73n53q0hdn72i",
+    "2bckfjqzetx239w",
+    "6bb39zk231p3my1",
+    "gwria1mcxcnuntc",
+    "8h3zsbefe2s1msd",
+    "26pxpeqbgys1r0x",
+    "zvq20zejsxu96x3",
+    "n9obxvobuu499s1",
+    "fj0xieafc18fllq",
+    "640v69yfxe855ru",
+    "w68re4h12kzcd0v",
+    "7wv3lsk64k64cl3",
+    "tk7ibil7qyl96ge",
+    "a8lxhghykp5y8ua",
+    "uchtg6goxw6gclj",
+    "vjihpajx4qf9z9t",
+    "e1jzaxcyq01epfa",
+    "sex17pgarf37ezg",
+    "82n19ko83t4w3hx",
+    "k7nnfkbfvd6s0nu",
+    "yfbhd6a7vwe63ak",
+    "6962h6tt4t4er3x",
+    "t9aigyaw1ydr15p",
+    "axay957xzurj3jz",
+    "lmzbpqbjbdzoyjp",
+    "d0ps3ei3c6dlr1c",
+    "9h8lzbpxmv02k3h",
+    "7tmwzvafmhyc2jd",
+    "pth2pwnci1bo3es",
+    "l1vktazy8h0nsgz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.140Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.140Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "al33dyvhsma3m9n"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Was du so oft an manche hübsche Frau, / Und manches Mädchen hast geschrieben,",
+  "language": [],
+  "musenalm_id": 83779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebesbriefe. / (Nach demselben.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Göckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebesbriefe. / (Nach demselben.)",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.918Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "0m9e9qctijmumn4"
+    }
+  ]
+}

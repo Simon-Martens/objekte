@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41556,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Innere einer Winterwohnung auf Unalaska",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_545_41556_dwfykuf6mm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Innere einer Winterwohnung auf Unalaska",
+  "updated": "2005-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.230Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "t5sq534zd3wya3o"
+    }
+  ]
+}

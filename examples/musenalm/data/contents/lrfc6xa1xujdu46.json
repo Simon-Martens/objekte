@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni. Illustration zu »Geschichte der Königin Elisabeth von England« INr 75600, Obj 25; s.a. Textbezug INr 75598, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75585,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod der Königin Elisabeth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2141_75585_7kpuk5l0rk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tod der Königin Elisabeth",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.746Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "ms7gtiwbmt0m52m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.746Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "umzx9grx87f01bi"
+    }
+  ]
+}

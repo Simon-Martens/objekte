@@ -1,0 +1,78 @@
+{
+  "annotation": "2 Jgg 1815, 1816; Frankfurt (Wilmans); Hrsg: J. C. F. Haug",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach poetischer Spiele 1815",
+    "norm": "",
+    "biblio": 101203,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1410,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Almanach poetischer Spiele 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 19; nicht bei L/R; Goed VIII. 85, 164 a",
+  "responsibility_statement": "Friedrich Haug",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / poetischer Spiele / auf / das Jahr 1815 / von / Friedrich Haug. / Mit sechs Kupfern. / Frankfurt am Mayn / bei Friedrich Wilmans",
+  "updated": "2026-06-11 10:18:54.799Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "q4vsmb6jptrbpnp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.904Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.904Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "e39frgu1gagc9nd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "hx3h573f0lrzk6z"
+    }
+  ]
+}

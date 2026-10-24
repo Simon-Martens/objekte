@@ -1,0 +1,45 @@
+{
+  "annotation": "Stunden des Friedens (Sammlung INr 80981, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Sei mir gegrüßt, du Haus, bewohnt vom Frieden, / So vieler Edlen edler Aufenthalt!",
+  "language": [],
+  "musenalm_id": 80982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Haus der Freunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Haus der Freunde",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.046Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "b9ty7xo6dw2z75q"
+    }
+  ]
+}

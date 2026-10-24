@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite; Graphik im Kalendarium paginiert 4 s. Textbezug INr 42934, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42891,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Unterredung. / La conversation",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. & sc",
+  "scans": [
+    "alm_153_42891_nqo19su4vy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Unterredung. / La conversation",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.204Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "pl2u4bs8alyd7ws"
+    }
+  ]
+}

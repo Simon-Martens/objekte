@@ -1,0 +1,34 @@
+{
+  "annotation": "Photos 85209,01; 85209,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3708_85209_01_smpc7h227h.jpg",
+    "alm_3708_85209_02_pj9emvn4af.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": []
+}

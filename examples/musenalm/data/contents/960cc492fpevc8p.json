@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Durch Tunkus, Plemps und Schallaley / Hat Amor mich gefangen,",
+  "language": [],
+  "musenalm_id": 2573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amors Zauberey",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amors Zauberey",
+  "updated": "2000-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.915Z",
+      "agent": "3m5nfg6fbusqjem",
+      "source_id": "utllzdh0jqbg8zl"
+    }
+  ]
+}

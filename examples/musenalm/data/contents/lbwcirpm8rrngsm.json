@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Von tausend Leckerei'n, dem wahren Giftgemische, / Erkrankt der Gastronome, Du lebst von seinem Tische;",
+  "language": [],
+  "musenalm_id": 39494,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Arzte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Arzte",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.207Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "edtoheatghvsnjz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphik INr 103496, 103498; Obj 40, 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Draußen vor dem Städtlein steht auf dem Abhang des Waldsaums ein steinernes Kreuz, unscheinbar und niedrig,",
+  "language": [],
+  "musenalm_id": 103497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Klosterhirt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Klosterhirt",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.216Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "6zrk43fic6aaenm"
+    }
+  ]
+}

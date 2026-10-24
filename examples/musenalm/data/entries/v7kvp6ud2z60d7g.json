@@ -1,0 +1,80 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, recto vT, verso VrlgM, verso G, T, S I- Verz, SS 1-421",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1846",
+    "norm": "~",
+    "biblio": 101015,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 72,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch auf das Jahr / 1846. / Neue Folge. / Achter Jahrgang. / Mit dem Bildnisse Jacob Grimm's. / Leipzig: / F. A. Brockhaus. / 1846",
+  "updated": "2026-06-11 10:18:54.883Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "5g4zd0ob54f7har"
+  ],
+  "contents": [
+    "bu4a1009znjie5w",
+    "f51btqjajopkrde",
+    "bx4u9k3uj7hbllg",
+    "uneikv1she87t82",
+    "qq619ihu7vz099d",
+    "tkopj72uwlbwjuh",
+    "5a413ndog9ne4lc",
+    "qubxaiso1uu33yq",
+    "zeoqwsjsi1l8xef",
+    "dvb8lmdcqsssb38",
+    "8c4e2jholruuk9i",
+    "aaev1q5j9so4xnt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.607Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.607Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "4p3vg66qht9c2ux"
+    }
+  ]
+}

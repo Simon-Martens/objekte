@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Früsch, Soldate, uufmarschiert! / Früsch im Sturm-Marsch attaggiert!",
+  "language": [],
+  "musenalm_id": 52726,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bleysoldaten-Schalcht / (Stadt-Dialekt von Bern.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bleysoldaten-Schalcht / (Stadt-Dialekt von Bern.)",
+  "updated": "2007-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.875Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "grdjdroblcf3fil"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "In meiner Welt ganz kleinem Garten sprang / Ich schönen Faltern nach oft tagelang,",
+  "language": [],
+  "musenalm_id": 90483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünf Stunden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Grün. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünf Stunden",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.194Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "ss1bf0uqz3b680b"
+    }
+  ]
+}

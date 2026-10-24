@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Hofnung bis in den Tod« von G. P. Schmidt INr 14144, Obj 91 (Photos 14174,01-14174,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14174,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hofnung bis in den Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_221_14174_01_jlcyatvrzc.jpg",
+    "alm_221_14174_02_k9ycc62ax1.jpg",
+    "alm_221_14174_03_0xfouug4l5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hofnung bis in den Tod",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.509Z",
+      "agent": "25ubfkw7g6ebn5g",
+      "source_id": "1yu6yvoj2mtplgq"
+    }
+  ]
+}

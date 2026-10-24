@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 2573, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Ich heiße Hans der Besenbinder / Und bin und lebe wohlgemuth.",
+  "language": [],
+  "musenalm_id": 25752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Besenbinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seume",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Besenbinder",
+  "updated": "2002-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.090Z",
+      "agent": "ez181fjr8mhbxyp",
+      "source_id": "cbumc7hord7clqv"
+    }
+  ]
+}

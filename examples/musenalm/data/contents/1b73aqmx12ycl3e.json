@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Cabestaing's Vaterland war die Provence. Obgleich aus adeligem Blute entsprossen, hatt er doch früh das Schicksal, das Haus seiner Eltern verlassen zu müssen;",
+  "language": [],
+  "musenalm_id": 85429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cabestaing",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg von Gaal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cabestaing",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.104Z",
+      "agent": "7jow4hgxizafguq",
+      "source_id": "4c00ntw8zu7v5vg"
+    }
+  ]
+}

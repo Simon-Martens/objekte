@@ -1,0 +1,73 @@
+{
+  "annotation": "einziger Jahrgang /) # Titelblatt fehlt /) eine Reproduktion des Titelblatts wurde freundlicherweise zur Verfügung gestellt von der Landesbibliothek Coburg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, §T, S 1 W, SS 3-356, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Genealogisch-Geographisches für die Jugend (Coburg) 1791",
+    "norm": "~",
+    "biblio": 408109,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-08-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4013,
+  "parallel_title": "",
+  "place_statement": "Coburg",
+  "places": [
+    "6crmehf2ysch30c"
+  ],
+  "preferred_title": "Taschenbuch, Genealogisch-Geographisches für die Jugend (Coburg) 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 121; nicht bei L/R",
+  "responsibility_statement": "Christian Heinrich Ludwig Wilhelm Spiller von Mitterberg,",
+  "subtitle_statement": "",
+  "title_statement": "Genealogisch-geographisches / Taschenbuch / für / die Jugend / Mit / einem vorausgeschickten Versuch einer / kurzgefaßten Geschichte der sämtlichen / Durchl. Herzoge zu Sachsen-Coburg, / bis auf die neuesten Zeiten. / Coburg, bey R. A. W. Ahl, / 1791 #",
+  "updated": "2026-06-11 10:18:54.786Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "z3bo54sj6khkkoe"
+  ],
+  "contents": [
+    "21zj6edd7dwlrjy",
+    "78sbqnj6iv17lu2",
+    "507f4q69ttm0r7t",
+    "l2dcn6cqocisswk",
+    "dk8ntzmvjfi9ua4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.321Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.321Z",
+      "agent": "n693cniltvzn501",
+      "source_id": "8tcnyl8oz20gio9"
+    }
+  ]
+}

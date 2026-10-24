@@ -1,0 +1,67 @@
+{
+  "annotation": "vermutl. 2. Auflage von »Neuester Spielealmanach für Karten-, Schach-, Brett-, Billard-, Kegel-, und Ball-Spiele zum Selbstunterrichte, nach den gründlichsten Regeln und Gesetzen. Von G. W. v. Abenstein.[...]« 1819 s. K. 103",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiel-Almanach (Abenstein) 1820",
+    "norm": "",
+    "biblio": 200608,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2637,
+  "parallel_title": "",
+  "place_statement": "Berlin (Hayn)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Spiel-Almanach (Abenstein) 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 103; nicht bei L/R 196",
+  "responsibility_statement": "G. W. von Abenstein",
+  "subtitle_statement": "",
+  "title_statement": "Neuester / Spielealmanach / für / Karten-, Schach-, Brett-, Billard-, / Kegel-, und Ball-Spiele / zum Selbstunterrichte, / nach den gründlichsten Regeln und Gesetzen. / Von / G. W. v. Abenstein. / Paidia tonon hädysma. / Spiel ist die Würze der Arbeit. / Plutarch. / Zweite durchaus verbesserte und mit neuen Spielen / vermehrte Ausgabe. / Berlin, 1820. / Bei G. Hayn, Zimmerstraße Nr. 29",
+  "updated": "2026-06-11 10:18:55.418Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "c4my1r6djgpgpen"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.976Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.976Z",
+      "agent": "oxcelo5luqof0jj",
+      "source_id": "xg7e9bw4yjo5tid"
+    }
+  ]
+}

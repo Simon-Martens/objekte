@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111277, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schelfhout de. J. B. Tétar van Elven sculps.",
+  "scans": [
+    "alm_3456_111276_8j6f2flbal.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Winter #",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.390Z",
+      "agent": "715ejev12w0hnth",
+      "source_id": "i8r0n4ftmvfdz0c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.390Z",
+      "agent": "7l66ckmup6wdhiw",
+      "source_id": "q2nzc6gqig3wajn"
+    }
+  ]
+}

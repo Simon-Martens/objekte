@@ -1,0 +1,451 @@
+{
+  "annotation": "",
+  "biographical_data": "1793-1832",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.390Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2118215-2",
+          "label": "Sing-Akademie zu Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/5089013-X",
+          "label": "Königliches Institut für Kirchenmusik (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Komponist; Musikdirektor am Kölner Dom, 1819-1832 Mitglied der Sing-Akademie Berlin, Mitgründer der Jüngeren Berliner Liedertafel; 1820-1830 Kompositionslehrer am Königlichen Institut für Kirchenmusik und Musikdirektor an der Universität Berlin"
+      ],
+      "dateOfBirth": [
+        "1793-03-06"
+      ],
+      "dateOfDeath": [
+        "1832-09-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "After Johann Gottfried Schadow"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/documents/obj/oai:baa.onb.at:3590371"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Bernhard%20Klein.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bernhard%20Klein.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Bernhard%20Klein.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:50:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116210974/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118727699",
+          "label": "Lepsius, Carl Richard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104366508",
+          "label": "Parthey, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116048697",
+          "label": "Parthey, Lili"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Schwindl"
+          ]
+        },
+        {
+          "forename": [
+            "Marie"
+          ],
+          "surname": [
+            "Schwindl"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1104377438",
+          "label": "Lepsius, Elisabeth"
+        },
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Siegel"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116210974",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1104377438",
+          "label": "Lepsius, Elisabeth"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116210974",
+      "oldAuthorityNumber": [
+        "(DE-588a)134921860",
+        "(DE-588a)116210974",
+        "(DE-101c)310611865"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Klein, Bernhard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Bernhard"
+        ],
+        "surname": [
+          "Klein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb147943148"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no95010901"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/69194438"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q566522"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116210974"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116210974/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Bernhard_Klein"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Bernhard_Klein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Bernhard_Klein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108513992"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116210974"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116210974"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116210974.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116210974.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116210974"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116210974"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Klein, Hubert Bernhard",
+        "Klein, Bernard",
+        "Klein, Bern.",
+        "Klein, Bernhard J.",
+        "Klein, Bernhard Joseph",
+        "Klein, Bernh.",
+        "Klein, Bernhd."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Bern."
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard J."
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Bernard"
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhd."
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Joseph"
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Hubert Bernhard"
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Joseph"
+          ],
+          "surname": [
+            "Klein"
+          ]
+        },
+        {
+          "forename": [
+            "Bernh."
+          ],
+          "surname": [
+            "Klein"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Bernhard_Klein",
+          "label": "https://de.wikipedia.org/wiki/Bernhard_Klein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:56:00Z",
+    "gnd_query_biographical_data": "1793-1832",
+    "gnd_query_name": "klein, bernhard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1400,
+  "name": "Klein, Bernhard",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XVI, 78",
+  "updated": "2026-06-11 13:29:23.215Z",
+  "uri": "https://d-nb.info/gnd/116210974",
+  "editor": ""
+}

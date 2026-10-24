@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 14 BB Kal darin 6 GG, 3 BB gT, ar: SS 1-144, ar1: SS 1-110",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1791",
+    "norm": "~",
+    "biblio": 200402,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 691,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / für das Jahr / 1791. / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.859Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "5ne1bckjji9848j"
+  ],
+  "contents": [
+    "e29t9wis5iq24qb",
+    "3a7ztfnldrpm8i3",
+    "npj3serv9vjkirr",
+    "3gvv0salo8z0gum",
+    "o5okk6evk0fufc9",
+    "wdrts5m6xi728y7",
+    "yy6sc7iaj56j2oz",
+    "4fxpdkfsc7wkhxe",
+    "pj2a0vhq3mrnlic",
+    "wakuipv7pgjg87y",
+    "sqvyfhy6z7eaukb",
+    "klat9cwaepn538d",
+    "8u2nrz15t3195wk",
+    "rx49xfgfd7dhk7x",
+    "10awiaoumsma9zp",
+    "845wwi3javzo1nf",
+    "3vzpnurdooav1e6",
+    "jbq5ihvgdbv3s9y",
+    "mj9e63q4ldngqb8",
+    "omwitgy65ot0bef"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.899Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.899Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "5nlbcuku8mn8qws"
+    }
+  ]
+}

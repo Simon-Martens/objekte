@@ -1,0 +1,45 @@
+{
+  "annotation": "Bildersaal der Natur. Sonettenkranz (Sammlung INr 68206, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Was hör' ich dort am Rebenhügel singen / Zu Lautenklang, bewegt von sanftem Harme?",
+  "language": [],
+  "musenalm_id": 68214,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 231,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII.",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.262Z",
+      "agent": "prvw4acsenveets",
+      "source_id": "n6h3gxbnwdvem6p"
+    }
+  ]
+}

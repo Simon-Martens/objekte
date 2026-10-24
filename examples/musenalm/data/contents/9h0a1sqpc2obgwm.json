@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 2; s. Textbezug INr 124961, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124947,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wasserfall im Liebethale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther fec.",
+  "scans": [
+    "alm_3698_124947_q5qohl2ljb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wasserfall im Liebethale",
+  "updated": "2011-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.672Z",
+      "agent": "k3qfb3024y59h2x",
+      "source_id": "2d5ydrp9qqtyi1m"
+    }
+  ]
+}

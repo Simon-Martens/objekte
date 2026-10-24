@@ -1,0 +1,442 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.378Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Franz. Maler, Zeichner und Graphiker"
+      ],
+      "dateOfBirth": [
+        "1780-08-29"
+      ],
+      "dateOfDeath": [
+        "1867-01-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jean-Auguste-Dominique Ingres"
+          ],
+          "creditText": [
+            "RMN, Domaine de Chantilly"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ingres%2C%20Self-portrait.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ingres%2C%20Self-portrait.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ingres%2C%20Self-portrait.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11855560X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/131820311",
+          "label": "Ingres, Madeleine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "11855560X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/131820311",
+          "label": "Ingres, Madeleine"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11855560X",
+      "oldAuthorityNumber": [
+        "(DE-588c)4026994-2",
+        "(DE-588a)11855560X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4102157-5",
+          "label": "Montauban"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Ingres, Jean-Auguste-Dominique",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jean-Auguste-Dominique"
+        ],
+        "surname": [
+          "Ingres"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81047807"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76327826"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q23380"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11855560X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jean_Auguste_Dominique_Ingres"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jean-Auguste-Dominique_Ingres"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jean-Auguste-Dominique_Ingres"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121400757"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11855560X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11855560X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11855560X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11855560X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Ingres, Dominique",
+        "Ingres, J. A. D.",
+        "Ingres, Jean A.",
+        "Ingres, Jean Auguste D.",
+        "Ingres, Jean",
+        "Engr, Z’an-Ogust-Dominik",
+        "Ingres, J.-A.-D.",
+        "Ėngr, Žan Ogjust Dominik",
+        "Ingres, I.A.D.",
+        "Ingres, Jean Auguste Dominique",
+        "Ingres, I. A. D.",
+        "Ingres",
+        "Ėngr, Žan-Ogjust-Dominik",
+        "Ingres, J.-D.",
+        "Ingres, J.A.D.",
+        "Ingres, Jean-Dominique",
+        "Ingres, Jean Dominique",
+        "Ingres, Jean-Auguste D."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jean-Auguste D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "I. A. D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "J. A. D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "J.A.D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Auguste D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Z’an-Ogust-Dominik"
+          ],
+          "surname": [
+            "Engr"
+          ]
+        },
+        {
+          "forename": [
+            "J.-D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Dominique"
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "personalName": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Dominique"
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Dominique"
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Auguste Dominique"
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "I.A.D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "J.-A.-D."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Jean A."
+          ],
+          "surname": [
+            "Ingres"
+          ]
+        },
+        {
+          "forename": [
+            "Žan Ogjust Dominik"
+          ],
+          "surname": [
+            "Ėngr"
+          ]
+        },
+        {
+          "forename": [
+            "Žan-Ogjust-Dominik"
+          ],
+          "surname": [
+            "Ėngr"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jean-Auguste-Dominique_Ingres",
+          "label": "https://de.wikipedia.org/wiki/Jean-Auguste-Dominique_Ingres"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:49:57Z",
+    "gnd_query_biographical_data": "1780-1867",
+    "gnd_query_name": "ingres, jean auguste dominique"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1278,
+  "name": "Ingres, Jean Auguste Dominique",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIX, 2",
+  "updated": "2026-06-11 13:29:23.035Z",
+  "uri": "https://d-nb.info/gnd/11855560X",
+  "editor": ""
+}

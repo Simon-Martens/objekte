@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 97802, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Quae tua suspensam tenet admiratio memtem, / Spectator? dubio, quid tecum corde volutas,",
+  "language": [],
+  "musenalm_id": 97808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Wassernixe bei Marburg; / im Oktober 1615. / Nympha Marpurgensis Lonicola, die Marpurger / Wassernix. De se loquitur. / Pros tou epopän",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Wassernixe bei Marburg; / im Oktober 1615. / Nympha Marpurgensis Lonicola, die Marpurger / Wassernix. De se loquitur. / Pros tou epopän",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.705Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "p7islxqz53j9hv4"
+    }
+  ]
+}

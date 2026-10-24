@@ -1,0 +1,45 @@
+{
+  "annotation": "mit beigegebenem Gedicht und Musikbeigabe s. INr 73558, 73559; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Nachfolgende lyrisch-didactisch-dramatisch-episch-excentrische Herzens-, Land-, Post- und Reise-Charte, buntscheckig gleich allen unstäten Gedanken, Worten und Werken, könnte der Anfang einer abentheuerlichen Trilogie werden.",
+  "language": [],
+  "musenalm_id": 73557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Topographische Curiositäten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Z. Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Topographische Curiositäten",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.769Z",
+      "agent": "g7f1xv6d8kkyhx1",
+      "source_id": "cs7f0vutgnnkm36"
+    }
+  ]
+}

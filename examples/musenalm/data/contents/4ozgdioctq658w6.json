@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 24890, Obj 175)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Mutter gab mir Rath zum Reisen, / Und der Vater gab sein Geld,",
+  "language": [],
+  "musenalm_id": 24892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Vorsicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Graf von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Vorsicht",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.105Z",
+      "agent": "23ylvw2tykdsah6",
+      "source_id": "bg0zyw2dbt4epsy"
+    }
+  ]
+}

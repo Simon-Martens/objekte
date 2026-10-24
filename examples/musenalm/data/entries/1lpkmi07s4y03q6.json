@@ -1,0 +1,101 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, SS I-IV Vrwrt d Hrsg G-Verz, S I-Verz, zT, 7 GG, SS 1-372, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Orphea 1827",
+    "norm": "~",
+    "biblio": 100637,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2370,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Orphea 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 96; Goed VIII. 114, 266",
+  "responsibility_statement": "Ernst Fleischer",
+  "subtitle_statement": "",
+  "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1827. / Vierter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU FIGARO'S HOCHZEIT. / LEIPZIG. / Ernst Fleischer",
+  "updated": "2026-06-11 10:18:55.329Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "ge96gdd3qkpfmga"
+  ],
+  "contents": [
+    "1f1ptl6102yn5p3",
+    "6rgnapv8jar9u30",
+    "1dy5fdtuabssm10",
+    "k4mae1nlkmyl0zc",
+    "od1nu8fbpw9p22z",
+    "uhqxyd3g3ainwzh",
+    "d22zad6tj0ep2a8",
+    "pmxpszdqg6thd92",
+    "07xvs0rldi4fy81",
+    "frtycw2ot9qyrtb",
+    "t7lfie7xzfhr8vn",
+    "37ojygqymkzumjk",
+    "p0e046ibfvxx5pd",
+    "c1vo635aasbkded",
+    "i2y7vt66xd1ygwd",
+    "7k7gpn6ki7uwbg2",
+    "9u8f63ijbyh6v0g",
+    "qec0nrbo5x53cyq",
+    "gd3deh2xmarf936",
+    "gbaqzysi6o7einv",
+    "8rwkj3utxqu4j1h",
+    "vlxqurg9jbzxd6z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.851Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.851Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "bkivmiztkb9osfq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.056Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.056Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "foi466nq9lm908z"
+    }
+  ]
+}

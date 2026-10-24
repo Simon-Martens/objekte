@@ -1,0 +1,71 @@
+{
+  "annotation": "2. Titel: Taschenbuch / für / Denker und Denkerinnen / auf das Jahr 1799. / Zweyter Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung 1799/) Das Buch nimmt sich den Titel eines aufs Jahr bezogenen Taschenbuches, hat aber inhaltlich kaum etwas gemein mit solchem Genre nach damaligem Verständnis. Es enthält in zwei Teilen ein Magazin alphabetisch angeordneter Ideen zu Bedenkenswertem. (Scan der beiden Listen)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ketzereyen aus allen Fächern des menschlichen Wissens 1791 2",
+    "norm": "~",
+    "biblio": 409642,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-07-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4577,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Hermann)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Ketzereyen aus allen Fächern des menschlichen Wissens 1791 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Ketzereyen / aus allen Fächern / des menschlichen Wissens / alphabetisch geordnet / und jedem Wahrheitsfreunde / gewidmet. / Ein Taschenbuch / zunächst für die Schlußjahre des philosophischen / Jahrhunderts; aber auch 1801 noch / beherzigenswerth. / Zweiter Theil. / Frankfurt am Mayn, / in der Hermannschen Buchhandlung. / 1799",
+  "updated": "2026-06-11 10:18:55.900Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "hxw2o7ug8tjg1fj"
+  ],
+  "contents": [
+    "0fhnefy9mmny0rw",
+    "48trp9qx4w7mtp4",
+    "y4yd6bitmhy3x4e"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.993Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.993Z",
+      "agent": "w3vdcm9ewwhgul8",
+      "source_id": "b3utjhz7rpze9dt"
+    }
+  ]
+}

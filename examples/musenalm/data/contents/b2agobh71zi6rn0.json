@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert IV. /) Illustration zu »Hedwig von Schwaben« von »Der Verfasserin der Reise von Freyberg nach Carlsbad«. Iris 1806 INr 16037",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr seyd frey, Graf Sigmund! / Iris 1806 S. 58",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_254_16137_q5ep828wkk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihr seyd frey, Graf Sigmund! / Iris 1806 S. 58",
+  "updated": "2001-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.724Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "rt50ddod5k233if"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.724Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "x18asz1yfoc1gb9"
+    }
+  ]
+}

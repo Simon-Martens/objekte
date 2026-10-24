@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Stahlstiche (Sammlung INr 64533, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Liebselige Frauen aller Orten! / Wie ist doch Vieles anders geworden, / Seitdem Euch Frater Hilarius / Treuherzig bracht den letzten Gruß! / Chronos, der ewige Jude lenkte / Herzlos den Schritt über blutgetränkte, / Vom Rossehuf zerstampfte Fluren",
+  "language": [],
+  "musenalm_id": 64534,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Willkomm!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Willkomm!",
+  "updated": "2009-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.292Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "djqrk6smfh3500q"
+    }
+  ]
+}

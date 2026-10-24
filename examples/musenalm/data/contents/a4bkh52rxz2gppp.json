@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November /) nummeriert 6. /) Illustration zu »Fürbitte« INr 93838, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93824,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diese, mein Kaiser, habe ich in der Gruft geboren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Langer sc.",
+  "scans": [
+    "alm_989_93824_fgblnwgzgb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diese, mein Kaiser, habe ich in der Gruft geboren",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.644Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "kj5pbynxisx6mpb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.644Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "ttadarc44zpuy3z"
+    }
+  ]
+}

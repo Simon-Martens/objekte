@@ -1,0 +1,67 @@
+{
+  "annotation": "2. Aufl von: Dichtergarten für Frauen 1835",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Dichtergarten, Taschenbuch für Frauen 1845 (2. Aufl.)",
+    "norm": "",
+    "biblio": 408540,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-06-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4111,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kesten)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Dichtergarten, Taschenbuch für Frauen 1845 (2. Aufl.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 42; nicht bei L/R",
+  "responsibility_statement": "Charlotte Döring",
+  "subtitle_statement": "",
+  "title_statement": "Dichtergarten / Taschenbuch für Frauen / herausgegeben / von / Charlotte Döring / geb. Kilzer. / Zweite Auflage. / LEIPZIG / C. R. Kesten. / (früher S. Schmerbers Verlag Frankfurt a/M.)",
+  "updated": "2026-06-11 10:18:55.608Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "91kc7xd62s6f63s"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.076Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.076Z",
+      "agent": "7thg26yc06y0g19",
+      "source_id": "891aa4l6yalagkb"
+    }
+  ]
+}

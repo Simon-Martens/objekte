@@ -1,0 +1,567 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1829",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.376Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/116029749",
+          "label": "Zöppritz, Mariette"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftstellerin; lebte mit ihrem ersten Mann, dem Naturforscher Georg Forster, von 1785-1787 in Polen, von 1787-1792 in Göttingen u. Mainz; 2. Ehe mit dem Schriftsteller u. Redakteur Ludwig Ferdinand Huber, lebte von 1794-1798 in der Schweiz, 1798-1805 in Stuttgart u. Ulm; nach dem Tod ihres Mannes wohnte sie 12 Jahre bei ihrer zweiten Tochter in Stoffenried  (Landkreis Günzburg) und 1807-1816 in Günzburg; dann übernahm sie die Redaktion des von Cotta herausgegebenen Morgenblatts in Stuttgart für insgesamt 7 Jahre; 1823 Übersiedlung nach Augsburg, dort starb sie 1829 fast blind"
+      ],
+      "dateOfBirth": [
+        "1764-05-07"
+      ],
+      "dateOfDeath": [
+        "1829-06-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johannes Schreiber, see [1]"
+          ],
+          "creditText": [
+            "Zeno.org. Reproductions first published before 1906"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Therese%20Huber%20miniatur%20detail.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Therese%20Huber%20miniatur%20detail.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Therese%20Huber%20miniatur%20detail.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:16:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118883712/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Marie Therese"
+          ],
+          "surname": [
+            "Heyne"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Heyne"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118534416",
+          "label": "Forster, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116400668",
+          "label": "Heyne, Georgine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1189378787",
+          "label": "Huber, Emanuele Honorine Adele"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117732753",
+          "label": "Greyerz, Gottlieb von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116730919",
+          "label": "Herder, Emil Gottfried von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554107",
+          "label": "Huber, Victor Aimé"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115485872",
+          "label": "Herder, Louise von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554077",
+          "label": "Huber, Ludwig Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11855073X",
+          "label": "Heyne, Christian Gottlob"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        }
+      ],
+      "gndIdentifier": "118883712",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1189378787",
+          "label": "Huber, Emanuele Honorine Adele"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554107",
+          "label": "Huber, Victor Aimé"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115485872",
+          "label": "Herder, Louise von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/11855073X",
+          "label": "Heyne, Christian Gottlob"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118883712",
+      "oldAuthorityNumber": [
+        "(DE-588a)118883712",
+        "(DE-588c)4220366-1"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061529-7",
+          "label": "Ulm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4598893-6",
+          "label": "Stoffenried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4688766-0",
+          "label": "Bôle"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4022458-2",
+          "label": "Günzburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        }
+      ],
+      "preferredName": "Huber, Therese",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Therese"
+        ],
+        "surname": [
+          "Huber"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4352068-6",
+          "label": "Redakteurin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig Ferdinand"
+          ],
+          "surname": [
+            "Huber"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Jugendmuth",
+        "Luise",
+        "Die Weihe der Jungfrau bei dem Eintritt in die größere Welt.",
+        "Bearb. von: Landolphe, Jean F.: Denkwürdigkeiten des Kapitain Landolph",
+        "Die Ehelosen",
+        "Hannah, der Herrnhuterin Deborah Findling",
+        "Die Familie Seldorf",
+        "Erzählungen",
+        "Ellen Percy oder Erziehung durch Schicksale : in 2 Theilen",
+        "Der Briefwechsel zwischen Therese Huber (1764 - 1829) und Karoline von Woltmann (1782 - 1847)",
+        "Vorw. zu: Thiesen, Charlotte: Kleine Erzählungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb122185996"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89015021"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29584708"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q86167"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118883712/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Therese_Huber"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Therese_Huber"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Therese_Huber"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Therese_Huber"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108833507"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118883712"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118883712"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118883712.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118883712"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "H., Therese",
+        "Huber, Marie T.",
+        "Huber, L. F.",
+        "Huber, Ludwig F.",
+        "Huber, Therese von",
+        "Heyne, Marie Therese",
+        "Huber, Therese Forster-",
+        "Forster-Huber, Therese",
+        "Huber, Ludwig Ferdinand",
+        "Heyne, Marie T.",
+        "Huber, Marie Therese",
+        "Huber, L.F.",
+        "Heyne, Therese",
+        "Forster, Therese",
+        "Heyne, Marie Therese Wilhelmine"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Ferdinand"
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Heyne"
+          ]
+        },
+        {
+          "forename": [
+            "L.F."
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Marie Therese Wilhelmine"
+          ],
+          "surname": [
+            "Heyne"
+          ]
+        },
+        {
+          "forename": [
+            "Marie Therese"
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Forster-Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Forster-"
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Marie T."
+          ],
+          "surname": [
+            "Heyne"
+          ]
+        },
+        {
+          "forename": [
+            "L. F."
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig F."
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "H."
+          ]
+        },
+        {
+          "forename": [
+            "Marie T."
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "forename": [
+            "Marie Therese"
+          ],
+          "surname": [
+            "Heyne"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Therese_Huber",
+          "label": "https://de.wikipedia.org/wiki/Therese_Huber"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:48:39Z",
+    "gnd_query_biographical_data": "1764-1829",
+    "gnd_query_name": "huber, therese"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1252,
+  "name": "Huber, Therese",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 481",
+  "updated": "2026-06-11 13:29:23.000Z",
+  "uri": "https://d-nb.info/gnd/118883712",
+  "editor": ""
+}

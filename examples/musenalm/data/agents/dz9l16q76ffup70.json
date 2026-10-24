@@ -1,0 +1,720 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1829",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.468Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/137982933",
+          "label": "Stransky, Christine von"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Habil. in Jena 1801; 1802-1804 Studium des Sanskrit und orientalischer Sprachen in Paris; 1815-1818 Legationsrat bei der österreichischen Gesandtschaft am Frankfurter Bundestag; Dt. Schriftsteller, Dichter, Philosoph, Ästhetiker, Literaturtheoretiker und Kulturhistoriker; auch Dramatiker und Herausgeber verschiedener Zeitschriften, zeitweise Diplomat im Dienste Österreichs; lebte zeitweise in Österreich"
+      ],
+      "dateOfBirth": [
+        "1772-03-10"
+      ],
+      "dateOfDeath": [
+        "1829-01-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Gareis"
+          ],
+          "creditText": [
+            "http://www.zeno.org/Literatur/I/sclefpor"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Gareis%20Portrait%20Friedrich%20Schlegel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Gareis%20Portrait%20Friedrich%20Schlegel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Franz%20Gareis%20Portrait%20Friedrich%20Schlegel.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188315217",
+        "https://d-nb.info/gnd/188319093"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-10T08:44:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118607987/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117320536",
+          "label": "Schlegel, Karl August Moritz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607979",
+          "label": "Schlegel, Dorothea von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607960",
+          "label": "Schlegel, August Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607995",
+          "label": "Schlegel, Johann Adolf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118607987",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/137982933",
+          "label": "Stransky, Christine von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118607995",
+          "label": "Schlegel, Johann Adolf"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117320536",
+          "label": "Schlegel, Karl August Moritz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607960",
+          "label": "Schlegel, August Wilhelm von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118607987",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4052643-4",
+        "(DE-588a)188319093",
+        "(DE-588a)188315217",
+        "(DE-588a)127487115",
+        "(DE-588a)118607987",
+        "(DE-588)188315217",
+        "(DE-588a)127487123",
+        "(DE-588)188319093"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Schlegel, Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schlegel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165775-5",
+          "label": "Kritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        }
+      ],
+      "publication": [
+        "Hrsg. von: Concordia",
+        "Schubert, Franz: [Die Rose / Arr.]",
+        "Hrsg. von: Athenäum",
+        "Über die Sprache und Weisheit der Indier",
+        "Lucinde",
+        "Gedichte",
+        "Geschichte der alten und neuen Litteratur",
+        "Die Griechen und Römer",
+        "Philosophie des Lebens",
+        "Pagine su Raffaello",
+        "Philosophie der Geschichte",
+        "Geschichte der Poesie der Griechen und Römer",
+        "Alarcos",
+        "Text zu: Schubert, Franz: [Die Rose / Arr.]",
+        "Geschichte der Jungfrau von Orleans, Johanna d'Arc",
+        "Über die neuere Geschichte",
+        "Hrsg. von: Geschichte der Jungfrau von Orleans, Johanna d'Arc",
+        "The Philosophy of history",
+        "Hrsg. von: Deutsches Museum"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12036520h"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50004738"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59099547"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q157271"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118607987/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188315217"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188319093"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Wilhelm_Friedrich_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118607987"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109053414"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118607987"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118607987"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schlegel_Friedrich_1772_1829.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607987.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607987.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118607987"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118607987"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schlegel, Fridericus",
+        "Schlegel, Karl W. von",
+        "Schlegel, Frederico",
+        "Šlegel, Fridrih",
+        "Schlegel, Federico",
+        "Schlegel, Frederick von",
+        "Schlegel",
+        "Schlegel, Friedrich v.",
+        "Schlegel, Karl W.",
+        "施勒格尔",
+        "Schlegel, Friedrich Karl Wilhelm von",
+        "Šlegelebi, P'ridrix",
+        "Schlegel, F.",
+        "Schlegel, Friedrich K.",
+        "Schlegel, Frédéric",
+        "Schlegel, Friedrich",
+        "Schlegel, Friedrich Karl Wilhelm",
+        "שלגל, פרידריך",
+        "Schlegel, Fr.",
+        "Schlegel, Frederick",
+        "Šlegelʹ, Karl Vilʹgelʹm Fridrich fon",
+        "Šlegel', Fridrich",
+        "Von Schlegel, Friedrich",
+        "Schlegel, Carl W. von",
+        "Schlegel, Karl Wilhelm Friedrich von",
+        "Schlegel, Karl Wilhelm Friedrich",
+        "Schlegel, Carl Wilhelm Friedrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Frederick"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "personalName": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Šlegel'"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Vilʹgelʹm Fridrich"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Šlegelʹ"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih"
+          ],
+          "surname": [
+            "Šlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Frederick"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "personalName": [
+            "施勒格尔"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Karl Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Karl Wilhelm"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl W."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich K."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Von Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "פרידריך"
+          ],
+          "surname": [
+            "שלגל"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Federico"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm Friedrich"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "P'ridrix"
+          ],
+          "surname": [
+            "Šlegelebi"
+          ]
+        },
+        {
+          "forename": [
+            "Carl W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Frederico"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Schlegel",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Schlegel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:48:30Z",
+    "gnd_query_biographical_data": "1772-1829",
+    "gnd_query_name": "schlegel, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2457,
+  "name": "Schlegel, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 17",
+  "updated": "2026-06-11 13:29:24.653Z",
+  "uri": "https://d-nb.info/gnd/118607987",
+  "editor": ""
+}

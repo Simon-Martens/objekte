@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63917,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genoveva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinbrück pinx. A. Spieß sc. in München",
+  "scans": [
+    "alm_1052_63917_2eagmc4yxe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Genoveva",
+  "updated": "2009-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.157Z",
+      "agent": "jvt2kfjjwcuz8go",
+      "source_id": "2p6p21kr4c4w05w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.157Z",
+      "agent": "3jqqmlof6ns4knk",
+      "source_id": "6xyjw210byn60k6"
+    }
+  ]
+}

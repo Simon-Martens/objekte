@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Lyda« von L. Stolberg INr 109586, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109583,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Berndt sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berndt sc.",
+  "scans": [
+    "alm_4127_109583_u0une7trx6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.310Z",
+      "agent": "bx8i783pcmvy7uu",
+      "source_id": "ibdv7xkpb5sxmq6"
+    }
+  ]
+}

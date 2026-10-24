@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Arion war der Töne Meister, / Die (unleserlich) er lebt' in seiner Hand;",
+  "language": [],
+  "musenalm_id": 1257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arion. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arion. / Romanze",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.687Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "mumvdyb3p5y5u06"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, B G-Verz, B I-Verz, 2 BB, G, B, SS 1-438 darin 5 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1846",
+    "norm": "~+++409866 (Umschlaggraphiken)",
+    "biblio": 100788,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3482,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1846",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "Bernd von Guseck",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1846. / Von / Bernd von Guseck. / Neunzehnter Jahrgang. / Mit 8 Stahlstichen",
+  "updated": "2026-06-11 10:18:54.504Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "149txauxv284809",
+    "b0hjroi6sipzbbk"
+  ],
+  "contents": [
+    "yajdlgl4w7ln8m2",
+    "v0qiay70ju1zpbt",
+    "0qdzbmoeqrpn2ce",
+    "zgr7j06gssoiimp",
+    "ijgr8y2b03saf4v",
+    "02jmj463yf5qmbh",
+    "yaf6tu2oszc7x9h",
+    "u79h8ip87y3x9in",
+    "hxhfbds7aji18ei",
+    "d609tulrbasujc9",
+    "mrn06a5wr6lsrr6",
+    "k6cy9gmas1262vt",
+    "kq6n0r7d6jgvnw0",
+    "8aojvh7ddyqyi57",
+    "kcewckh8m4xzp3h",
+    "xthivd1r0ioancj",
+    "jac0434s5achm2l",
+    "wun4bkvw7nukmue"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.519Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.519Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "6n1j7atve9nbeut"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.235Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.235Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "foecwswjbv285lb"
+    }
+  ]
+}

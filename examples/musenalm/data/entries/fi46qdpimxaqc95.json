@@ -1,0 +1,121 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 14 BB Kal darin 12 GG, 4 BB G-Verz, SS 1-160, 70 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Braunschweig) 1795",
+    "norm": "~",
+    "biblio": 404309,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 948,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Schulbuchhandlung)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Braunschweig) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 125; nicht bei L/R",
+  "responsibility_statement": "F. C. Schlenkert",
+  "subtitle_statement": "",
+  "title_statement": "Historisch genealogischer / KALENDER / auf / das Jahr 1795. / Deutschland / ein historisches Gemaelde / von / F. C. SCHLENKERT. / Braunschweig / in der Schulbuchhandlung",
+  "updated": "2026-06-11 10:18:55.882Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "dwdhnxrm0jord0e"
+  ],
+  "contents": [
+    "iwnura4o7vkiufq",
+    "b31f3wt5zw9qmki",
+    "kw5tw34dqlx5701",
+    "6rxcmc5a3nujs7l",
+    "5k07vaxjwyk0c0d",
+    "7g1qso5rnfw9ctj",
+    "cq5o7evmybyl8ov",
+    "3dsfuos800001za",
+    "k9skp7ozes9kot9",
+    "yvyx4992ib5fi2a",
+    "kmbzf37p0gr0to5",
+    "5oai952zpd63tey",
+    "xai0ietptbafogq",
+    "6db1i9f6ngrgnlw",
+    "bvq0b1uvgt8j2yd",
+    "gboqc1lhg7gopsm",
+    "z5tiwdtajujsfkz",
+    "t1bcaqh7ink1aem",
+    "qi8fwahztvvigor",
+    "orhrhc49l6k5r98",
+    "1ylpk0bb66p44fm",
+    "byn1eovhwyexmxy",
+    "ti0pvrl9ba78nl8",
+    "song1gluapy4kiu",
+    "m5227vdq664q8zz",
+    "ghz61evhzavgn9s",
+    "0rgv0uuz3bbg8m9",
+    "l4uld6dfa8gqxir",
+    "lr5k9i0r892txfl",
+    "8rkncbsz2crrdpq",
+    "98baofd2sds14h4",
+    "86cxdy7jmuhonpi",
+    "f9dgftfn2mw8gr0",
+    "5jhrftkr3jkkb78",
+    "1od0obqe1gyc45f",
+    "qdmozqgfez9k3bl",
+    "vyee6tkhnnhkhv1",
+    "m31fsup86sze673",
+    "occnx2j87852oln",
+    "k9bln2jidcj419j",
+    "cg79v3wsh1vth1b",
+    "jcclwqki99wrp34"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.149Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.149Z",
+      "agent": "fq6kcjn590kyggj",
+      "source_id": "h40ir2hkcojxk8y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.783Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.783Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "nfy740up98z8420"
+    }
+  ]
+}

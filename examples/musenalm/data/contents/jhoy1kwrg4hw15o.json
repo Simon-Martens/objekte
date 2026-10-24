@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. I-Verz aus dem Nachlaß der Dichterin",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Das schönste Mädchen Welschlands war / Vor Zeiten Sigismunde.",
+  "language": [],
+  "musenalm_id": 25769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fernando und Sigismunde. / Ballade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fräul. vom Hagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fernando und Sigismunde. / Ballade",
+  "updated": "2002-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.278Z",
+      "agent": "13xjh9gg49rip3p",
+      "source_id": "tpaoky51zm8zg6m"
+    }
+  ]
+}

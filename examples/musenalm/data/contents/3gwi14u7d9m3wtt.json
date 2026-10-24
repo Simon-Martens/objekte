@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Schloss Rödelheim« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110893, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. Retsch del. J. Axmann sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retsch del. J. Axmann sc.",
+  "scans": [
+    "alm_3470_110895_ud6bfkmdlc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.438Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "0xjohudmu736x47"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.438Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "bfsjk0re32h3mmz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Schwaben (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Horch, horch, das ist der alte Ton, / Der liebe, wohlbekannte, / Der Ton, der mich als Knaben schon / Im Wald so plötzlich bannte,",
+  "language": [],
+  "musenalm_id": 99532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kukuk! Kukuk!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theobald Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kukuk! Kukuk!",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.785Z",
+      "agent": "68fm6w3e6854yig",
+      "source_id": "oeokp9garycqovq"
+    }
+  ]
+}

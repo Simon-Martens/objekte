@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 12989, Obj 91",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Selig die Todten! / Sie ruhen und rasten / von quälenden Sorgen,",
+  "language": [],
+  "musenalm_id": 12990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab. / Mit Musik von H. Harder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab. / Mit Musik von H. Harder",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.596Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "g53a00b0eg50545"
+    }
+  ]
+}

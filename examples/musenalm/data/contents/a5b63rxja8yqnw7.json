@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an Blatt 6, 7, 9, 10, 12 der Suite /) paginiert 1. s. Textbezug INr 60186, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die tapfern Kaiserlichen in Bamberg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_939_60187_t028414e1s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die tapfern Kaiserlichen in Bamberg",
+  "updated": "2008-10-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.136Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "f89t60ei7h62ukc"
+    }
+  ]
+}

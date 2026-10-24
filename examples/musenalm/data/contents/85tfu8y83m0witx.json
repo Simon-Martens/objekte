@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Übersetzung s. INr 59245, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Se d'Icaro leggesti, e di Fetonte / Ben sai, come l'un cadde in questo fiume,",
+  "language": [],
+  "musenalm_id": 59244,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Sonett von Tasso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tasso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Sonett von Tasso",
+  "updated": "2008-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.041Z",
+      "agent": "qw7tivvvkqh71up",
+      "source_id": "syfpmyu2d62wuuk"
+    }
+  ]
+}

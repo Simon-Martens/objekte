@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Ihr Bürger, sonst so wacker und so bieder, / Was hasst ihr unsrer lieben Frauen Brüder?",
+  "language": [],
+  "musenalm_id": 123388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kaiser und die Deputirten / aus der Zeit der Reformation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kapf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kaiser und die Deputirten / aus der Zeit der Reformation",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.808Z",
+      "agent": "cosha5k0ycv5np0",
+      "source_id": "iijbkqz4rhtih52"
+    }
+  ]
+}

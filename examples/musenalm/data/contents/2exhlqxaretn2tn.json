@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S. V, INr 81236, Obj 5 /) Illustration zu »Der Ansiedler auf den Halligen« von Martha von der Höhe d.i. Clara von Massow INr 81246, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81233,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viola",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1808_81233_qvv1w8fsoy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Viola",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.002Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "7vdmmzw7t6tx12i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.002Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "o2noezk1delsqge"
+    }
+  ]
+}

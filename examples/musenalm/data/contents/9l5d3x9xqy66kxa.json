@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 14464, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Erziehungsschriften schrieb um kargen Autorsold / Magister Kauz schon circa tausend Bogen.",
+  "language": [],
+  "musenalm_id": 14470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Auf einen pädagogischen Vielschreiber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. J. Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Auf einen pädagogischen Vielschreiber",
+  "updated": "2001-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.620Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "h8hnvcrlnuha45m"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "aus: Musenalmanach (Hamburger) 1798, INr 6813",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Immerdar mit Schnee und Eis / Laß den Winter schalten!",
+  "language": [],
+  "musenalm_id": 47475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wintermahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wintermahl",
+  "updated": "2007-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.370Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "k4wtblqrhyxhuta"
+    }
+  ]
+}

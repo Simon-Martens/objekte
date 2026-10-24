@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 13372, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Die Stürme verwehen, der Donner verhallt, / Es birgt sich der Vogel im schaurigen Wald;",
+  "language": [],
+  "musenalm_id": 13387,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Friedens Heimkehr. / Eine Dichtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Friedens Heimkehr. / Eine Dichtung",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.620Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "irz2rwft9ha4g7f"
+    }
+  ]
+}

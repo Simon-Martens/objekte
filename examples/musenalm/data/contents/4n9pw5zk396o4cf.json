@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu »Zwei Erzählungen aus einer Handschrift von Tausend und Einer Nacht« INr 45283, Obj 18/) Anm. am Objekt mit Hinweis auf: W. Ousely's Oriental Collections. Vol. I. No. 3. London, 1797. p. 245 und Vol. II. No 4. London 1798 p. 348",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Diese beiden Erzählungen aus einer Handschrift von Tausend und Einer Nacht sind von dem Capitän Jonathan Scott als Proben des Ganzen zugleich in der Ursprache und in einer wörtlichen Englischen Übersetzung zuerst bekannt gemacht worden.",
+  "language": [],
+  "musenalm_id": 45284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.296Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "e3v8366n8qv79dh"
+    }
+  ]
+}

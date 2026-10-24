@@ -1,0 +1,56 @@
+{
+  "annotation": "# nach F. Kobell. Titel und vollst. Bezeichnung aus dem G-Verz s. Textbezug INr 21855, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21841,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abend #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Steinkopf del. D'Argent sc.",
+  "scans": [
+    "alm_296_21841_o9p5p5mv3k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abend #",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.057Z",
+      "agent": "sqtw3zg1u8ixd3n",
+      "source_id": "g5egxanipk0y5ti"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.057Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "xavjofp0rj4q14h"
+    }
+  ]
+}

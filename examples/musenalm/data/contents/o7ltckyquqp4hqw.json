@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 64578, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "An einem hellen Frühlingstag, / In einer stillen Morgenstunde / Tönt mir der Lerche froher Schlag",
+  "language": [],
+  "musenalm_id": 64580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waldfrieden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Waldfrieden",
+  "updated": "2009-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.132Z",
+      "agent": "87b0ropx1b7ybuw",
+      "source_id": "csmv1dn15twm1i9"
+    }
+  ]
+}

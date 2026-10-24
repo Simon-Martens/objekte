@@ -1,0 +1,99 @@
+{
+  "annotation": "# /) Inhaltsverzeichnis als Vollbild. /) Neudruck von Jetzt! Historisch-politisches Taschenbuch 1846, mit inhaltlichen Veränderungen und Erweiterungen. I-Verz  s. Photos INr 114667,01-114667,02",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, B I-Verz, SS 1- 240",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Libertas. Deutsches Volkstaschenbuch 1847",
+    "norm": "~",
+    "biblio": 409334,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-11-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4347,
+  "parallel_title": "",
+  "place_statement": "Herisau (Literarisches Institut)",
+  "places": [
+    "xyi9fln9arfszfm"
+  ],
+  "preferred_title": "Libertas. Deutsches Volkstaschenbuch 1847",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K, nicht bei L/R",
+  "responsibility_statement": "T. Bruno",
+  "subtitle_statement": "",
+  "title_statement": "LIBERTAS. / Deutsches / Volks-Taschenbuch / auf das Jahr 1847. / Herausgegeben / von / T. Bruno. / Herisau. / Druck und Verlag des literarischen Instituts. / 1846",
+  "updated": "2026-06-11 10:18:55.913Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "vrkhqam82n3dl4t"
+  ],
+  "contents": [
+    "mjr8f23mn1iozok",
+    "k4lmfe37b92tclc",
+    "25tp2xq2wmkrbr5",
+    "i87b3qplq6eytil",
+    "lo670x8eyq7qjav",
+    "h7tn29s1pd9w7kf",
+    "tsbt4le9gvcy4pf",
+    "3llu26nlpv4vahw",
+    "sg2cilbbekklzlu",
+    "id8af6lkkv1l7tn",
+    "vhlb5ywmud6xc5p",
+    "z24xgjy9fcw2o0i",
+    "gf37cgov59lkwox",
+    "dk5op4sgnhaxgyw",
+    "d1ptfxpu4j3j4oi",
+    "ekq92tqvgwa9bx2",
+    "gt8sah6shr5uakl",
+    "ai6487yc8704n9r",
+    "byn03xxvm8wyd5n",
+    "e0nvvjt1b7jh9q3",
+    "q7avogtznc6ebj0",
+    "xvq402bhj1ifmjj",
+    "z7mf0lbwc7tpjd6",
+    "azn3hfg2s5ozjqm",
+    "wejn8k1uiviyh8h",
+    "n8zir2jfygyvezz",
+    "b9pcivtm4osj0t0",
+    "ujjipa3sbhegxm2",
+    "e9ppfqjaj3z7hg9",
+    "nxj8lcd37iohjwp",
+    "4l3nsiu1k1g6rv6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.101Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.101Z",
+      "agent": "mw9r7t9z6golunr",
+      "source_id": "c0wlink6m13o8mo"
+    }
+  ]
+}

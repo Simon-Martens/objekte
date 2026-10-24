@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Elegien (INr 93365, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Schweigt von Bromios mir, dem rasenden Freudenverderber! / Nicht zum bethörenden Most reizt er mich wieder hinfort.",
+  "language": [],
+  "musenalm_id": 93366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Bernard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.433Z",
+      "agent": "32czpb0kbok37kn",
+      "source_id": "0qxz5jdjfenr4g1"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Silviens verlorne Freude« INr 46924, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Silviens verlorne Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hausius",
+  "scans": [
+    "alm_633_46925_wzy8x5tsxg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Silviens verlorne Freude",
+  "updated": "2006-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.193Z",
+      "agent": "uf91zrt87qnsu6f",
+      "source_id": "8962s10psedmour"
+    }
+  ]
+}

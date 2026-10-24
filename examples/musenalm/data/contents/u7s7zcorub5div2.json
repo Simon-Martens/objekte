@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Laut braus't die Flut hinab durch's Thal, / Und bäumt und bricht sich tausendmal;",
+  "language": [],
+  "musenalm_id": 24787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Harz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Peters",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Harz",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.254Z",
+      "agent": "2a0ac584t4bjbwu",
+      "source_id": "5infib45p9qxa4e"
+    }
+  ]
+}

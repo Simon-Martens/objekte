@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Murmle nur du kleine Plauderquelle, / Murmle nur dein leichtes Leben hin!",
+  "language": [],
+  "musenalm_id": 3725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blandusia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blandusia",
+  "updated": "2000-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.912Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "i1ur24amaxopahk"
+    }
+  ]
+}

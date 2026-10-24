@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Gewitterabend« von J. R. Wysz d.J. INr 54387, Obj 55 /) unter der Graphik: Alpenr. 1828",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Winkel am Vierwaldstätter-See, / Canton Luzern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory del. D. Burgdorfer sc.",
+  "scans": [
+    "alm_740_54388_io0c8ifa62.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Winkel am Vierwaldstätter-See, / Canton Luzern",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.800Z",
+      "agent": "jl6b68q9vo9ytf5",
+      "source_id": "6uyuhq9fh3u9699"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.800Z",
+      "agent": "apfgolbsarcaim2",
+      "source_id": "vlkxn1cdb3ugoow"
+    }
+  ]
+}

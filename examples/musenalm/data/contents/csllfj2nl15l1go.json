@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Als mein Auge Sie fand, / Und mein Herz erkannt, / O wie glühte die Brust",
+  "language": [],
+  "musenalm_id": 14770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Christ. Bar v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sie",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.530Z",
+      "agent": "id1mj19iathigp2",
+      "source_id": "5favpkbt7cdvzju"
+    }
+  ]
+}

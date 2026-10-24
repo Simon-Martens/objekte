@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Vorschlag und erster Versuch über die Frauenzimmerkleider. Ein Dialog « INr 58644, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (D. Chodowiecki del. D. Berger sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sc.",
+  "scans": [
+    "alm_624_88779_7echd7nyfd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.925Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "03wei0wcmcmwv2i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.925Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "hfmb89ksocduzme"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Stürz herunter, trauriger Gedanke, / Und, du Herz in meinem Auge, zanke",
+  "language": [],
+  "musenalm_id": 12693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho will heiter sein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sappho will heiter sein",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.579Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "defzsr0lzt1y166"
+    }
+  ]
+}

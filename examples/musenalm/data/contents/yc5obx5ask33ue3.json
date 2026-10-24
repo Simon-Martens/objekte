@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar; paginiert 2. Illustration zu »Die Brautwahl« von E. T. A. Hoffmann INr 59213, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59194,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brautwahl. / von Hoffmann. IItes Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. M.",
+  "scans": [
+    "alm_890_59194_9dizfzno6d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Brautwahl. / von Hoffmann. IItes Blatt",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.989Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "15s6sji3rwmgipx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.989Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "yuowye1tu7mpe2c"
+    }
+  ]
+}

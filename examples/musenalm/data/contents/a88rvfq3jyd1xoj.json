@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verlag v. J. D. Sauerländer] s. Textbezug INr 44143, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44144,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALEXIS UND DORA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. n. Kaulbach v. Zwecker Gest. v. Müller",
+  "scans": [
+    "alm_599_44144_dwvuhnvwpf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALEXIS UND DORA",
+  "updated": "2006-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.272Z",
+      "agent": "c7q5lldf9je7fx6",
+      "source_id": "2z23rrxbxofpsro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.272Z",
+      "agent": "usgtr6dipvre26m",
+      "source_id": "e5ivlot77z9atq8"
+    }
+  ]
+}

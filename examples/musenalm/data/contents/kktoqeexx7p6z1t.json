@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die Nachsicht, welche das Publikum mir durch die fortdauernde gute Aufnahme dieser Kinderbibliothek bewiesen hat, legt mir die Verbindlichkleit auf, bei der Auswahl der jedesmaligen Aufsäzze eine immer grössere Strenge und Sorgfalt zu beweisen.",
+  "language": [],
+  "musenalm_id": 96829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachricht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Campe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachricht",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.645Z",
+      "agent": "nuls4hlyk7nfgd0",
+      "source_id": "p0lihmkqxkqqoge"
+    }
+  ]
+}

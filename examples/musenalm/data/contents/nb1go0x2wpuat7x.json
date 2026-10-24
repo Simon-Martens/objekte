@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Reichhaltig ist die Theater-Geschichte der Alten. Man findet Manches größer und vollkommener als itzt, Manches den jetzigen Zeiten ähnlich, Vieles, das den neuern Fortschritten nachstehen dürfte.",
+  "language": [],
+  "musenalm_id": 114426,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beyträge zur Theaterkunde / der / alten Griechen und Römer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beyträge zur Theaterkunde / der / alten Griechen und Römer",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.499Z",
+      "agent": "iy0f9gplf8lpfrd",
+      "source_id": "re7v8399y4rzfyf"
+    }
+  ]
+}

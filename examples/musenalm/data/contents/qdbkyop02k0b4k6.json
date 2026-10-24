@@ -1,0 +1,46 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 48403, 48404; Obj 18, 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Die Einladung der Gräfin war mir nicht befremdend. Ich wußte seit unserm Zusammentreffen im Aachener Bade, daß bey meiner Durchreise durch ihre Besitzungen mir der Besuch auf ihrem Schlosse nicht geschenkt war.",
+  "language": [],
+  "musenalm_id": 48402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laura von S...",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "**",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Laura von S...",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.401Z",
+      "agent": "zrus05kg7bgq063",
+      "source_id": "86dlnpejtdkjlbv"
+    }
+  ]
+}

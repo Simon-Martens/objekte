@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Gott des Schlafes und der Träume! / Sei des Dichters Gattin hold!",
+  "language": [],
+  "musenalm_id": 10721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "29. / An Morpheus / Als Eloise nicht schlafen konnte. / 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. L. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "29. / An Morpheus / Als Eloise nicht schlafen konnte. / 1783",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.405Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "21gpsjprgqawpbf"
+    }
+  ]
+}

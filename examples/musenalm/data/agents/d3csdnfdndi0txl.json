@@ -1,0 +1,112 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.473Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1771"
+      ],
+      "dateOfDeath": [
+        "1806"
+      ],
+      "describedBy": {
+        "dateModified": "2025-01-22T11:20:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-001821-6",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-001821-6"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1354050649/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-001821-6",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-001821-6"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1354050649",
+      "id": "https://d-nb.info/gnd/1354050649",
+      "preferredName": "Schöpflin, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Schöpflin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1354050649/about"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Schöpflin, August Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "August Friedrich"
+          ],
+          "surname": [
+            "Schöpflin"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:52:09Z",
+    "gnd_query_biographical_data": "1771-?",
+    "gnd_query_name": "schöpflin, august friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2530,
+  "name": "Schöpflin, August Friedrich",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 238",
+  "updated": "2026-06-11 13:29:24.793Z",
+  "uri": "https://d-nb.info/gnd/1354050649",
+  "editor": ""
+}

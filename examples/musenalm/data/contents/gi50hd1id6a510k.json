@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Linda, sicher steht der Kahn, / Fertig bin ich mit den Netzen;",
+  "language": [],
+  "musenalm_id": 48265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der graue Thurm am See",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Gubitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der graue Thurm am See",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.760Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "tthxjqftlr4f18l"
+    }
+  ]
+}

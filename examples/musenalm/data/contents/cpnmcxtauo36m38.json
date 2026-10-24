@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-04 10:24:34.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Hinaus in die Schlacht zog der Reiter treu, / Noch einmahl ritt er bey Liebchen vorbey.",
+  "language": [],
+  "musenalm_id": 140276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vom treuen Reiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vom treuen Reiter",
+  "updated": "2026-08-05 08:25:31.600Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-04 10:24:34.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-04 10:24:53.919Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "slfx3my80pn125c"
+    }
+  ]
+}

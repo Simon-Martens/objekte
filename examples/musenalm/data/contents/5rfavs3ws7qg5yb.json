@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Gedichte und Epigramme (Sammlung INr 28432, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Zwiefach ist Schönheit, Schönheit des Körpers und Schönh- / heit der Seele.",
+  "language": [],
+  "musenalm_id": 28450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Zwiefache Schönheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Zwiefache Schönheit",
+  "updated": "2002-10-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.539Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "pnfi143jyjbe5rd"
+    }
+  ]
+}

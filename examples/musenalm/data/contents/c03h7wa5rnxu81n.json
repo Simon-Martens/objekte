@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88771,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 0.6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures de Leipsic. / 1. à la modestie. 2. l'attachement propre / 3. à la facilité à la noblesse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frentzel del et sc.",
+  "scans": [
+    "alm_624_88771_87v3q74cen.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures de Leipsic. / 1. à la modestie. 2. l'attachement propre / 3. à la facilité à la noblesse",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.983Z",
+      "agent": "xw49a3odxesumyw",
+      "source_id": "8upxuhdr7jbc393"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Ich fliege nie, troz meiner tausend Flügel; / Erst todt und flügellos fahr ich in alle Welt.",
+  "language": [],
+  "musenalm_id": 78732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. H. Reinwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthsel",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.509Z",
+      "agent": "n6qsoh59lz0ry1n",
+      "source_id": "4h2xw67978ie3e5"
+    }
+  ]
+}

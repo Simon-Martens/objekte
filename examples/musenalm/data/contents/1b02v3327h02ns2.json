@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Wie ist es Dir zu Muthe, Konrad? fragte der vorausreitende Herr den schmollenden Diener,",
+  "language": [],
+  "musenalm_id": 27892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Abentheuer in den Vogesen. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Mosengeil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Abentheuer in den Vogesen. / Novelle",
+  "updated": "2002-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.170Z",
+      "agent": "on9jq8q7af8kfmj",
+      "source_id": "xq1vipdbt8bm0yb"
+    }
+  ]
+}

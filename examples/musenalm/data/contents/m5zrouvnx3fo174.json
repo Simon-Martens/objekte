@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11832, Obj 80",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Mein geliebtes Mädchen, / Fülle mir den Becher! / Heil dem frohen Zecher,",
+  "language": [],
+  "musenalm_id": 11831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "51. / Rundgesang. / Mit Compos. vom Hrn. Capellmstr. Naumann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "51. / Rundgesang. / Mit Compos. vom Hrn. Capellmstr. Naumann",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.610Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "sjz0ahjfwedxvnh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Graphik im Kalendarium Oktober, nummeriert VI /) Illustration zu »Die Steinamsel« von  L. C. E. H. F. von Wildungen INr 130805, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130793,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Steinamsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. pinx.",
+  "scans": [
+    "alm_4818_130793_zl5o02745c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Steinamsel",
+  "updated": "2022-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.077Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "s8uyxiavj4ai9zn"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Rosalia von Domaso« von Schmid von Pihl INr 93036, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93006,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ROSALIA VON DOMASO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. I. Krepp sc. Viennae",
+  "scans": [
+    "alm_1588_93006_8fk5l8e2qo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ROSALIA VON DOMASO",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.481Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "70gpmtltptiy01o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.482Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "ndkyfs79ayvs7tm"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 112564, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sie saß im frohen Winzerkreis, / Die Schönste vor dem Feste,",
+  "language": [],
+  "musenalm_id": 112563,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbst-Röslein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbst-Röslein",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.418Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "7nkvx0fg9wystah"
+    }
+  ]
+}

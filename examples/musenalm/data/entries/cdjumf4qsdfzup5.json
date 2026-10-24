@@ -1,0 +1,129 @@
+{
+  "annotation": "5 Jgg 1795-1799; Leipzig (Voß und Compagnie); Hrsg.: W. G. Becker /) §1§ G fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 3 BB W, 2 BB Vrwrt d Hrsg, 2 BB G-Verz, §1§4 GG, SS 1-324, SS 325-328 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Gartenfreunde (W. G. Becker) 1795",
+    "norm": "~",
+    "biblio": 100682,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2843,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Voß und Compagnie)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Gartenfreunde (W. G. Becker) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 120; L/R 132",
+  "responsibility_statement": "W. G. Becker",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Garten Freunde / von / W. G. Becker / 1795. / Leipzig / bei Voß und Compagnie",
+  "updated": "2026-06-11 10:18:54.728Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "awg3tl20kg6cuy3"
+  ],
+  "contents": [
+    "3u2c9mvb9d50bk2",
+    "88o3yz4ixyxwmgn",
+    "7jtukho0e8lq218",
+    "ruhaddhooijmh0t",
+    "dck2oog88a4ljvw",
+    "xrt0y789ab626yh",
+    "uf3t3g6jlwr1soy",
+    "v1qlwfwlc03a76y",
+    "33w42gl8essnmv1",
+    "woo0e37jdflwh8m",
+    "inny9xepdn8boa9",
+    "k6b1olynt80gn8q",
+    "j3fyu41d8erjdof",
+    "zltjlgc8sz8foee",
+    "dwau5pfvxu30syq",
+    "gifpb4k5nako0o7",
+    "af8saennkmyw9s0",
+    "uddyi275wubs4ea",
+    "rv3tz2qniofvli3",
+    "a7n0tbsp1u4znmc",
+    "9t2wctntqd2dhx6",
+    "9onb53rdbxsirrp",
+    "k7n3dyfzbyar42p",
+    "rcpgog4lii2g5v6",
+    "6f6wq8xta6tdyih",
+    "l8y1x8xj5zrlkdz",
+    "agzeo9y8fki76r6",
+    "lrqrj5cbj9zb1ci",
+    "nezr4lmyrvzrvum",
+    "v5s1fbxwq4phkfa",
+    "0lyaaiyod5vfi67",
+    "l8g3wllniylnryh",
+    "9mdk302d5zk31qe",
+    "uw1f9jfhbwi2mh8",
+    "s86wjb2ah1f1eqs",
+    "8np9v0fwt1pcddx",
+    "xk40s346zxspt7m",
+    "t8rubxk8nggobz7",
+    "vbfyn2wam3bfvzx",
+    "4lzwjemoujr8b3l",
+    "o8e76r3onp6nc1w",
+    "9aegzlw6jgz0f7h",
+    "catp47l3aq7agkl",
+    "bb50mcixzlgqu2u",
+    "8o41x7kriqrpx9j",
+    "4wmi93rmyamqp0x",
+    "oj8flyq110pv6fl",
+    "s5623z5m0zahqgq",
+    "w22dqntloq0gukq",
+    "qo603ld71t01ygv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.153Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.153Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "et4z1qxstgyx5mp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.177Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.177Z",
+      "agent": "opicouvq1odrmvd",
+      "source_id": "kuo1b1t316pf14x"
+    }
+  ]
+}

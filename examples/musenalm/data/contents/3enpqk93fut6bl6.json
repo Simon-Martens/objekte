@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Wiegend gleitet der Kahn über der leisen Fluth / Sanft erröthendes Blau, schwebt im Najadentanz / Winzerhütten vorüber,",
+  "language": [],
+  "musenalm_id": 33617,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wasserfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wasserfahrt",
+  "updated": "2003-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.664Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "p29yf9ybkoajciv"
+    }
+  ]
+}

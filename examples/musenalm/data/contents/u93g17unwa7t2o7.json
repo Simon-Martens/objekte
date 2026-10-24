@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Grüne Bäume, dunkle Schatten, / Und du, dichtbelaubter Wald,",
+  "language": [],
+  "musenalm_id": 14710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klausners Einzugslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klausners Einzugslied",
+  "updated": "2001-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.538Z",
+      "agent": "xk1o4h9hiuycys6",
+      "source_id": "3pcre8ub4iv9nie"
+    }
+  ]
+}

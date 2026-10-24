@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S G-Verz, S I-Verz, SS 1-379",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Österreichischer 1844",
+    "norm": "~",
+    "biblio": 404375,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-07-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1094,
+  "parallel_title": "",
+  "place_statement": "Wien (Tauer u. Sohn)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Österreichischer 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 91; nicht bei L/R; Radtke 12, 13, 15, 16",
+  "responsibility_statement": "Andreas Schumacher",
+  "subtitle_statement": "",
+  "title_statement": "Oesterreichischer / Novellen-Almanach. / Herausgegeben / von / Andreas Schumacher. / Zweiter Jahrgang / Wien, 1844. / Verlag von Tauer & Sohn, / Schulhof No. 413",
+  "updated": "2026-06-11 10:18:55.342Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "zk22rvf8bqu137n"
+  ],
+  "contents": [
+    "4l9v66p8d5ttmjv",
+    "mb043tta7x8u6xm",
+    "tvwjon1oizpk3h6",
+    "c4c8zz4xuq81js2",
+    "pdg7ags500us01e",
+    "vfwq9bxnp1ib8v2",
+    "jige0zk5s2ppvq8",
+    "k2yyk0eg8ioi56f",
+    "ec8nmbj7xhgd1xt",
+    "fa3lo7pxydp2ohb",
+    "6zyx26owdfw79we",
+    "uwzm2ir5472maz4",
+    "izgj5b9pr9fjstv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.161Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.161Z",
+      "agent": "46u8ced8j2y0r4z",
+      "source_id": "17gqpldjgmp08m7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.820Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.820Z",
+      "agent": "w54qzevkgviemdi",
+      "source_id": "8ag9b5rwnbxhu53"
+    }
+  ]
+}

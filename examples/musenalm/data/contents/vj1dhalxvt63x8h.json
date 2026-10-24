@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die vier Stufen des weiblichen Alters. Das gute Mädchen« INr 87602, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gute Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. C. Glassbach sc. Berol.",
+  "scans": [
+    "alm_2867_87600_zcyd6z4fhe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das gute Mädchen",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.186Z",
+      "agent": "6wpxf2bdypg3j23",
+      "source_id": "oygxkklcxqdgksw"
+    }
+  ]
+}

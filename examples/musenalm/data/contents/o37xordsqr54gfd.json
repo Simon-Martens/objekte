@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai /) Illustration zu »Geschichte von Pommern und Rügen« von F. W. Barthold INr 81146, Obj 18 /) s.a. Textbezug  in: Kalender, Berliner 1838; INr 88747",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81137,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stettin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Lütke Gest. von H. Fincke in Berlin",
+  "scans": [
+    "alm_872_81137_0bsgvp6dax.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stettin",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.728Z",
+      "agent": "zeh1tto9lcv7ea5",
+      "source_id": "4hrfeldcw2a6ay5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.728Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "mmd7vrylb6p1mne"
+    }
+  ]
+}

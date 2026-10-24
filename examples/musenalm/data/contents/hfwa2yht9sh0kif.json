@@ -1,0 +1,43 @@
+{
+  "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29603, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ganz sauber nun und ehrbar schreitet, / Ein langes Stäbchen in der Hand",
+  "language": [],
+  "musenalm_id": 29602,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vierter Gesang. / Glorreicher Empfang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vierter Gesang. / Glorreicher Empfang",
+  "updated": "2002-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.387Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "mqqg5a3w57wxpjm"
+    }
+  ]
+}

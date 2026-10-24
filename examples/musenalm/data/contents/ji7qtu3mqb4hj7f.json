@@ -1,0 +1,45 @@
+{
+  "annotation": "Schleswig-Holsteinische Lieder (Sammlung INr 122793, Obj 126); # Bezeichnung am Gedicht INr 122792, Obj 135",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Das ist wohl eine schwere Zeit, / Voll tiefen Wehs, voll Traurigkeit, / Vom Jammerruf durchdrungen.",
+  "language": [],
+  "musenalm_id": 122796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 139,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Am Pfahle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Am Pfahle",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.698Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "98g07l1c6424807"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Nachtazur! mit Sterngeflimmer / Winkest du das Aug' empor",
+  "language": [],
+  "musenalm_id": 66351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sternenschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Moritz Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sternenschrift",
+  "updated": "2009-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.244Z",
+      "agent": "bqsmr25or4rsq9o",
+      "source_id": "zg1y84a5j76tlma"
+    }
+  ]
+}

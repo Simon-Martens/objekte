@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 123913, Obj 6); Illustration zu »Verlegenheit und List« von Kotzebue (INr 123915, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Landrath von Wiesel. / Anspannen! nach Pommern fahren! auf dem Lande / leben! / Die großen Städte sind ofne Gräber für die Jugend! / List gegen List. 3r Act. 8te Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1288_123917_fgjpvdqw3y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Landrath von Wiesel. / Anspannen! nach Pommern fahren! auf dem Lande / leben! / Die großen Städte sind ofne Gräber für die Jugend! / List gegen List. 3r Act. 8te Scene",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.774Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "4onp2v83gh4z3qw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.774Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "5ec0y0s9hvg3he5"
+    }
+  ]
+}

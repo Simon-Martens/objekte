@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Ausflug nach Saanen und über den Sanetsch nach Sitten« von J. R. Wysz d.J. INr 54484, Obj 55 /) unter der Graphik: Alpenr. 1829",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54430,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss Valeria bey Sitten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Burgdorfer del. F. Hegi sc.",
+  "scans": [
+    "alm_741_54430_oo6xuxsnsf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss Valeria bey Sitten",
+  "updated": "2008-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.906Z",
+      "agent": "jl6b68q9vo9ytf5",
+      "source_id": "aiwmxre4bq96lby"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.906Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "fgu0ar9micad0gm"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S. V, INr 80933, Obj 5 /) Illustration zu »Ein kurzes Glück« von August Lewald INr 80944, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80930,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ottilie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1803_80930_r80r4r5z5v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ottilie",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.876Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "801fyqu2rerumld"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.876Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "ryn4suez6vqqe2g"
+    }
+  ]
+}

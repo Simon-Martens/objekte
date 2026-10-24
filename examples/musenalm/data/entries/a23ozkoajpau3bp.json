@@ -1,0 +1,78 @@
+{
+  "annotation": "21 Jgg 1833-1853;  für Jgg 1833, 1838,1839: Tübingen (Osiander) ; 1843 Tübingen (Winter); Hrsg: Albert Knapp",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Christoterpe 1833",
+    "norm": "",
+    "biblio": 405348,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1670,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Osiander)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Christoterpe 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; nicht bei L/R",
+  "responsibility_statement": "Albert Knapp in Verbindung mit mehreren Andern",
+  "subtitle_statement": "",
+  "title_statement": "Christoterpe. / Ein Taschenbuch / für / christliche Leser / auf das Jahr 1833. / Herausgegeben / in Verbindung mit mehreren Andern / von Albert Knapp. / Mit Kupfer. / Tübingen. / C. F. Osiander",
+  "updated": "2026-06-11 10:18:55.573Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "h3bmxl8ait2hy1k"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.119Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.119Z",
+      "agent": "t8ioujaesyqxzn9",
+      "source_id": "nz2k9lioy65g1cq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.951Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.951Z",
+      "agent": "uz72vpkdh9al15l",
+      "source_id": "q1qrp6elcc77fvc"
+    }
+  ]
+}

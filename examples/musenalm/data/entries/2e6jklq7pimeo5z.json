@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, SS1–324",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch deutscher Bühnenspiele (Holtei/Gubitz) 1831",
+    "norm": "~",
+    "biblio": 409193,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4273,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vereinsbuchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Jahrbuch deutscher Bühnenspiele (Holtei/Gubitz) 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 65, nicht bei L/R; Goed VIII. 130, 20",
+  "responsibility_statement": "Carl v. Holtei",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / deutscher Bühnenspiele. / Herausgegeben von / Carl v. Holtei. / Zehnter Jahrgang, für 1831. / In der Vereinsbuchhandlung. / Berlin, 1831",
+  "updated": "2026-06-11 10:18:55.722Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "pmwiadftxhs4d5e"
+  ],
+  "contents": [
+    "nxwpas1q4aypie1",
+    "1kwe0p4rctkue5i",
+    "ls5zqb6nffqad9h",
+    "xplvhza4h8jwodj",
+    "lvgol3b11hxpmzt",
+    "qagkx8oiu85d371",
+    "efi9198n7ysw3i2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.358Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.358Z",
+      "agent": "zg6jbd5dfgl0cyy",
+      "source_id": "e7j9d3izlidq2u8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "u8n7psm3j7f1du6",
+      "source_id": "zw4wedads21adzp"
+    }
+  ]
+}

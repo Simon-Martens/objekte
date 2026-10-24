@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1827",
+    "norm": "",
+    "biblio": 200713,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2771,
+  "parallel_title": "",
+  "place_statement": "Wien (Ludwig)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "von Hormayer, von Mednyansky",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / vaterländische Geschichte. / Herausgegeben / durch die / Freyherren von Hormayr und von Mednyansky. / Achter Jahrgang / 1827. / Wien, / Gedruckt und im Verlage bey Franz Ludwig",
+  "updated": "2026-06-11 10:18:55.079Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "hwgztjadxskpho9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.102Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.102Z",
+      "agent": "hazrisf8oiw6g6r",
+      "source_id": "5pnrnbakn2qjndp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.138Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.138Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "aqgt2xgr6lf86cp"
+    }
+  ]
+}

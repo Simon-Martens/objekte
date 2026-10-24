@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blumenlese der Musen (Wien) 1791",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1637,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Blumenlese der Musen (Wien) 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 29; nicht bei L/R; Goed IV/1. 957, 38",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.543Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

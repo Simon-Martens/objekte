@@ -1,0 +1,98 @@
+{
+  "annotation": "20,5 x 27,7 cm",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "12 GG, Kr, 8 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach aus Rom 1811 graph. Beigaben",
+    "norm": "~",
+    "biblio": 405924,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1858,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Almanach aus Rom 1811 graph. Beigaben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; L/R 191",
+  "responsibility_statement": "F. Sickler; C. Reinhart",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.508Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "kfs5efo5bhrkgyp"
+  ],
+  "contents": [
+    "flmy453b405s7a4",
+    "4ized4dcytshacz",
+    "nydra0b7bdpg7zk",
+    "7s10kcexbtf6iw7",
+    "qvhg9zm9s7h45wm",
+    "qjpucq76pp84t2f",
+    "im9lm3gfm310was",
+    "h0ys7i0or3lufrt",
+    "t80f45yha4l54kh",
+    "2v5u0zw1s6l76ce",
+    "dx50rw28qm85jlk",
+    "3s95grzv8molhm3",
+    "ba5u1s31hodkise",
+    "m6zc1ujgynh65ri",
+    "w733dnkklp47hee",
+    "mzdwr5r3b6selhg",
+    "cf2y3ge4s8n4c3a",
+    "q6c9uxaj9lc61hi",
+    "fjwt7zudm2hhrlr",
+    "0la73r9109oauuz",
+    "wqtr4e6heir5viz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.979Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.979Z",
+      "agent": "5bnzjhrj2xdhtqy",
+      "source_id": "6kjnidkt5c7k8ip"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.979Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.979Z",
+      "agent": "xeh43apdx4986px",
+      "source_id": "wskjo240ztfoej3"
+    }
+  ]
+}

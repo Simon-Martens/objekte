@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: J. G. Sauerländer's Verlag in Frankfurt] s. Textbezug INr 44561, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44562,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUS GOETHES WAHRHEIT UND DICHTUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Kaulbach gez. O. Volz gest.",
+  "scans": [
+    "alm_608_44562_irfj2ihgpb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AUS GOETHES WAHRHEIT UND DICHTUNG",
+  "updated": "2006-07-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.369Z",
+      "agent": "c7q5lldf9je7fx6",
+      "source_id": "sckm1flsu5x8uld"
+    }
+  ]
+}

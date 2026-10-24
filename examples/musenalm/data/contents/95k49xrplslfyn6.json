@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählende Gedichte (Sammlung INr 55150, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "Hin zu der Kirche mit Horn und Schalmein / Führet der glückliche Knabe die Braut.",
+  "language": [],
+  "musenalm_id": 55151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Das Grab der Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Das Grab der Braut",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.827Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "ssxscp90uk8iajf"
+    }
+  ]
+}

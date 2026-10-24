@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Frauen-Leben. Poetischer Kranz (Sammlung INr 48465, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Der Frühling war in Wonn' erwacht, / es blühten duftend Bäum' und Hecken:",
+  "language": [],
+  "musenalm_id": 48473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Bund",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Bund",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.367Z",
+      "agent": "0lth2adu21imy6k",
+      "source_id": "1gu5xlxdsfhb4zu"
+    }
+  ]
+}

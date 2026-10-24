@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilage",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Was i ghabt han, geht z'schári, - / Verwirrt han i Alls / Bis auf - 's golderne Kreutzel / Von'n Mürderl ihrn Hals.",
+  "language": [],
+  "musenalm_id": 99593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 172,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "'s Andenká. / (Oberösterreichisch)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Adam Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "'s Andenká. / (Oberösterreichisch)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.968Z",
+      "agent": "roqd4m2swedwv3j",
+      "source_id": "zubwu8a5h2vqo9o"
+    }
+  ]
+}

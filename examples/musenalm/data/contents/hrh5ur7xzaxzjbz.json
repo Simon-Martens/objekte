@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "In altgewohnter Pietät beginnen wir wieder unsere Umschau mit dem heiligen Lande. Die Zustände bleiben dort unerquicklich.",
+  "language": [],
+  "musenalm_id": 119135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückblick auf das verflossene Jahr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückblick auf das verflossene Jahr",
+  "updated": "2017-06-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.502Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "8vk1ior8mg2f4s8"
+    }
+  ]
+}

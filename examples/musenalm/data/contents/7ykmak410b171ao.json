@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Dichter und Bienen: Gebührt Euch Neid?! Gebührt Euch / Bedauern?",
+  "language": [],
+  "musenalm_id": 86433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweifel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweifel",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.063Z",
+      "agent": "ut3gc8g2lomjo63",
+      "source_id": "l13nn8ksrp5a6lu"
+    }
+  ]
+}

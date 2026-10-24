@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I-Verz, zT, 4 BB dazu 4 GG, SS 1-312 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Liebe und Freundschaft gewidmet 1841",
+    "norm": "~+++409257 (4 GG)",
+    "biblio": 100779,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-11-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 404,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (F. Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch der Liebe und Freundschaft gewidmet 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; L/R 71; Goed VIII. 51, 16a",
+  "responsibility_statement": "Ludwig Storch",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Liebe und Freundschaft / gewidmet. / 1841. / Herausgegeben / von / Ludwig Storch. / Frankfurt a. M. / Verlag von Friedrich Wilmans",
+  "updated": "2026-06-11 10:18:55.841Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "gvysh3piy2ywldm",
+    "pxykwvulkkd1b58"
+  ],
+  "contents": [
+    "xv6syhnos9yxbcp",
+    "r59g47jafcyixkt",
+    "2sfta2ci18g6uz4",
+    "oh92r2rrhquirzs",
+    "al00i3tt3uygmql",
+    "xjndfua6mu1zlpk",
+    "xcijd8opbfq3zyt",
+    "r1si49rzd713x92",
+    "w1tnmlo1g5tb9dm",
+    "pg1nloc28wgmjiw",
+    "h47kvyj1nbgpfnx",
+    "ubcgemzu4985p4x",
+    "6spky983bxxoc4b",
+    "ri497dckylqzmw8",
+    "orlg4db397zoy56",
+    "me45btvy04eit4o",
+    "w4b4cxf4mkt2ti3",
+    "5n325o678nkig4y",
+    "049ibruy36kp1wx",
+    "c6pi2utvqwi82z7",
+    "cfq1n74506dvuwf",
+    "86uwadj616lxnhg",
+    "jcqpxwzsqxswowc",
+    "szcrhib6kcri22y",
+    "y1ae4a9nr4fry9s",
+    "cg585sriavbbyl8",
+    "5fe3vleito0wqv9",
+    "ggh8hsxkpur63l2",
+    "tzrs8q3izww46fi",
+    "q7dh6nqhylg8jvc",
+    "nxjbp87pxx5mbwn",
+    "q2qqcyc1se7nf4y",
+    "wkn22pdmh0m4n6p",
+    "v6sub52zlzx78z3",
+    "lcogyzbt93jokhw",
+    "kha1z1stj414ptq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.828Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.828Z",
+      "agent": "0qaz8c0e7e434j0",
+      "source_id": "9rjolsl8ytwt95v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.644Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.644Z",
+      "agent": "n05stp52kkm5on3",
+      "source_id": "iadwxujtn0p5xui"
+    }
+  ]
+}

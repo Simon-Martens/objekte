@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Freue Dich, glücklichstes Volk Teutoniens! / Seit zehn Lustren jedes Glücks,",
+  "language": [],
+  "musenalm_id": 123035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am 29sten September 1791. / Dem Vermählungstage der Prinzessin Friederike von / Preußen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rambach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am 29sten September 1791. / Dem Vermählungstage der Prinzessin Friederike von / Preußen",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.781Z",
+      "agent": "b1zryj0o7c0ps3e",
+      "source_id": "6ffybq9nazzpvtx"
+    }
+  ]
+}

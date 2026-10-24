@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 121931, Obj 14 /) Anm. unter der Graphik: Das Original befindet sich in der Privatsammlung des Herrn F. Schlick in Wien",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121932,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hansch gemalt Zastiera gest. in Stahl Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hansch gemalt Zastiera gest. in Stahl Wien",
+  "scans": [
+    "alm_3214_121932_nmx9z8rarq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.800Z",
+      "agent": "ocng47uzapri3n3",
+      "source_id": "9xx41rw069wb1ko"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.800Z",
+      "agent": "mkl961e3tvvszqx",
+      "source_id": "u076glcnm1rove4"
+    }
+  ]
+}

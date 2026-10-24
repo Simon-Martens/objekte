@@ -1,0 +1,45 @@
+{
+  "annotation": "Evangelische Gedichte (Sammlung INr 38891, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Von meinem Vater sind mir übergeben / Die Dinge alle, draußen so, wie drinnen,",
+  "language": [],
+  "musenalm_id": 38894,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Alle Dinge sind mir übergeben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Sallet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Alle Dinge sind mir übergeben",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.940Z",
+      "agent": "paudfbsdce3dysa",
+      "source_id": "9g5u278fpmqkjqk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 27295, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Des Tages, der zum erstenmale nah / Du kamest meinem Blicke,",
+  "language": [],
+  "musenalm_id": 27338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "43.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "43.",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.177Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "a8oephihcx0y0u8"
+    }
+  ]
+}

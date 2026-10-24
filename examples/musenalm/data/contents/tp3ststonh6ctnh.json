@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 63399, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63396,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARGARETHA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Fendi del. Passini sc. Viennae",
+  "scans": [
+    "alm_1040_63396_dgh5i9sruz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARGARETHA",
+  "updated": "2009-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.966Z",
+      "agent": "aj12jgcexyaf6b2",
+      "source_id": "2m7ih2w5v4kgpip"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.966Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "32mefukbw25k51l"
+    }
+  ]
+}

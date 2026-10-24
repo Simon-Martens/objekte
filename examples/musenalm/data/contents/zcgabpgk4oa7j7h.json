@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Des Schulzen kichernde Hanne / Neckt nur, und spottet der Kanne,",
+  "language": [],
+  "musenalm_id": 6706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / TRINKENDE BAUER",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER / TRINKENDE BAUER",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.283Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "9qeoti4riag82ku"
+    }
+  ]
+}

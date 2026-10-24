@@ -1,0 +1,427 @@
+{
+  "annotation": "",
+  "biographical_data": "1711-1781",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.405Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/61192-X",
+          "label": "Sacri Romani Imperii Academia Caesareo-Leopoldina Naturae Curiosorum"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. ev. Theologe; Dichter und Pietist; Pfarrer in Laublingen; ab 1755 Inspektor des Kirchen- und Schulwesens im Saalekreis"
+      ],
+      "dateOfBirth": [
+        "1711-03-22"
+      ],
+      "dateOfDeath": [
+        "1781-06-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joseph Ignatius Span"
+          ],
+          "creditText": [
+            "http://museum-digital.de/nat/index.php?t=objekt&amp;oges=838"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/LangeSG.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/LangeSG.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:LangeSG.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-01-12T17:36:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119023784/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118569376",
+          "label": "Lange, Joachim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136276881",
+          "label": "Lange, Anna Dorothea"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119023784",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118569376",
+          "label": "Lange, Joachim"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/136276881",
+          "label": "Lange, Anna Dorothea"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119023784",
+      "oldAuthorityNumber": [
+        "(DE-588a)119023784",
+        "(DE-588c)4280998-8"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/105374837X",
+          "label": "Laublingen"
+        }
+      ],
+      "preferredName": "Lange, Samuel Gotthold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Samuel Gotthold"
+        ],
+        "surname": [
+          "Lange"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Damon"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Veramander"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Lange, Samuel G.: Horatzische Oden",
+        "Lange, Samuel G.: Sendschreiben an G. Chr. B. Mosche wegen des Heumannischen Erweises von*",
+        "Lange, Samuel G.: Sammlung gelehrter und freundschaftlicher Briefe. - 1769 - 1770",
+        "Lange, Samuel G.: Leben George Friedrich Meiers"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb123317462"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058896"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44369686"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q95710"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119023784/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Samuel_Gotthold_Lange"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Samuel_Gotthold_Lange"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Samuel_Gotthold_Lange"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081227645"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119023784"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119023784.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119023784.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119023784"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Damon",
+        "Veramander",
+        "Langius, S. G.",
+        "Langius, Samuel Theophilus",
+        "Lang, Samuel Gotthold",
+        "Lange, Samuel G.",
+        "Lange, Samuel",
+        "Lange, Samuel Theophil",
+        "Lange, Samuel Theophilus",
+        "Langius, Samuel Gotthold",
+        "Langen, Samuel G.",
+        "Langius, Sam. Gotthold"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Samuel Theophil"
+          ],
+          "surname": [
+            "Lange"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel Gotthold"
+          ],
+          "surname": [
+            "Langius"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel Gotthold"
+          ],
+          "surname": [
+            "Lang"
+          ]
+        },
+        {
+          "personalName": [
+            "Damon"
+          ]
+        },
+        {
+          "personalName": [
+            "Veramander"
+          ]
+        },
+        {
+          "forename": [
+            "S. G."
+          ],
+          "surname": [
+            "Langius"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel G."
+          ],
+          "surname": [
+            "Lange"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel Theophilus"
+          ],
+          "surname": [
+            "Lange"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel G."
+          ],
+          "surname": [
+            "Langen"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel"
+          ],
+          "surname": [
+            "Lange"
+          ]
+        },
+        {
+          "forename": [
+            "Sam. Gotthold"
+          ],
+          "surname": [
+            "Langius"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel Theophilus"
+          ],
+          "surname": [
+            "Langius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Samuel_Gotthold_Lange",
+          "label": "https://de.wikipedia.org/wiki/Samuel_Gotthold_Lange"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:03:33Z",
+    "gnd_query_biographical_data": "1711-1781",
+    "gnd_query_name": "lange, samuel gotthold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1551,
+  "name": "Lange, Samuel Gotthold",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 20",
+  "updated": "2026-06-11 13:29:23.483Z",
+  "uri": "https://d-nb.info/gnd/119023784",
+  "editor": ""
+}

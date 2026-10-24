@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Das Glück ist rund! zur guten Stunde / Traf ich, des Sieges ungewiß,",
+  "language": [],
+  "musenalm_id": 8518,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gute Stunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. E. K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die gute Stunde",
+  "updated": "2026-06-23 09:01:04.888Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.215Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "31ke8vl78l9ob8h"
+    }
+  ]
+}

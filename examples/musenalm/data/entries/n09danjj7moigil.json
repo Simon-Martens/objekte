@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisch-statistisches für Thüringen und Franken 1845",
+    "norm": "",
+    "biblio": 410478,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4686,
+  "parallel_title": "",
+  "place_statement": "Meiningen (Keyßner)",
+  "places": [
+    "gz5hdmtcyhd5d45"
+  ],
+  "preferred_title": "Taschenbuch, Historisch-statistisches für Thüringen und Franken 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ludwig Bechstein und Georg Brückner",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-statistisches / Taschenbuch / für / Thüringen und Franken. / Herausgegeben / von Ludwig Bechstein und Georg Brückner. / Zweiter Jahrgang / 1845. / Meinigen. / In der Keyßner'schen Hofbuchhandlung",
+  "updated": "2026-06-11 10:18:54.753Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "b4y7oeqf3vw3gxx"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.077Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.077Z",
+      "agent": "b1d77qowikjs81c",
+      "source_id": "4aebopt8cbpwem3"
+    }
+  ]
+}

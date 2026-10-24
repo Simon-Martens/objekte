@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensblätter (Sammlung INr 94124, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Sagt Einer, er hege Menschenhaß - / Das glaubt ihm nicht; es ist sein Spaß,",
+  "language": [],
+  "musenalm_id": 94127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sagt Einer, er hege Menschenhaß - / Das glaubt ihm nicht; es ist sein Spaß,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.657Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "xf2lymubyd7esnx"
+    }
+  ]
+}

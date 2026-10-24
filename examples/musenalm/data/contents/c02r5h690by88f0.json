@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Steininschrift / O. A. M. D. G. / Herr Wladimir sein Fraewlein allhier hat / funden / Umgeben von mamalukischen Bluthunden",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Auf Knappen! gesattelt zum Kreuz hinaus! / Mein harret Maria in der Carthaus.",
+  "language": [],
+  "musenalm_id": 78389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wlodomir und Maria / Auf der Kreuzwiese links am Wege von Baaden nach / Heiligenkreuz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wlodomir und Maria / Auf der Kreuzwiese links am Wege von Baaden nach / Heiligenkreuz",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.792Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "n6rqx4s10nwaqm1"
+    }
+  ]
+}

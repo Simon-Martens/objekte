@@ -1,0 +1,53 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.356Z",
+  "dimensions": "",
+  "edit_comment": "Weder erfasst noch autopsiert, obwohl eine Biblio-ID vergeben wurde; bitte überprüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freundinnen romantischer Lectüre s. u. Almanach für Freundinnen romantischer Lectüre",
+    "norm": "",
+    "biblio": 409435,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-06-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4441,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch für Freundinnen romantischer Lectüre s. u. Almanach für Freundinnen romantischer Lectüre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.012Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "riuety8d2926nzo"
+  ],
+  "contents": [],
+  "agents": []
+}

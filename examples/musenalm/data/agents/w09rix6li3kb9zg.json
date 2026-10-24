@@ -1,0 +1,338 @@
+{
+  "annotation": "",
+  "biographical_data": "1796-1857",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.522Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1796-12-09"
+      ],
+      "dateOfDeath": [
+        "1857-08-01"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian Pfann"
+          ],
+          "creditText": [
+            "Württembergische Landesbibliothek"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Emilie%20Zumsteeg%2C%20Portr%C3%A4t.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Emilie%20Zumsteeg%2C%20Portr%C3%A4t.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Emilie%20Zumsteeg%2C%20Portr%C3%A4t.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-02T12:46:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/102411182/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117022667",
+          "label": "Zumsteeg, Luise"
+        },
+        {
+          "forename": [
+            "Louise"
+          ],
+          "surname": [
+            "Andreä"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118773267",
+          "label": "Zumsteeg, Johann Rudolf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "102411182",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118773267",
+          "label": "Zumsteeg, Johann Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117022667",
+          "label": "Zumsteeg, Luise"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/102411182",
+      "oldAuthorityNumber": [
+        "(DE-588c)4688237-6",
+        "(DE-101c)310394120",
+        "(DE-588a)134704126",
+        "(DE-588a)102411182"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Zumsteeg, Emilie",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Emilie"
+        ],
+        "surname": [
+          "Zumsteeg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032010-8",
+          "label": "Komponistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4426550-5",
+          "label": "Pianistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4170818-0",
+          "label": "Musikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7553296-7",
+          "label": "Chorleiterin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4395042-5",
+          "label": "Musiklehrerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628949-7",
+          "label": "Musikschriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032010-8",
+          "label": "Komponistin"
+        }
+      ],
+      "publication": [
+        "Zumsteeg, Emilie: [Lieder op. 4]. - c 1990",
+        "Zumsteeg, Emilie: [Lieder / Ausw.]",
+        "Zumsteeg, Emilie: Gut Nacht, fahr wohl"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb148048368"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2001047037"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66730618"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q98799"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=102411182"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/102411182/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Emilie_Zumsteeg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Emilie_Zumsteeg"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Emilie_Zumsteeg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055217793"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/102411182"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/102411182"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/102411182"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Zumsteg, Emilie"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Emilie"
+          ],
+          "surname": [
+            "Zumsteg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Emilie_Zumsteeg",
+          "label": "https://de.wikipedia.org/wiki/Emilie_Zumsteeg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:27:33Z",
+    "gnd_query_biographical_data": "1796-1857",
+    "gnd_query_name": "zumsteeg, emilie"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3247,
+  "name": "Zumsteeg, Emilie",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XLV, 485",
+  "updated": "2026-06-11 13:29:25.918Z",
+  "uri": "https://d-nb.info/gnd/102411182",
+  "editor": ""
+}

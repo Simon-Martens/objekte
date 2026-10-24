@@ -1,0 +1,331 @@
+{
+  "annotation": "",
+  "biographical_data": "1787-1858",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.468Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Philosoph, Orientalist; Großherzoglich-hessischer Geheimrat"
+      ],
+      "dateOfBirth": [
+        "1787-02-06"
+      ],
+      "dateOfDeath": [
+        "1858-08-13"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:11:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115749829/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117323500",
+          "label": "Schleiermacher, Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1214013724",
+          "label": "Schleiermacher, Sophia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116612592",
+          "label": "Ewald, Auguste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118608053",
+          "label": "Schleiermacher, Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117323624",
+          "label": "Schleiermacher, Carl Christian Heinrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115749829",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116612592",
+          "label": "Ewald, Auguste"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/1214013724",
+          "label": "Schleiermacher, Sophia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117323624",
+          "label": "Schleiermacher, Carl Christian Heinrich"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117323500",
+          "label": "Schleiermacher, Ernst"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118608053",
+          "label": "Schleiermacher, Ludwig"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115749829",
+      "oldAuthorityNumber": [
+        "(DE-588a)115749829"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1066350078",
+          "label": "Auerbach (Landkreis Bergstraße)"
+        }
+      ],
+      "preferredName": "Schleiermacher, Andreas August Ernst",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Andreas August Ernst"
+        ],
+        "surname": [
+          "Schleiermacher"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4349925-9",
+          "label": "Bibliograf"
+        }
+      ],
+      "publication": [
+        "Schleiermacher, Andreas A.: Bemerkungen über den Studienplan für die Großh. Hessische Lan*",
+        "Schleiermacher, Andreas A.: Bibliographisches System der gesammten Wissenschaftskunde mit*",
+        "Schleiermacher, Andreas A.: De l'influence de l'écriture sur le langage suivi de grammai*",
+        "Schleiermacher, Andreas A.: Das harmonische oder allgemeine Alphabet zur Transcription *"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb107029428"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n91119400"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22878598"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19259358"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115749829/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Andreas_Schleiermacher"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066343250"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115749829"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115749829"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115749829.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115749829"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/115749829"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schleiermacher, Andreas A.",
+        "Schleiermacher, Ernst",
+        "Schleiermacher, Andreas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Andreas A."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Andreas_Schleiermacher",
+          "label": "https://de.wikipedia.org/wiki/Andreas_Schleiermacher"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:48:39Z",
+    "gnd_query_biographical_data": "1787-1858",
+    "gnd_query_name": "schleiermacher, andreas august ernst"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2460,
+  "name": "Schleiermacher, Andreas August Ernst",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXI, 421",
+  "updated": "2026-06-11 13:29:24.658Z",
+  "uri": "https://d-nb.info/gnd/115749829",
+  "editor": ""
+}

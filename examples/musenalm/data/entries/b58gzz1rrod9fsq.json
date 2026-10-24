@@ -1,0 +1,72 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG,  VB, T, 2 SS W, S I-Verz, SS 1-272",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1836",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1620,
+  "parallel_title": "",
+  "place_statement": "Kolberg (C. F. Post)",
+  "places": [
+    "rspwoje1sgi4wr6"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Müller, Wilhelm",
+  "subtitle_statement": "",
+  "title_statement": "Des / Bettlers Gabe. / Taschenbuch für 1836 / von / Wilhelm Müller. / Zweiter Jahrgang. / Kolberg. / Druck und Verlag von C. F. Post",
+  "updated": "2026-09-15 10:13:20.893Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "znqewxum35slyo3",
+    "rdwm80rii334y45",
+    "bqd7b6len5at288",
+    "l0bjimhe41vstbm",
+    "0ky1jyai05wqvol",
+    "cgrlwc0nb6j0slk",
+    "mazw2vug9ocvthr",
+    "6a4uin9r75jssfd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-07 09:24:14.264Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-09-15 10:13:20.894Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "xk8bnplhkp9olwe"
+    }
+  ]
+}

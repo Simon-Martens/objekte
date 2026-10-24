@@ -1,0 +1,99 @@
+{
+  "annotation": "zu Jg 1835: Allg. Lit.-Ztg. 1834. Nr. 228, Sp. 604 /) Unter dem I-Verz: Gedruckt bey A. Strauß's sel. Witwe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 15 SS Kal darin 6 GG, S7 SS Tab, S 1 zT, SS 3-119, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blüthen der Liebe und Freundschaft 1835",
+    "norm": "~",
+    "biblio": 404313,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1648,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Blüthen der Liebe und Freundschaft 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30; nicht bei L/R; Goed VIII. 117, 287",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "BLÜTHEN / der / Liebe und Freundschaft / TASCHENBUCH / für / 1835. / Zehnter Jahrgang. / Wien und Leipzig, / Verlag von Friedrich Wilhelm Pfautsch",
+  "updated": "2026-06-11 10:18:55.549Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "vzumpphh8gtldrs"
+  ],
+  "contents": [
+    "nt7olrudtcedvjo",
+    "rjs1xv1784dtdik",
+    "wmgju6pwyz5hc16",
+    "gpra56lwxb3ixkz",
+    "zdsscvgrvqt82mc",
+    "tgh6z12mwki8cuc",
+    "tn31efz12m61hxa",
+    "mbe7kez7jo50q22",
+    "m5k9uz0kgoos6es",
+    "u6uh7h7rvzunnao",
+    "kw2df5tkgawhqz6",
+    "dwip2tdjwix3up0",
+    "dsivhqnaisnrgro",
+    "tfdsbsvmla0i2mw",
+    "xsn3o8hxh11u7hi",
+    "uwpem4wyvayeg4r",
+    "8yqrxt4qr647g1s",
+    "wp6f8vuxs8yahnj",
+    "pmvfwpfjctor2og",
+    "zx93b731ma5phcb",
+    "buhixadqk060gy3",
+    "n5t6nx367uo1cws",
+    "sqhlzcy60ewu7pa",
+    "q1sb1d2zqfvutcr",
+    "f698440naebl700",
+    "sfpgrks7sdnwsut",
+    "4b6v4g3lese9dpp",
+    "24iiijhdd0ddckq",
+    "0hyyir0du1om4wc",
+    "9b9ldfjjecqu6ha",
+    "ku00rhqyc0jjlcf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.128Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.128Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "o9f9yfk1eopb1t2"
+    }
+  ]
+}

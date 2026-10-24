@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123171, Obj 3; # Bezeichnung aus dem Vorwort (INr 123169, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Arme Pauline! Arme funfzehnjährige Waise! nichts haben meine Eltern mir hinterlassen, als das Beispiel ihrer Tugend; mit ihm, die Kraft tausend Lockungen zu widerstehen.",
+  "language": [],
+  "musenalm_id": 123172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die hübsche kleine Putzmacherin. / Lustspiel in einem Akt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die hübsche kleine Putzmacherin. / Lustspiel in einem Akt",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.686Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "9tmbp66o50za0mh"
+    }
+  ]
+}

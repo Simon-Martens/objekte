@@ -1,0 +1,45 @@
+{
+  "annotation": "Sprüche (Sammlung INr 81519, Obj 23) Gedichte (Sammlung INr 81516, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Der Araber sagt: / Wer niemals gejagt, / Sich nie der Liebe hingegeben",
+  "language": [],
+  "musenalm_id": 81521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Araber sagt: / Wer niemals gejagt, / Sich nie der Liebe hingegeben…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.870Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "5udtr5r0tfysvwb"
+    }
+  ]
+}

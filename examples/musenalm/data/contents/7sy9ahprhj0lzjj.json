@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87829, Obj 5) s. Textbezug INr 87844, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lauf des Nahr Quàdès, oder des heiligen Strohms",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Gerstner sc.",
+  "scans": [
+    "alm_3100_87843_hlc9qt7qll.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lauf des Nahr Quàdès, oder des heiligen Strohms",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.092Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "4i3754e3s558nph"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.092Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "e9icbxb7yneve6i"
+    }
+  ]
+}

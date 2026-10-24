@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Zueignungsblatt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102786,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VERGISSMEINNICHT / An",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Laurens sc.",
+  "scans": [
+    "alm_3370_102786_2n5p3n5j7z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VERGISSMEINNICHT / An",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.045Z",
+      "agent": "mzhmeq2m62oxwua",
+      "source_id": "ia9jq3fgoutvaxt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.045Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "mlhby9umnkg749c"
+    }
+  ]
+}

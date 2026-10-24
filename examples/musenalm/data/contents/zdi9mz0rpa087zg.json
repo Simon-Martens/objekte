@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Herr! Ich bin aus einem Lande, das weit gegen Mitternacht liegt, Norwegen genannt; wo die Sonne nicht, wie in deinem gesegneten Vaterlande, Feigen und Citronen kocht;",
+  "language": [],
+  "musenalm_id": 41649,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fest der Unterirdischen. / (Norwegisches Mährchen nach mündlicher Ueberlieferung)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Grimm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Fest der Unterirdischen. / (Norwegisches Mährchen nach mündlicher Ueberlieferung)",
+  "updated": "2005-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.183Z",
+      "agent": "3grzeu7khs4sl5r",
+      "source_id": "yodsni1ibezekyi"
+    }
+  ]
+}

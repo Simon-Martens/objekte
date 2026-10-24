@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Ach, Seelchen, armes Seelchen! / So lange meine gute Freundinn,",
+  "language": [],
+  "musenalm_id": 777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Hadrians Sterbelied an / seine Seele",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Hadrians Sterbelied an / seine Seele",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.846Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "x4qlpxmgf9fm1p6"
+    }
+  ]
+}

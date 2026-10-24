@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. /) Graphik im Kalendarium September. /) Illustration zu »Abriß der Begebenheiten des allgemeinen Krieges der spanischen Erbfolge« INr 75770, Obj 32; s.a. Textbezug INr 75759, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75751,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eroberung von Barcellona. / Petersborough befreyet die Herzogin von Popoli / von der Gewalt der Soldaten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel fec. 1793. D. Chod. del.",
+  "scans": [
+    "alm_2140_75751_exmbmzse61.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eroberung von Barcellona. / Petersborough befreyet die Herzogin von Popoli / von der Gewalt der Soldaten",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.781Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "9hwwdo5vj87gdn9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.781Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ywnev0hnhqlnwso"
+    }
+  ]
+}

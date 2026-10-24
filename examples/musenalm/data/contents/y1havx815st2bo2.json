@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Gedicht von Mosenthal /) auszufaltende Musikbeigabe: Vertonung des Gedichts »Nachhall« von J. H. Mosenthal",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich sah dich einmal, und ich seh' dich immer, denn tief im Herzen barg mir dein Bild-,",
+  "language": [],
+  "musenalm_id": 121994,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NACHHALL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Dessauer",
+  "scans": [
+    "alm_3214_121994_513qxjz976.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NACHHALL",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.636Z",
+      "agent": "nunxh8jqguzw2m7",
+      "source_id": "qint6lgimv2wk2d"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 58026, 58027; Obj 48, 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Schleifers Nachlaß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. L. Schleifer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Schleifers Nachlaß",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.745Z",
+      "agent": "90zse4ajt2jiztn",
+      "source_id": "tg1plxn8vxr4vob"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Taschenbuch für Damen 1798 INr 32713 /) Sammlung von 4 Textbezügen und 3 Graphiken INr 32763-32769, Obj 21-27; §$ vermutlich fehlt eine Graphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragmente eines Briefwechsels, / zur Fortsetzung des im vorjährigen Taschen- / buch S. 159 abgebrochenen. / (Als Beilage zu den Kupfern) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragmente eines Briefwechsels, / zur Fortsetzung des im vorjährigen Taschen- / buch S. 159 abgebrochenen. / (Als Beilage zu den Kupfern) #",
+  "updated": "2003-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.669Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "a9kglv1xglx8oze"
+    }
+  ]
+}

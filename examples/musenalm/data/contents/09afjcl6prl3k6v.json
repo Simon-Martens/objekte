@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) Illustration zu »Camille, oder Briefe zweier Mädchen aus unserm Zeitalter« übers.: J. F. Jünger, Leipzig (Dyk) 1786; s. Textbezug INr 70165, 70166; Obj 18, 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70153,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie Sir Robert Camillen zuerst erblickt / Bd. I. S. 85 / CAMILLE / oder / Briefe zweyer Mädchen aus unserm Zeit Alter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sc.",
+  "scans": [
+    "alm_799_70153_9kra5pgiqd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wie Sir Robert Camillen zuerst erblickt / Bd. I. S. 85 / CAMILLE / oder / Briefe zweyer Mädchen aus unserm Zeit Alter",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.314Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "obp711d9rygrc0m"
+    }
+  ]
+}

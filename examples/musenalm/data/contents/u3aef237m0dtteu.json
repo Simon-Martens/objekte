@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 100242-100245, Obj 182-185",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100241,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todesengel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolai Graf Rehbinder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Todesengel",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.891Z",
+      "agent": "cps3h4d485yb0f9",
+      "source_id": "qb1wb2mzz4s6sf3"
+    }
+  ]
+}

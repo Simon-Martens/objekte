@@ -1,0 +1,45 @@
+{
+  "annotation": "Am Grabe meines Kindes (Sammlung INr 99656, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Ich wandte längst, von langem Irrestreben / Ermüdet, heimwäfts meines Schiffes Kiel",
+  "language": [],
+  "musenalm_id": 99658,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Guntram",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.851Z",
+      "agent": "xkwifoj1zncmcnu",
+      "source_id": "dq9jitn17n753ca"
+    }
+  ]
+}

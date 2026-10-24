@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Lieder (Sammlung INr 1779, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Ich dachte, daß ich wäre / ein Ganzes wohl,",
+  "language": [],
+  "musenalm_id": 1790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI.",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.036Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "bb75vx0g1loxazj"
+    }
+  ]
+}

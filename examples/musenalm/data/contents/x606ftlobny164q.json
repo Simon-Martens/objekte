@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s.Textbezug INr 69031, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69044,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Skulptur des berühmten Carraresers Tenerani #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baumgarten d. Rom 1828 Bolt sc.",
+  "scans": [
+    "alm_2654_69044_ms31fh36jl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Skulptur des berühmten Carraresers Tenerani #",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.553Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "0s3f8uxfhru89ds"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.553Z",
+      "agent": "r4ldsk92mw868nc",
+      "source_id": "royluh413qsuzcz"
+    }
+  ]
+}

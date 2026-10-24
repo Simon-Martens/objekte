@@ -1,0 +1,119 @@
+{
+  "annotation": "3 Jgg 1789-1791; 1789 Leipzig (Beygang) 1790, 1791: Leipzig (Hamann); Hrsg.: Franz Ehrenberg d.i. Georg Karl Claudius /) §$ vermutl. fehlen Graphiken; § SS 19/20 fehlen /) Sämtliche unbezeichneten Beiträge wohl von Franz Ehrenberg d. i. Georg Carl Claudius",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, 2 BB W, SS IX-XVI Vrwrt d Hrsg, SS XVII-XVIII I-Verz, 8 BB Kal, T, 8 BB Tab, SS 1-220, S 221 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Leipziger für die erwachsenere Jugend männlichen Geschlechts 1789",
+    "norm": "~",
+    "biblio": 405721,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3026,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Beygang)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Leipziger für die erwachsenere Jugend männlichen Geschlechts 1789",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 158",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Leipziger / Taschenbuch / für die / erwachsenere Jugend / männlichen Geschlechts / zum / Nutzen und Vergnügen / aufs Jahr 1789. / Leipzig, / bey Joh. Gottlob Beygang",
+  "updated": "2026-06-11 10:18:54.751Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "27k7u5442bucnht"
+  ],
+  "contents": [
+    "w6jfksvymh2givm",
+    "houyexh1qk2pokh",
+    "2yjc6pmei14chpd",
+    "onxpa3lbxd76y4f",
+    "m0g68xhl2uf9rdr",
+    "tl35gf0yk64ujjg",
+    "xbtjy9z8q9q3i9j",
+    "l4yf80685sb90cn",
+    "7833u0u8k7wvayr",
+    "n1otqjbpe059jwc",
+    "kn1q8p8qfry8br6",
+    "t000cq7ycqg5xw3",
+    "978akyugotnn5zg",
+    "354k871k06g2ztl",
+    "j8bh43wyfoip65y",
+    "9w1647bbh67h3jc",
+    "7pajobrysiw4dz4",
+    "lmbt6hy4lrglkj0",
+    "tgz0yfys28zf1ic",
+    "wkvk1q3otf2q8xq",
+    "z2d6tymya345ok8",
+    "jmtsm0a2u8fluuh",
+    "9kgsq8bfgif5onr",
+    "wy6lovld7b2pw0y",
+    "vr7posetdc4zein",
+    "xydgfnx846jqb8d",
+    "6rec06il3sbyuoa",
+    "ldxtyd2cw5d06dm",
+    "65fumtp77crg0cn",
+    "xuaubp95l7e51sr",
+    "6duonz4ydcq6zon",
+    "5kndiewphwzeefr",
+    "8d2kvgqlvxv1tpc",
+    "xfskrltbz7n1r8j",
+    "0tvgr4cq4rbnt2k",
+    "crgsun9y7mhlv7o",
+    "lokstcu6u3bpzo1",
+    "g40uq1b04lrwrv3",
+    "jwkz4djntk74i7a",
+    "uhxaucxh6gsgqxa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.545Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.545Z",
+      "agent": "hjcj0hvfjpm125y",
+      "source_id": "745um0fxbizpl16"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.176Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.176Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "gcnipmb6q4ntd2h"
+    }
+  ]
+}

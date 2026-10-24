@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "So viel vom Epigramm! Das ist mir lä- / cherlich",
+  "language": [],
+  "musenalm_id": 2465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Duns, / über Lessings Abhandlung vom Epigramm",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Duns, / über Lessings Abhandlung vom Epigramm",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.133Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "71xyjr2moux5178"
+    }
+  ]
+}

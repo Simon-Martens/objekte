@@ -1,0 +1,45 @@
+{
+  "annotation": "Siebzehn Lieder (Sammlung INr 79345, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Die Welt ist so schön und der Himmel so blau, / Und die Lüfte, die wehen so lind und so lau,",
+  "language": [],
+  "musenalm_id": 79356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI.",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.956Z",
+      "agent": "1z1aqho0pmi2dwm",
+      "source_id": "4ryhvd4h906w9do"
+    }
+  ]
+}

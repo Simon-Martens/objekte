@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Euch lieblichen Frauen und netten Mädchen - / In Dörfern, Städten und Städtchen,",
+  "language": [],
+  "musenalm_id": 64561,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Makame",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Makame",
+  "updated": "2009-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.276Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "y0htqbkzto70d5i"
+    }
+  ]
+}

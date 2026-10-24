@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Im Kloster zu * in Italien lebte durch eine Reihe von Jahren in tieffster Zurückgezogenheit ein Mann, der aus Deutschland gekommen war, und sich Emanuel nannte.",
+  "language": [],
+  "musenalm_id": 86498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emanuels Bekenntnisse. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Dornau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Emanuels Bekenntnisse. / Novelle",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.252Z",
+      "agent": "15ch4q36f8n1et3",
+      "source_id": "rnsrf6u63gbjyau"
+    }
+  ]
+}

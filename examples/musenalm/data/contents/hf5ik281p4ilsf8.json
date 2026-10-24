@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 63131, Obj 7) mit einer Illustration s. Graphik INr 63141, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Bey Wesel steht am grünen Rhein / Schloß Schönberg auf den wilden Höhen:",
+  "language": [],
+  "musenalm_id": 63135,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. Die sieben Schwestern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. Die sieben Schwestern",
+  "updated": "2009-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.114Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "n8p7putld64ozey"
+    }
+  ]
+}

@@ -63,13 +63,25 @@ async fn run() -> Result<(), WebError> {
     } else {
         Assets::load(&assets_root, vite_url.as_deref())?
     };
-    let state = AppState::open(
-        &root,
-        &directory,
-        assets,
-        dev || std::env::var("EDITOR_INSECURE_COOKIE").as_deref() == Ok("1"),
-    )
-    .await?;
+    let insecure = dev || std::env::var("EDITOR_INSECURE_COOKIE").as_deref() == Ok("1");
+    let catalog = std::env::var_os("EDITOR_PROJECTS")
+        .map(PathBuf::from)
+        .or_else(|| {
+            std::env::var_os("EDITOR_ROOT")
+                .is_none()
+                .then(|| workspace.join("examples/projects.json"))
+        });
+    let (state, app) = if let Some(path) = catalog {
+        let catalog = structured_editor_core::projects::Projects::load(&path)?;
+        let server = structured_editor_server::projects::ProjectServer::open(
+            catalog, &directory, assets, insecure,
+        )
+        .await?;
+        (server.default_state(), server.router())
+    } else {
+        let state = AppState::open(&root, &directory, assets, insecure).await?;
+        (state.clone(), structured_editor_server::router(state))
+    };
     if admin {
         let interactive = io::stdin().is_terminal();
         fn line(prompt: &str, interactive: bool) -> Result<String, WebError> {
@@ -102,7 +114,7 @@ async fn run() -> Result<(), WebError> {
     if dev {
         tracing::info!(vite = ?vite_url, "Development mode: live assets, templates read from disk, HTTP cookies");
     }
-    axum::serve(listener, structured_editor_server::router(state))
+    axum::serve(listener, app)
         .with_graceful_shutdown(async {
             let _ = tokio::signal::ctrl_c().await;
         })

@@ -1,0 +1,45 @@
+{
+  "annotation": "Buntes aus Ost und West (Sammlung INr 24035, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Das Wasser, das die Erde soll beleben, / Will unablässig auf zum Himmel streben",
+  "language": [],
+  "musenalm_id": 24037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die aufsteigenden Dünste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die aufsteigenden Dünste",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.121Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "6hlx8fuibt6stlq"
+    }
+  ]
+}

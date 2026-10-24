@@ -1,0 +1,45 @@
+{
+  "annotation": "An Wilhelm Müller (Sammlung INr 1919, Obj 29) VI. Vermischte Gedichte (Sammlung INr 37239, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "491",
+  "incipit_statement": "Vom Rheine her ertönet muntres Leben: / Das weite Fest der Trauben zu beginnen,",
+  "language": [],
+  "musenalm_id": 1922,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Baron Simolin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Winzer",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.022Z",
+      "agent": "15ilq8sfeqx1cly",
+      "source_id": "9apddvvoo9r7jeg"
+    }
+  ]
+}

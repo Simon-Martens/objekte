@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Wie ein grober / Rauher Bauer, / Also sauer / Tritt herein der Herr October.",
+  "language": [],
+  "musenalm_id": 55545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Octoberlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Octoberlied",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.850Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "cs7rdh0erreqpkh"
+    }
+  ]
+}

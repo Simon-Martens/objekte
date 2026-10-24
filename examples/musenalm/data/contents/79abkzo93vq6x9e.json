@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "An einem freundlichen Junius-Abend des Jahres 1832 fuhr ein leichtbepackter Reisewagen die Bergstraße abwärts gegen das weite, anmuthige Thalgelände von Rorau.",
+  "language": [],
+  "musenalm_id": 44257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein / Bild aus dem häuslichen Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein / Bild aus dem häuslichen Leben",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.459Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "uxvvmgowv2o7vl9"
+    }
+  ]
+}

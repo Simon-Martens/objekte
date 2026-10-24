@@ -1,0 +1,95 @@
+{
+  "annotation": "$§ vermutl. fehlt Graphik »Ansicht von Florenz«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, S I-Verz, S-G-Verz, SS 1-430 darin 5 GG, G 3 BB VrlgM C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1830",
+    "norm": "~",
+    "biblio": 100938,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3466,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Industrie-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1830",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. v. Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1830. / Von / A. v. Tromlitz. / Mit Kupfern. / Leipzig, im Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:54.499Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "8iio3mye2gz37o1"
+  ],
+  "contents": [
+    "zohlp9k7llomxi6",
+    "gq444cm5eiii1yu",
+    "9bvvickj01thsxp",
+    "19eu8jf54qy79zp",
+    "gc0vl4tkvic2q0y",
+    "96bggfucoy6jcqv",
+    "9h5g8l755artguu",
+    "ru18nncifs1dciw",
+    "wdx7rt2oxmplz6i",
+    "8rie5gkumy3vh1c",
+    "rovy02ohpkhjuhd",
+    "at1kr7cac7603ib",
+    "5vthpa9c2ir6sap",
+    "dbm1wy7dfxu9nyc",
+    "izxg09wavpkxx9g",
+    "wr2u69xkl3jujcu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.048Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.048Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "680wun7rttdwfoi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.228Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.228Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "7ecqn0miig7nvx4"
+    }
+  ]
+}

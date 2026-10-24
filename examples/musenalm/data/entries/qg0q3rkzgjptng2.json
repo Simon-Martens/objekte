@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1846",
+    "norm": "",
+    "biblio": 200732,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2790,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "Joseph von Hormayr",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die vaterländische Geschichte./ Herausgegeben / von / Joseph Freiherrn von Hormayr. / XXXV. Jahrgang der gesammten und / XVII. der neuen Folge. / 1846. / Mit 2 Bildnissen und mehreren Zeitcarricaturen. / Berlin bei G. Reimer",
+  "updated": "2026-06-11 10:18:54.695Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "gck89qc4zpp70pu"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.136Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.136Z",
+      "agent": "qtba1dg2hv0ov1a",
+      "source_id": "gdglj1r878e6jp4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.145Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.145Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "wswwqisjh33ot9o"
+    }
+  ]
+}

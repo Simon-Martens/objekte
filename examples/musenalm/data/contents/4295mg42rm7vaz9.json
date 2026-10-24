@@ -1,0 +1,45 @@
+{
+  "annotation": "Promemoria (Sammlung INr 60611, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Welch ein selig Gefühl, wenn nach peinlich er- / mattender Krankheit",
+  "language": [],
+  "musenalm_id": 60634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ROBERT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.883Z",
+      "agent": "shwrrrsohbx2ih5",
+      "source_id": "hv9h06lr46zcbpe"
+    }
+  ]
+}

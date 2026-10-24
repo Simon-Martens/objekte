@@ -1,0 +1,45 @@
+{
+  "annotation": "An die Wolken (Sammlung INr 42017, Obj 218)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.729Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Da ist die ganze Woche lang / Der Himmel so klar gewesen,",
+  "language": [],
+  "musenalm_id": 42022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 223,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Der Astrolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Zeising",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Der Astrolog",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.325Z",
+      "agent": "s5kqm22xcf4do3c",
+      "source_id": "3m0d076nkkebkl8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Reliquien (Sammlung INr 1231400, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Seht ihr auf den grünen Fluren / Jenen holden Schäfer ziehn?",
+  "language": [],
+  "musenalm_id": 123153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christ, ein Schäfer. / Nach einem alten Bilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Christ, ein Schäfer. / Nach einem alten Bilde",
+  "updated": "2019-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.829Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "gmysu146efmlxqq"
+    }
+  ]
+}

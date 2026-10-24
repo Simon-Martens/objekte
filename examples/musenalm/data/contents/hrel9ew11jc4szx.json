@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71357, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Kirchhöfe und Todtengewölber gehörten allezeit zu den Lieblingsplätzen, wo der Aberglaube seinen Spuk treibt.",
+  "language": [],
+  "musenalm_id": 71356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 2ten Kupfertafel. / Die Vampyren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 2ten Kupfertafel. / Die Vampyren",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.439Z",
+      "agent": "a1tvqjbk8115iq7",
+      "source_id": "gawwd9ofvgz42hk"
+    }
+  ]
+}

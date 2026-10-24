@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) nummeriert 12. /) Graphik im Kalendarium September /) Illustration zu »Der Herr im Hause« von Anton Wall d.i. Chr. L. Heyne /) s. Textbezug im Kalendarium INr 114794, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114893,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen ist Ihre Torstenberg, / ich wills so haben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc. V.",
+  "scans": [
+    "alm_4354_114893_77wfgh7o5e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen ist Ihre Torstenberg, / ich wills so haben",
+  "updated": "2016-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.605Z",
+      "agent": "nroqcxxwwrnp5ol",
+      "source_id": "3628njr8e22z580"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.605Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "4mudm5nvhbx6glq"
+    }
+  ]
+}

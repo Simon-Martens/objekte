@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "412",
+  "incipit_statement": "Zurück vom Spriet! Zurück vom Steuer! / Sonst schlag' ich dir den Schädel ein;",
+  "language": [],
+  "musenalm_id": 100323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 263,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Old Bob",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Old Bob",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.860Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "rau52l8h4vpuug6"
+    }
+  ]
+}

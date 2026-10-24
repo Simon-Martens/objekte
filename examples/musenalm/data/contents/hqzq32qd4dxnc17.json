@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117550, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Ein schönes Land sah ich vor mir einst stehen, / Dahin ich wollt' der Sehnsucht Flügel leiten;",
+  "language": [],
+  "musenalm_id": 117554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canaan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Canaan",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.475Z",
+      "agent": "em3dkpa48ys3kzf",
+      "source_id": "aimhef97flnstaz"
+    }
+  ]
+}

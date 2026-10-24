@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Niedersachsen (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Zuck zuck Reiterlein, / Reite frisch in die Welt hinein!",
+  "language": [],
+  "musenalm_id": 99458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kniereiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kniereiter",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.926Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "29nm9ue3dcg0fux"
+    }
+  ]
+}

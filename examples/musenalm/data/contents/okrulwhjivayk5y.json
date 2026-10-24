@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 103686, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "An eines Meeres flachem Strand, / Die Muschel in der kleinen Hand, / Saß schöpfend ein gar fleißig Kind / Das and're lief herzu geschwind.",
+  "language": [],
+  "musenalm_id": 103689,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die fleißigen Kinder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Jeanne Marie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die fleißigen Kinder",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.130Z",
+      "agent": "3wuzr6tb9xdgoey",
+      "source_id": "zwdmkvpkyrc76ku"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "annotation": "Der vorliegende Almanac de Poche weist die gleiche Struktur und Anordnung der Beiträge (Kalendarium mit 12 Monatskupfern, Genealogie und diverse Tabellen) wie der ebenfalls vorhandene Schreib und Postkalender 1756 auf, dieser ist  jedoch mit anderen graphischen Beigaben ausgestattet; s. alm-2512",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, 2 SS gT, Kr, 16 BB Kal darin 12 GG, 50 BB darin 6 BB Tab VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanac de Poche pour l’Année 1756",
+    "norm": "~",
+    "biblio": 409095,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-08-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4207,
+  "parallel_title": "",
+  "place_statement": "Berlin (Les heritiers de J. G. Wolffgang)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanac de Poche pour l’Année 1756 [vielleicht französische Ausgabe von: Schreib- und Postkalender, Genealogischer (Berlin) 1756]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanac / de Poche / pour l'Année Bissextile / M.DCC.LXVI. / Avec la Naissance des Rois, / Reines, Princes, et / Princesses de l'Europe. / et Suivi de pieces agreables / et utiles, et orné d'Emblemes / et d'autres Figures en Taille-douce. / Avec l'Approbation de l'Academie / Roiale des Sciences / Par les heritiers / de / J. G. Wolffgang / à Berlin",
+  "updated": "2026-06-11 10:18:55.503Z",
+  "variant_title": "",
+  "year": 1756,
+  "editor": "",
+  "items": [
+    "l1zf65thhlltivy"
+  ],
+  "contents": [
+    "2hanwoi6hf4prwz",
+    "53eyrt7vzkam8j4",
+    "z5wy7d3j3ua5llm",
+    "cebu3xgqd9xxj8t",
+    "opk2fezgaw13t0x",
+    "0mhnvavx2ug1vtg",
+    "qf6m9ermwouvf7l",
+    "a93nq3z5m1gjf35",
+    "9tth8hq3oavynff",
+    "o58j6xnucx90nk0",
+    "x9wdjvhea85s41v",
+    "nf0ojjkza3oegxb",
+    "2ojofzt1nx2keag",
+    "9gxz20ymtlksio6",
+    "0ivis50de8zjer4",
+    "2qieh3b9tlnv8d2",
+    "t6tmge3nlzj2o67",
+    "dc4gug5w32k0zrs",
+    "r1f990mjx8tk144",
+    "3tjyave2q56n0pc",
+    "112kljps02nby8v",
+    "6yo9bzxz5vaa03z",
+    "5q4sx94qedlthuo",
+    "jyqte9pedw1brho",
+    "hy0xlffrkkz6mhv",
+    "skd181kr87iki0b",
+    "i96py9yjpa6x18b",
+    "ag00kf2hpn9v0oj",
+    "zk5kycjfmia3zrp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.094Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.094Z",
+      "agent": "905b7bka8krxkd3",
+      "source_id": "lxcs2lw505in13c"
+    }
+  ]
+}

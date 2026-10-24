@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Glücklichen durch sich selbst« von Franz Ehrenberg d.i. G. K. Claudius INr 457539, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bringt alles zurück! Von unbekannter Hand / nehme ich kein Geschenk an",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc.",
+  "scans": [
+    "alm_647_47541_i0e93ychpw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bringt alles zurück! Von unbekannter Hand / nehme ich kein Geschenk an",
+  "updated": "2007-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.433Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "66hvv87tmfk1ovg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.433Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "pprs4tm028wgtzf"
+    }
+  ]
+}

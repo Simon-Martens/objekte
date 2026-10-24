@@ -1,0 +1,45 @@
+{
+  "annotation": "Überstetzung des vorstehenden Gedichts INr 31183, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Den weißen Fittig, o Katharina! schwingt / Der Sieg vor deinen Schiffen heran.",
+  "language": [],
+  "musenalm_id": 31184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutsch",
+  "updated": "2003-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.637Z",
+      "agent": "fon9iiilzs9ke5a",
+      "source_id": "3csb2s9u4vk9du5"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Der Jüngling am Bache« von Fr. Schiller IINr 77140, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77141,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jüngling am Bache von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Krukenberg sc.",
+  "scans": [
+    "alm_2398_77141_7kwrwwqkyy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Jüngling am Bache von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.709Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "8t2xrdrbr1upbqs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.709Z",
+      "agent": "bn7xdscl94iiupe",
+      "source_id": "oyq8qo6i1qcbf6m"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# enthält eine Widmung an den Herzog zu Braunschweig-Lüneburg und eine Vorerinnerung (INr 128614, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Nun nochmals Gott zum Gruß Herr Hauptmann Kraut, / Willkommen hier im lieben stillen Thale!",
+  "language": [],
+  "musenalm_id": 128614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Falkenstein, / Drama in einem Akte; / vom Herausgeber. / (Zum erstenmale aufgeführt auf dem Nationalthea- / ter zu Braunschweig am 21sten Jun. 1821.) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Klingemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Falkenstein, / Drama in einem Akte; / vom Herausgeber. / (Zum erstenmale aufgeführt auf dem Nationalthea- / ter zu Braunschweig am 21sten Jun. 1821.) #",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.994Z",
+      "agent": "4s7269wm8jxsp50",
+      "source_id": "hctcgyq92ktx3fv"
+    }
+  ]
+}

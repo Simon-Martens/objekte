@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Wiener 1852-2",
+    "norm": "",
+    "biblio": 407141,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-04-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4619,
+  "parallel_title": "",
+  "place_statement": "Wien (Edlen von Ghelen'schen Erben)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Wiener 1852-2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Reyhongs",
+  "subtitle_statement": "",
+  "title_statement": "Wiener / Novellen-Almanach / Sammlung / von / Erzählungen und Gedichten / zum Besten / der neu errichteten / Säuglings- und Kinder-Bewahr-Anstalt und Arbeitsschule in Gumpendorf / herausgegeben / von / REYHONGS. / II. Band. 1852. / Zweiter Jahrgang. / Wien. / Gedruckt bei den Edlen von Ghelen'schen Erben",
+  "updated": "2026-06-11 10:18:55.342Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "v7bdbxx2x8hem0w"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.764Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.764Z",
+      "agent": "bc6674eeyg6i2ut",
+      "source_id": "a3735em7cgt6r2m"
+    }
+  ]
+}

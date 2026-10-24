@@ -1,0 +1,120 @@
+{
+  "annotation": "§1§, §2§ 2 graph. Handarbeitsanleitungen fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 11 BB Kal darin 10 GG, ar: SS 1-290 darin 3 BB mit 2 MusBB, ar1: SS 1-106 Tab, B Tab, 17 BB Tab, B VrlgM, 36 SS Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Berlinischer 1810",
+    "norm": "~ K gibt 12 GG und 2 Stickmuster an",
+    "biblio": 100735,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-03-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 449,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Damenkalender, Berlinischer 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 70; Goed VIII. 49, 8; Goed VI. 384, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berlinischer / Damen-Kalender / auf / das Gemein-Jahr 1810. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.606Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "ppapipbx54kcjqb"
+  ],
+  "contents": [
+    "cdsiksgi5m5f2qj",
+    "cmyyqb3f0au71c5",
+    "y2chqe9qpefxl7l",
+    "40sm9sryyx6kwp4",
+    "ypo7nu28tg4i5fz",
+    "c3dk3sd2t7rdupe",
+    "j773aesumaufof7",
+    "yqc18tilxxag2qy",
+    "05ljlf0xx10bhdk",
+    "4t9zc84k7cekp60",
+    "y3dlxtzmn2nus4b",
+    "v55pw5xfbgw0qvn",
+    "dkhulho1esh157h",
+    "xxzupfp24gouvm3",
+    "854fpqm8bh31u14",
+    "bbjbo0vhk1l64kh",
+    "3xhjt53eu4z4h75",
+    "90w6ndgnoxkfodq",
+    "t3p35sr31iwdq8d",
+    "9t65zizhgp2pjim",
+    "fo5rihna0psykpw",
+    "hmesae904iuwwrc",
+    "zrdw8k49m1yvck0",
+    "ihd4n35g0p91pyw",
+    "ooi1wfnfku4r2bm",
+    "u7xs3gqhe9rvgxj",
+    "y7fxs70h6xibp0g",
+    "9ssw3r4gqa7qyl0",
+    "a24zay8ymyc6lxh",
+    "mvqo07iopo3hrk3",
+    "6z58pd09z4mxj37",
+    "4p089qmuu5wpqwl",
+    "eedsc9m83s2ffea",
+    "m83rjks9hn45nq0",
+    "1vjcqr2pvrpwt93",
+    "1onl4jrzsr662l2",
+    "oqwy24gigl6f9tc",
+    "cak8q4k7qxmfgb0",
+    "s2uz44x01gg345o",
+    "49316xzt7zyaj04",
+    "ppss7b5xnxb4wwo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "4v6di71mas2vzct"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.669Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.669Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "def4spw9x90j29g"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 95593, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Du bist so still und traurig / In deinem Käfig drin:",
+  "language": [],
+  "musenalm_id": 95595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lina's Kanarienvogel. / Impromptu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lina's Kanarienvogel. / Impromptu",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.678Z",
+      "agent": "h1jhs52naysyy4l",
+      "source_id": "vqhyt58ktulnw9v"
+    }
+  ]
+}

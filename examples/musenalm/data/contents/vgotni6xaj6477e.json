@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 92791, Obj 58) Strophen, Distichen und Elegieen (Sammlung INr 92786, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Tieck ging wieder dahin, von wannen der Gott ihn hervorrief;",
+  "language": [],
+  "musenalm_id": 92796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Tieck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Tieck",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.469Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "f82kcij6obxzvwd"
+    }
+  ]
+}

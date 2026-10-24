@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schiller-Almanach 1850",
+    "norm": "",
+    "biblio": 200106,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2491,
+  "parallel_title": "",
+  "place_statement": "Berlin (Grieben)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Schiller-Almanach 1850",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 100; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Schiller-Almanach / auf alle / denkwürdigen Ereignisse / der Jahre / 1848 und 1849. / Berlin. / Verlag von Th. Grieben. / 1850",
+  "updated": "2026-06-11 10:18:55.461Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "xhpn1iagapxfcpy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.934Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.934Z",
+      "agent": "aonae00ld1rp31l",
+      "source_id": "3g92q0dcjt7d9ic"
+    }
+  ]
+}

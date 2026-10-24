@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Gedicht INr 117058, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117057,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen am Brunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Maier pinx. Jg. Lechleitner",
+  "scans": [
+    "alm_3222_117057_glryuuink2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen am Brunnen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.554Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "tpg505dsasai2aa"
+    }
+  ]
+}

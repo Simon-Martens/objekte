@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehende Graphik INr 80573, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ein Wanderer schritt ich einsame Pfade / Durch düstern Hochwald unter knorrigen Föhren;",
+  "language": [],
+  "musenalm_id": 80574,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Himmelsbote",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Himmelsbote",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.682Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "fd2grkjt4zsm1ou"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII. 79, 148 /) Wehmut und Liebe (Sammlung INr 49043, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Wie jetzt, so war es oft und immer, / Brütend dunkel auf der Erd' einsamer Sternenschimmer,",
+  "language": [],
+  "musenalm_id": 49056,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spruch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spruch",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.482Z",
+      "agent": "1s7x50uh0tm3jdc",
+      "source_id": "8e4ehs9fq2n9ehf"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Rosenroth, gezeichnet hab ich, heute, / Freud' und Leben in mein Taschenbuch!",
+  "language": [],
+  "musenalm_id": 2460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geburtstags-Betrachtung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dt.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geburtstags-Betrachtung",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.049Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "ksz1pbkbgpoutcr"
+    }
+  ]
+}

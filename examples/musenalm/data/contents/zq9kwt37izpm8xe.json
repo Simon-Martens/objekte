@@ -1,0 +1,45 @@
+{
+  "annotation": "<div># Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 140308</div>",
+  "content_type": [],
+  "created": "2026-08-06 08:52:18.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "An dem grossen Flusse, der eben von einem starken Regen geschwollen und übergetreten war, lag in seiner kleinen Hütte, müde von den Anstrengungen des Tages, der alte Fährmann und schlief.",
+  "language": [],
+  "musenalm_id": 140307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe #",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mährchen",
+  "updated": "2026-08-06 10:14:35.659Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-06 08:53:07.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-06 10:14:35.660Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "iof334mwbpywztl"
+    }
+  ]
+}

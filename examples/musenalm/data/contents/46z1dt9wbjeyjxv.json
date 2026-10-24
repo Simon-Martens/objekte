@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "Hast du den Mai gesehen / In seinem hellen Strahl?",
+  "language": [],
+  "musenalm_id": 26706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am ersten Mai 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max v. Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am ersten Mai 1816",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.203Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "xboka73z74cer49"
+    }
+  ]
+}

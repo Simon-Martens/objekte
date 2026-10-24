@@ -1,0 +1,78 @@
+{
+  "annotation": "ohne Kalendarium /) §§ SS 222-225 darin 3 GG (Blätter B. C. D., Riepenhausen nach Hogarth) fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, T, SS 1-80 Tab, SS 82-254 darin §§ 9 GG, SS 255- 256 VrgM,SS 257-272 G-Verz, 34 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1787 (franz. Ausg.: MANUEL contenant diverses connaissances curieuses et utiles pour l’année 1787)",
+    "norm": "~",
+    "biblio": 409218,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4291,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1787 (franz. Ausg.: MANUEL contenant diverses connaissances curieuses et utiles pour l’année 1787)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 154; L/R 15",
+  "responsibility_statement": "Lichtenberg",
+  "subtitle_statement": "",
+  "title_statement": "MANUEL / contenant / diverses connaissances / curieuses et utiles / pour / l'année 1787. / rué de taille-douces gravées / par / Chodowiecki, / avec les modes / les plus modernes des Dames, / et des Cavaliers gravées en / taille-douce. / à Goettingue, / chez Jean Chrêtien Dieterich Dieterich",
+  "updated": "2026-06-11 10:18:55.229Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "items": [
+    "xlqb957o1daf1tn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.059Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.059Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "fy4m1wiz23zqn38"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.361Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.361Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "wyc99jvav39tdo3"
+    }
+  ]
+}

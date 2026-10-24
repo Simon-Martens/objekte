@@ -1,0 +1,92 @@
+{
+  "annotation": "unter 2 Graphiken: Augsburg b. V. / Zanna & Comp.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, 2 BB, verso G, T, 2 SS Tab, 59 SS darin Kal 2 Tabb 11 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (München) 1833",
+    "norm": "~",
+    "biblio": 407180,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-03-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3790,
+  "parallel_title": "",
+  "place_statement": "München (Rösl)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenkalender (München) 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 156; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / für / das Jahr / 1833. / München, / bei Joseph Rösl",
+  "updated": "2026-06-11 10:18:55.264Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "vixleo1gun2451i"
+  ],
+  "contents": [
+    "mybyobhgow4lnzv",
+    "2d62uom87qcgjwa",
+    "lixes4c9bfies3y",
+    "khbkqkcejj3ecdk",
+    "t1yc0o6wyktiiy4",
+    "teha5ci8u5suxm6",
+    "0x1hco97ac22eak",
+    "2br8w9fsupairm6",
+    "8blw0jtk6c6x8se",
+    "aqjdnohv0q168fx",
+    "71iwjl33cfo6uu1",
+    "hha10ezpybqr4kc",
+    "dtjmcofhw2nh0r8",
+    "4tphdlingmcwwiy",
+    "g2hpzc2qjavn9bl",
+    "x2yr32v71xay5xr",
+    "r96pqo6rs8e5gme",
+    "c0s9h1yzl5yy10d",
+    "u1rjhsmru8mybe3",
+    "ys51i2rebxozr57",
+    "a3q9qrzvf43pud2",
+    "pvtfgwfjg8ugpyv",
+    "cdmfkv0qssvilbe",
+    "skr0h8d6vg78214"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.144Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.144Z",
+      "agent": "y63v3m8luc81jj4",
+      "source_id": "u975qjvrjgr944m"
+    }
+  ]
+}

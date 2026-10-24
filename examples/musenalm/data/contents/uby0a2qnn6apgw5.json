@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Einen süßen Traum hab' ich geträumet. / Rosig war sein Gürtel, goldbesäumet",
+  "language": [],
+  "musenalm_id": 4430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Theobul Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.212Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "lx4hmw9vkdb6h5l"
+    }
+  ]
+}

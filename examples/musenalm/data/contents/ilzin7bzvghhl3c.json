@@ -1,0 +1,46 @@
+{
+  "annotation": "Steierische Sagen (Sammlung INr 83949, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Im Santhale hausete schon vor beiläufig zweihundert Jahren das Rittergschlecht der Miglio, welches mit Karl von Miglio im Jahre 1658 in die steierische Landmannschaft aufgenommen wurde,",
+  "language": [],
+  "musenalm_id": 83956,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Ring des Miglio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Ring des Miglio",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.130Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "iby26w56nlu5lfs"
+    }
+  ]
+}

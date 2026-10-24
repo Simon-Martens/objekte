@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 61041, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61034,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Themistokles #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kininger del. Meno Haas sc. Berlin 1797",
+  "scans": [
+    "alm_952_61034_vwgfi5mpqh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Themistokles #",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.031Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "mw5wnvf2c57gmwn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.031Z",
+      "agent": "60p50kezhrh7h42",
+      "source_id": "yuq7tia7gcbb0qy"
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "annotation": "",
+  "biographical_data": "1753-1823",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.467Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2018088-3",
+          "label": "Gewandhausorchester"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1778 erstmals erwähnt, Mitglied des Gewandhausorchesters bis 1785, 1. Geiger im Großen Konzert, später bei der \"Musikübenden Gesellschaft\", Musikdirektor der Gewandhauskonzerte von 1785 bis 1810 für J. A. Hiller",
+        "1786 gründete er einen Singverein, der bis 1810 bestend; 1802 die Leipziger Sing-Akademie; Organist und Musikdirektor der Matthäikirche von 1785 bis 1810 für J. A. Hiller; Musikdirektor der Universitätskirche von 1808 bis 1810 für J. G. Häser; Thomaskantor von 1810 bis  zu seinem Tod für A. E. Müller"
+      ],
+      "dateOfBirth": [
+        "1753-09-29"
+      ],
+      "dateOfDeath": [
+        "1823-02-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich August Zimmermann"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/documents/obj/33214385"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottfried%20Schicht.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottfried%20Schicht.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Gottfried%20Schicht.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117226157/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/138141118",
+          "label": "Schicht, Costanza Alessandra Ottavia"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Schicht"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/138141177",
+          "label": "Schicht, Henriette Wilhelmine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117226157",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/138141177",
+          "label": "Schicht, Henriette Wilhelmine"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/138141118",
+          "label": "Schicht, Costanza Alessandra Ottavia"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/104337036",
+          "label": "Trier, Johann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135138434",
+          "label": "Gössel, Carl Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117226157",
+      "oldAuthorityNumber": [
+        "(DE-588c)7664193-4",
+        "(DE-101c)31020044X",
+        "(DE-588a)100555772",
+        "(DE-588a)117226157",
+        "(DE-588a)134510445"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4669143-1",
+          "label": "Reichenau (Landkreis Zittau)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Schicht, Johann Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottfried"
+        ],
+        "surname": [
+          "Schicht"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4163221-7",
+          "label": "Kantor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1019243333",
+          "label": "Jütner, Samuel Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117978930X",
+          "label": "Gutsch, Johann Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121501221",
+          "label": "Müller, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1015409482",
+          "label": "Flaschner von Ruhberg, Gotthelf Benjamin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1209711591",
+          "label": "Meyer, Benjamin Heinrich Gottlob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118012215",
+          "label": "Becker, Carl Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1179854713",
+          "label": "Just, August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135138434",
+          "label": "Gössel, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104337036",
+          "label": "Trier, Johann"
+        }
+      ],
+      "publication": [
+        "Schicht, Johann G.: [Gesänge]",
+        "Schicht, Johann G.: Allgemeines Choral-Buch für Kirchen, Schulen, Gesangvereine, Orgel- u*",
+        "Schicht, Johann G.: [Jesus meine Zuversicht]",
+        "Schicht, Johann G.: Das Ende des Gerechten",
+        "Schicht, Johann G.: Grundregeln der Harmonie, nach dem Verwechslungssystem entworfen und *. - s. a. 1812",
+        "Schicht, Johann G.: Das Ende des Gerechten. - [circa 1823]",
+        "Schicht, Johann G.: [Drey- und vierstimmige Choralmelodien]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n92002850"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51955039"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q289660"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=117226157"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117226157/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Gottfried_Schicht"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schicht"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottfried_Schicht"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121330568"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117226157"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117226157.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117226157"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117226157"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schicht, J. G.",
+        "Schicht, Joh. Gottfried",
+        "Schicht, Johann G.",
+        "Schicht, Johann",
+        "Schicht, Giovanni Godofredo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Schicht"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schicht"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Godofredo"
+          ],
+          "surname": [
+            "Schicht"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Schicht"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfried"
+          ],
+          "surname": [
+            "Schicht"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schicht",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schicht"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:47:12Z",
+    "gnd_query_biographical_data": "1753-1823",
+    "gnd_query_name": "schicht, johann gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2431,
+  "name": "Schicht, Johann Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "T/B XXXI, 159",
+  "updated": "2026-06-11 13:29:24.613Z",
+  "uri": "https://d-nb.info/gnd/117226157",
+  "editor": ""
+}

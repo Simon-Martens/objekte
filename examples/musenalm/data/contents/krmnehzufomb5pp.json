@@ -1,0 +1,45 @@
+{
+  "annotation": "Diavolini (Sammlung INr 23478, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Lord Beefsteak, Jean Potage / Und Michel obendrein",
+  "language": [],
+  "musenalm_id": 23502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24. Selig sind, die nichts sehen und doch / glauben!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "24. Selig sind, die nichts sehen und doch / glauben!",
+  "updated": "2002-05-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.197Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "pyahk6mvdm6mw6n"
+    }
+  ]
+}

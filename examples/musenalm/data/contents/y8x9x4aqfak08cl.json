@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten mit einer Einleitung. INr 14289, 14290; Obj 5, 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl von Salerno. / Ballade in zwey Gesängen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marianne v. Neumann - Weißenthal, geborne v. Tiell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Carl von Salerno. / Ballade in zwey Gesängen",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.639Z",
+      "agent": "blexso3sv1n2ckh",
+      "source_id": "4kzgbqhyldxb0qj"
+    }
+  ]
+}

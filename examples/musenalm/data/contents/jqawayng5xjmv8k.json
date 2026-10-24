@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Jonas, der Diener des berühmten Arztes Freydank in Frankfurt am Main, bereitete in dem Laboratorium seines Herrn eine Arzney, wie ihn derselbe geheißen.",
+  "language": [],
+  "musenalm_id": 63586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walter von Singenberg. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Walter von Singenberg. / Historische Novelle",
+  "updated": "2009-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.260Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "03i8l6x3zfikqli"
+    }
+  ]
+}

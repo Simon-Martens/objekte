@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 69053, Obj 8 /) Illustration zu »Das Mährchen von der blauen Grotte« von W. Waiblinger INr 69068, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Führich inv. et del. E. Rauch sculp. Darmstadt)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Führich inv. et del. E. Rauch sculp. Darmstadt",
+  "scans": [
+    "alm_2655_69054_17m1rxhaw7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.491Z",
+      "agent": "k7ib4tmw0w1jiao",
+      "source_id": "3fpdyqajwy5bpwr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.491Z",
+      "agent": "m8y5g9ap5pw6fd8",
+      "source_id": "k76vo3obdtszhmn"
+    }
+  ]
+}

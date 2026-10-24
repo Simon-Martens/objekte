@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Die Nachtigal sang einst ihr göttliches Gedicht, / Zu sehn, ob es die Menschen fühlten.",
+  "language": [],
+  "musenalm_id": 92368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachtigal und der Kukuk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gellert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachtigal und der Kukuk",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.426Z",
+      "agent": "ktano13bmefet8q",
+      "source_id": "09q0oid6s9v5ofm"
+    }
+  ]
+}

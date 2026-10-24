@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Deiner Seele schöner Genius / War in Hauch zerflossen, / doch geblieben war sein Lächeln",
+  "language": [],
+  "musenalm_id": 127583,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum. / An Amanda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum. / An Amanda",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.946Z",
+      "agent": "3otd6uv72ls66y4",
+      "source_id": "wecefs4l1os0t7o"
+    }
+  ]
+}

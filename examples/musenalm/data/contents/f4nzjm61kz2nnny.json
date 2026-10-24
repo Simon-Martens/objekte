@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 64831, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Die Politik, welch von 1812 ff. an bei uns und vieler Orts in allen gebildeten Cirkeln und selbst am Theetische die Oberstelle der Unterhaltung eingenommen hatte, begann seit einigen Jahren, sich etwas zurückzuziehen,",
+  "language": [],
+  "musenalm_id": 64830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Welche Partei in der Politik sollen / die Frauen jetzt nehmen?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Regina Spiridion",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Welche Partei in der Politik sollen / die Frauen jetzt nehmen?",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.160Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "tgq6o0314umjbjn"
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "annotation": "",
+  "biographical_data": "1775-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.311Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponist und Kapellmeister"
+      ],
+      "dateOfBirth": [
+        "1775-10-27"
+      ],
+      "dateOfDeath": [
+        "1831-12-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Zeichner: Carl Wilhelm Ludwig Bianchi"
+          ],
+          "creditText": [
+            "Eberwein Archiv"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Traugott%20Maximilian%20Eberwein.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Traugott%20Maximilian%20Eberwein.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Traugott%20Maximilian%20Eberwein.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1045008427"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:12:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116332662/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116332603",
+          "label": "Eberwein, Carl"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/135735300",
+          "label": "Eberwein, Alexander Bartholomäus"
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116332662",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/135735300",
+          "label": "Eberwein, Alexander Bartholomäus"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116332603",
+          "label": "Eberwein, Carl"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116332662",
+      "oldAuthorityNumber": [
+        "(DE-588a)116332662",
+        "(DE-588)1045008427",
+        "(DE-588a)134789695",
+        "(DE-588c)4551112-3",
+        "(DE-101c)31047969X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4105066-6",
+          "label": "Rudolstadt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4105066-6",
+          "label": "Rudolstadt"
+        }
+      ],
+      "preferredName": "Eberwein, Traugott Maximilian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Traugott Maximilian"
+        ],
+        "surname": [
+          "Eberwein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398807-6",
+          "label": "Hofkapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118664638",
+          "label": "Bülow, Hans von"
+        }
+      ],
+      "publication": [
+        "Eberwein, Maximilian: Der Sänger",
+        "Eberwein, Maximilian: Lieder der Liebe",
+        "Eberwein, Maximilian: [Das befreite Jerusalem <Im Angesicht der heil'gen Mauern>]",
+        "Eberwein, Traugott M.: [Parthien C-Dur]",
+        "Eberwein, Traugott M.: [Partiten C-Dur]",
+        "Eberwein, Maximilian: XIV Canons für Bachanalien"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Traugott Maximilian"
+          ],
+          "surname": [
+            "Eberwein"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb150840145"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n94051362"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37184630"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215521"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116332662"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1045008427"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116332662/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Traugott_Maximilian_Eberwein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Traugott_Maximilian_Eberwein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081163549"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116332662"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116332662"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116332662.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116332662.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116332662"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Eberwein, Maximilian Traugott",
+        "Eberwein, Max",
+        "Eberwein, Traugott",
+        "Eberwein, Traugott Maximilian",
+        "Eberwein, Traugott M.",
+        "Eberwein, T. M.",
+        "Eberwein, Maximilian"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Traugott"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "forename": [
+            "Maximilian"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "forename": [
+            "Traugott Maximilian"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "forename": [
+            "Maximilian Traugott"
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "forename": [
+            "Traugott M."
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        },
+        {
+          "forename": [
+            "T. M."
+          ],
+          "surname": [
+            "Eberwein"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Traugott_Maximilian_Eberwein",
+          "label": "https://de.wikipedia.org/wiki/Traugott_Maximilian_Eberwein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:16:57Z",
+    "gnd_query_biographical_data": "1775-1831",
+    "gnd_query_name": "eberwein, traugott maximilian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 611,
+  "name": "Eberwein, Traugott Maximilian",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB V, 589",
+  "updated": "2026-06-11 13:29:22.131Z",
+  "uri": "https://d-nb.info/gnd/116332662",
+  "editor": ""
+}

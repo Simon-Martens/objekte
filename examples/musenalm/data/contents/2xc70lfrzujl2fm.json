@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Ein heimlich Frühlingssehnen / Wehet über die Welt,",
+  "language": [],
+  "musenalm_id": 46112,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 216,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein heimlich Frühlingssehnen / Wehet über die Welt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aline von Schlichtkrull",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.440Z",
+      "agent": "kpbvco18xzch2xq",
+      "source_id": "fif1fnxdiobnv1q"
+    }
+  ]
+}

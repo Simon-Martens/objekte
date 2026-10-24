@@ -1,0 +1,45 @@
+{
+  "annotation": "13a Erstes Jahr (Sammlung 48661, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Träumend sah' ich dich, wie selig / Machte mich dein Engelbild!",
+  "language": [],
+  "musenalm_id": 48662,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gelübde, / an Henrietten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gelübde, / an Henrietten",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.626Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "09x9pbyosv4cmpr"
+    }
+  ]
+}

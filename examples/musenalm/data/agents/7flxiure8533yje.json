@@ -1,0 +1,1261 @@
+{
+  "annotation": "",
+  "biographical_data": "1729-1786",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.425Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Bedeutendster Vertreter der jüdischen Emanzipation in Deutschland; Vater von Abraham Mendelssohn Bartholdy"
+      ],
+      "dateOfBirth": [
+        "1729-09-06"
+      ],
+      "dateOfDeath": [
+        "1786-01-04"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "After Anton Graff"
+          ],
+          "creditText": [
+            "Upload by James Steakley. Das Jahrhundert der Freundschaft. Johann Wilhelm Ludwig Gleim und seine Zeitgenossen, ed. Ute Pott (Göttingen: Wallstein, 2004), p. 109."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Moses%20Mendelson%20P7160073.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Moses%20Mendelson%20P7160073.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Moses%20Mendelson%20P7160073.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118580744/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118580779",
+          "label": "Mendelssohn Bartholdy, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/138371032",
+          "label": "Meyer, Mendel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607979",
+          "label": "Schlegel, Dorothea von"
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Hensel"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/122230310",
+          "label": "Mendelssohn, Fromet"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116877227",
+          "label": "Mendelssohn, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881011",
+          "label": "Mendelssohn Bartholdy, Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136988881",
+          "label": "Heymann, Mendel"
+        },
+        {
+          "personalName": [
+            "Bartholdy"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137018967",
+          "label": "Mendelssohn, Henriette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1211961168",
+          "label": "Meyer, Recha"
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137019254",
+          "label": "Mendelssohn, Nathan"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118580744",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/137019254",
+          "label": "Mendelssohn, Nathan"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137018967",
+          "label": "Mendelssohn, Henriette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116877227",
+          "label": "Mendelssohn, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881011",
+          "label": "Mendelssohn Bartholdy, Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1211961168",
+          "label": "Meyer, Recha"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607979",
+          "label": "Schlegel, Dorothea von"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/118580779",
+          "label": "Mendelssohn Bartholdy, Felix"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136988881",
+          "label": "Heymann, Mendel"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/122230310",
+          "label": "Mendelssohn, Fromet"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118580744",
+      "oldAuthorityNumber": [
+        "(DE-588c)4038602-8",
+        "(DE-588a)118580744",
+        "(DE-588a)127514554"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "und-hebr",
+          "@value": "מנדלסון, משה"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011536-7",
+          "label": "Dessau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Mendelssohn, Moses",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Moses"
+        ],
+        "surname": [
+          "Mendelssohn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066567-7",
+          "label": "Wissenschaftler"
+        }
+      ],
+      "publication": [
+        "Philosophische Gespräche",
+        "Über die Empfindungen",
+        "Lessing, Gotthold Ephraim: Lessings Briefwechsel mit Mendelssohn und Nicolai über das Trauerspiel",
+        "Morgenstunden, oder Vorlesungen über das Daseyn Gottes",
+        "Abhandlung von der Unkörperlichkeit der menschlichen Seele",
+        "Jerusalem oder über religiöse Macht und Judentum",
+        "Abhandlung über das Kommerz zwischen Seele und Körper",
+        "Recherches sur les sentimens moraux",
+        "Lessing, Gotthold Ephraimff: Pope ein Metaphysiker!",
+        "Rhapsodie, oder Zusätze zu den Briefen über die Empfindungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11915561v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50036977"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19681378"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76997"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118580744/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118580744"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Moses_Mendelssohn"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Moses_Mendelssohn"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Moses_Mendelssohn"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Moses_Mendelssohn"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120957051"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118580744"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118580744"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118580744.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118580744.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118580744"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/73B57639FAAD47F79C829712EC4E9AF0"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118580744"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "משה בן מנחם",
+        "מנדלסוהן, משה",
+        "משה מדעסויא",
+        "Mendelssohn, M.",
+        "Мендельсон, Мозес",
+        "Mendels-Sohn, Mosès",
+        "Moses, aus Dessau",
+        "Moše Bar-Menaḥem",
+        "MŠH BN MNḤM MʿNDL",
+        "Mendelzohn, Mozes",
+        "בן־מנחם, משה",
+        "Mendelson, Mosheh",
+        "Mendelssohn, Moïse",
+        "Moše mi-Desoi'",
+        "Moše",
+        "מנדלסון, משה בן מנחם",
+        "מנדלסזאן, משה",
+        "Mendelsohn, Moses",
+        "Mendelszon, Moše",
+        "Ben-Menaḥem, Moše",
+        "Менделсон, Моше",
+        "Rambama\"n",
+        "Moyse, Moses",
+        "מנדלסזון, משה",
+        "מדעסויא, משה",
+        "Mendelson, Moses",
+        "Mendelssohn, Mosis",
+        "Mendelszoon, Mozes",
+        "רמבן",
+        "מענדעלסזאהן, משה",
+        "Moshe ben Menahem mi-Desoya",
+        "Mendelssohn",
+        "Mendelson, Moše",
+        "Mose mid-Dessau",
+        "Moše Ben-Menah.̣ēm",
+        "Mosheh ben Menahem",
+        "Desoi, Moše",
+        "רמבמ\"ן מדעסוי",
+        "Mendelszôn, Moše",
+        "Mendelszon, Mosheh",
+        "משה מדסוי",
+        "מדסוי, משה",
+        "Ben-Menahem, Moses",
+        "Mendelssohn, Mojzís",
+        "משה בר מנחם",
+        "Moïse fils de Mendel",
+        "Mosheh mi-Desoiʾ",
+        "Mèndelssohn, Mosè",
+        "Mendelssohn, Mojżesz",
+        "Rambaman",
+        "Mendel'son, Moisei",
+        "Mendelssohn, Moisés",
+        "משה מנדלסון",
+        "Mendel, Moyse de",
+        "Mendelsshon, Moses",
+        "מענדעלזזאהן, משה",
+        "Менделсон, Мозес",
+        "Mendelssohn, Mosè",
+        "Dessau, Moses",
+        "MʿNDʿLSZʾHN, Mošē",
+        "Mendelszohn, Mosheh ben Menahem",
+        "Мендельсон, Моисей",
+        "דעסויא, משה",
+        "Mose Ben-Menahem",
+        "משה מנדלזון",
+        "Mendelii Filii, Mosis",
+        "Moses ben Menahem",
+        "Desa, Mosheh",
+        "Mosheh ben Menaḥem",
+        "Mendelssohn, Moše Ben-Menaḥēm",
+        "Moses, Mendelssohn",
+        "Moše Bar-Menaḥēm",
+        "Moše Ben-Menaḥēm",
+        "Mendelssohn, Mojžíš",
+        "מנדלסאהן, משה",
+        "Remad",
+        "Moše Dessau",
+        "Mendelszoon, Moses",
+        "Menaḥēm, Mōše Ben-",
+        "Fils de Mendel, Moise",
+        "Dessau, Moše",
+        "מדעסויא בן מנחם מענדל סופר, משה",
+        "Ben-Menachem, Moses",
+        "Mōše mi-Dessau",
+        "Mendelssohn, Mose Ben-Menahem",
+        "מענדעלזאהן, מאזעס",
+        "Rambeman",
+        "דעסאוי, משה",
+        "מענדעלססאהן, משה",
+        "Mendelson, Mojżes",
+        "Mendel, Moise Fils de",
+        "Mosheh mi-Desa",
+        "Moses",
+        "Mendel Sohn",
+        "Mendelssohn, Moisè",
+        "Mendelsohn, Moisi",
+        "Mendelssohn, Moses von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Moše Bar-Menaḥēm"
+          ]
+        },
+        {
+          "forename": [
+            "Mojżes"
+          ],
+          "surname": [
+            "Mendelson"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Ben-Menahem"
+          ]
+        },
+        {
+          "personalName": [
+            "רמבן"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מענדעלסזאהן"
+          ]
+        },
+        {
+          "forename": [
+            "Mōše Ben-"
+          ],
+          "surname": [
+            "Menaḥēm"
+          ]
+        },
+        {
+          "personalName": [
+            "Mosheh ben Menahem"
+          ]
+        },
+        {
+          "forename": [
+            "Моше"
+          ],
+          "surname": [
+            "Менделсон"
+          ]
+        },
+        {
+          "personalName": [
+            "Moses ben Menahem"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Mendelsohn"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מענדעלססאהן"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מדעסויא בן מנחם מענדל סופר"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh"
+          ],
+          "surname": [
+            "Mendelszon"
+          ]
+        },
+        {
+          "forename": [
+            "Мозес"
+          ],
+          "surname": [
+            "Менделсон"
+          ]
+        },
+        {
+          "personalName": [
+            "Mosheh mi-Desa"
+          ]
+        },
+        {
+          "forename": [
+            "Mosis"
+          ],
+          "surname": [
+            "Mendelii Filii"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מענדעלזזאהן"
+          ]
+        },
+        {
+          "personalName": [
+            "משה מדסוי"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Mose Ben-Menahem"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Moise Fils"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Mendel"
+          ]
+        },
+        {
+          "forename": [
+            "Mozes"
+          ],
+          "surname": [
+            "Mendelzohn"
+          ]
+        },
+        {
+          "forename": [
+            "Moše"
+          ],
+          "surname": [
+            "Dessau"
+          ]
+        },
+        {
+          "personalName": [
+            "Mose mid-Dessau"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מנדלסוהן"
+          ]
+        },
+        {
+          "personalName": [
+            "Moše mi-Desoi'"
+          ]
+        },
+        {
+          "forename": [
+            "Мозес"
+          ],
+          "surname": [
+            "Мендельсон"
+          ]
+        },
+        {
+          "personalName": [
+            "משה מנדלזון"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh ben Menahem"
+          ],
+          "surname": [
+            "Mendelszohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Remad"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מנדלסזון"
+          ]
+        },
+        {
+          "forename": [
+            "Mojžíš"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "personalName": [
+            "משה מנדלסון"
+          ]
+        },
+        {
+          "forename": [
+            "Mošē"
+          ],
+          "surname": [
+            "MʿNDʿLSZʾHN"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh"
+          ],
+          "surname": [
+            "Desa"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Mendelsshon"
+          ]
+        },
+        {
+          "forename": [
+            "Moise"
+          ],
+          "surname": [
+            "Fils de Mendel"
+          ]
+        },
+        {
+          "forename": [
+            "Мозес"
+          ],
+          "surname": [
+            "Мендельсон"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Mendelszoon"
+          ]
+        },
+        {
+          "forename": [
+            "Moisei"
+          ],
+          "surname": [
+            "Mendel'son"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Ben-Menachem"
+          ]
+        },
+        {
+          "personalName": [
+            "Moïse fils de Mendel"
+          ]
+        },
+        {
+          "forename": [
+            "Mosès"
+          ],
+          "surname": [
+            "Mendels-Sohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Rambaman"
+          ]
+        },
+        {
+          "personalName": [
+            "Moše Ben-Menaḥēm"
+          ]
+        },
+        {
+          "personalName": [
+            "Rambeman"
+          ]
+        },
+        {
+          "personalName": [
+            "משה מדעסויא"
+          ]
+        },
+        {
+          "forename": [
+            "Moyse"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Mendel"
+          ]
+        },
+        {
+          "personalName": [
+            "Moše Ben-Menah.̣ēm"
+          ]
+        },
+        {
+          "nameAddition": [
+            "aus Dessau"
+          ],
+          "personalName": [
+            "Moses"
+          ]
+        },
+        {
+          "personalName": [
+            "Moshe ben Menahem mi-Desoya"
+          ]
+        },
+        {
+          "forename": [
+            "Mosè"
+          ],
+          "surname": [
+            "Mèndelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מנדלסזאן"
+          ]
+        },
+        {
+          "forename": [
+            "Moisè"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Moisi"
+          ],
+          "surname": [
+            "Mendelsohn"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מנדלסאהן"
+          ]
+        },
+        {
+          "personalName": [
+            "MŠH BN MNḤM MʿNDL"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "דעסויא"
+          ]
+        },
+        {
+          "forename": [
+            "Moše"
+          ],
+          "surname": [
+            "Ben-Menaḥem"
+          ]
+        },
+        {
+          "forename": [
+            "Моисей"
+          ],
+          "surname": [
+            "Мендельсон"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Moyse"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מדעסויא"
+          ]
+        },
+        {
+          "forename": [
+            "Mojżesz"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Moïse"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "דעסאוי"
+          ]
+        },
+        {
+          "personalName": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Mosè"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Mosis"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "בן־מנחם"
+          ]
+        },
+        {
+          "personalName": [
+            "משה בר מנחם"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dessau"
+          ]
+        },
+        {
+          "forename": [
+            "משה בן מנחם"
+          ],
+          "surname": [
+            "מנדלסון"
+          ]
+        },
+        {
+          "personalName": [
+            "Moses"
+          ]
+        },
+        {
+          "personalName": [
+            "רמבמ\"ן מדעסוי"
+          ]
+        },
+        {
+          "forename": [
+            "Moisés"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Mosheh mi-Desoiʾ"
+          ]
+        },
+        {
+          "forename": [
+            "Moše"
+          ],
+          "surname": [
+            "Mendelszôn"
+          ]
+        },
+        {
+          "forename": [
+            "Моисей"
+          ],
+          "surname": [
+            "Мендельсон"
+          ]
+        },
+        {
+          "personalName": [
+            "Mendel Sohn"
+          ]
+        },
+        {
+          "forename": [
+            "Mozes"
+          ],
+          "surname": [
+            "Mendelszoon"
+          ]
+        },
+        {
+          "personalName": [
+            "משה בן מנחם"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Mendelssohn"
+          ],
+          "personalName": [
+            "Moses"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Mendelson"
+          ]
+        },
+        {
+          "forename": [
+            "Moše"
+          ],
+          "surname": [
+            "Mendelszon"
+          ]
+        },
+        {
+          "personalName": [
+            "משה בר מנחם"
+          ]
+        },
+        {
+          "personalName": [
+            "Rambama\"n"
+          ]
+        },
+        {
+          "personalName": [
+            "Mosheh ben Menaḥem"
+          ]
+        },
+        {
+          "forename": [
+            "Mojzís"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Mose Ben-Menahem"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh"
+          ],
+          "surname": [
+            "Mendelson"
+          ]
+        },
+        {
+          "forename": [
+            "Moše Ben-Menaḥēm"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Moše"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "מדסוי"
+          ]
+        },
+        {
+          "personalName": [
+            "Moše Bar-Menaḥem"
+          ]
+        },
+        {
+          "forename": [
+            "מאזעס"
+          ],
+          "surname": [
+            "מענדעלזאהן"
+          ]
+        },
+        {
+          "forename": [
+            "Moše"
+          ],
+          "surname": [
+            "Desoi"
+          ]
+        },
+        {
+          "forename": [
+            "Moše"
+          ],
+          "surname": [
+            "Mendelson"
+          ]
+        },
+        {
+          "personalName": [
+            "Mōše mi-Dessau"
+          ]
+        },
+        {
+          "personalName": [
+            "Moše Dessau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Moses_Mendelssohn",
+          "label": "https://de.wikipedia.org/wiki/Moses_Mendelssohn"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:15:03Z",
+    "gnd_query_biographical_data": "1729-1786",
+    "gnd_query_name": "mendelssohn, moses"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1783,
+  "name": "Mendelssohn, Moses",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 484, 1140",
+  "updated": "2026-06-11 13:29:23.775Z",
+  "uri": "https://d-nb.info/gnd/118580744",
+  "editor": ""
+}

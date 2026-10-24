@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Hatt' euch ein Brusttuch - schöner war / Wohl keins im Land! ' S ist nun ein Jahr",
+  "language": [],
+  "musenalm_id": 5368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bartels Elegie / auf sein ehemaliges Brusttuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Campe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bartels Elegie / auf sein ehemaliges Brusttuch",
+  "updated": "2000-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.147Z",
+      "agent": "nuls4hlyk7nfgd0",
+      "source_id": "qywqc4m9x6sh7xv"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug »Des Schottländers Brautschau« von J. V. Adrian INr 43977, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43981,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE FREUNDINNEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Painted by F. Corbaux Engraved by H. T. Ryall",
+  "scans": [
+    "alm_593_43981_zpm5ltv7uw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE FREUNDINNEN",
+  "updated": "2006-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.271Z",
+      "agent": "eywmxpqe6du7wyv",
+      "source_id": "6d0bvqorlv19qf6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.271Z",
+      "agent": "x4wr3clisfzne16",
+      "source_id": "te51g2fxekpcvuz"
+    }
+  ]
+}

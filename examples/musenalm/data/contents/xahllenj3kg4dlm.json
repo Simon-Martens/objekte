@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Monathe (Sammlung INr 77455, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Wieder unterm Schleier mir entrückt, / Hingestorben, was an ihr entzückt,",
+  "language": [],
+  "musenalm_id": 77467,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "December",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "December",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.663Z",
+      "agent": "jqanokpcqaenxu5",
+      "source_id": "ijmr2tjk3zxbdy8"
+    }
+  ]
+}

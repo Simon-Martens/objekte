@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 103701, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Röthet Dir, Liebchen, der Purpur die Wangen, / Glänzt auf dem Liliengrund rosige Pracht",
+  "language": [],
+  "musenalm_id": 103705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Pauline",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Herloßsohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Pauline",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.003Z",
+      "agent": "16uxlf73ehnhqr1",
+      "source_id": "nrjspsrhycb547i"
+    }
+  ]
+}

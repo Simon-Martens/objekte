@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I gT, SS III-VI Vrwrt d Hrsg, S VII-VIII I-Verz, SS IX-X G-Verz, SS 1-324 darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorzeit, Die 1821",
+    "norm": "~",
+    "biblio": 108677,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3495,
+  "parallel_title": "",
+  "place_statement": "Marburg und Kassel (Krieger)",
+  "places": [
+    "apkqc58a7boazsc",
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Vorzeit, Die 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "D. K. W. Justi",
+  "subtitle_statement": "",
+  "title_statement": "DIE / VORZEIT / Ein Taschenbuch / für das Jahr / 1821 / Marburg und Cassel / bei Krieger",
+  "updated": "2026-06-11 10:18:54.520Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "16vh54sd7nloumh"
+  ],
+  "contents": [
+    "bok9r2bs50o6a3a",
+    "0xlitgx0a1yf97y",
+    "w4b70ioq0k7hc7c",
+    "1z5uzzxu9bqqdks",
+    "dg8vqaofljegne3",
+    "ori2al0fd7a13sn",
+    "m7e4g25bwsq4kf0",
+    "pm9k6wuc80rnpqv",
+    "zwaj2d9llspgabt",
+    "373cm4r59f99nji",
+    "uf2kz79weeqyopg",
+    "876mqe8fwy9spld",
+    "p6ciywubqdg4ly3",
+    "ndfamjslv8xtblo",
+    "w87lem3jez0ccc5",
+    "6f7abdd81nrf6gd",
+    "n6oj62psmn966bd",
+    "l3lndz85bdyva9m",
+    "ufgd8vwt0ucewin",
+    "rkimz2qqb7vwmzs",
+    "cp7wqyd2gh3km2e",
+    "ty171jercwvychs",
+    "n328twnegwe7tln",
+    "60xwat4d9sqp9tk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.081Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.081Z",
+      "agent": "9v69tnrkt52hdxy",
+      "source_id": "fgg047v5tjeg32c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.242Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.242Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "tnxszpcvfewe13n"
+    }
+  ]
+}

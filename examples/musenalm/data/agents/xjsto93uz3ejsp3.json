@@ -1,0 +1,630 @@
+{
+  "annotation": "",
+  "biographical_data": "1751-1792",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.410Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1751-01-12"
+      ],
+      "dateOfDeath": [
+        "1792-05-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Bilderatlas zur Geschichte der deutschen Nationalliteratur von Gustav Könnecke. Zweite, verbesserte und vermehrte Auflage. Marburg: Elwert 1895."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/JMRLenz%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/JMRLenz%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:JMRLenz%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/157897842"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-04T18:44:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118571656/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/12021363X",
+          "label": "Lenz, Christian David"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1081486643",
+          "label": "Lenz, Familie : 1740-1945 : Livland"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116911522",
+          "label": "Lenz-Kühne, J. R."
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-LV",
+          "label": "Lettland"
+        }
+      ],
+      "gndIdentifier": "118571656",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/116911522",
+          "label": "Lenz-Kühne, J. R."
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/12021363X",
+          "label": "Lenz, Christian David"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118571656",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)134772679",
+        "(DE-588a)157897842",
+        "(DE-101c)310462673",
+        "(DE-588c)4035349-7",
+        "(DE-588a)118571656",
+        "(DE-588)157897842"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4543607-1",
+          "label": "Cesvaine"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074987-3",
+          "label": "Moskau"
+        }
+      ],
+      "preferredName": "Lenz, Jakob Michael Reinhold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jakob Michael Reinhold"
+        ],
+        "surname": [
+          "Lenz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Jakob Michael Reinhold"
+          ],
+          "surname": [
+            "Kühne"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Meinung eines Layen den Geistlichen zugeeignet",
+        "Der Hofmeister oder Vortheile der Privaterziehung",
+        "Lyrisches a. d. Nachlass",
+        "Reinhold Lenz",
+        "Der Waldbruder",
+        "Der neue Menoza. Oder Geschichte des cumbanischen Prinzen Tandi",
+        "Drei Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12081875f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50049780"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/lenz-jakob-michael-reinhold/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/90638588"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76417"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118571656/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157897842"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jakob_Michael_Reinhold_Lenz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jakob_Michael_Reinhold_Lenz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Jakob_Michael_Reinhold_Lenz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jakob_Michael_Reinhold_Lenz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121432556"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118571656"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1774_lenz"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118571656"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118571656.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118571656.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118571656"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/0184C82E0A3D423892BB175956508733"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118571656"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "렌츠, 야콥 미하엘 라인홀트",
+        "Lenz, Jac. M. R.",
+        "Lenz, Jacob M. R.",
+        "Lenz, Reinhold Jakob Michael",
+        "Lenz, J. R.",
+        "Lencs, Jākobs Mihaels Reinholds",
+        "Lenz, Jakob M. R.",
+        "Lenz, Jakob",
+        "Lenc, Jakob",
+        "Kühne, Jakob Michael Reinhold",
+        "Lenz, J.M.R.",
+        "Lenz, Jakob M.",
+        "Lenz, Jacob",
+        "Lenz, Johann Michael Reinhold",
+        "Lenz, Jacob Michael Reinhold",
+        "Lenz, Jakob Michael",
+        "Lenz, Jakob M.R.",
+        "Lenz, Jacob M.",
+        "Lenz, Reinhold",
+        "Lenz, J.R.",
+        "Lenz, Jacob Michael",
+        "Lenz, Jacob M.R.",
+        "Lenz, Jacob R.",
+        "Lenz, J. M. R."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jākobs Mihaels Reinholds"
+          ],
+          "surname": [
+            "Lencs"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob M.R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "J. M. R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "J.R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "J.M.R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Michael Reinhold"
+          ],
+          "surname": [
+            "Kühne"
+          ]
+        },
+        {
+          "forename": [
+            "Reinhold Jakob Michael"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob M. R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob M. R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Michael Reinhold"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob"
+          ],
+          "surname": [
+            "Lenc"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Michael"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jac. M. R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Michael"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "야콥 미하엘 라인홀트"
+          ],
+          "surname": [
+            "렌츠"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob M.R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "J. R."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Michael Reinhold"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob M."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Reinhold"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob M."
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jakob_Michael_Reinhold_Lenz",
+          "label": "https://de.wikipedia.org/wiki/Jakob_Michael_Reinhold_Lenz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:05:57Z",
+    "gnd_query_biographical_data": "1751-1792",
+    "gnd_query_name": "lenz, jakob michael reinhold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1599,
+  "name": "Lenz, Jakob Michael Reinhold",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 774, 1159",
+  "updated": "2026-06-11 13:29:23.539Z",
+  "uri": "https://d-nb.info/gnd/118571656",
+  "editor": ""
+}

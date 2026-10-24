@@ -1,0 +1,45 @@
+{
+  "annotation": "Kinderräthsel (Sammlung INr 55513, Obj 129)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Zwölf Brüder kenn ' ich, sie alle sind / Gar gerne gesehen von meinem Kind.",
+  "language": [],
+  "musenalm_id": 55514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Brüder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Brüder",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.651Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "nn38rdbpy31mcy4"
+    }
+  ]
+}

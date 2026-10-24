@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Gedichten Bessers INr 36445, 36446; Obj 40,01; 40,02",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Die Frau, von der hier die Rede seyn wird, war ehedem nicht wenig berühmt,",
+  "language": [],
+  "musenalm_id": 26790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung / an / Johann von Besser, / und seine Gattin / Katharina Elisabeth, geborene Kühlewein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung / an / Johann von Besser, / und seine Gattin / Katharina Elisabeth, geborene Kühlewein",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.277Z",
+      "agent": "9vkmi7lv0745wmz",
+      "source_id": "yjmhp49t8fqls9j"
+    }
+  ]
+}

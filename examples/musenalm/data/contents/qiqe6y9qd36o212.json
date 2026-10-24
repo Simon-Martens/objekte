@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Heute ist ein Freudentag / In der Jungesellenklause; / Freunde kommt zum Lustgelag' / Nehmt vorlieb mit meinem Schmause.",
+  "language": [],
+  "musenalm_id": 83818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsfeier",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.923Z",
+      "agent": "mwq7kafmbvbiqjp",
+      "source_id": "way6v1zjp0a863m"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Beigabe zu »Das bescheidene Landgut. Nach Erfindung und Zeichnung von Herrn Klinsky« INr 81434, Obj 7 /) # Zuschreibung: Fischer S. 334 /) als Zeichner vermutet Fischer: N. F. Thouret",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81441,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3113_81441_e0fbzro0xa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.016Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "4xtbarfviccyjc1"
+    }
+  ]
+}

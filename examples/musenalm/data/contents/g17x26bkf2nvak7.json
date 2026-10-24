@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Lord Clythamber, sagt an, wie weit / Ist's noch zu Euch nach Haus?",
+  "language": [],
+  "musenalm_id": 26144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Thurm von Coyth. / Schottische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Ritter v. Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Thurm von Coyth. / Schottische Sage",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.235Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "d9z4ek8g5687pr0"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "§ Karte fehlt /) Titelgraphik lt. K 166: L. Richter (Holzschnitt); 30 weitere Graphiken L. Richters hierzu als Separatdruck (nicht vorhanden) s.a.: Albina, TB für Wanderer in der sächsischen Schweiz 1818; alm-4152",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht. Ein TB f. d. Besuch der sächsischen Schweiz u. d. angränzenden Theile Böhmens 1823",
+    "norm": "",
+    "biblio": 408600,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4151,
+  "parallel_title": "",
+  "place_statement": "Dresden (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Vergißmeinnicht. Ein TB f. d. Besuch der sächsischen Schweiz u. d. angränzenden Theile Böhmens 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 166; nicht bei L/R",
+  "responsibility_statement": "W. A. Lindau",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Ein Taschenbuch / für / den Besuch der sächsischen Schweiz und / der angränzenden Theile Böhmens; / herausgegeben / von / W. A. Lindau. / Mit einem Titelkupfer und einer neuen Reisekarte. / Dresden, 1823. in der Arnoldischen Buchhandlung. / (Ladenpreiß 1 Thlr. 5 Gr.)",
+  "updated": "2026-06-11 10:18:54.546Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "o35gkzzpyx8fg8r"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.484Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.484Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "87w2yyji37qgmww"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.455Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.455Z",
+      "agent": "082sspsj3rz0i1b",
+      "source_id": "qunt8322ttpsups"
+    }
+  ]
+}

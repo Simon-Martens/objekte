@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Angelika Lindholm« INr 102884, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott deinem Schutz empfehle ich meine Tochter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geisler del. Carl Meyer sc. Nbg",
+  "scans": [
+    "alm_3376_102887_khqcba9ue6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gott deinem Schutz empfehle ich meine Tochter",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.937Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "647jc2nsayjw9kj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.937Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "jxnnd8iusiskada"
+    }
+  ]
+}

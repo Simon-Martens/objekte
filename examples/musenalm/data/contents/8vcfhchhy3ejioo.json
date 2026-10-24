@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Avar ist hängenswerth, wenn er nicht Hungers stirbt.",
+  "language": [],
+  "musenalm_id": 35921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Avar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Avar",
+  "updated": "2003-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.905Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "sbs3ibbnjewoh6k"
+    }
+  ]
+}

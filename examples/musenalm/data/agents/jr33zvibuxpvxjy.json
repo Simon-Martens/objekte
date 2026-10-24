@@ -1,0 +1,498 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1815",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.346Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Maler, Graphiker und Schriftsteller",
+        "Freiherr; Hermannstadt/Siebenbürgen, Wien, München, Augsburg, Regensburg (Wirkungsorte); Dt. Maler, Graphiker, Schriftsteller und Privatgelehrter, ursprünglich Jurist, lebte zeitweise in Österreich",
+        "Schriftsteller, Maler, Graphiker",
+        "Dt. Maler, Graphiker, Schriftsteller und Privatgelehrter, ursprünglich Jurist, lebte zeitweise in Österreich"
+      ],
+      "dateOfBirth": [
+        "1754-02-28"
+      ],
+      "dateOfDeath": [
+        "1815-09-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "https://bravefineart.com/blogs/artist-directory/von-goez-joseph-franz-1754-1815"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Franz%20von%20Goez.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Franz%20von%20Goez.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Franz%20von%20Goez.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T11:07:19.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118540378/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RO",
+          "label": "Rumänien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118540378",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118540378",
+      "oldAuthorityNumber": [
+        "(DE-588c)4021498-9",
+        "(DE-588a)118540378"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4072443-8",
+          "label": "Hermannstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4048989-9",
+          "label": "Regensburg"
+        }
+      ],
+      "preferredName": "Goez, Joseph Franz von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph Franz"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Goez"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        }
+      ],
+      "publication": [
+        "Goez, Josef Franz von: Das graphische Werk von Josef Franz von Goez. 1754 - 1815. - 1954",
+        "Selbstgefühl und Empfindungen bey meinem Abgang von München den 8. Jener 1791",
+        "Göz, Joseph F. von: Lenardo und Blandine",
+        "Versuch einer zalreichen folge leidenschaftlicher Entwürfe für empfindsame Kunst- und Schauspiel-Freunde",
+        "Göz, Joseph F. von: Exercises d'Imagination des différens Caractères et formes humaines, inventes, peints et dessinés",
+        "Göz, Joseph F. von: Ankündigung einer zahlreichen Folge leidenschaftlicher Entwürfe für*",
+        "Göz, Joseph F. von: Selbstgefühl und Empfindungen bey meinem Abgang von München den 8. Jener 1791 zu meiner Freunde Beruhigung",
+        "Göz, Joseph F. von: Versuch einer zahlreichen Folge leidenschaftlicher Entwürfe",
+        "Lenardo und Blandine"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb125036340"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83025766"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/106999398"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q6283227"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118540378/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_Franz_von_Goez"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108044620"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118540378"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118540378"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118540378"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118540378"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Göz, Josef Franz. von",
+        "Göz, J. F. de",
+        "Goetz, Joseph Franz von",
+        "Götz, Joseph Franz von",
+        "Goez, J. Fr. von",
+        "Goez, Josef Franz. von",
+        "Goez, J. F. v.",
+        "Goez, I. F. de",
+        "Götz, J. F.",
+        "Götz, Joseph Franz",
+        "Goez, Joseph F. von",
+        "Göz, Johann Friedrich von",
+        "Goez, Josef Franz von",
+        "Göz, J. F. von",
+        "Göz, J. F.",
+        "Goetz, I. F. v.",
+        "Göz, Joseph Franz von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Goez"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Goez"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "I. F."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Goetz"
+          ]
+        },
+        {
+          "forename": [
+            "J. Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Goez"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "I. F."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Goez"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Franz."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Göz"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Franz."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Goez"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Goez"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Franz"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Goetz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:32:09Z",
+    "gnd_query_biographical_data": "1754-1815",
+    "gnd_query_name": "goetz, joseph franz von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 919,
+  "name": "Goetz, Joseph Franz von",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIV, 321",
+  "updated": "2026-06-11 13:29:22.563Z",
+  "uri": "https://d-nb.info/gnd/118540378",
+  "editor": ""
+}

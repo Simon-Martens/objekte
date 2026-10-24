@@ -1,0 +1,109 @@
+{
+  "annotation": "§ Umschlag verso fehlt /) Die Zeichnungen zu den Monatskupfern wahrscheinlich von Clemens Kohl",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, 25 SS Kal darin 12 GG, S, Tab, B G-Verz, S 1 T, S 2 I-Verz, SS 3-44, 15 BB Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freundinnen romantischer Lectüre 1811",
+    "norm": "~",
+    "biblio": 407624,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3907,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach für Freundinnen romantischer Lectüre 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freundinnen / romantischer / LECTURE / auf das Jahr / 1811. / WIEN / bey Jos. Grämmer, Buchbinder / in der Wollzeile N. 829",
+  "updated": "2026-06-11 10:18:54.928Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "xqzozg0cr1vpsvc"
+  ],
+  "contents": [
+    "72ayp7wy8m132p7",
+    "dsy3eku6ur3k5h8",
+    "pol48mthmgtgvds",
+    "ixa1dk56s8mo0tu",
+    "l2enffnth4hln9s",
+    "3fjuhlxypefrmhv",
+    "vnwsqcdg63a5bns",
+    "q5rua6td9j1ptts",
+    "yuqeiiykuhqeqvo",
+    "zch6vsc5v5sdn4s",
+    "2qthkr2wgxt0q3e",
+    "mrcpg2i7txxuzit",
+    "votqlvawx6g6vvo",
+    "srtupxwwlpqf8ch",
+    "j5uyp066q1e5ffm",
+    "tpy2mv69jimv85p",
+    "hghu8r5dbai441f",
+    "zt39qygonlgsm4y",
+    "if2t272ewut2u66",
+    "xg8gii13ioipctt",
+    "04mgv2cppczg791",
+    "y24mj6j8j7y9dx0",
+    "os947xteq0ktwbt",
+    "4ai6q50u7xzubbi",
+    "jmp11b1hyomg5gr",
+    "s5c6iqnhas58ewk",
+    "3pu2q0peftph6ue",
+    "8g8baxwq95fa1wx",
+    "2cubj868yhiwnfq",
+    "mu89fxyvkf53xvu",
+    "lumxe6g4krpaolr",
+    "p9kny4yyy4acon3",
+    "rwdxen4wmdez7w1",
+    "9275ey5b7aequrk",
+    "sd01wjyyoj5z8wr",
+    "ruybdg0mg7qousk",
+    "4ix8ipruul22xpu",
+    "a1ob66z8z3fynl1",
+    "cgoxv8iknj5dxb2",
+    "z81lmbla4swj9dw",
+    "3e0pfpdz2s7yy1t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.926Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.926Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "bsgr3zb96bnt9s3"
+    }
+  ]
+}

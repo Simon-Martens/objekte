@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. /) Kupfer der Alpenrosen 1832 (Sammlung INr 54692, Obj 5) s. Graphik INr 54698, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Hier Landenberg! Er muß dem Volke schwören; / ihr Land zu flieh'n, an dem er sich geschändet;",
+  "language": [],
+  "musenalm_id": 54699,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landenbergs Urfehde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Landenbergs Urfehde",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.935Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "1szne0ykgcud84l"
+    }
+  ]
+}

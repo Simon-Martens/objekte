@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Skizze des Charakters Joseph des II.« INr 71351, Ob 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Un prince despotique, accoutumé dans son palais à ne trouver aucune résistance, s'indigne de celle qu'on lui fait les armes à la main.",
+  "language": [],
+  "musenalm_id": 71352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Un prince despotique, accoutumé dans son palais à ne trouver aucune résistance, s'indigne de celle qu'on lui fait les armes à la main.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.439Z",
+      "agent": "i5oqmqvq7qlfvyb",
+      "source_id": "zrmy1skranen0ec"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "Basler Taschenbuch 1862, 1863, 1864 Hrsg. D. A. Fechtner. Standort: IDS Zürich Zentralbibliothek Nebis",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Basler 1864",
+    "norm": "",
+    "biblio": 200813,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2924,
+  "parallel_title": "",
+  "place_statement": "Basel (Schweighauser)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Taschenbuch, Basler 1864",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 109; nicht bei L/R; ADB VI, 593",
+  "responsibility_statement": "D. A. Fechter",
+  "subtitle_statement": "",
+  "title_statement": "Basler Taschenbuch / auf / das Jahr 1864. / Herausgegeben / von / Dr. D. A. Fechter. / Zwölfter Jahrgang. / Basel, / Schweighauserische Verlagsbuchhandlung. / 1864",
+  "updated": "2026-06-11 10:18:54.578Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "items": [
+    "ojycyl9wf6vffav"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.151Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.151Z",
+      "agent": "sdel9pv3gwbaibx",
+      "source_id": "scppjypu0ywk6a4"
+    }
+  ]
+}

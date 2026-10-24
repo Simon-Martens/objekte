@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Kleo und Lucien. Geständnisse eines verirrten Mädchens« INr 21869, Obj 33 /) Verwendung einer Illustration Chodowieckis zu »Hermann und Dorothea« mit hinzugefügter Unterschrift: »Herr Je, da ist ja unsere Mamsell wieder!«",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Je, da ist ja unsere Mamsell wieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki 1799",
+  "scans": [
+    "alm_296_22016_thu8wdq2hj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herr Je, da ist ja unsere Mamsell wieder",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.058Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "84jq7jhst1tl96t"
+    }
+  ]
+}

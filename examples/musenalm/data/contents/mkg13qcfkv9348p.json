@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Das Schäferhaus« von G. H. Rapp INr 74373, Obj 21 /) # Zuschreibung: Fischer S. 308",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schäferhaus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3112_74374_nl7ibr4jb5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schäferhaus",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.704Z",
+      "agent": "z5nktfhns99sqss",
+      "source_id": "2o1a3pnk0kkwam6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.704Z",
+      "agent": "4b4lhy0iqevooje",
+      "source_id": "xft0o4tyxceb33u"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Ja die Welt ist alt geworden / Und sie neigt das müde Haupt,",
+  "language": [],
+  "musenalm_id": 45643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alte Lust. / An Karl v. L.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alte Lust. / An Karl v. L.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.512Z",
+      "agent": "4irsdlf9sfhpmc0",
+      "source_id": "cci9knmm99jiyvj"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Würtembergischer 1777",
+    "norm": "",
+    "biblio": 408186,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4039,
+  "parallel_title": "",
+  "place_statement": "Stuttgart",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Hofkalender, Würtembergischer 1777",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 63; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "HERZOGLICH / Würtemberg. / HOFKALENDER / MDCCXXVII",
+  "updated": "2026-06-11 10:18:55.662Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "items": [
+    "14cl99fi9t3aixt"
+  ],
+  "contents": [],
+  "agents": []
+}

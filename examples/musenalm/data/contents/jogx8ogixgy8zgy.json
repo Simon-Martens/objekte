@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August /) Illustration zu »Das Puchserloch« von J. G. Seidl INr 89739, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89724,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chorlot de Charlons",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. J. Jung del.",
+  "scans": [
+    "alm_3362_89724_7oz5czldlp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chorlot de Charlons",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.281Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "ugpyij909jj3jks"
+    }
+  ]
+}

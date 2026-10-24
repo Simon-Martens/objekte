@@ -1,0 +1,56 @@
+{
+  "annotation": "nummeriert III. /)  paginiert S. 141 /) Illustration zu »Die Rückkehr« INr 87577, Obj 22; s.a. Textbezug INr 87569, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87560,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "- ja wenn sie uns wieder lieben wird, dann ! dann!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Frosch sc.",
+  "scans": [
+    "alm_3053_87560_ammjr384bv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "- ja wenn sie uns wieder lieben wird, dann ! dann!",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.350Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "bizit8jyxeghfmj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.350Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "jtl602dj42oz3kr"
+    }
+  ]
+}

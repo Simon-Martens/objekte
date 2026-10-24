@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer s. Textbezug INr 51622, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Emmenthaler Küher",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_702_51621_v3nwpkf7eq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Emmenthaler Küher",
+  "updated": "2007-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.536Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "ma7ivxjm7tbp6sv"
+    }
+  ]
+}

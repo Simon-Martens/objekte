@@ -1,0 +1,126 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S 1 T, SS 3-4 I-Verz, G, SS 6-16 Kal darin 11 GG, SS 17-29 G-Verz, SS 30-80 darin 2 GG, 8 BB Tab, ar1: SS 1-95, 9 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender für Pferdeliebhaber 1798",
+    "norm": "~",
+    "biblio": 405725,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3126,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenkalender für Pferdeliebhaber 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 158; nicht bei L/R",
+  "responsibility_statement": "F. M. F. Freiherr Bouwinghausen von Wallmerode",
+  "subtitle_statement": "",
+  "title_statement": "Taschenkalender / auf / das Jahr 1798, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vorge- / sezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn,  Land- Ober- / Stallmeister, Obrist und General- Adjutant der Kaval- / lerie, auch der Landwirthschaftsgesellschaften zu / Zelle und zu Burghausen Mitglied. / Tübingen / in der J. G. Cottaischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.254Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "ucuykuib9sg9rf3"
+  ],
+  "contents": [
+    "agvuy8gyxgotzi0",
+    "fgsvokae5frppiq",
+    "xiq363gw4wswqpy",
+    "vuhgxmaqsu0n6rk",
+    "n9jeeiwudxa0ij8",
+    "1nv0529mrs9l1un",
+    "04u82n1c2siiqms",
+    "jv3e46plkoj6hdy",
+    "3rhyjpre8g2ki64",
+    "9ccjc6hkexuepke",
+    "omg3q7d2a5q3d3l",
+    "n0uxgpatyhytwn4",
+    "yi51q0jlxoi8z69",
+    "42sarxiwdhbycs9",
+    "yau0k67wzkzg06t",
+    "nzff4d11of5dsdv",
+    "26gj432cc7w0i7q",
+    "0d5tt6yucgtd956",
+    "u0k5ky8u14e6d3e",
+    "i5u9m4ekz0pbiof",
+    "boozlavhjoyfi6y",
+    "a2s9itblwzt85qg",
+    "n67vw5lv3c0asl8",
+    "pmyb8zq7fnuyhj5",
+    "z4nc9ncpiunbcd0",
+    "jr6czse874rvfa3",
+    "xnfnba3s6p1xulr",
+    "8tytqm7074ftcn9",
+    "hifxn6hhbwfiou3",
+    "mbh92qciuktnibz",
+    "iii2k3w1289hen2",
+    "0q290ecvjyex0ne",
+    "aqdi47i4eotx1eo",
+    "en35lvvwop8dc92",
+    "3d60rhn1iwl3bje",
+    "9idszy0rjiajxqa",
+    "f9i4m8jl0j6exy5",
+    "lam2rru0ozeb1iz",
+    "5llvtyzlght4d8j",
+    "kwj0ljywod8iqfi",
+    "uk7r2966jzko0os",
+    "6gn01ew73tke0o3",
+    "392vcywkf97yj6e",
+    "0spfsmzgmkhgdp4",
+    "amdq0xdzy41a3ql",
+    "pctsor3ib9i0osw",
+    "om3ltneewkvhzmn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.184Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.184Z",
+      "agent": "azadxb055n0u58d",
+      "source_id": "jfrbsy5ruhwxweq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.695Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.695Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "n0p6y75znixj63q"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Teutsche Uebersetzung des Englischen (Sammlung INr 131897, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Sparta, Sparta, wie? du liegst / Todt, ohn' aufzustehen? / Wach auf, daß deine Schaar du fügst / Der alten Bündnerin Athen.",
+  "language": [],
+  "musenalm_id": 131900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Byron [übers.] Wilhelm Reinhold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2013-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.043Z",
+      "agent": "z2vp1av7e4ucapr",
+      "source_id": "am4v6ruplxd3b8b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.043Z",
+      "agent": "m46r0k8xyml7u8e",
+      "source_id": "g7e35ojxm2unxtv"
+    }
+  ]
+}

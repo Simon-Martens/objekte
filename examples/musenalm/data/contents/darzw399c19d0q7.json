@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) Graphik im Kalendarium Februar /) Illustration zu »Undine« von Fouqué s. Textbezug INr 68998, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68980,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es stieg gleich einer weissen / Wassersäule herauf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. W. M. H.",
+  "scans": [
+    "alm_851_68980_elvldi62at.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es stieg gleich einer weissen / Wassersäule herauf",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.964Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "0ox3kpbqdtra0zh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.964Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "411m5dwj5wnflfe"
+    }
+  ]
+}

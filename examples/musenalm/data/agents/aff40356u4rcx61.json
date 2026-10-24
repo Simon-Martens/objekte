@@ -1,0 +1,489 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1833",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.484Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1048495779",
+          "label": "Universität Halle (Saale)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Prof. der Medizin u. Botanik in Halle (Saale)"
+      ],
+      "dateOfBirth": [
+        "1766-08-03"
+      ],
+      "dateOfDeath": [
+        "1833-03-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rijksmuseum"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10934/RM0001.COLLECT.187067"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Christiaan%20Konrad%20Sprengel%2C%20RP-P-1909-620.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Christiaan%20Konrad%20Sprengel%2C%20RP-P-1909-620.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portret%20van%20Christiaan%20Konrad%20Sprengel%2C%20RP-P-1909-620.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T11:09:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118752243/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1161550666",
+          "label": "Keferstein, Sophie Caroline Henriette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117486639",
+          "label": "Sprengel, Anton"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11748671X",
+          "label": "Sprengel, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130468134",
+          "label": "Sprengel, Joachim Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118752243",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#18p",
+          "label": "Personen zu Natur, Naturwissenschaften allgemein"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11748671X",
+          "label": "Sprengel, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117486639",
+          "label": "Sprengel, Anton"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/130468134",
+          "label": "Sprengel, Joachim Friedrich"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1161550666",
+          "label": "Keferstein, Sophie Caroline Henriette"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118752243",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118752243",
+        "(DE-588c)4105505-6"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1119263492",
+          "label": "Boldekow"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Sprengel, Kurt",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Kurt"
+        ],
+        "surname": [
+          "Sprengel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Neue Entdeckungen im ganzen Umfang der Pflanzenkunde",
+        "Kurze Anleitung zur Kenntniß der Gewächse",
+        "Geschichte der Botanik",
+        "Dissertatio Inauguralis Medica De variis capitis dolorum speciebus",
+        "Apologie des Hippocrates und seiner Grundsätze",
+        "Übers. von: Carter, George: Die Schicksale der Mannschaft des Grosvenor, nach ihrem Schiffbruche an der Küste der Kaffern im Jahre 1782",
+        "Handbuch der Pathologie",
+        "Beyträge zur Geschichte des Pulses",
+        "Von dem Bau und der Natur der Gewächse",
+        "Beyträge zur Geschichte der Medicin"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13320443w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84026166"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/79143227"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q62829"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118752243/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Kurt_Polycarp_Joachim_Sprengel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Kurt_Sprengel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Kurt_Polycarp_Joachim_Sprengel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108233982"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118752243"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118752243"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118752243.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118752243"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118752243"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sprengelius, Curtius Polycarpus Joachimus",
+        "Sprengel, Kurt P.",
+        "Sprengel, Kurt Polykarp Joachim",
+        "Sprengel, Curt Polycarp Joachim",
+        "Sprengel, C.",
+        "Sprengel, Curt",
+        "Sprengelius, Curtius",
+        "Sprengel, Curtius",
+        "Sprengel, Curzio",
+        "Sprengel, Curtius Polycarpus Joachimus",
+        "Sprengel, Kurt Polycarp Joachim",
+        "Sprengelio, Curtio",
+        "Sprengel, K."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Curtio"
+          ],
+          "surname": [
+            "Sprengelio"
+          ]
+        },
+        {
+          "forename": [
+            "Kurt Polykarp Joachim"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curt Polycarp Joachim"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curzio"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curt"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curtius Polycarpus Joachimus"
+          ],
+          "surname": [
+            "Sprengelius"
+          ]
+        },
+        {
+          "forename": [
+            "Kurt P."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Kurt Polycarp Joachim"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curtius"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "K."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curtius Polycarpus Joachimus"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Curtius"
+          ],
+          "surname": [
+            "Sprengelius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Kurt_Sprengel",
+          "label": "https://de.wikipedia.org/wiki/Kurt_Sprengel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:01:33Z",
+    "gnd_query_biographical_data": "1766-1833",
+    "gnd_query_name": "sprengel, kurt"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2720,
+  "name": "Sprengel, Kurt",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXV, 296",
+  "updated": "2026-06-11 13:29:25.123Z",
+  "uri": "https://d-nb.info/gnd/118752243",
+  "editor": ""
+}

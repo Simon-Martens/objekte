@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58902,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fürstlich Schönburgscher Landsitz zu Gusow in der Mark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach d. Natur gez. v. Blechen gest. von J. G. Martini Rudolstadt 1830",
+  "scans": [
+    "alm_866_58902_cqiij9jsoo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fürstlich Schönburgscher Landsitz zu Gusow in der Mark",
+  "updated": "2008-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.753Z",
+      "agent": "bix4netz2kpq0qd",
+      "source_id": "1eth3ie874g35yq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.753Z",
+      "agent": "iyauzg61pbtokgc",
+      "source_id": "b37s3enew9gkxhe"
+    }
+  ]
+}

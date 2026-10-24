@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Nummeriert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Schwabens Schicksale im spanischen Erbfolgekriege. Eine historische Skizze« INr 82004, Obj 33 /) s.a. Textbezug INr 82002, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88898,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiedereinzug der Kayserlichen zu Augsburg / den 18 August 1704",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. Weber inv. J. P. Laminit sc.",
+  "scans": [
+    "alm_2010_88898_ffr8b10dt9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wiedereinzug der Kayserlichen zu Augsburg / den 18 August 1704",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.148Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "28ymetb3opwk5v8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.148Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "5ol3uwzuussh08y"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 128; Alm-177, INr 38419",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Wo, was sie selten thut, die feine Lebensart / Den Zwang zu lügen uns erspart,",
+  "language": [],
+  "musenalm_id": 8027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Damen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Damen",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.278Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "lmq0605v534z3mv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Wenn im goldnen Abendscheine / Heimscher Burgen Zinnen stehn,",
+  "language": [],
+  "musenalm_id": 26701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wehklage in der Unterdrückung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. v. Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wehklage in der Unterdrückung",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.311Z",
+      "agent": "j5e1jto7rj2ibw3",
+      "source_id": "s22qnlv54rqr2r9"
+    }
+  ]
+}

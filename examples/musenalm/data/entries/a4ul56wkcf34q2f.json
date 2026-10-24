@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Dames 1836",
+    "norm": "",
+    "biblio": 409395,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4410,
+  "parallel_title": "",
+  "place_statement": "Paris (Treuttel u. Würtz), Tübingen (Cotta)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Almanach des Dames 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 7; nicht bei L/R; G-C 360,1377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / des Dames, / pour l'An 1836. / A PARIS, Chez Treuttel & Würtz, Libraires, / Rue de Bourbon , No 17. / A TUBINGUE, Chez J. G. Cotta, Libraire",
+  "updated": "2026-06-11 10:18:55.126Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "n81rkh5nolcrske"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.166Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.166Z",
+      "agent": "16leuy5yi4jkh5m",
+      "source_id": "1gmnpk8a2dat1lu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.670Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.670Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "jyj2nrb38drojhv"
+    }
+  ]
+}

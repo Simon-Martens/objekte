@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Beiträgen INr 24441-24446, Obj 19-24 /) 5. Variationen auf den Refrain des Hexengesanges im Macbeth (Sammlung INr 24432, Obj 10) /) Gedichte (Sammlung INr 24427, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stimmen aus der Luft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stimmen aus der Luft",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.062Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "zv1d50jjd4fe3u0"
+    }
+  ]
+}

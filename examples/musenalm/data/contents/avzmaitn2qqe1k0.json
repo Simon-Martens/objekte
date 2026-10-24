@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "In dem Hafen einer deutschen Handelsstadt lag, unter mehrern andern Fahrzeugen, ein holländisches Schiff vor Anker, das sich bereits zur Abfahrt anschickte.",
+  "language": [],
+  "musenalm_id": 40315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Das Wahrzeichen. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Baronin de la Motte Fouqué, geb. von Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Das Wahrzeichen. / Eine Erzählung",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.144Z",
+      "agent": "t59v9lajt8yljq5",
+      "source_id": "8mn4lnxzwkryymv"
+    }
+  ]
+}

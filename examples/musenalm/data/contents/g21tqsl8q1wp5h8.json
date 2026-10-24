@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte an Schauspieler (Sammlung INr 104802, Obj 20) Gedichte (Sammlung INr 104795, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Die Nachtigall sang einst empfindungsvolle Lieder, / Und alle Vögel schwiegen still;",
+  "language": [],
+  "musenalm_id": 104813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Madam Brandes, / im August 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wagenseil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Madam Brandes, / im August 1779",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.099Z",
+      "agent": "hjzso88gvqk6ag5",
+      "source_id": "nj08adhfyrx8dyb"
+    }
+  ]
+}

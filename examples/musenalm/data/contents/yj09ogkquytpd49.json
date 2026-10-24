@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Don Carlos« von Fr. Schiller /) s. Textbezug im Kalendarium INr 90120, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90121,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kardinal! ich habe das Meinige gethan. / Thun Sie das Ihrige",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc.",
+  "scans": [
+    "alm_1703_90121_r772dz0l1w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kardinal! ich habe das Meinige gethan. / Thun Sie das Ihrige",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.195Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "bc3legn99uiznq4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.195Z",
+      "agent": "nroqcxxwwrnp5ol",
+      "source_id": "yddijp0depc4b9s"
+    }
+  ]
+}

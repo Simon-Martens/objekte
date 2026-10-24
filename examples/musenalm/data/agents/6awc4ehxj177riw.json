@@ -1,0 +1,360 @@
+{
+  "annotation": "",
+  "biographical_data": "1655-1726",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.472Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1650"
+      ],
+      "dateOfDeath": [
+        "1726"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anthoni Schoonjans"
+          ],
+          "creditText": [
+            "http://www.artnet.com/Artists/LotDetailPage.aspx?lot_id=F808E7A1AE6FA1D5"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/AnthoniSchoonjans.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/AnthoniSchoonjans.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:AnthoniSchoonjans.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1027091180"
+      ],
+      "describedBy": {
+        "dateModified": "2023-08-11T06:08:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/138194742/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "138194742",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/138194742",
+      "oldAuthorityNumber": [
+        "(DE-588)1027091180",
+        "(DE-588a)138194742"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4011446-6",
+          "label": "Den Haag"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002364-3",
+          "label": "Antwerpen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Schoonjans, Antonius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Antonius"
+        ],
+        "surname": [
+          "Schoonjans"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/88247135"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q572587"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1027091180"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/138194742/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Anthoni_Schoonjans"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000060237561"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd138194742.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/138194742"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/138194742"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Sevonyans",
+        "Schoonjans, Antoine",
+        "Schoonjans, Anton",
+        "Schoonjans, Anthoni",
+        "Le Bel, Giovambatista",
+        "Parhasius",
+        "Schoonjans, Anthonie",
+        "Squoniam, Antoine",
+        "Parrhasius",
+        "Schoonans, Antoine",
+        "Schoonjans, Antoon",
+        "Le Bel, Jean Baptist"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anthoni"
+          ],
+          "surname": [
+            "Schoonjans"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonie"
+          ],
+          "surname": [
+            "Schoonjans"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "Schoonans"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Schoonjans"
+          ]
+        },
+        {
+          "personalName": [
+            "Parhasius"
+          ]
+        },
+        {
+          "personalName": [
+            "Parrhasius"
+          ]
+        },
+        {
+          "forename": [
+            "Giovambatista"
+          ],
+          "surname": [
+            "Le Bel"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "surname": [
+            "Schoonjans"
+          ]
+        },
+        {
+          "personalName": [
+            "Sevonyans"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "Squoniam"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "Schoonjans"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Baptist"
+          ],
+          "surname": [
+            "Le Bel"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:51:57Z",
+    "gnd_query_biographical_data": "1655-1726",
+    "gnd_query_name": "schoonjans, anthoni"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2526,
+  "name": "Schoonjans, Anthoni",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 256",
+  "updated": "2026-06-11 13:29:24.782Z",
+  "uri": "https://d-nb.info/gnd/138194742",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Ich will des Lebens froh genießen, / Und jeder Wollust mich erfreun.",
+  "language": [],
+  "musenalm_id": 17586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genuß des Lebens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Genuß des Lebens",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.761Z",
+      "agent": "vn2a6zjk0dwki92",
+      "source_id": "1tiu4orqkrkt7w1"
+    }
+  ]
+}

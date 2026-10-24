@@ -1,0 +1,119 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T,  ar1: SS 1-2 Vrwrt d Hrsg, SS 3-8 I-Verz, ar2: SS 1-144 darin 6 MusBB, ar3: SS 1-72 darin Musb 6 gTA",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch der Freude 1797",
+    "norm": "",
+    "biblio": 112652,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1940,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Lincke)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Jahrbuch der Freude 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 65; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch der Freude / für 1797 / Leipzig / bey Salomon Lincke",
+  "updated": "2026-08-25 10:12:36.414Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "3y6vya5ors4b9dv"
+  ],
+  "contents": [
+    "sm6a5006yayqvy2",
+    "pyh7jtc7p0e5sbj",
+    "2myalh3l8uaphmb",
+    "lr5oubxoxab13s4",
+    "zordc32kf6hzcs1",
+    "mvs8yhcehenrel0",
+    "q3h454qygnm099w",
+    "0atln4dv91mbhs6",
+    "8wt0dbclfccoxc6",
+    "bhxxi9tb3ez2n7z",
+    "xvzcrrw4fpw48y6",
+    "1famp6snorrr1dj",
+    "vy53u3ocp245kvj",
+    "vqnazxghlbxrkat",
+    "mi7rx8l9oti4e5g",
+    "w3absvllfg67ohw",
+    "65505ldga9l10n5",
+    "4wy4l1mgfx1wdc3",
+    "bzlg1lfb4e0zlmy",
+    "z0x9pekn9iuo2as",
+    "takccghs4cba3fq",
+    "gou5o8jevi5qdok",
+    "y1ovmhzqrynnn0b",
+    "59ewmg3gcfuho1d",
+    "ivbpdkuhfhrzgxd",
+    "oa15yd3xaz8msdg",
+    "6y3bhqkvg4ns21f",
+    "835sz1wqcx6bj3x",
+    "fk3s5v9zar3n43u",
+    "dn257gqxc5xjhrz",
+    "4nk8ihue4zvigk6",
+    "salsxj34f9mjatr",
+    "2a3a09c9e6s3wqk",
+    "xkz25lv4yk8qyyi",
+    "7hn9t8tnyhgkk6w",
+    "vd2ose5f5ani9hu",
+    "6af4jbjkn89t145",
+    "90k2rudk3qhv3an",
+    "kjogkslu30ewub5",
+    "vv0hu3llmtdbdjc",
+    "qucavptdmbi527n",
+    "sr41b6hbt3ospbw",
+    "g7ezgqw9d58idcz",
+    "2aivcq3rqsfgb7e",
+    "qmoi1jdwnj25iyi",
+    "fw3tw0sd1vzhesk",
+    "qxp3oiploftl4ex",
+    "msdmce0ft3tp2m3",
+    "6aoiu651o3me3z1",
+    "cfgb93mtjmc1tdt",
+    "b3fxnf5epethtdv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.098Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-08-25 10:12:36.416Z",
+      "agent": "esgn7cc2z8hbf46",
+      "source_id": "fi4jdcaj48b9tno"
+    }
+  ]
+}

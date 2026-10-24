@@ -1,0 +1,89 @@
+{
+  "annotation": "ar2: S. 66: Gedruckt bei Trowitzsch und Sohn in Berlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 12 BB Kal darin 12 GG, ar: SS 1-174, SS 175-182 G-Verz, ar1: SS 1-104, 2 BB, ar2: SS 1-66",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1824",
+    "norm": "~",
+    "biblio": 404150,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 859,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Schalt-Jahr 1824. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender Deputation",
+  "updated": "2026-06-11 10:18:55.880Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "um7e3ik2uh8m3of"
+  ],
+  "contents": [
+    "uf58uotuqpwmsho",
+    "v4g2042s93544fx",
+    "ucc5xxc0211utzu",
+    "kv6w5rzbrkckrg8",
+    "xvhoe3sipktzmt3",
+    "s4tlbgjicxnher3",
+    "njgjl3znz9dzg1f",
+    "e5cnpsosavpt5pl",
+    "vziiq2dw9sxycug",
+    "gcbhze9uznk5nlb",
+    "fg5a63rbt0saf4u",
+    "51zcxxaibz5fzg6",
+    "nboyaup5xorssai",
+    "641ur4fmhr1q7rk",
+    "8sxdhbkg1ei9ubm",
+    "0lou35zsahu46vj",
+    "j2icbsmzc0pi2is",
+    "6xi03tiv2wwbes1",
+    "k5g4346upv1cftn",
+    "2xw49pxnto1qlus",
+    "wnm5wcuj4tslghq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "pl5viwwanjyonat"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "annotation": "Jgg 1832, 1833; München (Hübschmann); Hrsg: Fr. W. Bruckbräu /) Die Prosabeiträge sind unbezeichnet, als Autor ist der Herausgeber F. W. Bruckbräu anzunehmen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, nT, S, 2 SS I-Verz, SS 1-286, BB, nT, 6 BB Kal, 4 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Eichenkronen 1832",
+    "norm": "~",
+    "biblio": 200547,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-04-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 763,
+  "parallel_title": "",
+  "place_statement": "München (Hübschmann)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Eichenkronen 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 43; nicht bei L/R; Goed X. 318, 26",
+  "responsibility_statement": "Friedrich Wilhelm Bruckbraeu",
+  "subtitle_statement": "",
+  "title_statement": "EICHENKRONEN / EIN ALMANACH AUS BAYERN / herausgegeben / von / Friedrich Wilhelm Bruckbraeu / Erster Jahrgang. / MÜNCHEN, / 1832. / Druck u. Verlag v. Fr. S. Hübschmann",
+  "updated": "2026-06-11 10:18:55.613Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "xulh1h2qrzp9jng"
+  ],
+  "contents": [
+    "af4qwyerdub95xr",
+    "ah8gwktpiyx31i2",
+    "fsh3psuzy6xzxau",
+    "9993mgdwwi901y2",
+    "6nrtweau27o3ecc",
+    "s16pu3dhl0t8ofu",
+    "3hf7s979x37sk73",
+    "aj1xe6vfnjd2nhv",
+    "ti7ftfj0wcz6fwb",
+    "9x1dxswgl3a0t48",
+    "p0nx0adje422nv6",
+    "m5btz92zsowcxm1",
+    "08tna2zop5ea04a",
+    "4rmqz8oght1znj0",
+    "49srvdw62w21qys",
+    "29swv3ras8dssv6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.045Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.045Z",
+      "agent": "doirmqr9ue3j0mn",
+      "source_id": "5xkicq4mcm316oc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.771Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.771Z",
+      "agent": "exegl4z6k8jnby0",
+      "source_id": "978hsvz375tkx25"
+    }
+  ]
+}

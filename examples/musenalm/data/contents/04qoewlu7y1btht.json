@@ -1,0 +1,58 @@
+{
+  "annotation": "»Frankreich« paginiert A. s. Textbezug INr 6957, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hogarth inv. Riepenhausen del. & sculps)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hogarth inv. Riepenhausen del. & sculps",
+  "scans": [
+    "alm_140_6958_mx6q3ojra1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.043Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "cu8nj5fc63gtj5n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.043Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "g6yua3nm8ymxdgz"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Reise nach der Löwenburg« von Langbein INr 19638, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61764,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise nach der Löwenburg, v. Langbein 1s. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_265_61764_wb5oyzpviw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise nach der Löwenburg, v. Langbein 1s. Bl.",
+  "updated": "2001-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.013Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "g06fcap4t06yjh6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.013Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "v2xnyqz9kifcuhj"
+    }
+  ]
+}

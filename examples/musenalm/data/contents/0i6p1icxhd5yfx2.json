@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Freund meiner Jugend, den der Spruch / Des Schicksals, das immer dir lachte",
+  "language": [],
+  "musenalm_id": 32761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apoll an Minerva. / An Herrn Staatsrath von Nicolai / in Petersburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Apoll an Minerva. / An Herrn Staatsrath von Nicolai / in Petersburg",
+  "updated": "2003-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.669Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "2vcxf2g0o2aqjdg"
+    }
+  ]
+}

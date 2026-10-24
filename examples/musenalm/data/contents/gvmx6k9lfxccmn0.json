@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz. gest. Titel mit kleiner Graphik: (Amor)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22378,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1822. / Mit Königl. Säch. allergnädigstem Privilegio. / LEIPZIG, / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schwerdgeburth",
+  "scans": [
+    "alm_300_22378_5vxwn950hk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1822. / Mit Königl. Säch. allergnädigstem Privilegio. / LEIPZIG, / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.978Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "d8tk7z6qdkxhev6"
+    }
+  ]
+}

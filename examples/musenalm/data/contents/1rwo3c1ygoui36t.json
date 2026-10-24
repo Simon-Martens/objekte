@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 81290, Obj 6 /) Illustration zu »Gabriele« von Ferdinand Siegmund INr 81323, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81289,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gabriele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1809_81289_ap37wlruwx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gabriele",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.017Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "b7z2sdusvd9xqs2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.017Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "dozcjtzhkjw152m"
+    }
+  ]
+}

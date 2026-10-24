@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Des Lebens Stunden fliehen, / Ein leichtgeschwigtes Heer, / Wie Sandgewölke ziehen,",
+  "language": [],
+  "musenalm_id": 40501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jetzt und damal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jetzt und damal",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.947Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "56qea8dhe46eqhq"
+    }
+  ]
+}

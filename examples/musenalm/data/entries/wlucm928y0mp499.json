@@ -1,0 +1,120 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, B I-Verz, SS I-XVI G-Verz darin 6 GG, SS 1-304",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Damen 1820",
+    "norm": "~",
+    "biblio": 100633,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-05-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 475,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch für Damen 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 112; L/R 64; Goed VIII. 49, 11",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Damen / auf das Jahr 1820. / Tübingen bey Cotta",
+  "updated": "2026-06-11 10:18:55.815Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "luujdqswdii853t"
+  ],
+  "contents": [
+    "sao8bbvpyjxnv84",
+    "fqfexbdutxkot6n",
+    "l8f9icg2t0p2ai7",
+    "gnko5dnjk82hls1",
+    "ciwgy4obwf3h84y",
+    "rb7qooz7g8gv8y0",
+    "d2oyb86wdtxx4l4",
+    "v64o8i6hrwjbhoy",
+    "o0v8bo1dyh0sx6n",
+    "5kqyw80isej0ibg",
+    "o02myfg61wthroz",
+    "jsrk4v7ti69485z",
+    "e2fgxkxt3gsk0mk",
+    "l5u5npu0pxxwdjd",
+    "8enewuqtipzylc9",
+    "zumdj6ou57mryo9",
+    "e01j2jgjachflfu",
+    "fkn0f18w9m91amr",
+    "n0r4wrz80ywei0l",
+    "czjkjo3rw9c37u8",
+    "qa8htif19i6h782",
+    "ck3wgpmfogzgzb4",
+    "bj014xalrm81rdu",
+    "83gbm3at8fcapyk",
+    "46xd6aarn8tcxfq",
+    "yfzz8o2xncvwboh",
+    "p1g441oe5me8h5j",
+    "6ipb6ykqm4nv4p1",
+    "febtp1rpqi6iwr1",
+    "15uwyrw02b7y2j8",
+    "cqzyux12sk82l3o",
+    "4bjn24qx5m4rjv6",
+    "a5wf6gruvmazpsw",
+    "nzzqmds1yinbxq3",
+    "66ls8wcn08cbonn",
+    "mrpvx452a7ylake",
+    "8av2f3rqxk697n3",
+    "48ouqegq82262nh",
+    "vbm31o03tnbu604",
+    "5826ewwqxxf3lbj",
+    "ua06aj1bzj5ws7i",
+    "79c79e4bgqunktg",
+    "scsgkl5towdzopt",
+    "67uq1bydpd4wdqz",
+    "5q3vbalovtvjwli",
+    "dn597vxyehmh067",
+    "ux1c2575jhq7c73",
+    "azr5yhj3grd1uze",
+    "6waqascqk38278m",
+    "vt8mcaaxywjzlm2",
+    "p3v3dnk7h416cdo",
+    "8p0t67hafd1ym9r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.690Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.690Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "5bwa59bpitim1qb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte. 81. Gesundheiten (INr 11317, Obj 126)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Gesundheit , Herr Geheimerath! / Dem Kaiser und dem König!",
+  "language": [],
+  "musenalm_id": 11235,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Trinkspruch"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Geheimen Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Geheimen Rath",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.461Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "orowkejre5cdw5n"
+    }
+  ]
+}

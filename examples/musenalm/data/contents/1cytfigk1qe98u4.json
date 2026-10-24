@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237) mit einer Musikbeigabe s. INr 99419, Obj 325 /) ein weiterer Druck der Schumannschen Vertonung in: Musenalmanach, Deutscher (Schad) 1857, alm-2304; INr 100330",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Traumverschönte Sommerruh, / O wie reich, wie gut bist du!",
+  "language": [],
+  "musenalm_id": 99393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 299,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sommerruh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sommerruh",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.974Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "rq2khj93hq6wwe9"
+    }
+  ]
+}

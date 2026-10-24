@@ -1,0 +1,45 @@
+{
+  "annotation": "# Einleitung zur folgenden Übersetzung INr 16517, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Dieser Sänger einer höheren Liebe ist unter uns in den letzteren Zeiten, durch Uebersetzungen und Nachahmungen dermaßen entstellt worden,",
+  "language": [],
+  "musenalm_id": 16517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Petrarch #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Petrarch #",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.822Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "15x2qiwitm6pu4i"
+    }
+  ]
+}

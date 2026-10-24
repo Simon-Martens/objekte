@@ -1,0 +1,45 @@
+{
+  "annotation": "§ 6-9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drittes Kapitel. / Von durchbrochener Strickerei zu Schleiern, Damen-Aermeln und dergleichen, wie auch vom / Franzen-Stricken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drittes Kapitel. / Von durchbrochener Strickerei zu Schleiern, Damen-Aermeln und dergleichen, wie auch vom / Franzen-Stricken",
+  "updated": "2007-04-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.565Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "2s7iwz1j0whyf1h"
+    }
+  ]
+}

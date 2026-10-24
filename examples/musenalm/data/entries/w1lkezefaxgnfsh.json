@@ -1,0 +1,104 @@
+{
+  "annotation": "Jgg 1816-1818, 1820-1822; Jg 1817: Leipzig (Gleditsch) Wien (Gerold), 1818, 1821, 1822: Leipzig (Gleditsch); Hrsg. Jgg 1821, 1822: Franz Gustav Theodor Stenzel /) im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, 5 GG, SS I-CLXVI, nT, G, SS 1-262, I-Verz, G-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kronos 1816",
+    "norm": "~",
+    "biblio": 106605,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2210,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch); Wien (Gerold)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Kronos 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 74; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kronos / genealogisch-historisches / Taschenbuch / auf das Jahr / 1816. / Mit Beiträgen / von / R. von Bosse, H. W. Brandes, J. G. A. Galletti, / J. C. F. Gutsmuths, F. Ch. A. Hasse, A. Klingemann / und J. H. M. Poppe. / Mit Kupfern. / Leipzig / bey Joh. Friedr. Gleditsch / Wien / bey Carl Gerold in Comm.",
+  "updated": "2026-06-11 10:18:55.910Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "sa9dkatjw4aeqbd"
+  ],
+  "contents": [
+    "3ks8vm2993d2vci",
+    "nkvpkfhspkuck6t",
+    "b46i7t9e2wj70qy",
+    "7alj9u3y5fel3b8",
+    "utx2qqwk45fakip",
+    "4fb58hpu9tdlfzy",
+    "wii40y34w92uaji",
+    "bgs6hdu1p6slbir",
+    "cjg9maquyjh77h5",
+    "g1kjx4tc6c463ru",
+    "7ibwtzi7v90jlgc",
+    "7urbogk7ja29wnc",
+    "xpjvovq06mzrbba",
+    "cn9lfvseaj93yle",
+    "5rfasggzghsrc3j",
+    "638ez2y6akt14um",
+    "mhodr2fa04l35gx",
+    "bdxim8qvnt3d12c",
+    "p9wdraymgas1vnh",
+    "5hhb3f4no8xdnax",
+    "4zt4eukzgmvikxj",
+    "ukhss7ic278lolb",
+    "bwgn5pfpr21sais",
+    "m8ji4vfmkv38elw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.892Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.892Z",
+      "agent": "nurakxtx6easbnq",
+      "source_id": "15l3zzhdszyuthb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.904Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.904Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "5w9kt79qht5qr93"
+    }
+  ]
+}

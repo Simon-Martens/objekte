@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63474, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Nicht weit von dem Würtembergischen Bottwar, an einem freundlichen Wiesenthale, erhebt sich ein Bergkegel, der Wunnenstein genannt.",
+  "language": [],
+  "musenalm_id": 63509,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Die Glocke auf Wunnenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Die Glocke auf Wunnenstein",
+  "updated": "2009-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.047Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "dg6wfjkv23apvgp"
+    }
+  ]
+}

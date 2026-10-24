@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) 2. Illustration zu »Der Ring des Polykrates« von Fr. Schiller INr 77077, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77079,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ring des Polykrates von Schiller 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. Frosch sc. 1823",
+  "scans": [
+    "alm_2397_77079_l05zigl8qm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Ring des Polykrates von Schiller 2.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.535Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "7mf1m1lsdllfow9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.535Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "dwmca5iktwm5y6k"
+    }
+  ]
+}

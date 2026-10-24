@@ -1,0 +1,489 @@
+{
+  "annotation": "",
+  "biographical_data": "1723-1788",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.294Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/4214552-1",
+          "label": "Universität Kiel. Theologische Fakultät"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2024175-6",
+          "label": "Christian-Albrechts-Universität zu Kiel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/36485-X",
+          "label": "Københavns Universitet"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Seine Predigten wurden in mehr als 20 Bänden veröffentlicht"
+      ],
+      "dateOfBirth": [
+        "1723-01-27"
+      ],
+      "dateOfDeath": [
+        "1788-06-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johan Martin Preisler"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10062/2694 Tartu University Library"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/CramerJAur410.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/CramerJAur410.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:CramerJAur410.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:54:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118973258/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100178405",
+          "label": "Cramer, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100094740",
+          "label": "Cramer, Andreas Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123963591",
+          "label": "Cramer, Kaspar Anton"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        }
+      ],
+      "gndIdentifier": "118973258",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/100178405",
+          "label": "Cramer, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100094740",
+          "label": "Cramer, Andreas Wilhelm"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/123963591",
+          "label": "Cramer, Kaspar Anton"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118973258",
+      "oldAuthorityNumber": [
+        "(DE-588c)4258528-4",
+        "(DE-588a)138643377",
+        "(DE-588a)118973258"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1136043721",
+          "label": "Kröllwitz (Saalekreis)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048035-5",
+          "label": "Quedlinburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4030481-4",
+          "label": "Kiel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4096530-2",
+          "label": "Jöhstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4030481-4",
+          "label": "Kiel"
+        }
+      ],
+      "preferredName": "Cramer, Johann Andreas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Andreas"
+        ],
+        "surname": [
+          "Cramer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4210801-9",
+          "label": "Hofprediger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4215617-8",
+          "label": "Kirchenlieddichter"
+        }
+      ],
+      "publication": [
+        "Kommentierte Übersetzung: Bossuet, Jacques Bénigne: Einleitung in die Geschichte der Welt und der Religion",
+        "Der Brief Pauli an die Römer",
+        "Sämtliche Gedichte. - 1783 - 1784",
+        "Erklärung des Briefes Pauli an die Hebraeer",
+        "Anleitung zur Beförderung ... theologischer Kenntnisse",
+        "Luther und Melanchthon",
+        "Sämtliche Gedichte",
+        "Christian Fürchtegott Gellerts Leben"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb107402509"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no98115647"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/811908"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q70342"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118973258/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Andreas_Cramer_%28Theologe%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011034960X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118973258"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1734_schmidt;206"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1746_brakenburg;60"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118973258.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118973258.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118973258"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118973258"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Kramer, Johann A.",
+        "Cramer, Iohann Andreas",
+        "Cramerus, Johannes A.",
+        "Cramer, Andreas",
+        "Cramer, Johann",
+        "Cramer",
+        "Cramerus, Johannes Andreas",
+        "Kramer, Johann Andreas",
+        "Cramer, Joh. Andreas",
+        "Cramer, John A.",
+        "Cramer, Johann A.",
+        "Cramer, John Andrew"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes Andreas"
+          ],
+          "surname": [
+            "Cramerus"
+          ]
+        },
+        {
+          "personalName": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Andreas"
+          ],
+          "surname": [
+            "Kramer"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Andreas"
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann Andreas"
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Kramer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes A."
+          ],
+          "surname": [
+            "Cramerus"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "John Andrew"
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        },
+        {
+          "forename": [
+            "John A."
+          ],
+          "surname": [
+            "Cramer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Andreas_Cramer_%28Theologe%29",
+          "label": "https://de.wikipedia.org/wiki/Johann_Andreas_Cramer_%28Theologe%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:09:36Z",
+    "gnd_query_biographical_data": "1723-1788",
+    "gnd_query_name": "cramer, johann andreas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 462,
+  "name": "Cramer, Johann Andreas",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 68",
+  "updated": "2026-06-11 13:29:21.939Z",
+  "uri": "https://d-nb.info/gnd/118973258",
+  "editor": ""
+}

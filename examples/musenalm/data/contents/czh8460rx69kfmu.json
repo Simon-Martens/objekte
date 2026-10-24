@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Die Göttin, der wir beide dienen, / Durch Thaten du, durch Lieder ich,",
+  "language": [],
+  "musenalm_id": 3955,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lycidas",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lycidas",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.680Z",
+      "agent": "29znr1cu0wo4ctf",
+      "source_id": "l1gvk8qvt6blf3e"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 23175, Obj 14) # Bezeichnung aus dem I-Verz. Mit einer Illustration s. Graphik in: Taschenbuch zum geselligen Vergnügen 1797 INr 10650",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "So weise und wohlthätig auch der Wechsel der Jahreszeiten von der guten Schöpfung geordnet ist,",
+  "language": [],
+  "musenalm_id": 10489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Kirmse zu Wallendorf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "vom Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Kirmse zu Wallendorf",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.273Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "hx3b2pev1f2ttk7"
+    }
+  ]
+}

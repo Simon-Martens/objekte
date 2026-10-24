@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Einst ging der Menschen Trübsal mir zu Herzen, / Als ich mich außerordentlich wohl befand.",
+  "language": [],
+  "musenalm_id": 15323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.660Z",
+      "agent": "gm8e9zpz8ta1e13",
+      "source_id": "c7vgo83k5hd5ifh"
+    }
+  ]
+}

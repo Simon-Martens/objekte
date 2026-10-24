@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 82189, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iglou, meine gute Iglou! / Flaming Th. IV. S. 116",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Henne fec.",
+  "scans": [
+    "alm_3855_82190_x4eu9t9wff.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Iglou, meine gute Iglou! / Flaming Th. IV. S. 116",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.840Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "lm18ra2czpzaau1"
+    }
+  ]
+}

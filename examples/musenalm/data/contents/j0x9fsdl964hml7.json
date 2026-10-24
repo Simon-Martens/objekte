@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) auszufaltende Illustration zu »Die Schnecken« von J. L. Stoll INr 107513, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Grüner in. et sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "V. Grüner in. et sc.",
+  "scans": [
+    "alm_4226_107514_ups7krewwh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2015-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.922Z",
+      "agent": "mwvtf64bmzwstck",
+      "source_id": "0nnufsss9rtzaqj"
+    }
+  ]
+}

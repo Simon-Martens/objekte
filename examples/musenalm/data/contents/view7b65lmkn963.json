@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Treuenfels« von K. Geib INr 63246, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63254,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz del. Fleischmann sc.",
+  "scans": [
+    "alm_1036_63254_gpf1yhmi38.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.295Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "cyv5igj7gpi43jy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.295Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "i71js4l8gh9nc5y"
+    }
+  ]
+}

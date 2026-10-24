@@ -1,0 +1,413 @@
+{
+  "annotation": "",
+  "biographical_data": "1813-1865",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.417Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Anm. zu Feld 500: Puttkammer publizierte unter dem Pseud. \"Otto Ludwig\", daher wurden seine Erzählungen \"Reden oder Schweigen\" und \"Der Todte von St. Anna's Kapelle\" versehentlich zunächst dem echten Otto Ludwig (aus Eisfeld) zugeschrieben. Der Verlag Janke in Berlin veröffentlichte Puttkammers Erzählungen fälschlicherweise in der ersten Ausgabe von \"Otto Ludwig's gesammelte Werke\" (um 1870) als Band 4. Erst nach Drucklegung wurde der Irrtum bemerkt und revidiert. Puttkammers Werke wurden erneut hrsg. als \"Zwei Erzählungen von Otto Ludwig aus Reichenbach\". (Vgl. Goedeke, Karl [Begründer]; Jacob, Herbert [Hrsg.]: Deutsches Schriftstellerlexikon, Eintrag: 5/993,66. - Vgl. Heinsius Allgemeines Bücher-Lexikon, 15. (1868/74), Heft 2, Einträge zu Ludwig, Otto)",
+        "Deutscher Dichter, Schriftsteller und Musiker"
+      ],
+      "dateOfBirth": [
+        "1813-02-12"
+      ],
+      "dateOfDeath": [
+        "1865-02-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "Deutsche Fotothek"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fotothek%20df%20rp-c%200200071%20Triebischtal-Semmelsberg.%20Otto%20Ludwig%2C%20Portr%C3%A4t%2C%20Zeichnung%20%28Stadtarchiv%20Mei%C3%9Fen%2C%20Graphiksammlung%29.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0 de",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+              "name": "Creative Commons Attribution-Share Alike 3.0 de"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fotothek%20df%20rp-c%200200071%20Triebischtal-Semmelsberg.%20Otto%20Ludwig%2C%20Portr%C3%A4t%2C%20Zeichnung%20%28Stadtarchiv%20Mei%C3%9Fen%2C%20Graphiksammlung%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fotothek%20df%20rp-c%200200071%20Triebischtal-Semmelsberg.%20Otto%20Ludwig%2C%20Portr%C3%A4t%2C%20Zeichnung%20%28Stadtarchiv%20Mei%C3%9Fen%2C%20Graphiksammlung%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1325002712"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:12:55.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118574973/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Sophie Christiane"
+          ],
+          "surname": [
+            "Otto"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Reinhold"
+          ],
+          "surname": [
+            "Ludwig"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137877188",
+          "label": "Ludwig, Reinhold"
+        },
+        {
+          "forename": [
+            "Emilie"
+          ],
+          "surname": [
+            "Winkler"
+          ]
+        },
+        {
+          "forename": [
+            "Juda"
+          ],
+          "surname": [
+            "Ludwig"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137877064",
+          "label": "Ludwig, Ernst"
+        },
+        {
+          "forename": [
+            "Cordelia"
+          ],
+          "surname": [
+            "Ludwig"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118574973",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/137877188",
+          "label": "Ludwig, Reinhold"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/137877064",
+          "label": "Ludwig, Ernst"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118574973",
+      "oldAuthorityNumber": [
+        "(DE-588)1325002712",
+        "(DE-588a)118574973",
+        "(DE-588c)4036457-4"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4014105-6",
+          "label": "Eisfeld"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Ludwig, Otto",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Otto"
+        ],
+        "surname": [
+          "Ludwig"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Ludwig, Otto: Die Makabäer",
+        "Ludwig, Otto: Les Oeuvres dramatiques de 1853 à 1865",
+        "Erk, Adam W.: Lied eines deutschen Knaben. - circa 1915",
+        "Ludwig, Otto: Richter und Gericht im deutschen Märchen",
+        "Ludwig, Otto: Gesammelte Schriften",
+        "Ludwig, Otto: Shakespeare-Studien",
+        "Ludwig, Otto: Zwischen Himmel und Erde",
+        "Ludwig, Otto: Zwischen Himmel und Erde. - [um 1909?]",
+        "Ludwig, Otto: Briefe"
+      ],
+      "relatedPerson": [
+        {
+          "id": "https://d-nb.info/gnd/139741240",
+          "label": "Puttkammer, Emil von"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50047314"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5014548"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77321"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118574973/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325002712"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Otto_Ludwig_(writer)"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Otto_Ludwig"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Otto_Ludwig"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Otto_Ludwig_%28writer%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121186965"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118574973"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118574973"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118574973.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118574973.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118574973"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/E375B95BF72F4E79B8FD5320C6EE27A0"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "オットー・ルードヴィヒ",
+        "Ludwig, Otto, aus Eisfeld"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "オットー・ルードヴィヒ"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "nameAddition": [
+            "aus Eisfeld"
+          ],
+          "surname": [
+            "Ludwig"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Otto_Ludwig",
+          "label": "https://de.wikipedia.org/wiki/Otto_Ludwig"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:10:06Z",
+    "gnd_query_biographical_data": "1813-1865",
+    "gnd_query_name": "ludwig, otto"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1682,
+  "name": "Ludwig, Otto",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XIX",
+  "updated": "2026-06-11 13:29:23.673Z",
+  "uri": "https://d-nb.info/gnd/118574973",
+  "editor": ""
+}

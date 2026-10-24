@@ -1,0 +1,78 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, SS 1–184, darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für die Jugend (Augsburg) 1824",
+    "norm": "~",
+    "biblio": 406430,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-11-25T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3636,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Engelbrecht)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für die Jugend (Augsburg) 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Spiele / für / die Jugend. / Augsburg, / bey Martin Engelbrecht / 1824",
+  "updated": "2026-06-11 10:18:55.136Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "41p044abfkxp0hu"
+  ],
+  "contents": [
+    "15jjr2f7r69sue6",
+    "hwxs71b6qxrrina",
+    "b25v34uha531d8m",
+    "p8ujszy8aoftvvw",
+    "xz8bv2y7cr4a7fn",
+    "kvidfequ4c5tyxr",
+    "fdhht55zpcds7hm",
+    "z2hksxrqxr4zuj6",
+    "0yx8alsanl08cex",
+    "z2q66maj6yct8cv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.770Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.770Z",
+      "agent": "cs1feufyf0da2vv",
+      "source_id": "n6pgmvq6ncm7ec3"
+    }
+  ]
+}

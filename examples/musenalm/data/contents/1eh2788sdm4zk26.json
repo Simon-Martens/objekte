@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz aus : Broughton, William R.: A voyage of discovery to the north Pacific Ocean. London. 1804 S. 238",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mann und Frau aus der Volcano Bay uf Jesso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_548_41762_rqs9mgqiqp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mann und Frau aus der Volcano Bay uf Jesso",
+  "updated": "2005-12-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.947Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "cec0o8wdfts82u8"
+    }
+  ]
+}

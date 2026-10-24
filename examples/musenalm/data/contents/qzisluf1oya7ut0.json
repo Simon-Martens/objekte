@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Lieder (Sammlung INr 100433, Obj 97)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Der Donner rollt im Wiederhall / Am Himmel auf und nieder,",
+  "language": [],
+  "musenalm_id": 100435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Die Nachtigall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Die Nachtigall",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.897Z",
+      "agent": "thvjtwgntimiqn7",
+      "source_id": "4im7ndo58szd4dw"
+    }
+  ]
+}

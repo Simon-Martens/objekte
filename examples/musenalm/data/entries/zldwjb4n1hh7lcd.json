@@ -1,0 +1,91 @@
+{
+  "annotation": "§ Graphik (Portrait) Marie, Königin von Hannover fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, 3 SS VrlgM, verso G, S I T, SS III-IV Vrwrt d Hrsg, SS V-XIV, 24 BB Kal darin § 4 GG, SS 1-696, ar1: SS 1-68, S I-Verz, S VrlgM, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1853",
+    "norm": "",
+    "biblio": 405083,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2105,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / genealogischer / Hof-Kalender / nebst / diplomatisch-statistischem Jahrbuche / auf das Jahr / 1853. / Neunzigster Jahrgang. / Gotha, / bei Justus Perthes",
+  "updated": "2026-06-11 10:18:55.477Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "39jmxi8o40x469v"
+  ],
+  "contents": [
+    "k2rahz3wbx6egjw",
+    "677s3f6r42jciug",
+    "nr5xu0scayb9ncx",
+    "z2gol21oo7stcn9",
+    "0ibfimiitbgrb80",
+    "xyvbr7yiv44bmp4",
+    "nlu7d4xsz9q4e41",
+    "qf2g7i9rcrrsure",
+    "f86jxj9mtbqdo6v",
+    "u5ri68jac9bmk6b",
+    "mtnxcbz8aai4bpu",
+    "90uvp0lci5prqg9",
+    "qk1wazhs5b8h2s1",
+    "1zfzk2s765xlxc1",
+    "8zclovtsnmz7vfj",
+    "btstct2gh3qi1ig",
+    "igd4azi0mdsnwrx",
+    "h2g90tq5yhiwv4u",
+    "kcusmzn8n80n0kn",
+    "syxw0qqz09mon1v",
+    "pj1ac9zk1frkgxx",
+    "38guo14dq0028ei",
+    "zz9x648wjx2v8mm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.124Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.124Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "hli1z98xejphq09"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Lübeckischer 1844",
+    "norm": "",
+    "biblio": 110591,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3181,
+  "parallel_title": "",
+  "place_statement": "Lübeck (G. C. Schmidt Söhne)",
+  "places": [
+    "9hlnoi7oavbn5np"
+  ],
+  "preferred_title": "Taschenkalender, Lübeckischer 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Lübeckischer / Taschen-Kalender / auf / das Schaltjahr / 1844. / Lübeck. / Bey G. C. Schmidt Söhne",
+  "updated": "2026-06-11 10:18:55.206Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "67q4qpzzx9tpdv2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.882Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.882Z",
+      "agent": "4tt0e05iqicaadb",
+      "source_id": "91xiqky0vkhi0q7"
+    }
+  ]
+}

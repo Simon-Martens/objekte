@@ -1,0 +1,100 @@
+{
+  "annotation": "Titel recto: Geschichte des neunzehnten Jahrhunderts. Mit besonderer Hinsicht auf die Oesterreichischen Staaten. Zweytes Bändchen. Geschichte des Jahres 1802. Wien, 1806. /  Im Verlage bey Anton Doll",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso T, recto T, S I W, SS III-X Vrwrt d Hrsg, SS 11-235 darin 3 GG, 2 SS I-Verz, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches mit besonderer Rücksicht auf die Österreichischen Staaten 1806",
+    "norm": "~",
+    "biblio": 408110,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-09-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4015,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Historisches mit besonderer Rücksicht auf die Österreichischen Staaten 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 23",
+  "responsibility_statement": "Schwaldopler",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Mit / besonderer Hinsicht / auf die Oesterreichischen Staaten. / Zweyter Jahrgang. / Geschichte des Jahres 1802. / Wien, 1806. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:54.755Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "itm0at95n80aoyr"
+  ],
+  "contents": [
+    "g3xgm2chaw809j7",
+    "6zekaxvzin59f4z",
+    "iv3u1h52wcfkbc4",
+    "qzndgy5fzxz97sm",
+    "4pioy01zvhgfgtg",
+    "1d6t6d6lib8dihw",
+    "8c3jw18h8nfxltw",
+    "w3h05djmpl7010s",
+    "ouxyzu18wqddoqp",
+    "oov2dljfle7ddco",
+    "i9bl40p10xzsm6w",
+    "tdei778qlrf7cle",
+    "5rqsthzt4279d2s",
+    "ochb6bnsxclvs46",
+    "bbs7u52wg48o6fg",
+    "aok0z3jr4y7tpup",
+    "1rk3mgztkr05jgd",
+    "i8kyh6qlnzeeyqz",
+    "z7vz6tpm7q818pi",
+    "qjmcjgfyi78rqz7",
+    "mvlvlpaqjwgu3as"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.733Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.733Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "e7v20yvuwipq6bh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.322Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.322Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "tanh639bmjmxgbn"
+    }
+  ]
+}

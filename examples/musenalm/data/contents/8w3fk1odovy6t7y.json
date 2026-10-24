@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37878, Obj 170)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Ich bin ein König, lasse mir kredenzen / Den goldnen Becher bei dem lust'gen Mahle,",
+  "language": [],
+  "musenalm_id": 37882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Dichtersinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Niclas Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Dichtersinn",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.910Z",
+      "agent": "0pitstdcilzvx9e",
+      "source_id": "j4pvljgf8k3psa5"
+    }
+  ]
+}

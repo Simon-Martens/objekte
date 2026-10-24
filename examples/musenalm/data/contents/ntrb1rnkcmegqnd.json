@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Okotober; nummeriert 6 /) Illustration zu »Bewußtsein« von Ifland",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105307,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mad. Ritter H. Book Mlle Witthöft H. Ifland H. Bek / V. Aufz. lezter Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinr. Anton Melchior del. Gottfried Lebr. Crusius sc.",
+  "scans": [
+    "alm_3260_105307_75ocg5qe2h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mad. Ritter H. Book Mlle Witthöft H. Ifland H. Bek / V. Aufz. lezter Auftr.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.086Z",
+      "agent": "1taxt5djtmnqnoz",
+      "source_id": "jw1akw79bwb1b8o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.086Z",
+      "agent": "x4rqo5lucenvn0r",
+      "source_id": "oxd3eb0ob02d16o"
+    }
+  ]
+}

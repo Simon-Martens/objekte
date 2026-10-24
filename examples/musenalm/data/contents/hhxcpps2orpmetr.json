@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Maria Stuart« von Fr. Schiller s. Textbezug INr 39392, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Stuart. IIIr. Aufz. Ir. Auft. / Eilende Wolken! Segler der Lüfte! / Wer mit euch wanderte, mit euch schiffte! / Grüsset mir freundlich mein Jugendland!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. W. Böhm sc.",
+  "scans": [
+    "alm_517_39393_8oh9b7q1ee.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria Stuart. IIIr. Aufz. Ir. Auft. / Eilende Wolken! Segler der Lüfte! / Wer mit euch wanderte, mit euch schiffte! / Grüsset mir freundlich mein Jugendland!",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.075Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "0oy53ntb7pg0ygw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.075Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "vapgcqc150ho85l"
+    }
+  ]
+}

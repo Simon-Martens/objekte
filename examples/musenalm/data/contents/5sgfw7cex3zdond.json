@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Empfange mütterlich den Sohn, Natur! / O nimm mich auf! mit kindlich frommem Herzen,",
+  "language": [],
+  "musenalm_id": 93088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Natur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Natur",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.587Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "jd8zxazwmo9eo04"
+    }
+  ]
+}

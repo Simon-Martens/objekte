@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Wem schenk ich dieses kleine Bü- / chelchen? / Gebunden in Kalbsleder oder Gold,",
+  "language": [],
+  "musenalm_id": 4901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Herder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Herder",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.010Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "owr778lbde17maf"
+    }
+  ]
+}

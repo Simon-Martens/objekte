@@ -1,0 +1,78 @@
+{
+  "annotation": "wohl einziger Jahrgang /) 2. Titel lautet: Theater von Carl Blum. Die Herrin von der Else. Ich bleibe ledig. Berlin, Schlesinger'sche Buch- und Musikhandlung. 1840 /) Für »Theater«: Jgg 1839-1844, 4 Bd. Berlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach (Blum) 1840",
+    "norm": "",
+    "biblio": 406474,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-12-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3639,
+  "parallel_title": "",
+  "place_statement": "Berlin (Schlesinger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Theater-Almanach (Blum) 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Karl Blum",
+  "subtitle_statement": "",
+  "title_statement": "THEATER ALMANACH / 1840 / von / CARL BLUM",
+  "updated": "2026-06-11 10:18:54.839Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "b2pudzqmgk68m06"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.271Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.271Z",
+      "agent": "v8do49ob5395gqd",
+      "source_id": "yecioqgra4wnu1e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.146Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.146Z",
+      "agent": "88zhyeh1ri3vtq7",
+      "source_id": "zj0ypo08bciu5o6"
+    }
+  ]
+}

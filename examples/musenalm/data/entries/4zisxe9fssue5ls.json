@@ -1,0 +1,124 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I gT, SS III-VI Vrwrt d Hrsg, S VII-VIII G-Verz, SS IX-X I-Verz, SS 1-368 darin 3 GG Kr, S 368 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorzeit, Die 1828",
+    "norm": "~",
+    "biblio": 108683,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3502,
+  "parallel_title": "",
+  "place_statement": "Marburg (Garthe)",
+  "places": [
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Vorzeit, Die 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "Dr. Karl Wilhelm Justi",
+  "subtitle_statement": "",
+  "title_statement": "DIE / VORZEIT / Herausgegeben / von / Dr. KARL WILHELM JUSTI / Marburg bei Chr. Garthe / 1828",
+  "updated": "2026-06-11 10:18:54.523Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "eslf3si3ujhfuza"
+  ],
+  "contents": [
+    "6rvat3typ7ykmib",
+    "88brq5z9ocntlx4",
+    "bw60su56vagi2y8",
+    "k892ipfjfa3p09z",
+    "lp4xay1drv2jzv0",
+    "4i1vly3iz6dg3s2",
+    "wc654k0g2dj8bdc",
+    "m1og0mgunzcuo4u",
+    "jktgnnigyhrax8a",
+    "ign9an4in03x1ys",
+    "zrtvknsta0828a7",
+    "5fxrxqgu7743ke2",
+    "e7it3t7660zu7i2",
+    "orq8wfmcpzu23b7",
+    "l6zoflrleygmlrb",
+    "221asve5et6s4gf",
+    "6j4ogadgnhtrk0o",
+    "czjghuyk9oynxpp",
+    "x88dh5bfmabnqzx",
+    "6ucjvy2i6v295h7",
+    "sf1ki2nubvbqbr5",
+    "qonxmybu78540q7",
+    "zzavdj0edhn0fmb",
+    "6l7fai3pxb3j228",
+    "fb3wvz3rs58ukjp",
+    "cwuqafz8n89zz9r",
+    "g853fqmsl8zia9w",
+    "1gxv1en0ea57fco",
+    "6581wbygtq2uvy6",
+    "aynychhm0xbbr77",
+    "qe0phhucdxvbqeu",
+    "fud8ozkmx4ez9fp",
+    "2suwl0i18wc7tcm",
+    "k8v9c0y160ieexw",
+    "g9e1rcu5ywp4kti",
+    "22n1bk7tsomfpsm",
+    "sotw4b1xwehdp1y",
+    "3goe4xprk42yscy",
+    "oxo36wpughna18n",
+    "4e4arnljlwxldp9",
+    "4fu0i24i31iql9x",
+    "uu4ob2wdrbvaxql",
+    "qrnuuetl47w1iox",
+    "ai67hxkyh8nebzp",
+    "cnuiggynsoub6uq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.246Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.246Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "4qe4rcob0mjy6pl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.884Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.884Z",
+      "agent": "xiivtwlrxcnzenf",
+      "source_id": "msye5w10ze2kn1z"
+    }
+  ]
+}

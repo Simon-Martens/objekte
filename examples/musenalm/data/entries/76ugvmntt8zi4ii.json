@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Allerhöchst privilegirter gemeinnütziger (Altona) 1852",
+    "norm": "",
+    "biblio": 410754,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-06-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4743,
+  "parallel_title": "",
+  "place_statement": "Altona (Expedition des Altonaer Mercurs)",
+  "places": [
+    "snvlmxpira867wf"
+  ],
+  "preferred_title": "Almanach, Allerhöchst privilegirter gemeinnütziger (Altona) 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. C. Petersen",
+  "subtitle_statement": "",
+  "title_statement": "Allerhöchst privilegirter / gemeinnütziger / Almanach / für die Herzogthümer / Schleswig und Holstein / auf / das Schalt-Jahr / 1852. / Von / A. C. Petersen. / Dem beigefügt / einige vermischte Aufsätze. / Kostet ungebunden 2 Lübschilling. / Altona, / im Verlage der Expedition des Altonaer Mercur's",
+  "updated": "2026-06-11 10:18:54.808Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "695oilkiiclkf4g"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.820Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.820Z",
+      "agent": "7om6po3su0bwbj8",
+      "source_id": "m7x9vti4hysz7j8"
+    }
+  ]
+}

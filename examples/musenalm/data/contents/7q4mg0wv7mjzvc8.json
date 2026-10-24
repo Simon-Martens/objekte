@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 104128, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Hoch in Zweigen, üppig grünend, / Prangt der Knospen Wunderbau,",
+  "language": [],
+  "musenalm_id": 104131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Knospe und Würmchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Knospe und Würmchen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.158Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "hym3vl6oty7bhyd"
+    }
+  ]
+}

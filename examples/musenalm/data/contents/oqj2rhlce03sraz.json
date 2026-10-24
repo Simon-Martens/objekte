@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 3 Illustrationen s. Graphiken INr 103557-103559, Obj 19-21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Als gegen Ende des achtzehnten Jahrhunderts ein aus dem Czaslauer-Kreise gebürtiger Böhme, Wenzel Strand, sich in der deutschen Reichsstadt, die der zu meldenden Begebenheit Schauplatz geworden, als Gürtler- und Gelbgießer niederließ,",
+  "language": [],
+  "musenalm_id": 103556,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schwarzweber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schwarzweber",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.035Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "nckt3xtymfvqc6v"
+    }
+  ]
+}

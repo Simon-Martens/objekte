@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20351,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht von Körners Weinberg nach Blasewitz, Naumanns Geburts, und Sommer-Wohnungs-Orte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. Faber n. d. Natur gez. J. G. A. Frenzel gest. in Dresden",
+  "scans": [
+    "alm_272_20351_aq58vhucwl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht von Körners Weinberg nach Blasewitz, Naumanns Geburts, und Sommer-Wohnungs-Orte",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.636Z",
+      "agent": "0x7ug5u1e4vyv1o",
+      "source_id": "4vb5z53h85e0dhg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.636Z",
+      "agent": "gu3srwkz62jjovj",
+      "source_id": "z5v800qcwhogkr6"
+    }
+  ]
+}

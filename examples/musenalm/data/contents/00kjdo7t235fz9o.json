@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "In Damaskus, in jener reizenden Stadt, die der Anhänger des Islams als das Ideal des irdischen Aufenthaltes betrachtet, stand im Garten eines reichen Emirs ein junger Mann und schaute nachdenklich auf einen Rosenbusch.",
+  "language": [],
+  "musenalm_id": 58064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die graue Frau von Plassenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf von Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die graue Frau von Plassenstein",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.825Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "0k89l6v4rwlno77"
+    }
+  ]
+}

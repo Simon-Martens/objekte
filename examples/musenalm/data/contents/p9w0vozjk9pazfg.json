@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Heil dir, Mark der Natur, der gabenspen- denden Erde / Stilles Erzeugniß; doch groß von Kraft,",
+  "language": [],
+  "musenalm_id": 4655,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne an das Eisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Theoboul Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne an das Eisen",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.025Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "9865z1cwy5czeqa"
+    }
+  ]
+}

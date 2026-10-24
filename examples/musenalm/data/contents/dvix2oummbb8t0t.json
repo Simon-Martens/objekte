@@ -1,0 +1,45 @@
+{
+  "annotation": "XVIII. Gedichte (Sammlung INr 66617, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Seht mir nicht so ins Gesicht, / grobe Flintenträger",
+  "language": [],
+  "musenalm_id": 66619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Mädchenjäger. / Anch io sono Pittore!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Reg. Rath Bunsen zu Arolsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Mädchenjäger. / Anch io sono Pittore!",
+  "updated": "2009-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.244Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "zgetq3zx94sdt4e"
+    }
+  ]
+}

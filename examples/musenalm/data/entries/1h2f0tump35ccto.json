@@ -1,0 +1,94 @@
+{
+  "annotation": "mit einigen Kopf- und Schlußvignetten",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, Z, S W, SS 1-188, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch fürs Frauenzimmer 1781",
+    "norm": "~",
+    "biblio": 200110,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2869,
+  "parallel_title": "",
+  "place_statement": "Berlin (Lange)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch fürs Frauenzimmer 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 116; L/R 61",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / fürs / Frauenzimmer. / Mit Kupfern von Chodwiecki. / Berlin, 1781. / bey Gottlieb August Lange, / dem Königl. Schlosse gegen über",
+  "updated": "2026-06-11 10:18:55.044Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "6umnf8526r60n72"
+  ],
+  "contents": [
+    "8k093e2mbae7hpx",
+    "q5nei8ro6nat5py",
+    "5su94xvrg8sj6m5",
+    "uj4q054vwh3b3wq",
+    "gw7txdwn3y54yh3",
+    "22jqsjtaslmwdpx",
+    "j6xvkhk68dcmih8",
+    "bn6obk036f9822w",
+    "7v7yn1hiohzb8c5",
+    "fvjh7bwbytn38q8",
+    "7wsgt6bzjef974x",
+    "tpjt93qmicfp5et",
+    "yzhteguap22d5ls",
+    "lzlgtinmxi3t2f9",
+    "96mnjghrcy9pw06"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "2wdpoia74gu4bd1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.156Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.156Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "swxd71ls478c8jo"
+    }
+  ]
+}

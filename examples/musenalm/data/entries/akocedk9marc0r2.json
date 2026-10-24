@@ -1,0 +1,103 @@
+{
+  "annotation": "Fortgesetzt durch: Kalender, Militärisch-Genealogischer 1790-1793 und Kalender, Militärischer 1797-1806",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, 36 BB, 122 SS Tabb, 1 S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer-Militärischer 1789",
+    "norm": "~ 72 BB",
+    "biblio": 407899,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3961,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer-Militärischer 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33, L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Militairischer / KALENDER / auf das Jahr / 1789. / mit Kupfern gezieret und mit / Genehmhaltung der Königl. / Academie der Wissenschaf- / ten zu Berlin heraus- / gegeben",
+  "updated": "2026-06-11 10:18:55.776Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "u8ictt9cg6xjs59"
+  ],
+  "contents": [
+    "pwyefnb8i53lows",
+    "gshayx6jprec3m9",
+    "8vvgkjwj77zwvtx",
+    "19igdmgu0h4yrs8",
+    "hum1hmce67hrma6",
+    "y8lg0c0m7z3sdui",
+    "788m08wb5hjc940",
+    "1dbmmag7l7rwgyd",
+    "tr9bjp107f8mzfh",
+    "dv76wexcykqkv08",
+    "j08jri71i3jtvrt",
+    "c6zbubmfoy16w4v",
+    "i8aw1k86qm8pztg",
+    "oudiwx7hadycx11",
+    "6rombzkun934ro4",
+    "due756tipthnpi7",
+    "5s2x5n4noequv0i",
+    "w4tnvf6rlllhvb3",
+    "4qpamyotk9asupl",
+    "ok6bw2z0jw99w7a",
+    "1szctpm3agvmacb",
+    "tjaulltscy65kcy",
+    "4ncgupm4gwfbzqd",
+    "68v56k7u5gbm2nf",
+    "je4srr5bmlw7474",
+    "3vyo3iw8lziczbx",
+    "fe8pm8s7r22eub4",
+    "a3c3y1v4ygap7d4",
+    "2zby74cngdnsq86",
+    "8jzh6ejddwlpt61",
+    "im3y1rmx7y21esy",
+    "8nxaaoq3wwt0joc",
+    "zp32sft0eogcoyp",
+    "gx6kt6z8idb9470",
+    "b4htk93aze8wk1e"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "u1bderuar49qyli"
+    }
+  ]
+}

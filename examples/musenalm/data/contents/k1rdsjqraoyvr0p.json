@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Gut, daß ich Dich hier treffe, rief der Baron Rainartshausen, indem er seinen Neffen beim Arm ergriff,",
+  "language": [],
+  "musenalm_id": 30107,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brunnengäste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Brunnengäste",
+  "updated": "2002-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.536Z",
+      "agent": "ms9iodhebw7wz0l",
+      "source_id": "7xt6y69myval8xp"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, vT, verso G, T, 2 SS W, S I-Verz, SS 1-260",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Moosrosen (Sternau) 1845",
+    "norm": "~",
+    "biblio": 200524,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2287,
+  "parallel_title": "",
+  "place_statement": "Magdeburg (Falckenberg u. Comp.)",
+  "places": [
+    "37pvqift972kzxs"
+  ],
+  "preferred_title": "Moosrosen (Sternau) 1845",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. O. Sternau",
+  "subtitle_statement": "",
+  "title_statement": "Moosrosen. / Taschenbuch für 1845. / Herausgegeben / von / C. O. Sternau. / Mit einem Stahlstich: Elise, zur Novelle: Candidat Veltheim. / Magdeburg. / Druck und Verlag von A. Falckenberg u. Comp. / 1845",
+  "updated": "2026-06-11 10:18:56.019Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "ofge7qfd1ifccv7"
+  ],
+  "contents": [
+    "t4vj2roly71bpg8",
+    "ayb97setzyrpfw5",
+    "p7jql8ypc2y6j55",
+    "bgqtoxpdqad5git",
+    "l0ag5plppxbzwbs",
+    "arrw12v6l5xya3y",
+    "flh9gnncu9t1agf",
+    "fyybcsaprjgakq4",
+    "hryqhw6pbiwlmio",
+    "eak5jl5jb7cpxhi",
+    "e6fq9e9c9n4k10p",
+    "u1zw0ktwxk27yiv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.036Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.036Z",
+      "agent": "phkzsbojlf7jna1",
+      "source_id": "gxbzseoj684w4p6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.839Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.839Z",
+      "agent": "hgeohn7h77eo05g",
+      "source_id": "l3feczo4lmqcxtm"
+    }
+  ]
+}

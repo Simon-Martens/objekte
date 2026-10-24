@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort d Hrsg",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die wenigen Worte, die vor dieser Sammlung, deren Idee durch die früheren berühmten Herausgeber der Musen-Almanache, und manche unrühmliche Nachfolge bekannt ist, dürften folgende seyn. Als nach dem plötzlichen Untergange der Zeitschrift Prometheus",
+  "language": [],
+  "musenalm_id": 78348,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die wenigen Worte, die vor dieser Sammlung, deren Idee durch die früheren berühmten Herausgeber der Musen-Almanache, und manche unrühmliche Nachfolge bekannt ist, dürften folgende seyn. Als nach dem plötzlichen Untergange der Zeitschrift Prometheus…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.879Z",
+      "agent": "f1ndpqwlkilrcgf",
+      "source_id": "kqix9s0wdohh1pk"
+    }
+  ]
+}

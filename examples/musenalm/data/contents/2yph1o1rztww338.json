@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juli; paginiert 7. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Erste Abtheilung. 1740 bis 1756« INr 58301, Obj 24 /) Die Graphik INr 58289: Kimpfel del. D. H. fecit nach Buchhorn, mit dem Titel: »Ludwig XV ermahnt den Dauphin auf dem Schlachtfelde bey Fontenay, nicht ungerechte Kriege zu führen S. 63 « ist hier (wie in der französischen Ausgabe des Kalenders) statt des 7. Blatts (ohne Titel, Plattenzustand Ia) der Suite »12 Blätter zu der Brandenburger Geschichte« wie bei Buchorn 1677-1688 und bei Engelmann 712 II c. beigegeben",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110552,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig XV ermahnt den Dauphin / auf dem Schlachtfelde bey Fontenoy, / nicht ungerechte Kriege zu führen S. 63",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kimpfel del. D. H. fecit nach Buchhorn",
+  "scans": [
+    "alm_4301_110552_uyt9m2wrlc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig XV ermahnt den Dauphin / auf dem Schlachtfelde bey Fontenoy, / nicht ungerechte Kriege zu führen S. 63",
+  "updated": "2016-03-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.296Z",
+      "agent": "vchcd29ycfa3hgi",
+      "source_id": "1kpne29q3poaqj5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.296Z",
+      "agent": "t7h2dhrrhx1xes3",
+      "source_id": "bs3skbswno3mlpt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.296Z",
+      "agent": "z3xj5kkwhch6rva",
+      "source_id": "dxbq984ytrhy4xn"
+    }
+  ]
+}

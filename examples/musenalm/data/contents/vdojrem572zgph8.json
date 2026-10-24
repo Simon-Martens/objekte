@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Gleiten im Schifflein über den See, und schauen, / wie friedlich / Menschenwohnungen sich Sonnen am grünen Gestad,",
+  "language": [],
+  "musenalm_id": 52978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der Reise 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulrich Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf der Reise 1812",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.627Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "hq4ctrw7yk0miqw"
+    }
+  ]
+}

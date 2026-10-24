@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64377, Obj 11) s. Graphik INr 64372, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Wenn in dem Muth die Männer wanken, / Gilt es den Kampf der Tyrannei, / Dann tritt ein Weib oft in die Schranken,",
+  "language": [],
+  "musenalm_id": 64384,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Charlotte Corday. / (Hingerichtet 17. Juli 1793.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Henninger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Charlotte Corday. / (Hingerichtet 17. Juli 1793.)",
+  "updated": "2009-05-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.977Z",
+      "agent": "6fj9ilu2sqskj9p",
+      "source_id": "ackj259fo4apxrj"
+    }
+  ]
+}

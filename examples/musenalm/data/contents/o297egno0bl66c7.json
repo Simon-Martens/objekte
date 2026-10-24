@@ -1,0 +1,45 @@
+{
+  "annotation": "Litterarische Scherze (Sammlung INr 24645, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Erst stand im höchsten Rang das Ich, / Litt Du und Er kaum neben sich",
+  "language": [],
+  "musenalm_id": 24672,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 249,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechsel der Dynastie in den Philosophen- / Schulen / Quaestio subtilissima: / Utrum Chimaera in vacuo / bombinans possit comedere secundas intentiones; et / fuit debatuta per decem hebdomadas in Concilio Con- / stantiensi. / Rabelais",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wechsel der Dynastie in den Philosophen- / Schulen / Quaestio subtilissima: / Utrum Chimaera in vacuo / bombinans possit comedere secundas intentiones; et / fuit debatuta per decem hebdomadas in Concilio Con- / stantiensi. / Rabelais",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.109Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "oqi8ljgqarku5oy"
+    }
+  ]
+}

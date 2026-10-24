@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 9. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21665,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hörst du, führ' erst den hinaus, und hilf ihm; eh / mag ich nicht verbunden werden.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_291_21665_18q8b85lov.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hörst du, führ' erst den hinaus, und hilf ihm; eh / mag ich nicht verbunden werden.",
+  "updated": "2002-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.722Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "ruzi9jtiac5gjty"
+    }
+  ]
+}

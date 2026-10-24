@@ -1,0 +1,45 @@
+{
+  "annotation": "Monatblüthen. An Adolph Forster (Sammlung INr 80266, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Erschließt der Ernst des Lebens schweres Räthsel Dir, / So lehrt nur Milde Dich es menschlich deuten.",
+  "language": [],
+  "musenalm_id": 80269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Februar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Februar",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.371Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "j5tfwug7t0aanmv"
+    }
+  ]
+}

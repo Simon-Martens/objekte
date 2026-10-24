@@ -1,0 +1,45 @@
+{
+  "annotation": "Ernste Gedanken und Dichtungen (Sammlung INr 33823, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Nach der Glut der Leidenschaften trete die Kühle der Weisheit ein;",
+  "language": [],
+  "musenalm_id": 33833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Zeit der Wärme und der Kälte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Zeit der Wärme und der Kälte",
+  "updated": "2003-05-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.772Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "f2pm62qk9359uck"
+    }
+  ]
+}

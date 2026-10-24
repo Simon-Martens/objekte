@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35149, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Drei edle Männer ziehen aus der Heimathstadt, / Aus welcher sie der Willkühr Gebot vertrieben hat.",
+  "language": [],
+  "musenalm_id": 35151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Landesflüchtigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Landesflüchtigen",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.691Z",
+      "agent": "snnpz92vgxnioxl",
+      "source_id": "h65g9guogvol8pz"
+    }
+  ]
+}

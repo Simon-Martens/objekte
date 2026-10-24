@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Ueber das menschliche Herz sind liebliche / Saiten gezogen.",
+  "language": [],
+  "musenalm_id": 1208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Leier des Herzens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Leier des Herzens",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.804Z",
+      "agent": "9l93ioes6kzj7pb",
+      "source_id": "l2bgpiukot7qpwg"
+    }
+  ]
+}

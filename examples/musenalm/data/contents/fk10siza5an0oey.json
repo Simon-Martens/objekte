@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 89616-89622, Obj 29-35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maurische Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maurische Romanzen",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.405Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "o4a1jkurw6qrf7r"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Umreihet den Tisch, den die herbstliche Milde / Begabte mit labendem Fruchtgebilde!",
+  "language": [],
+  "musenalm_id": 53820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang am Herbstabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. T. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang am Herbstabend",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.538Z",
+      "agent": "42yarzq0yz2e1hp",
+      "source_id": "92b8o5imt5l4b2q"
+    }
+  ]
+}

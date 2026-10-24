@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Dem Könige, dem grossen Geist, / Den alle Welt aus einem Munde preißt,",
+  "language": [],
+  "musenalm_id": 38328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / den General von Stille, / welcher ein Gedicht auf den König / verlangte. / 1748",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / den General von Stille, / welcher ein Gedicht auf den König / verlangte. / 1748",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.865Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "2iuc7czg33rx2gs"
+    }
+  ]
+}

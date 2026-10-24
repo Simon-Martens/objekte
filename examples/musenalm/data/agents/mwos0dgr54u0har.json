@@ -1,0 +1,592 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.449Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1008453-8",
+          "label": "Zisterzienser"
+        },
+        {
+          "id": "https://d-nb.info/gnd/16117338-X",
+          "label": "Stift Lilienfeld"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1220657859",
+          "label": "Katholische Kirche. Patriarchat Venedig"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dichter, Bischof, Zisterzienser; 1796 Priester, 1807-1811 Pfarrprovisor in Türnitz, 1811 Prior, 1812 Abt des Stiftes Lilienfeld, 1818 Bischof von Zips, 1820 Patriarch von Venedig, 1821 Primas von Dalmatien, 1826-1847 Erzbischof von Erlau/Eger und Erbobergespan der Heveser Gespanschaft"
+      ],
+      "dateOfBirth": [
+        "1772-11-02"
+      ],
+      "dateOfDeath": [
+        "1847-12-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Lieder (1780–1859)"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Pyrker%20J%C3%A1nos%20L%C3%A1szl%C3%B3.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pyrker%20J%C3%A1nos%20L%C3%A1szl%C3%B3.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Pyrker%20J%C3%A1nos%20L%C3%A1szl%C3%B3.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-19T09:16:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11874304X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Pircher"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-HU",
+          "label": "Ungarn"
+        }
+      ],
+      "gndIdentifier": "11874304X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11874304X",
+      "oldAuthorityNumber": [
+        "(DE-588c)4103467-3",
+        "(DE-588a)11874304X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4513723-7",
+          "label": "Türnitz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035731-4",
+          "label": "Lilienfeld"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015304-6",
+          "label": "Eger (Komitat Heves)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4062501-1",
+          "label": "Venedig"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Nagyláng"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Pyrker, János László",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "János László"
+        ],
+        "surname": [
+          "Pyrker"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4739580-1",
+          "label": "Kirchenfürst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015471-3",
+          "label": "Erzbischof"
+        }
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4284052-1",
+          "label": "Diözese Erlau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4119246-1",
+          "label": "Diözese Zips"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12495342z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n94044449"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/pyrker-johann-baptist-ladislaus-von-felso-eor/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/24705485"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q288869"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11874304X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ladislaus_Pyrker"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Ladislaus_Pyrker"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Ladislaus_Pyrker"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ladislaus_Pyrker"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108373125"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11874304X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11874304X"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_P/Pyrker-Felsoe-Eoer_Johann-Ladislaus_1772_1847.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11874304X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11874304X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11874304X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Felsö-Eör, Johann Ladislav Pyrker von Oberwart",
+        "Oberwart Felsö-Eör, Johann Ladislav Pyrker von",
+        "Pyrker von Oberwart, Johann Baptist Ladislav",
+        "Pyrker, Johann Ladislav",
+        "Pyrker, I. L. von",
+        "Pyrker von Oberwart Felsö-Eör, Johann Ladislav",
+        "Pyrker, Ladislaus",
+        "Pyrker von Oberwart, Johann L.",
+        "Pyrker, Johann Ladislaw",
+        "Eör, Johann Ladislav Pyrker von Oberwart Felsö-",
+        "Pyrker, Johann L.",
+        "Pyrker, J. L. v.",
+        "Pyrker, Giovanni Ladislaus",
+        "Pyrker von Oberwart, Johann Ladislaus",
+        "Pircher, Johann",
+        "Oberwart, Johann L. von",
+        "Pyrker, János L.",
+        "Pyrker, Johann Ladislaus",
+        "Pyrker von Oberwart, Johann Ladislaus von",
+        "Pyrker, Ladislao",
+        "Pyrker von Felsö-Eör, Johann Ladislaus",
+        "Oberwart, Johann Ladislaus von",
+        "Pyrker de Felsö Eör, Ioannes Ladislaus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Pircher"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislav Pyrker"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oberwart Felsö-Eör"
+          ]
+        },
+        {
+          "forename": [
+            "Johann L."
+          ],
+          "surname": [
+            "Pyrker von Oberwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ladislaus"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Ladislaus"
+          ],
+          "surname": [
+            "Pyrker de Felsö Eör"
+          ]
+        },
+        {
+          "forename": [
+            "I. L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislaus"
+          ],
+          "surname": [
+            "Pyrker von Oberwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ladislao"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "J. L."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislav Pyrker von Oberwart Felsö-"
+          ],
+          "surname": [
+            "Eör"
+          ]
+        },
+        {
+          "forename": [
+            "János L."
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann L."
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislaus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oberwart"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist Ladislav"
+          ],
+          "surname": [
+            "Pyrker von Oberwart"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislaus"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislaus von"
+          ],
+          "surname": [
+            "Pyrker von Oberwart"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislav"
+          ],
+          "surname": [
+            "Pyrker von Oberwart Felsö-Eör"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislav"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislaus"
+          ],
+          "surname": [
+            "Pyrker von Felsö-Eör"
+          ]
+        },
+        {
+          "forename": [
+            "Johann L. von"
+          ],
+          "surname": [
+            "Oberwart"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Ladislaus"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislaw"
+          ],
+          "surname": [
+            "Pyrker"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ladislav Pyrker von Oberwart"
+          ],
+          "surname": [
+            "Felsö-Eör"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Ladislaus_Pyrker",
+          "label": "https://de.wikipedia.org/wiki/Johann_Ladislaus_Pyrker"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:33:18Z",
+    "gnd_query_biographical_data": "1772-1847",
+    "gnd_query_name": "pyrker von oberwart, johann baptist ladislav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2151,
+  "name": "Pyrker von Oberwart, Johann Baptist Ladislav",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 556",
+  "updated": "2026-06-11 13:29:24.151Z",
+  "uri": "https://d-nb.info/gnd/11874304X",
+  "editor": ""
+}

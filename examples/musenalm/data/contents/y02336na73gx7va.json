@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 79972, 79973; Obj 50, 51 /) VII. Gedichte (Sammlung INr 79965, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. In das Stammbuch eines Freundes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr. von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. In das Stammbuch eines Freundes",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.784Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "uffrfouawxbpog2"
+    }
+  ]
+}

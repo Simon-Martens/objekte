@@ -1,0 +1,43 @@
+{
+  "annotation": "mit einer Vertonung s. Musikbeigabe INr 126378, Obj 348",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In Wolken möcht' ich steh'n und satt mich niederweinen, / wo Blumen ungeseh'n in dunklen Hainen scheinen,",
+  "language": [],
+  "musenalm_id": 126379,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 347,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Wolken möcht' ich steh'n / Und satt mich niederweinen / Text von Chistian Schad. / Musik von Ferdinand Hiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In Wolken möcht' ich steh'n / Und satt mich niederweinen / Text von Chistian Schad. / Musik von Ferdinand Hiller",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.784Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "7tvhjttelcj6kv9"
+    }
+  ]
+}

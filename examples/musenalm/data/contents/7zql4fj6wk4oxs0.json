@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Apul'scher Boden, freudig sey gegrüßt! / O Erde, die du dem Gelandeten / Noch unter'm Fuße wankst, ich fasse dich / Inbrünstig,",
+  "language": [],
+  "musenalm_id": 91641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Konradin. / Bruchstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Konradin. / Bruchstück",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.559Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "ewp12qn6c1f98ba"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Musa. Altpersische Erzählung« von Fr. Krug (von Nidda) INr 59381, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59382,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musa begnadigt Astart. / Seite 179",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. W. Jury sc.",
+  "scans": [
+    "alm_894_59382_dupwra0lsr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musa begnadigt Astart. / Seite 179",
+  "updated": "2008-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.989Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "93ahq14aie0jyjc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.989Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "y45qai8izd581qx"
+    }
+  ]
+}

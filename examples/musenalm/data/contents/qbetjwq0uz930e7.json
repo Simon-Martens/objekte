@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 19345, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9256,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vorsichtigen Reisenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz d. F. Rosmäsler jun. sc.",
+  "scans": [
+    "alm_41_9256_23d18ktpxy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Vorsichtigen Reisenden",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "0q52rpisinwjeje"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "1iie1ncatn3rb8c"
+    }
+  ]
+}

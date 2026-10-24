@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 22685, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.912Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "In einem dunklen Saale da sitzt ein düstrer Kreis, / Der gibt das frische Leben dem welken Tode Preis ;",
+  "language": [],
+  "musenalm_id": 22687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Mitternacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Mitternacht",
+  "updated": "2002-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.035Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "eoks0nntmhcm0ui"
+    }
+  ]
+}

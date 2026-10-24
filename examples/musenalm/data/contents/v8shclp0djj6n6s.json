@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Die hiesige ev. lutherische Kathedral- und Pfarrkirche ist in mancher Hinsicht der Aufmerksamkeit des Kunst- und Alterthumfreundes werth.",
+  "language": [],
+  "musenalm_id": 98039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beschreibung / einiger in der evang. lutherischen Pfarr- / kirche zu Marburg vorhandenen, mar- / mornen Epitaphien. / Voran eine kurze Nachricht von dieser Kirche. / Ein Beitrag zur vaterländischen Kunstgeschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beschreibung / einiger in der evang. lutherischen Pfarr- / kirche zu Marburg vorhandenen, mar- / mornen Epitaphien. / Voran eine kurze Nachricht von dieser Kirche. / Ein Beitrag zur vaterländischen Kunstgeschichte",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.352Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "m2byv80xlcaevtt"
+    }
+  ]
+}

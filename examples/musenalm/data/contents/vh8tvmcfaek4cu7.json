@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "In Valenzia's heitern Thälern, / Wohnt die Jugend, wohnt die Freude,",
+  "language": [],
+  "musenalm_id": 46487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Alonzo de Tabera",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Don Alonzo de Tabera",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.291Z",
+      "agent": "p5nbyct99xa1658",
+      "source_id": "881lva63p4d8uzx"
+    }
+  ]
+}

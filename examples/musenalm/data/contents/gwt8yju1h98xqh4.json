@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »The distress'd Poet. Der Dichter in der Noth.« paginiert L. s. Textbezug INr 7264, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+  "scans": [
+    "alm_146_7265_bpupiv3e4t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.218Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "054p21173d9symj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.218Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "sp24i7yi5accmqa"
+    }
+  ]
+}

@@ -1,0 +1,801 @@
+{
+  "annotation": "",
+  "biographical_data": "1733-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.482Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. phil."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024703-5",
+          "label": "Universität Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1253803757",
+          "label": "Kaiserlich-Königliche Akademie der Bildenden Künste"
+        }
+      ],
+      "affiliationAsLiteral": [
+        "Wien. Hofkanzelei",
+        "Studien- und Zensurkommission"
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Österr. Kameralwissenschaftler, Justiz-, Verwaltungs- und Bildungsreformer, aufgeklärter Publizist, Sprach- und Theatertheoretiker, Zensor; unterrichtete oriental. Sprachen, Adjunkt bei der niederösterr. Regierung, 1761 Rechnungsführer bei der Arcièrenleibgarde, 1763 Professor für Polizey und Cameralwissenschaft, 1781 Professor für „Geschäftsstil“; 1767 k.k. Rat, 1780 Wirklicher Hofrat"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1733"
+      ],
+      "dateOfDeath": [
+        "1817-04-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann David Schleuen"
+          ],
+          "creditText": [
+            "http://aeiou.iicm.tugraz.at/aeiou.encyclop.s/s650720.htm"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20von%20Sonnenfels.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20von%20Sonnenfels.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20von%20Sonnenfels.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1050562437"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-19T18:00:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118615610/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Wienner"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Wiener"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Wiener"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Wienner"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/129274097",
+          "label": "Sonnenfels, Franz von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10027403X",
+          "label": "Sonnenfels, Alois von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118615610",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#10.3p",
+          "label": "Personen zu öffentlichen Aufgaben, Öffentlicher Wirtschaft, Energie- und Rohstoffwirtschaft"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.15p",
+          "label": "Personen zu öffentlicher Verwaltung"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/10027403X",
+          "label": "Sonnenfels, Alois von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/129274097",
+          "label": "Sonnenfels, Franz von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118615610",
+      "oldAuthorityNumber": [
+        "(DE-588)1050562437",
+        "(DE-588a)18823876X",
+        "(DE-588c)4055575-6",
+        "(DE-588a)118615610",
+        "(DE-588a)187849498"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4075404-2",
+          "label": "Nikolsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Sonnenfels, Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Sonnenfels"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160419-2",
+          "label": "Hofrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048755-6",
+          "label": "Rechtsanwalt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398838-6",
+          "label": "Dramaturg"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "forename": [
+            "Carl Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Martini"
+          ]
+        }
+      ],
+      "publication": [
+        "Abschaffung der Tortur",
+        "Uiber die Ankunft Pabst Pius des VI. in Wien",
+        "Grundsätze der Polizey, Handlung und Finanzwissenschaft",
+        "Bey der Danksagungsfeyer über die Genesung unsrer geliebten Monarchinn",
+        "Bemerkungen über die für die Hauptstadt Wien und den Umkreis derselben innerhalb den Linien erlassene neue Gesindeordnung",
+        "Ankündigung einer deutschen Gesellschaft in Wien",
+        "Abhandlung von der Theurung in Hauptstädten",
+        "Von der Theurung in großen Städten",
+        "Über die Abschaffung der Tortur",
+        "Auszug aus den Polizeysätzen des Herrn von Sonnenfels",
+        "Der Mann ohne Vorurtheile"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84218449"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39408735"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215122"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050562437"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118615610/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_von_Sonnenfels"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_von_Sonnenfels"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Joseph_von_Sonnenfels"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_von_Sonnenfels"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011025220X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118615610"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118615610"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Sonnenfels_Joseph_1733_1817.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118615610.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118615610.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118615610"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118615610"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sonnenfels, J. v.",
+        "S****",
+        "Wienner von Sonnenfels, Josef",
+        "Sonenfels, Joseph de",
+        "Wienner von Sonnenfels, Joseph",
+        "Wiener, Joseph, Volkswirtschafter, Schriftsteller",
+        "Sonnenfels, Josef von, Economiste, Ecrivain",
+        "Wiener von Sonnenfels, Joseph, Economiste, Ecrivain",
+        "Sonnenfels, Josef von, Volkswirtschafter, Schriftsteller",
+        "Sonnenfels, Josef von",
+        "Br. S...s",
+        "Bruder S...s",
+        "Wiener, Josef",
+        "Wienner, Joseph",
+        "S....",
+        "Sonnenfels, Joseph von, Economiste, Ecrivain",
+        "Wiener von Sonnenfels, Josef",
+        "Sonnenfels, Joseph von, Political economist, Writer",
+        "Wiener, Joseph, Economiste, Ecrivain",
+        "Wiener, Joseph",
+        "Wiener von Sonnenfels, Joseph, Political economist, Writer",
+        "Sonnenfels, J. von",
+        "Wiener, Joseph, Political economist, Writer",
+        "Sonnenfels, J. di",
+        "Wiener von Sonnenfels, Joseph",
+        "Wienner, Josef",
+        "Wiener von Sonnenfels, Joseph, Volkswirtschafter, Schriftsteller",
+        "Sonnenfels, Josef von, Political economist, Writer",
+        "Sonnenfels, Josef von, Reichsfreiherr",
+        "Sonnenfels, Joseph von, Volkswirtschafter, Schriftsteller"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Wiener von Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Sonenfels"
+          ]
+        },
+        {
+          "personalName": [
+            "Bruder S...s"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "personalName": [
+            "Br. S...s"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Wienner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Economiste, Ecrivain"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Political economist, Writer"
+          ],
+          "surname": [
+            "Wiener von Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Volkswirtschafter, Schriftsteller"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Wiener"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Wiener"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "nameAddition": [
+            "Economiste, Ecrivain"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "nameAddition": [
+            "Reichsfreiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Volkswirtschafter, Schriftsteller"
+          ],
+          "surname": [
+            "Wiener"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Economiste, Ecrivain"
+          ],
+          "surname": [
+            "Wiener von Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "nameAddition": [
+            "Political economist, Writer"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Political economist, Writer"
+          ],
+          "surname": [
+            "Wiener"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "nameAddition": [
+            "Volkswirtschafter, Schriftsteller"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Wienner von Sonnenfels"
+          ]
+        },
+        {
+          "personalName": [
+            "S...."
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Wienner von Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Political economist, Writer"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Economiste, Ecrivain"
+          ],
+          "surname": [
+            "Wiener"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Wienner"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Volkswirtschafter, Schriftsteller"
+          ],
+          "surname": [
+            "Wiener von Sonnenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Wiener von Sonnenfels"
+          ]
+        },
+        {
+          "personalName": [
+            "S****"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_von_Sonnenfels",
+          "label": "https://de.wikipedia.org/wiki/Joseph_von_Sonnenfels"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:00:15Z",
+    "gnd_query_biographical_data": "1733-1817",
+    "gnd_query_name": "sonnenfels, joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2693,
+  "name": "Sonnenfels, Joseph von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 524",
+  "updated": "2026-06-11 13:29:25.068Z",
+  "uri": "https://d-nb.info/gnd/118615610",
+  "editor": ""
+}

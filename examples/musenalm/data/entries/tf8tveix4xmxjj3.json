@@ -1,0 +1,114 @@
+{
+  "annotation": "5 Jgg 1804-1808/1809; Augsburg (Rollwagen); Hrsg.: G. A. Neuhofer /) Fortsetzung von: Kalender, Deutsch und französischer (Neuhofer) 1798-1800 und: Taschenbuch für Geschichte und Unterhaltung (Neuhofer) 1801-1803 /) Fortgesetzt durch: Klio, ein Taschenbuch für die neueste Geschichte 1817",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, 3 SS Vrwrt d Hrsg, S C, SG, SS 1-204 darin 10 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Klio und Euterpe (Neuhofer) 1805",
+    "norm": "~",
+    "biblio": 200517,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2196,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Klio und Euterpe (Neuhofer) 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 72; L/R 20; Goed VIII. 61, 69; ADB XXIII, 509",
+  "responsibility_statement": "G. A. Neuhofer",
+  "subtitle_statement": "",
+  "title_statement": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1805 / von / G. A. Neuhofer / Augsburg / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:55.905Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "bghdrx1hw7k3ltz"
+  ],
+  "contents": [
+    "kbor8ql9qko0s19",
+    "9yy7uajdrymr9bm",
+    "9a6kjjrbh8c9h5m",
+    "6wnac1h4wdq9jq0",
+    "7ide0hiv4wwsf50",
+    "vy1xqfptvv2d64v",
+    "2784egeeb4cv00t",
+    "8bmhw78n82yjm4k",
+    "n5a0gq3hy5u5zt1",
+    "a6l5l3gkcuxhv2y",
+    "z0heciop4gq8h60",
+    "wa39v8gfu686ajx",
+    "irbuiljw33by885",
+    "xw9udkvz9jgc4mu",
+    "1sh3ztk61n0smwx",
+    "8kantm4yadpss29",
+    "k2tpeoseh40wzcz",
+    "6b5n37np6llmmrw",
+    "2ybq9gm9zddp404",
+    "zkbb4uzeo7mhly8",
+    "t6kh93wcyw6gz0m",
+    "gdwmt5vpcec4f41",
+    "tw8acun4kv7u3m8",
+    "ywj1fy2h57k4urs",
+    "p3pkqn0ykk3da3n",
+    "tmnqxw2sjtvkq14",
+    "po741p20x2jwvw1",
+    "wvq7y1wm4ops0mm",
+    "k24m1c2ifd0jxb0",
+    "c4jfghxrlesx3sr",
+    "xczsp707e29nn5f",
+    "e4qhj7iizq8v0e1",
+    "0g2ikpb70n75m8g",
+    "t1j0gcmfx8vz1nn",
+    "rul7ltlfqv38g6n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "55ikf60lmbekf2b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.006Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.006Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "i34dg6agdnzhqoq"
+    }
+  ]
+}

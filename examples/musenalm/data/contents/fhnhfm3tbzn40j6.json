@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Topographie INr 66870, Obj 24 /) mit einer Illustration s. Graphik INr 66871, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Das fürstliche Haus Leiningen hatte in der Entschädigungs-Epoche das Städtchen Amorbach zum Residenz-Orte gewählt.",
+  "language": [],
+  "musenalm_id": 66872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wald Leiningen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer, Fürstlich Leiningscher Kanzler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wald Leiningen",
+  "updated": "2009-09-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.342Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "vvxy65hp7fumups"
+    }
+  ]
+}

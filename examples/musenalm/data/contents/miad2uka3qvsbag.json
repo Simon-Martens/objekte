@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Ein mächt'ges Wort ist wohl das Können, / Es schließt die ganze Thatkraft ein,",
+  "language": [],
+  "musenalm_id": 115775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Können und Kennen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Löwe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Können und Kennen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.515Z",
+      "agent": "ocqzje5pkxep4v8",
+      "source_id": "rjcw62y8khvbq2g"
+    }
+  ]
+}

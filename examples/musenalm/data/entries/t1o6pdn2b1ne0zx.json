@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "SS I–XVI, darin T, Vrwrt, Vrwrt, I-Verz, SS1–208, SS1–448",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1846",
+    "norm": "~",
+    "biblio": 200314,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1320,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "A. Heinrich",
+  "subtitle_statement": "",
+  "title_statement": "Wolff's Almanach / für Freunde der Schauspielkunst / auf / das Jahr 1846. / Fortgesetzt / von / A. Heinrich, / Souffleur des Königl. Theaters. / Eilfter Jahrgang. / Berlin, / den 1. Januar 1847",
+  "updated": "2026-06-11 10:18:54.923Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "p5isb8po1uy8mnp"
+  ],
+  "contents": [
+    "3gpot12357q1ga1",
+    "dhkcc99beblqja6",
+    "3vdi0pbb0i59qez",
+    "bkv4bwap9s9p5ny",
+    "1jy570hs594l4o2",
+    "an02m1mnbf46mxj",
+    "i8m4lucxaoco7iw",
+    "ctb2we7tpwirgho",
+    "vz0axmscrm23zn9",
+    "n0o8g5hqxxuzgkp",
+    "6sw9ksko2ea791d",
+    "4u1s5327uucr45y",
+    "yjztk3xvk5f0t2v",
+    "15n5kyvbwmo3ko6",
+    "5araeaf6mw74h69",
+    "13nhuovsjf87oxq",
+    "z4md2jd12k5tpvj",
+    "1fjki48bhd14c4c",
+    "fvx9mevy9wo2uzj",
+    "4s832hq016280a4",
+    "scah34rn6t490rd",
+    "ouhfnrixm3bzxuv",
+    "5j56jenvxhfz4qe"
+  ],
+  "agents": []
+}

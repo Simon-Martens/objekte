@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkung /) Erzählende Gedichte (Sammlung INr 55049, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Wie sanft ein treuer Hirte scheidet / Von seiner frommen Lämmer Schaar,",
+  "language": [],
+  "musenalm_id": 55053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Oekolampads Tod. / (1531.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rudolf Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Oekolampads Tod. / (1531.)",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.917Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "289wrmv1ir4qcag"
+    }
+  ]
+}

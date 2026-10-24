@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 20089, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "An einem schönen Sommerabend musicirten vier junge Leute zusammen in einer Laube vor des einen Haus.",
+  "language": [],
+  "musenalm_id": 20115,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die lustigen Musicanten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die lustigen Musicanten",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.795Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "m1ywcvybk63m7i3"
+    }
+  ]
+}

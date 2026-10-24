@@ -1,0 +1,305 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.283Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Stiftsdame"
+      ],
+      "dateOfBirth": [
+        "1765-02-14"
+      ],
+      "dateOfDeath": [
+        "1848-09-20"
+      ],
+      "describedBy": {
+        "dateModified": "2013-09-18T10:22:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104222875/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104222875",
+      "id": "https://d-nb.info/gnd/104222875",
+      "oldAuthorityNumber": [
+        "(DE-588a)104222875"
+      ],
+      "preferredName": "Callenberg, Philippine Sophie von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Philippine Sophie"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Callenberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Clytia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Klythia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Cyane"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Clythia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Cyane"
+          ],
+          "surname": [
+            "Clythia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Klytia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Malsburg, Ernst F. von der: Ernst Friedrich Georg Otto's von der Malsburg poetischer Na*. - 1825"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74284528"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55916159"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104222875/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104222875"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104222875"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104222875"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Calenberg, Philippine",
+        "C., P.",
+        "Klytia",
+        "Calenberg, Philippine Sophie von",
+        "Callenberg, Philippine von",
+        "Clytia",
+        "Klythia",
+        "P. C.",
+        "Calenberg, Philippine von",
+        "Clythia, Cyane",
+        "Clythia",
+        "Cyane"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Klythia"
+          ]
+        },
+        {
+          "personalName": [
+            "P. C."
+          ]
+        },
+        {
+          "personalName": [
+            "Clythia"
+          ]
+        },
+        {
+          "forename": [
+            "Philippine Sophie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Calenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Philippine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Calenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Philippine"
+          ],
+          "surname": [
+            "Calenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Cyane"
+          ],
+          "surname": [
+            "Clythia"
+          ]
+        },
+        {
+          "personalName": [
+            "Klytia"
+          ]
+        },
+        {
+          "personalName": [
+            "Cyane"
+          ]
+        },
+        {
+          "forename": [
+            "Philippine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Callenberg"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "C."
+          ]
+        },
+        {
+          "personalName": [
+            "Clytia"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:04:51Z",
+    "gnd_query_biographical_data": "1765-1848",
+    "gnd_query_name": "calenberg, philippine von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 365,
+  "name": "Calenberg, Philippine von",
+  "profession": "Text",
+  "pseudonyms": "Cyane; Clytia; Klytia; Lyäne; Reseda",
+  "refs": "E 52",
+  "updated": "2026-06-11 13:29:21.820Z",
+  "uri": "https://d-nb.info/gnd/104222875",
+  "editor": ""
+}

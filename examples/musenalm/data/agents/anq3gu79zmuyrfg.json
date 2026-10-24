@@ -1,0 +1,178 @@
+{
+  "annotation": "",
+  "biographical_data": "1756-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.463Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter und Professor, Staatsbeamter in Dänemark"
+      ],
+      "dateOfBirth": [
+        "1756-11-13"
+      ],
+      "dateOfDeath": [
+        "1819-07-29"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-19T10:52:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-547",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-547"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1013560655/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1013560655",
+      "id": "https://d-nb.info/gnd/1013560655",
+      "oldAuthorityNumber": [
+        "(DE-588a)1013560655"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4027865-7",
+          "label": "Itzehoe"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "preferredName": "Sander, Lävin Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Lävin Christian"
+        ],
+        "surname": [
+          "Sander"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Levin Christian"
+          ],
+          "surname": [
+            "Eckstein"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/173009020"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1013560655/about"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Eckstein, Levin Christian",
+        "Sander, Lävinus Christian",
+        "Sander, Levin Christian",
+        "Sander, Levinus Christian"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Levinus Christian"
+          ],
+          "surname": [
+            "Sander"
+          ]
+        },
+        {
+          "forename": [
+            "Lävinus Christian"
+          ],
+          "surname": [
+            "Sander"
+          ]
+        },
+        {
+          "forename": [
+            "Levin Christian"
+          ],
+          "surname": [
+            "Eckstein"
+          ]
+        },
+        {
+          "forename": [
+            "Levin Christian"
+          ],
+          "surname": [
+            "Sander"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:44:15Z",
+    "gnd_query_biographical_data": "1756-1819",
+    "gnd_query_name": "sander, levin christian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2372,
+  "name": "Sander, Levin Christian",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 640; Goed VII, 510",
+  "updated": "2026-06-11 13:29:24.494Z",
+  "uri": "https://d-nb.info/gnd/1013560655",
+  "editor": ""
+}

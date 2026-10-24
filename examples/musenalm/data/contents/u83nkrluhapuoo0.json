@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Jägercharaden (Sammlung INr 66726, Obj 47) XXIV. Gedichte (Sammlung INr 66720, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Dreigliedrig ist das Wort, das Ihr errathen sollt, / Wenn Ihr mit Fug und Recht Waidmänner heißen wollt,",
+  "language": [],
+  "musenalm_id": 66728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "B.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "B.",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.233Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "7vo6xhyir5tp7u5"
+    }
+  ]
+}

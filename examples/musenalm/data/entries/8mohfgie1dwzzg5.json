@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender der Liebe und Ehe für Zeit und Ewigkeit 1853",
+    "norm": "",
+    "biblio": 409208,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4286,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Wengler)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender der Liebe und Ehe für Zeit und Ewigkeit 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; nicht bei L/R; H-G. III, 509",
+  "responsibility_statement": "Amor, Hymen & Compagnie",
+  "subtitle_statement": "",
+  "title_statement": "Kalender / der / Liebe und Ehe / für Zeit und Ewigkeit. / Herausgegeben / von / Amor, Hymen & Compagnie. / Leipzig 1853. / Verlag von E. Wengler",
+  "updated": "2026-06-11 10:18:55.743Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "eyaysoe1pbheya6"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "rvrh3n1pqc6uj8t",
+      "source_id": "gxrk5ovkhsd57cs"
+    }
+  ]
+}

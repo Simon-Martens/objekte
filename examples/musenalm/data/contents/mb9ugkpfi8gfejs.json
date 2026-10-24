@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 14 Beiträgen INr 48566-48579, Obj 49-62",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Bemerkungen / aus der / Kinderstube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Bemerkungen / aus der / Kinderstube",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.499Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "23o5ccgdv659xn9"
+    }
+  ]
+}

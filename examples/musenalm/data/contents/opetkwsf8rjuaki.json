@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Eines Abends ruhete Adam an einem Hügel unter einem Baum' in Eden, und sein Antlitz war aufwärts gerichtet",
+  "language": [],
+  "musenalm_id": 15930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adam und der Seraph. / Eine Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Adam und der Seraph. / Eine Parabel",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.563Z",
+      "agent": "n32rrka2qx8adlb",
+      "source_id": "yjg65pop9ivcso8"
+    }
+  ]
+}

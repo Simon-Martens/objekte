@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der arme Gärtner« von L. von Germar INr 76719, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76710,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Gärtner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. G. Boettger senior sc. 1813 Lips.",
+  "scans": [
+    "alm_2385_76710_203p0t1aql.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Gärtner",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.715Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "3eyuj3gixdy9zya"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.715Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "cwwplnzi6rn74uh"
+    }
+  ]
+}

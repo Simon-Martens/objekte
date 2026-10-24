@@ -1,0 +1,45 @@
+{
+  "annotation": "ausfaltbare Graphik s. Textbezug INr 21724, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21740,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hornberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gezeichnet und gestochen Lang",
+  "scans": [
+    "alm_293_21740_rwvrrkn9kh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hornberg",
+  "updated": "2002-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.006Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "cblsjp7d3qdomij"
+    }
+  ]
+}

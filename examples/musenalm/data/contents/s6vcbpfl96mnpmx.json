@@ -1,0 +1,45 @@
+{
+  "annotation": "Dichter-Reliquien (Sammlung INr 20678, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "400",
+  "incipit_statement": "Wie? die holde Rosenflur, / Mädchen, die auf deinen Wangen",
+  "language": [],
+  "musenalm_id": 20681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Linda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Linda",
+  "updated": "2002-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.885Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "2prmw3rrqz2qhyc"
+    }
+  ]
+}

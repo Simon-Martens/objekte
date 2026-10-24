@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Wenn hier nun kahler Boden wär, Wo izt die Bäume stehn,",
+  "language": [],
+  "musenalm_id": 16853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Serenata, / im Walde zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Serenata, / im Walde zu singen",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.842Z",
+      "agent": "bm6n1x459jfghwe",
+      "source_id": "l0872kh5sxoubqt"
+    }
+  ]
+}

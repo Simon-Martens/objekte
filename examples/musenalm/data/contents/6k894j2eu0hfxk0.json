@@ -1,0 +1,45 @@
+{
+  "annotation": "enthält eine »Vorrede« (INr 124285, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Ist mir doch als ob ein anderes Blut in meinen Adern wallte, seitdem ich unter die Dichter gegangen bin.",
+  "language": [],
+  "musenalm_id": 124284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vater Dominique / oder / Sauer ist süß. / Drama in Einem Aufzuge. / Nach Merciers »Essighändler«, Braziers Ver- / kürzung und Ueberarbeitung / von / C. Lebrün",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Lebrün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vater Dominique / oder / Sauer ist süß. / Drama in Einem Aufzuge. / Nach Merciers »Essighändler«, Braziers Ver- / kürzung und Ueberarbeitung / von / C. Lebrün",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.859Z",
+      "agent": "dlpgk2os95jpmjk",
+      "source_id": "0byvznimetwdmyh"
+    }
+  ]
+}

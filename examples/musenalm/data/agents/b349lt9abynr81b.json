@@ -1,0 +1,708 @@
+{
+  "annotation": "",
+  "biographical_data": "1742-1799",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.413Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024315-7",
+          "label": "Georg-August-Universität Göttingen"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor für Experimentalphysik; laut Nachwort der Reclam-Ausg. von 1990 der \"Nachtwachen\" möglicher Verfasser der \"Nachtwachen von Bonaventura\", seine Verfasserschaft ist aber nicht bewiesen (sie wird nach neueren Erkenntnissen Ernst August Friedrich Klingemann zugeschrieben); der größte Teil von Lichtenbergs Bibliothek wurde im November 1799 in Göttingen versteigert; gilt als Begründer des deutschsprachigen Aphorismus"
+      ],
+      "dateOfBirth": [
+        "1742-07-01"
+      ],
+      "dateOfDeath": [
+        "1799-02-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "After Johann Ludwig Strecker"
+          ],
+          "creditText": [
+            "http://www.sil.si.edu/digitalcollections/hst/scientific-identity/explore.htm (reworked)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Christoph%20Lichtenberg.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Christoph%20Lichtenberg.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Georg%20Christoph%20Lichtenberg.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/11538488X",
+        "https://d-nb.info/gnd/160197058"
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-06T13:49:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118572628/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Christine Luise Friederike"
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1109920415",
+          "label": "Lichtenberg, Gottlieb Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118728105",
+          "label": "Lichtenberg, Ludwig Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128768371",
+          "label": "Lichtenberg, Georg Christoph"
+        },
+        {
+          "forename": [
+            "Catharina Henriette"
+          ],
+          "surname": [
+            "Eckard"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/131396315",
+          "label": "Lichtenberg, Johann Conrad"
+        },
+        {
+          "forename": [
+            "Margarethe"
+          ],
+          "surname": [
+            "Kellner"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1014609224",
+          "label": "Lichtenberg, Friedrich Christian"
+        },
+        {
+          "forename": [
+            "Auguste Friederike Henriette"
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118572628",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#21.5p",
+          "label": "Personen zu Physik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/128768371",
+          "label": "Lichtenberg, Georg Christoph"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/131396315",
+          "label": "Lichtenberg, Johann Conrad"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1109920415",
+          "label": "Lichtenberg, Gottlieb Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1014609224",
+          "label": "Lichtenberg, Friedrich Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118728105",
+          "label": "Lichtenberg, Ludwig Christian"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118572628",
+      "oldAuthorityNumber": [
+        "(DE-588a)160197058",
+        "(DE-588c)4035608-5",
+        "(DE-588a)174114915",
+        "(DE-588)11538488X",
+        "(DE-588a)11538488X",
+        "(DE-588a)127321020",
+        "(DE-588a)118572628",
+        "(DE-588)160197058"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4042964-7",
+          "label": "Ober-Ramstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Lichtenberg, Georg Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Christoph"
+        ],
+        "surname": [
+          "Lichtenberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045968-8",
+          "label": "Physiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037945-0",
+          "label": "Mathematiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003310-7",
+          "label": "Astronom"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1123102007",
+          "label": "Photorin, Conrad"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Eckhardt"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Ehrenpreis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emanuel"
+          ],
+          "surname": [
+            "Candidus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Eckard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Über Physiognomik",
+        "Adams, George: Über einige wichtige Pflichten gegen die Augen",
+        "Verzeichniß derjenigen Bücher, welche aus dem Nachlasse des sel. Hrn. Hofraths Lichtenberg zu Göttingen mit Anfange des Septembers dieses Jahrs Nachmittags von 1 bis 2 Uhr durch den Universitäts-Gerichts-Procurator und Bücher-Auctionator F. J. Schepeler, in dem Buchhändler Dieterrischen Hause meistbietend verkauft werden sollen",
+        "Vertheidigung des Hygrometers",
+        "Über Luft und Licht",
+        "Ideen, Maximen und Einfälle",
+        "Mayer, Tobias: Opera inedita",
+        "Magazin für das Neueste aus der Physik ... - 1781 - 1799",
+        "Patriotischer Beytrag zur Methyologie der Deutschen",
+        "De nova methodo. naturam fluidi electrici investigandi commentatio"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80001028"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27067718"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57554"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11538488X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118572628/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160197058"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118572628"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Georg_Christoph_Lichtenberg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Christoph_Lichtenberg"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Georg_Christoph_Lichtenberg"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Christoph_Lichtenberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120957916"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118572628"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118572628"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118572628.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118572628.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118572628"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118572628"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118572628"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Lichtenberg, Georg Christian",
+        "Lixtenberg, Georg K'ristof",
+        "Lichtenbergius, Georgius Christophorus",
+        "Lichtenberg, Georgius Christophorus",
+        "Lichtenberg, G. Chr.",
+        "Candidus, Emanuel",
+        "Lichtenberg, Georg Kristof",
+        "Lichtenberg, G. E.",
+        "Eckhardt, Friedrich",
+        "Lichtenberg, G. C.",
+        "Lichtenberg, Georg Christ.",
+        "Lichtenberg, Georg C.",
+        "Rihitenberuku, Georuku Kurisutofu",
+        "Lichtenbergius",
+        "Likhtenberg, Georg Kristof",
+        "Lichtenberg, Georg Christoph Eckardt",
+        "Lihtenbergs, Georgs Kristofs",
+        "Ehrenpreis, Paul",
+        "Lichtenberg, Georgius C.",
+        "Lichtenberg, Georg Chr.",
+        "Eckard, Friedrich",
+        "Lichtenberg"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georuku Kurisutofu"
+          ],
+          "surname": [
+            "Rihitenberuku"
+          ]
+        },
+        {
+          "forename": [
+            "Georgs Kristofs"
+          ],
+          "surname": [
+            "Lihtenbergs"
+          ]
+        },
+        {
+          "forename": [
+            "G. C."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Kristof"
+          ],
+          "surname": [
+            "Likhtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Kristof"
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Chr."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg C."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Ehrenpreis"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Eckard"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius C."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Eckhardt"
+          ]
+        },
+        {
+          "forename": [
+            "G. E."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Christian"
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg K'ristof"
+          ],
+          "surname": [
+            "Lixtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Christoph Eckardt"
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Kristof"
+          ],
+          "surname": [
+            "Likhtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "G. Chr."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius Christophorus"
+          ],
+          "surname": [
+            "Lichtenbergius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Christ."
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Lichtenbergius"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius Christophorus"
+          ],
+          "surname": [
+            "Lichtenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Emanuel"
+          ],
+          "surname": [
+            "Candidus"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Christoph_Lichtenberg",
+          "label": "https://de.wikipedia.org/wiki/Georg_Christoph_Lichtenberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:07:36Z",
+    "gnd_query_biographical_data": "1742-1799",
+    "gnd_query_name": "lichtenberg, georg christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1632,
+  "name": "Lichtenberg, Georg Christoph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 638",
+  "updated": "2026-06-11 13:29:23.587Z",
+  "uri": "https://d-nb.info/gnd/118572628",
+  "editor": ""
+}

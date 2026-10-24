@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vornagestellt: Was einst als Ahnung - Sehnsucht nun, / Durchdrungen deines Vaters Lieder, [...] Uhland",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Sey mir gegrüßt im ersten Strahl des Lichtes; / Der in dein klares, blaues Auge fällt!",
+  "language": [],
+  "musenalm_id": 116522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Johanna, / meine Erstgeborene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Ad. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Johanna, / meine Erstgeborene",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.579Z",
+      "agent": "roqd4m2swedwv3j",
+      "source_id": "tjy7o5dtael9og7"
+    }
+  ]
+}

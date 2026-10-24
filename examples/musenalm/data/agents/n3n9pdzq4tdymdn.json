@@ -1,0 +1,341 @@
+{
+  "annotation": "",
+  "biographical_data": "1752-1783",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.460Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Kupferstecher"
+      ],
+      "dateOfBirth": [
+        "1752"
+      ],
+      "dateOfDeath": [
+        "1783-01-01"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-04T14:20:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/128694491/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/132757982",
+          "label": "Rossmäßler, Johann Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10424366X",
+          "label": "Roßmäßler, Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "128694491",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/10424366X",
+          "label": "Roßmäßler, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/132757982",
+          "label": "Rossmäßler, Johann Adolf"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/128694491",
+      "oldAuthorityNumber": [
+        "(DE-588a)128694491",
+        "(DE-588a)103759824"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Rossmäßler, Johann August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann August"
+        ],
+        "surname": [
+          "Rossmäßler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "publication": [
+        "Carte chorographique et militaire de la partie de la Saxe et de la Bohême par où les Ar*. - s.a. [ca. 1780]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/55205827"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55846107"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/128694491/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_August_Rossm%C3%A4%C3%9Fler"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066831262"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/128694491"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/128694491"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/128694491"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Rossmäßler, Johann August R.",
+        "Rosmäsler, ...",
+        "Rosmäßler, Johann A.",
+        "Rossmässler, Johann August",
+        "Rosmäßler, Johann August",
+        "Rossmäßler, Johann A.",
+        "Rosmaesler, Johann August",
+        "Roßmäßler, August",
+        "Rosmäsler, Johann August",
+        "Rossmäßler, Johann August",
+        "Rosmasler, Johann August",
+        "Roßmäsler, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rosmasler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rosmäsler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rossmässler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Rossmäßler"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Roßmäßler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rossmässler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rosmäßler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rosmaesler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August R."
+          ],
+          "surname": [
+            "Rossmäßler"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Rosmäsler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Rosmäßler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Rossmäßler"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Roßmäsler"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_August_Rossm%C3%A4%C3%9Fler",
+          "label": "https://de.wikipedia.org/wiki/Johann_August_Rossm%C3%A4%C3%9Fler"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:41:42Z",
+    "gnd_query_biographical_data": "1752-1783",
+    "gnd_query_name": "rossmäßler, johann august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2321,
+  "name": "Rossmäßler, Johann August",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIX, 77",
+  "updated": "2026-06-11 13:29:24.410Z",
+  "uri": "https://d-nb.info/gnd/128694491",
+  "editor": ""
+}

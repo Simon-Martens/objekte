@@ -1,0 +1,434 @@
+{
+  "annotation": "",
+  "biographical_data": "1778-1844",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.490Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Schriftsteller, Übersetzer und Jurist"
+      ],
+      "dateOfBirth": [
+        "1778-09-20"
+      ],
+      "dateOfDeath": [
+        "1844-07-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "Landesarchiv Berlin"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Streckfu%C3%9F.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Streckfu%C3%9F.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Streckfu%C3%9F.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174086806"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-16T13:24:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117313165/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117676608",
+          "label": "Streckfuss, Wilhelm"
+        },
+        {
+          "forename": [
+            "Amalie Charlotte"
+          ],
+          "surname": [
+            "Kruschwitz"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117313157",
+          "label": "Streckfuß, Adolf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117313165",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117676608",
+          "label": "Streckfuss, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117313157",
+          "label": "Streckfuß, Adolf"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117313165",
+      "oldAuthorityNumber": [
+        "(DE-588a)174086806",
+        "(DE-588a)117313165",
+        "(DE-588)174086806"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4020295-1",
+          "label": "Gera"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Streckfuß, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Streckfuß"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4188129-1",
+          "label": "Verwaltungsjurist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Leberecht"
+          ],
+          "surname": [
+            "Fromm"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Garantieen der preußischen Zustände",
+        "Tasso, Torquato: Torquato Tasso's befreites Jerusalem",
+        "Gedichte",
+        "Die Höllenstrafe der Frömmler",
+        "Ode bey Einführung der erblichen österreichischen Kaiserwürde",
+        "Verhältniß der Juden zu den christlichen Staaten",
+        "Der italiänischen Dichtkunst Meisterwerke. - 1839 - 1840",
+        "Der Preußen Huldigungsfest ..",
+        "Torquato Tasso's Leben",
+        "Über die preußische Städte-Ordnung"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85152556"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17996548"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1040724"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117313165/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174086806"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/117313165"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Streckfu%C3%9F"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Carl_Streckfu%C3%9F"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109573567"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117313165"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117313165"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117313165.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117313165"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Streckfuss, Adolph Friedrich Carl",
+        "Streckfuss, Adolf Friedrich Karl",
+        "Fromm, Leberecht",
+        "Streckfuß, Adolf Friedrich Karl",
+        "Streckfuss, Adolph Friedrich Karl",
+        "Streckfuss, Karl",
+        "Streckfuß, Carl",
+        "Streckfuß, Adolf Friedrich Carl",
+        "Streckfuss, Adolf F.",
+        "Streckfuss, Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Streckfuß"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf F."
+          ],
+          "surname": [
+            "Streckfuss"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich Karl"
+          ],
+          "surname": [
+            "Streckfuß"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich Carl"
+          ],
+          "surname": [
+            "Streckfuß"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Streckfuss"
+          ]
+        },
+        {
+          "forename": [
+            "Leberecht"
+          ],
+          "surname": [
+            "Fromm"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Streckfuss"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich Karl"
+          ],
+          "surname": [
+            "Streckfuss"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Friedrich Karl"
+          ],
+          "surname": [
+            "Streckfuss"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Friedrich Carl"
+          ],
+          "surname": [
+            "Streckfuss"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Streckfu%C3%9F",
+          "label": "https://de.wikipedia.org/wiki/Karl_Streckfu%C3%9F"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:06:12Z",
+    "gnd_query_biographical_data": "1778-1844",
+    "gnd_query_name": "streckfuß, karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2815,
+  "name": "Streckfuß, Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 792; Goed XIV, 789",
+  "updated": "2026-06-11 13:29:25.295Z",
+  "uri": "https://d-nb.info/gnd/117313165",
+  "editor": ""
+}

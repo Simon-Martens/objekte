@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, S I-Verz, ar: SS 1-220, ar1: SS 1-170, SS 171-175 G-Verz, ar2: SS 1-106, ar3: SS 1-79",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1833",
+    "norm": "~",
+    "biblio": 409283,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 868,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / KALENDER / auf / das Gemein Jahr / 1833 / MIT KUPFERN / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.753Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "9lzb0z5fljc886j"
+  ],
+  "contents": [
+    "j9s8jgmt5tbyod2",
+    "qmjf6w1cal8c6ki",
+    "ni77nonqcxspnln",
+    "otrx7xd4on5y6ra",
+    "3yidmdt3jzpv89t",
+    "a3nvr537p3blb1s",
+    "zguasscophrkv3j",
+    "hasmhxwj076yy6a",
+    "ifknygnohm0iag5",
+    "ygdp956l1c2ql1y",
+    "veopg08c1as2esb",
+    "df8fgzhvcvq3v4w",
+    "c1di7kv1zik6k8p",
+    "17cc0zq6ie35jgb",
+    "y24rjkqrvfcf0ut",
+    "p35h3cahli6r2tg",
+    "5tkph03lpslq0gs",
+    "mhrn7rzgwfxcvah",
+    "mwmcn3awhuzmgar",
+    "c3tab576xv0vm56",
+    "ly8b09nfnohxcfd",
+    "p1sfwo49xkfywg1",
+    "zfa7w6mpbk3uv0q",
+    "sxdupy6ofnh3hvx",
+    "q4e7bqwpz1eh1q5",
+    "bznhwy8luaeygj9",
+    "s1ba3lalqvvnrvf",
+    "t2uil3qp60ypyht",
+    "wjd55qlba940hbx",
+    "7826yj8up5alaiy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "de0mzmqy4wzzs0o"
+    }
+  ]
+}

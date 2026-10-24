@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. G-Verz: »Männliche Altersstufen in einer Auswahl von Bildern nach berühmten Meistern« INr 103542, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103544,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Knabe, sich über einer Quelle schaukelnd (Zephyr) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "n. Prud'hon C. Roth. Lith. v. T. Malté",
+  "scans": [
+    "alm_3420_103544_x0pdnxi49t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Knabe, sich über einer Quelle schaukelnd (Zephyr) #",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.986Z",
+      "agent": "fsip06wqdvuz14m",
+      "source_id": "uopv3zhf94t5sp5"
+    }
+  ]
+}

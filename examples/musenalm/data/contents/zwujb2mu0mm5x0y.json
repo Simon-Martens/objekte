@@ -1,0 +1,45 @@
+{
+  "annotation": "aus: Musenalmanach (Hamburger) 1798, INr 6797",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Nie schmückt der Seele süßer Reiz, / Geliebtes Mädchen, dich:",
+  "language": [],
+  "musenalm_id": 47480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine junge Freundin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine junge Freundin",
+  "updated": "2007-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.483Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "q8i2rxlrpc19c7l"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, B G-Verz, B I-Verz, 2 BB, G, B, SS 1-429 darin 5 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1845",
+    "norm": "~",
+    "biblio": 100750,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3481,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1845",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "Bernd von Guseck",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1845. / Von / Bernd von Guseck. / Achtzehnter Jahrgang. / Mit 8 Stahlstichen",
+  "updated": "2026-06-11 10:18:54.504Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "onst8i3rrhle4hj"
+  ],
+  "contents": [
+    "y3cf6n6bkb2j64p",
+    "1z76f51cj8dtua1",
+    "sgj87tzhktli72o",
+    "h9enzn42dxh6kd5",
+    "nkdeb9weg6wr6jr",
+    "gsiyhta16dtjjrs",
+    "4nc4m7ernhv99gx",
+    "srq2df9lqf5d4en",
+    "xxo4ln20skdcxh1",
+    "w6vr212dnmdxoiq",
+    "c8fi0qo4bec10d7",
+    "gdnh0m9mf7xkft4",
+    "bn1pnrqzhove9bm",
+    "fwho7hfv9uqsqb6",
+    "l5xpcjhyj4pzsee",
+    "i6zut72x5b17evh",
+    "ngg1hllo7dfzy0o",
+    "gadsvktpo3xk6af"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.235Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.235Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "f2z80snq2ua31to"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.519Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.519Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "hascg1093y20y9c"
+    }
+  ]
+}

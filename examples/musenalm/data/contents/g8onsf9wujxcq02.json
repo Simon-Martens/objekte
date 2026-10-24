@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Nächtlich in dem stillen Grunde, / Wenn das Abendroth versank,",
+  "language": [],
+  "musenalm_id": 26421,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der zauberische Spielmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freyherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der zauberische Spielmann",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.328Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "4q0p6ttynq29lvo"
+    }
+  ]
+}

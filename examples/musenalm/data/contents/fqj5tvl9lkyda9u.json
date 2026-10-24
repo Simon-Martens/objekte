@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebens-Elemente (Sammlung 15224, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Was will die Angst an meiner Seele? / Was flüchten die Gedanken fort?",
+  "language": [],
+  "musenalm_id": 15226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Das Unterirdische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "TIECK",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Das Unterirdische",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.551Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "twpefq5shex51m8"
+    }
+  ]
+}

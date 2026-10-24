@@ -1,0 +1,97 @@
+{
+  "annotation": "6 Jgg 1817-1822; 1817: München (Herausgeber) Nürnberg (Stein), 1819: München (Herausgeber) (Lindauer); Hrsgg.: Rath Will u. Dr. Schwab /) §$ vermutl. fehlt bez. Graphik zu »Ueber die Bäder der Thiere, insbesondere für Pferde« von G. F. Tscheulin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S W S I W, SS V- VVIII Vrwrt d Hrsg, SS IX-XXXVI Tab, SS XXXVII-XXXVIII I-Verz C, SS 1-268",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1817",
+    "norm": "~",
+    "biblio": 100762,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2686,
+  "parallel_title": "",
+  "place_statement": "München (Herausgeber); Nürnberg (Stein)",
+  "places": [
+    "yx82iqb6vfm5jql",
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 136",
+  "responsibility_statement": "Med. Rath Will und Dr. Schwab",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Pferdekunde / für / Stallmeister, Offiziere, / Oeconomen, Thierärzte und / Freunde des Pferdes überhaupt. / Herausgegeben / von den Professoren / Med. Rath Will und Dr. Schwab. / Auf das Jahr / 1817 / MÜNCHEN / Auf Kosten der Herausgegeber. / und Nürnberg bey Stein in Commission",
+  "updated": "2026-06-11 10:18:55.836Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "4979zfcz4ovyxfu"
+  ],
+  "contents": [
+    "m71hyk9iequngms",
+    "rm76xeac21eqapg",
+    "tkmlbzmln8sygdm",
+    "0ulrt1oz16kr3dt",
+    "6ke7nd4bjpng58b",
+    "zjyzj2g48ccpf7s",
+    "w3dot6mulvzbo29",
+    "346r4etds39m4jk",
+    "kkly0e7ndpvmzsi",
+    "q0iaw2dyc9ziuzm",
+    "i15calvpvsr12tx",
+    "4ft7en5e2oxazr4",
+    "mxssre5jydx905v",
+    "bmumaba6phwxmpe",
+    "flh7vfg74yjywba",
+    "5xuoojvf2d1mgmf",
+    "9a5e67tq9im4d5k",
+    "pzpj95baklgv2hs",
+    "ujitmp7khry7d9n",
+    "1gouqrvlmlq5tpg",
+    "ws77bzwef645vuo",
+    "otq59c5fji7rr7c",
+    "cvojipdlkffgtqe",
+    "lsb7f0vnlsmcgce",
+    "a8q0aehd5y5q4qd",
+    "7wyi0qq4vqpphkp",
+    "6d8bp1n9yn66n1e",
+    "ucvbzzscqgqtg3a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "ncr6wl350ab8huo",
+      "source_id": "72yvtsgwz8lzmwf"
+    }
+  ]
+}

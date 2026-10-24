@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "Losgwirbelt von dem Ast / Wohin eilst du , ohne Rast, / Armes Blatt? - Kann ich es wissen?",
+  "language": [],
+  "musenalm_id": 75011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Blatt. / (Nach Arnault.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Blatt. / (Nach Arnault.)",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.775Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "tuf98lukwhvuyjv"
+    }
+  ]
+}

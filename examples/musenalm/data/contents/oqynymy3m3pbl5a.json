@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr28412, 28413; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Ein gewisser unvergeßlicher Monarch, der ewig unter denen glänzen wird, die das Beste gewollt haben,",
+  "language": [],
+  "musenalm_id": 28455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Die Schildwache. / Eine Anekdote",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Die Schildwache. / Eine Anekdote",
+  "updated": "2002-10-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.539Z",
+      "agent": "2wsoz27ytrsps8l",
+      "source_id": "vmf5umkc0hjhpda"
+    }
+  ]
+}

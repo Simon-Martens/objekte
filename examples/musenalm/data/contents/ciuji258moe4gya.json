@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Monolog des Hamlet. / (Travestirt.)« (INr 130388, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Seyn oder Nichtseyn, das ist hier die Frage; / Ob’s edler, im Gemüth die Pfeil’ und Schleudern / Des wüthenden Geschicks erdulden, oder / Sich waffnend gegen eine See von Plagen, / Durch Widerstand sie enden.",
+  "language": [],
+  "musenalm_id": 130387,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIII. / Monolog des Hamlet / von / Schlegel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIII. / Monolog des Hamlet / von / Schlegel",
+  "updated": "2009-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.068Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "ivxtuk8puww0smq"
+    }
+  ]
+}

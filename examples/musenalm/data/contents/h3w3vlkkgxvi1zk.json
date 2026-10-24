@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Es war der Mord vollbracht; den blut'gen Degen / Warf hin Ubaldo, schaudert' und entfloh;",
+  "language": [],
+  "musenalm_id": 132451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gewissen. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gewissen. / Ballade",
+  "updated": "2022-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.091Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "4ns3elkll2solle"
+    }
+  ]
+}

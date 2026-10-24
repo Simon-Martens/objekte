@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Ach, hinter den Mauern versäumt' ich / Den Flieder, die Lilie, den Mohn,",
+  "language": [],
+  "musenalm_id": 45337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Abend",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.474Z",
+      "agent": "5fdnbj9xwyjpym9",
+      "source_id": "1421nxmxkboj3o0"
+    }
+  ]
+}

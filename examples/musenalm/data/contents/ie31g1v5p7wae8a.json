@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Der furchtbare dreissigjärige Krieg durchzog unser Teutschland mit seinen wildesten Wirbeln,",
+  "language": [],
+  "musenalm_id": 27127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adam Wiederbauer. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Adam Wiederbauer. / Eine Erzählung",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.211Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "y1bw21pde1stnsm"
+    }
+  ]
+}

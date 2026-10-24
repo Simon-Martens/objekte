@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK, swissbib: Jgg 1882-1894",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer Kalender (Zürich) 1784",
+    "norm": "",
+    "biblio": 409940,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-07-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4663,
+  "parallel_title": "",
+  "place_statement": "Zürich (Hoffmeister)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Frauenzimmer Kalender (Zürich) 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Frauen Zimmer / Calender / Auf das Jahr / 1784 / Zürich bey / Johann Hoffmeister / an der Rosen Gaß",
+  "updated": "2026-06-11 10:18:54.645Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "8zpe3ejbivehd5w"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.043Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.043Z",
+      "agent": "vjiyycub4l15j8f",
+      "source_id": "f4w2qwyfhtvn1r6"
+    }
+  ]
+}

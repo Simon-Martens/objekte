@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert VIII.  Illustration zu »Scenen aus der Familie Ehrenberg.  2. Die Jubelhochzeit« INr 47806, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.400Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47750,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jubelhochzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1805",
+  "scans": [
+    "alm_651_47750_2hblkrfe85.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Jubelhochzeit",
+  "updated": "2007-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.571Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "h452t2nwjvv50hh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.571Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "qojbi93rrz6idot"
+    }
+  ]
+}

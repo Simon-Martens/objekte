@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmung r.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61913,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Durchlauchtigsten Frau / Louise Marie Wilhelmine, / vermählten / Fürstin von Wied-Neuwied, / gebornen / Gräfin von Witgenstein- / Berleburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Durchlauchtigsten Frau / Louise Marie Wilhelmine, / vermählten / Fürstin von Wied-Neuwied, / gebornen / Gräfin von Witgenstein- / Berleburg",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.806Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "8mog3urgmtbrjkc"
+    }
+  ]
+}

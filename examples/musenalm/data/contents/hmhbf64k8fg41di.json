@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Armes Herz, wann wird dein Kum- / mer schweigen, / Der, allein den edlen Herzen eigen,",
+  "language": [],
+  "musenalm_id": 4887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen / bey einer unglücklichen Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. - - -",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen / bey einer unglücklichen Liebe",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.288Z",
+      "agent": "6y2vclvz6pkp0l9",
+      "source_id": "tvqb40o8vrx4t0f"
+    }
+  ]
+}

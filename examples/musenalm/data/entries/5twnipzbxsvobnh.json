@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Chirurgischer 1840",
+    "norm": "",
+    "biblio": 407979,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3991,
+  "parallel_title": "",
+  "place_statement": "Osterode (Sorge)",
+  "places": [
+    "8lfnk8kn0qo5jua"
+  ],
+  "preferred_title": "Almanach, Chirurgischer 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Fr. Ernst Baumgarten",
+  "subtitle_statement": "",
+  "title_statement": "Chirurgischer / Almanach / für das Jahr 1840 / von / Fr. Ernst Baumgarten, / Bergchirurgus zu Clausthal. / Dritter Jahrgang. / Mit einer lithographirten Tafel. / Osterode, / Verlag von August Sorge",
+  "updated": "2026-06-11 10:18:54.817Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "lnimsgo741izs9x"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "2d0rc0o3cz0mb7c",
+      "source_id": "klx8ch3zb3oqnj1"
+    }
+  ]
+}

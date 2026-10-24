@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert VI. /) Illustration zu » Scenen aus der Familie Ehrenberg. 2. Amalie Trunemann« INr 47987, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47944,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eher opfere ich meine Ruhe auf, als / meiner Tochter Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert d. del. Rosmäsler f. 1808",
+  "scans": [
+    "alm_654_47944_d2nb7h0ogs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eher opfere ich meine Ruhe auf, als / meiner Tochter Glück",
+  "updated": "2007-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.268Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "hbmdlf3oi7dfpw5"
+    }
+  ]
+}

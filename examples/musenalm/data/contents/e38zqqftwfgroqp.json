@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "In unserm lieben deutschen Vaterlande sind die Stände noch immer viel zu sehr getrennt,",
+  "language": [],
+  "musenalm_id": 71414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gelehrte und Bürger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gelehrte und Bürger",
+  "updated": "2010-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.353Z",
+      "agent": "qwibej56fq45fjs",
+      "source_id": "mwfqxf8sub7u335"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Was rühmet ihr mich doch so viel / Von Flöten und von Geigen?",
+  "language": [],
+  "musenalm_id": 34928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harfnerlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giseke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harfnerlied",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.991Z",
+      "agent": "41u796off43ym0d",
+      "source_id": "3ptn9tcnlcofgnn"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik vor dem Kalendarium /) Illustration zu »Schweizerisch-Burgundischer Krieg« INr 72510, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72498,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seite 94. / Am 3. März 1476",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf inv. Meno Haas sc.",
+  "scans": [
+    "alm_849_72498_meiix63gpv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seite 94. / Am 3. März 1476",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.622Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "pzazqsnti0q4hes"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.622Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "zprv9a97lvv1s6v"
+    }
+  ]
+}

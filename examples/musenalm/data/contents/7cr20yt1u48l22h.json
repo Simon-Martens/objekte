@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Da bin ich zurück, mein Freund, glücklich nicht; obwohl ich ruhg bin. Ruhig? Es geht mir durch die Seele,",
+  "language": [],
+  "musenalm_id": 43431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurz und gut! / oder / Eine Hand wäscht die Andre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurz und gut! / oder / Eine Hand wäscht die Andre",
+  "updated": "2006-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.225Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "l4vmolf7mgpfhw1"
+    }
+  ]
+}

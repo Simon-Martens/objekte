@@ -1,0 +1,116 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S 1 nT, SS 2- 236, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur Ehre alter und neuer Moden und Methoden 1806",
+    "norm": "~",
+    "biblio": 100664,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2879,
+  "parallel_title": "",
+  "place_statement": "Halle (Renger)",
+  "places": [
+    "0dzup49ixa29cu1"
+  ],
+  "preferred_title": "Taschenbuch zur Ehre alter und neuer Moden und Methoden 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 114; nicht bei L/R; Goed VIII. 65, 98",
+  "responsibility_statement": "A. G. Eberhard",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur Ehre / alter und neuer / Moden und Methoden / von A. G. Eberhard. / Halle / in der Rengerschen Buchhandlung / 1806",
+  "updated": "2026-06-11 10:18:55.683Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "dwmti9bfbqbaj7k"
+  ],
+  "contents": [
+    "8m32x7ut763sm5e",
+    "kgp154zzk5p8i5n",
+    "7ynpsb134qt21re",
+    "o8f4an6s1tw9p0d",
+    "qk8cf6f4x7ilpv0",
+    "rwtflrmnz0ks666",
+    "9q7qpzqhr7zkogp",
+    "k9cubqlgutnet2q",
+    "ngwxi43j09uehyb",
+    "td9mvr3n82moqgg",
+    "h0qcxgxn7sez157",
+    "b7vb7ncz2777c6e",
+    "hlnzpnzgmit9w97",
+    "e8qd3gf705rlr0r",
+    "j4tl4kkkoinc02b",
+    "hd5lyuffmid1ung",
+    "i0ufb3jgq564zdu",
+    "wkll46kr5c3uprk",
+    "3u52bd5hd0b4bh5",
+    "r56xvj3hmjzutax",
+    "fz1vc403t8sb3z9",
+    "t2s6sta8tt4fahk",
+    "9qwq9jmxp860haj",
+    "r56b2o6omyg5f0p",
+    "zlo14pqk5w7tkz8",
+    "kryqz3fugroazy2",
+    "dyizfvnwo7exd84",
+    "6oh99bky52eo4qw",
+    "hu0tevherbvunjj",
+    "bu9v5d2p5pyju5y",
+    "oqb00u1xwku2j63",
+    "ponf55cvplqhg9k",
+    "zwnow163j7cnfxp",
+    "aobsnnb8ppqsksz",
+    "m8az8kadp1pkfp5",
+    "q75727t8th1cw9y",
+    "1vkj78d294stjk5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.157Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.157Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "b6r557vjllm4inf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "w98npf6773z758n",
+      "source_id": "naxzxiyss0dq2n8"
+    }
+  ]
+}

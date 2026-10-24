@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz (INr 21767, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21764,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine schweizerische Alpengegend #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinkopf del. D'Argent sc.",
+  "scans": [
+    "alm_295_21764_sbr8wfxz92.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine schweizerische Alpengegend #",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.852Z",
+      "agent": "sqtw3zg1u8ixd3n",
+      "source_id": "0yjvfrkas6f9d37"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.852Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "veet7v0bkwv6184"
+    }
+  ]
+}

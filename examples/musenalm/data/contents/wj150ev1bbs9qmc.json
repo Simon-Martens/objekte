@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 29984, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Das Architektonische bringt schon unmittelbar durch das Ebenmaaß, das die einzelnen Theile äußerlich zu einem Ganzen verbindet,",
+  "language": [],
+  "musenalm_id": 29985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine gothische Kirche / von J. L. E. Morgenstern. / 16½ Zoll Höhe, ½ Zoll Breite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine gothische Kirche / von J. L. E. Morgenstern. / 16½ Zoll Höhe, ½ Zoll Breite",
+  "updated": "2002-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.378Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "za9e9nw51t4bl7p"
+    }
+  ]
+}

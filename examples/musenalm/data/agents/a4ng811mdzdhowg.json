@@ -1,0 +1,648 @@
+{
+  "annotation": "",
+  "biographical_data": "1816-1895",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.330Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/117255343",
+          "label": "Tempeltey, Eduard"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Hofrat, ab 1844: freier Schriftsteller, bis 1844: Dozent der Germanistik in Breslau; 1847: Übersiedlung nach Dresden, 1848: nach Leipzig; 1848-1870: Mitherausgeber der Zeitschrift \"Die Grenzboten\"; 1860: Maximiliansorden; 1867: Abgeordneter im Norddeutschen Reichstag; 1870/71: Kriegsberichterstatter, auch Abgeordneter im Norddeutschen Reichstag; 1886/87: Orden Pour le mérite der Friedensklasse"
+      ],
+      "dateOfBirth": [
+        "1816-07-13"
+      ],
+      "dateOfDeath": [
+        "1895-04-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Karl Stauffer-Bern"
+          ],
+          "creditText": [
+            "Alte Nationalgalerie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20Freytag%20by%20Karl%20Stauffer-Bern%201886-1887.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20Freytag%20by%20Karl%20Stauffer-Bern%201886-1887.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gustav%20Freytag%20by%20Karl%20Stauffer-Bern%201886-1887.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T11:04:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118535455/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Mike Maria"
+          ],
+          "surname": [
+            "Strakosch"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116786590",
+          "label": "Freytag, Anna"
+        },
+        {
+          "forename": [
+            "Waldemar"
+          ],
+          "surname": [
+            "Freytag"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117537330",
+          "label": "Freytag, Reinhold"
+        },
+        {
+          "forename": [
+            "Gustav Willibald"
+          ],
+          "surname": [
+            "Freytag"
+          ]
+        },
+        {
+          "forename": [
+            "Emilie"
+          ],
+          "surname": [
+            "Scholz (gesch. Gräfin Dyhrn)"
+          ]
+        },
+        {
+          "forename": [
+            "Katharina"
+          ],
+          "surname": [
+            "Matzner"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette"
+          ],
+          "surname": [
+            "Zebe"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117537276",
+          "label": "Freytag, Gottlob Ferdinand"
+        },
+        {
+          "forename": [
+            "Marie Kunigunde"
+          ],
+          "surname": [
+            "Dietrich"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116786973",
+          "label": "Freytag, Gustav"
+        }
+      ],
+      "fieldOfStudy": [
+        {
+          "id": "https://d-nb.info/gnd/4164044-5",
+          "label": "Klassische Philologie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020383-9",
+          "label": "Germanistik"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045791-6",
+          "label": "Philosophie"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118535455",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116786973",
+          "label": "Freytag, Gustav"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117537276",
+          "label": "Freytag, Gottlob Ferdinand"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117537330",
+          "label": "Freytag, Reinhold"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118535455",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118535455",
+        "(DE-588a)126233535",
+        "(DE-588c)4018490-0"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4816315-6",
+          "label": "Siebleben"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4097069-3",
+          "label": "Kreuzburg (Oberschlesien)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        }
+      ],
+      "preferredName": "Freytag, Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustav"
+        ],
+        "surname": [
+          "Freytag"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000135-0",
+          "label": "Abgeordneter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4150507-4",
+          "label": "Dozent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        }
+      ],
+      "publication": [
+        "Wolf Graf Baudissin",
+        "Der Dreißigjährige Krieg",
+        "Die Technik des Dramas",
+        "Mithrsg. von: Die Grenzboten",
+        "Soll und Haben",
+        "Aus einer kleinen Stadt",
+        "De Hroswitha poetria",
+        "Der Kronprinz und die deutsche Kaiserkrone",
+        "Das Vermächtnis",
+        "Flugschriftensammlung Gustav Freytag",
+        "Karl Stauffer-Bern",
+        "Die Journalisten (Lustspiel)",
+        "\"Liebe alte Stadt\"",
+        "Erinnerungen aus meinem Leben",
+        "Auf der Höhe der Vogesen. Kriegsberichte 1870/71",
+        "Über den Antisemitismus. Eine Pfingstbetrachtung",
+        "Hrsg. von: Bilder aus der deutschen Vergangenheit",
+        "De initiis scenicae poesis apud Germanos",
+        "Die Ahnen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12026651v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50024078"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/freytag-gustav/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29547947"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q58811"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118535455/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118535455"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gustav_Freytag"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gustav_Freytag"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gustav_Freytag"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gustav_Freytag"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108831069"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118535455"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118535455"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118535455.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118535455.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118535455"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/5EF593D5C14046219FC607CF1E56BE81"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118535455"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118535455"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Freytag, Gustavus",
+        "Fu lai ta ge",
+        "Freytag, Gustaw",
+        "夫赖塔格",
+        "G. F.",
+        "Freytag, G.",
+        "Freitag, G.",
+        "夫賴塔格",
+        "F., G.",
+        "Freitag, Gustavus",
+        "Freitag, Gustav",
+        "G.F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "F."
+          ]
+        },
+        {
+          "personalName": [
+            "G.F."
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Freitag"
+          ]
+        },
+        {
+          "forename": [
+            "Gustavus"
+          ],
+          "surname": [
+            "Freitag"
+          ]
+        },
+        {
+          "personalName": [
+            "夫賴塔格"
+          ]
+        },
+        {
+          "personalName": [
+            "夫赖塔格"
+          ]
+        },
+        {
+          "personalName": [
+            "G. F."
+          ]
+        },
+        {
+          "forename": [
+            "Gustaw"
+          ],
+          "surname": [
+            "Freytag"
+          ]
+        },
+        {
+          "forename": [
+            "Gustavus"
+          ],
+          "surname": [
+            "Freytag"
+          ]
+        },
+        {
+          "personalName": [
+            "Fu lai ta ge"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Freytag"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Freitag"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gustav_Freytag",
+          "label": "https://de.wikipedia.org/wiki/Gustav_Freytag"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:25:39Z",
+    "gnd_query_biographical_data": "1816-1895",
+    "gnd_query_name": "freytag, gustav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 788,
+  "name": "Freytag, Gustav",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 137",
+  "updated": "2026-06-11 13:29:22.384Z",
+  "uri": "https://d-nb.info/gnd/118535455",
+  "editor": ""
+}

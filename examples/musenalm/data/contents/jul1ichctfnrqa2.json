@@ -1,0 +1,45 @@
+{
+  "annotation": "Merkur (Sammlung INr 91587, Obj 111) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Die Laute erfand er, da er am ersten Mittage sich aus der Wiege stahl, und indem er über die Schwelle trat, eine Schildkröte ihm entgegen kam,",
+  "language": [],
+  "musenalm_id": 91590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Merkur, / der Erfinder der Laute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Merkur, / der Erfinder der Laute",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.210Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "6a4su9vi16dcfqp"
+    }
+  ]
+}

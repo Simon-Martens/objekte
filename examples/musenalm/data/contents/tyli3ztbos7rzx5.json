@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung fehlt an 4 Grafiken der Suite /) Graphik im Kalendarium paginiert 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7387,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zittre nicht, Schreken Gottes fallen / Mit dem Strahl auf Lasterhafte nur herab. / Der Gerechte hört den Donner furchtloß schallen / Denn er trauet dem, der ihm das Leben gab",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_148_7387_p6g4lnzjan.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zittre nicht, Schreken Gottes fallen / Mit dem Strahl auf Lasterhafte nur herab. / Der Gerechte hört den Donner furchtloß schallen / Denn er trauet dem, der ihm das Leben gab",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.407Z",
+      "agent": "83bgj21cr6rcy33",
+      "source_id": "jtnepptkq47s4df"
+    }
+  ]
+}

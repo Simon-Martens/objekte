@@ -1,0 +1,59 @@
+{
+  "annotation": "# Titelauflage des Jg 1808. /) § Das Titelblatt weist Manipulationen am Datum auf, die Verlagsangabe unter dem Verlagsort Mannheim ist fast vollständig durch Abrieb entfernt. Vielleicht ist die Angabe bei Goed: »Auf das Jahr 1820 Mannheim bei Schwan und Götz« falsch oder es handelt sich um eine weitere Titelauflage für 1821",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 7 BB Kal darin 6 GG, zT, ar: SS 1-192, SS 193-200 G-Verz, SS 200 u 2 BB I-Verz, zT, ar1: SS 12",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Grazien 1820",
+    "norm": "~",
+    "biblio": 106774,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2673,
+  "parallel_title": "",
+  "place_statement": "Mannheim [Verlagsangabe unleserlich]",
+  "places": [
+    "siwp3jn1focgmbs"
+  ],
+  "preferred_title": "Taschenbuch der Grazien 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20, K 124; nicht bei L/R; Goed VIII. 63, 81",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / GRAZIEN / 1821 / mit Kupfern / Mannheim / [...] # §",
+  "updated": "2026-06-11 10:18:55.456Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "znbk92aalxlcx0p"
+  ],
+  "contents": [
+    "t00yq3z6vq9w40j",
+    "idqtcij7sx1bfkh",
+    "1j2xmrhuk646uq6"
+  ],
+  "agents": []
+}

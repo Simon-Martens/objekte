@@ -1,0 +1,58 @@
+{
+  "annotation": "[am oberen rechten Rand: 5. Ges. 2. Seite 140]. Illustration zu »Don Juan« von George Gordon Byron s. Textbezug INr 43867, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43868,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DON JUAN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Richter del. Leop. Beyer sc.",
+  "scans": [
+    "alm_589_43868_bn3lro7xth.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DON JUAN",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.200Z",
+      "agent": "2p87lmr62wiucvw",
+      "source_id": "heyxh0qya9wj7wx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.200Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "iyqwqkp564e6pz2"
+    }
+  ]
+}

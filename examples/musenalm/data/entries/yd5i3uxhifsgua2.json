@@ -1,0 +1,129 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 6 BB Kal darin 7 GG, T, B I-Verz G-Verz, SS 1- 282 darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1811",
+    "norm": "~ +++ 407227 (Graphiken)",
+    "biblio": 100232,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 656,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1811",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / Almanach / zum / NUTZEN und VERGNÜGEN. / für das Jahr / 1811. / LEIPZIG / bey A. F. Böhme",
+  "updated": "2026-06-11 10:18:54.656Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "bsuqxc907mps1sa",
+    "mgr2i1j5zm7c569"
+  ],
+  "contents": [
+    "qxztxj94lqomve0",
+    "t82r0m3bbuvdjq1",
+    "b7kduqc75qpngoy",
+    "nnlrebdrh3oabgp",
+    "jwyx9lgk0zigc77",
+    "bbh18h9527m7tkj",
+    "m7cndi7wkvvnmwm",
+    "n9e18tt36rzc0gk",
+    "usj5y35g0mrst1j",
+    "1dnqzn0cp2n2kj5",
+    "qxyslkrryhoot8x",
+    "3wgjam7yk3r1chi",
+    "fh1fpl2ekns5z1i",
+    "aeb4fovrbyxtaon",
+    "blp2qufca20dl9c",
+    "78ekf0nxxnnkpqr",
+    "fsyr2u5wn3j7lc2",
+    "pa6puof2x63le23",
+    "7bb19mydl6lgurr",
+    "6fiyllqiuenrt22",
+    "tk6mqbf8jdlhko4",
+    "8ranbnwzxf7hcp1",
+    "gf5tzx16d7y5yv1",
+    "mbfn760eaewww4k",
+    "l29f79669k6skmn",
+    "lpwrjiq3z835r3r",
+    "qdfitb0dvsdk4qo",
+    "zotprxzn5qft3un",
+    "umbs3zcga32y39c",
+    "h2d0nbfuh6zogvl",
+    "cq8w08bg2rf7mvj",
+    "pzxebc6dxhxof3w",
+    "mlnwgnsgrel1b1b",
+    "6mazaut9ljvpi30",
+    "5rh7tmwhmoicpes",
+    "tckn6q03ly67dm8",
+    "2js282hyxkanwau",
+    "bxzyuo7u7pfkdnx",
+    "mrzr6qpl4oqzpkc",
+    "y49g8zsqbdjoaz6",
+    "ktn87ji7wrdla25",
+    "zm5qaovkrbywfex",
+    "8r0563geeuamxbb",
+    "0ycqtoop9qik358",
+    "unx3gmqjtszzre0",
+    "gq0m9buyki4xk5c",
+    "k2oqvdiqdjn8i9q",
+    "28u6bkesvho1rcn",
+    "w4ohp5cq98m27g4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.730Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.730Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "20z9nzvfeoqsnvl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.554Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.554Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "d1ewnlhynvfdwbd"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 6 BB Kal, S 1 zT, SS 3-264 darin 5 GG, B I-Verz, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach (Schiller) 1800",
+    "norm": "~",
+    "biblio": 100371,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-07-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 36,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Musenalmanach (Schiller) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 80; L/R 32; Goed V. 208, 6",
+  "responsibility_statement": "Schiller",
+  "subtitle_statement": "",
+  "title_statement": "Musen-Almanach / für / das Jahr 1800. / herausgegeben / von / SCHILLER. / Tübingen, / in der J. G. Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.999Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "2e8yjgjsen7frgx"
+  ],
+  "contents": [
+    "s9hulwsxe0cagka",
+    "117w08gcprih1fi",
+    "1ad6jxwniznigxt",
+    "juiwmhkr7j51k3t",
+    "a6df5dio3fs1f6g",
+    "pk7homyttfbsraz",
+    "a01m3y726ypxlp7",
+    "9oacnk1imoy3biq",
+    "v8akytnm3gtbhnl",
+    "j4tu9t7qqlhykuf",
+    "5ntuzx4lunk8d3x",
+    "77zimmquicz4nbo",
+    "ip3s4l4sfgm3h3g",
+    "lc8v8c9rc4zyqs3",
+    "wuzuzla43helrvg",
+    "8lgc2m1uryel42e",
+    "3525vd7qvwtj23j",
+    "owlgtizc8apo3sq",
+    "urj5ogqz51cs5hw",
+    "r9w4sthn5jmssar",
+    "vpvzmut47bm3h2f",
+    "xte988aox2akf50",
+    "l0huoqv9nwskpzb",
+    "lyoufh2rh1ryha7",
+    "7a8hqccr1w0u95a",
+    "7qrc1ujgs1ibeo9",
+    "pmq96ghugo5r4kj",
+    "hq645sl3bvmpm6j",
+    "o3xfrgyuxe46q1m",
+    "ge5kizabffirt6e",
+    "qqmk7zp7dwu7i94",
+    "e4d8szamjkjvyov",
+    "29185ieuhbdh6qg",
+    "yu17x21q6m6qet1",
+    "cue2dwams2kg545",
+    "oivxm0raaoiif83",
+    "ef86yf3ar9ka54u",
+    "g9pujf479z7r2kh",
+    "3ym5lnunsnemff7",
+    "2ifppx83h7u3k3q",
+    "17nx28huseyvv4a",
+    "veuaqgrqen6i6uj",
+    "vacb154ssjwx55j",
+    "anp8pv7vxtcdyar"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.677Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.677Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "99g7lb9vwzfgmy2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.194Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.194Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "w8u8ezjrmakrpmn"
+    }
+  ]
+}

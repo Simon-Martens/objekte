@@ -1,0 +1,67 @@
+{
+  "annotation": "in der Vorrede Teil 1: Dies Werkchen wurde schon im Jahre 1834 und 1837 hierorts censuriert und zum Drucke gestattet. (Erste Auflage ganz vergriffen.)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schmuckkästchen, Das oder TB für d. menschl. Mittelalter 1838 (2.)",
+    "norm": "",
+    "biblio": 407390,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-07-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3849,
+  "parallel_title": "",
+  "place_statement": "Pesth (Beimel)",
+  "places": [
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Schmuckkästchen, Das oder TB für d. menschl. Mittelalter 1838 (2.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Paul Klobuschitzky",
+  "subtitle_statement": "",
+  "title_statement": "Das / Schmuck-Kästchen. / oder / Das Taschenbuch / für das menschliche Mittelalter, / bearbeitet / aus dem reinen Herzen und der Vernunft / über die / der Menschheit wichtigsten Gegenstände / von / Paul Klobuschitzky. / Pesth. / Gedruckt bei Jos. Beimel",
+  "updated": "2026-06-11 10:18:55.461Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "kbucrkou8w5sy6c"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.524Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.524Z",
+      "agent": "79f734fsfqv0ksa",
+      "source_id": "hqhvjdbdklm8wxi"
+    }
+  ]
+}

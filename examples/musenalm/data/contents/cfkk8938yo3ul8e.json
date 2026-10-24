@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Herbstwanderung in den Thälern des Greyerserlandes« von Fr. Kuenlin INr 54093, Obj 4 /) unter der Graphik: Alpenrosen 1826",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54091,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fall des Taunabaches, / Cant. Freyburg.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. de Fegeli del. F. Geissler sculp.",
+  "scans": [
+    "alm_738_54091_l11kal5t97.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Fall des Taunabaches, / Cant. Freyburg.",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.699Z",
+      "agent": "tero3ga20il4mnw",
+      "source_id": "bi2yf87rj57njhh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.699Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "hu8p95npw8ibz9x"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; Illustration zu »Das deutsche Mädchen« F. Stolle INr 62211, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129012,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS DEUTSCHE MÄDCHEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Newton pinx. Frommel dirx.",
+  "scans": [
+    "alm_1020_129012_m2rs5ej9l8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS DEUTSCHE MÄDCHEN",
+  "updated": "2009-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.999Z",
+      "agent": "at8sm22osm7l3bv",
+      "source_id": "4q2jgzjlzfqfs2f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.999Z",
+      "agent": "yxu70p4laeh97im",
+      "source_id": "kmkwy3d0wwxtql3"
+    }
+  ]
+}

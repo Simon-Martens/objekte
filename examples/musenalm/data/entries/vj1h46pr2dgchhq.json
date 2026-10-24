@@ -1,0 +1,105 @@
+{
+  "annotation": "# gezeichnetes Portrait »Johannes von Müller« auf gefaltetem Karton mit 4 Seiten und einigen Eintragungen, eingebunden hinter dem Buchblock; vielleicht Vorzeichnung für den Stich. Das Portraitmedaillon (Diogg pinx. M. Haas sc.) als Titelportrait in: Kalender, Historisch-Genealogischer (Berlin) 1806; INr 60807",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG Kr, 4 GG, S 1 zT, SS 3-B VrlgM, 72 BB, 2BB davon 1 G #",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1793",
+    "norm": "~",
+    "biblio": 404125,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 828,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch Genealogischer / Calender / auf das Jahr / 1793. / Mit Genehmhaltung der Königl. / Academie der Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.870Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "1neke4zyaupsyac"
+  ],
+  "contents": [
+    "vw2e8r5qyojpg7o",
+    "pyc5u2g8lawd20z",
+    "05ok0maano5q3xb",
+    "sxbr08itgfzlrjw",
+    "ahux7et0lw9l5no",
+    "h2455v4b5vskxad",
+    "m8t9bjphkozb252",
+    "s4emqy0wf9b2p8z",
+    "5j7ntvpl5x2ajzp",
+    "a6fdqvs1s3a1ioq",
+    "lolc8u4yhf6ehzh",
+    "vqnpoczxeq2wbn3",
+    "6su360jki8itceo",
+    "5uu85xamlt0i2iy",
+    "j95dqx6292de97l",
+    "09th2zr44gjdofs",
+    "1zivu1b1504wsxi",
+    "g6xqrqsmlczob9u",
+    "hjn1m6p37bwb4dk",
+    "3mvjk22alu2y3l2",
+    "16yhxvo0xrj7lrz",
+    "n1t15jgjhlpjw86",
+    "75az2us67w4kbh5",
+    "zisrm4sn4tow1ro",
+    "xj79zxa92z3ncfv",
+    "hfguw4hmb4r85jc",
+    "55uuhbg9929brjp",
+    "4z39w214mbmwkkj",
+    "x38djpz7py0rd4v",
+    "zeowqzjj9sypaqn",
+    "d1d5oheq0bg6fjp",
+    "7333vete0ehtflq",
+    "yt2ydzoaiyjiz2b",
+    "o8jc36kauw2a5b5",
+    "gpu3lawk66ootb4",
+    "ghz97jl9obil4q1",
+    "s0uwbybbibwk5ae"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "vmiyy7p251u353s"
+    }
+  ]
+}

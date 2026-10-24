@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung aus: Gallerie zu La Motte Fouqué's »Held des Nordens« (Sammlung INr 20985, Obj 7)\ns. Textbezug INr 20994, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20993,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod! / Will dich bekraenzen, lieber Bräutigam!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Wottawa # J. P. Walther sc. Nbg 1829",
+  "scans": [
+    "alm_278_20993_dfg6oloa42.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tod! / Will dich bekraenzen, lieber Bräutigam!",
+  "updated": "2002-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.861Z",
+      "agent": "f52qfr3kaiovdte",
+      "source_id": "1bf6xuob46uozff"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.861Z",
+      "agent": "sd23pd99eo8r456",
+      "source_id": "cuxfmord2e34o3l"
+    }
+  ]
+}

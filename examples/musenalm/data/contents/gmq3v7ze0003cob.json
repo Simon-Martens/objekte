@@ -1,0 +1,56 @@
+{
+  "annotation": "Im G-Verz: Vier Ansichten aus Venedig, nach dem Prachtwerke des Grafen Forbin: Un Mois à Venise, gest. von Buser",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41284,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Untere Gallerie im Pallast des Dogen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fragonard del. Buser sc. Nbg",
+  "scans": [
+    "alm_482_41284_wfkpelzcw8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Untere Gallerie im Pallast des Dogen",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.115Z",
+      "agent": "gpua5gdwasv89sy",
+      "source_id": "22gypsax6021bds"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.115Z",
+      "agent": "pucxvknfajphlb3",
+      "source_id": "5aib1btsi9ifchc"
+    }
+  ]
+}

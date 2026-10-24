@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86605, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "In den alten Tagen, den vogelreichen, / Wo die Sänger all', die großen , kleinen, / Sich im Saal von Birk' und Föhr' und Eichen / Zum volksthümlichen Concert vereinen,",
+  "language": [],
+  "musenalm_id": 86606,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Waldscene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Waldscene",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.319Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "a6a2y85sh8ieutx"
+    }
+  ]
+}

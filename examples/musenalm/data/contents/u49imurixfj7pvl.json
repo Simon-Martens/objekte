@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 63245, Obj 9) s. Graphik INr 63257, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Nach Allerheiligen führt ein Gang, / Umweht von des Schwarzwalds Grauen:",
+  "language": [],
+  "musenalm_id": 63249,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "25. Die Felsenkirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "25. Die Felsenkirche",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.152Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "f6kkz86ewhv04y3"
+    }
+  ]
+}

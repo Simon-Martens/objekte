@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Fliehen kann ich dich bey Tage, / Zähmen meine Phantasie",
+  "language": [],
+  "musenalm_id": 90332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lina. / Als ich von ihr träumte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hegrad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lina. / Als ich von ihr träumte",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.099Z",
+      "agent": "74pcpa7ejqsofji",
+      "source_id": "797ojj1tagn2rpx"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "annotation": "§ MusB fehlt; lt. I-Verz.: Müllers Vertonung von »Der schönste Trost« von C. A. Tiedge. Im Vorwort des Herausgebers einige Hinweise auf die Autorschaft und Auswahl der Beiträge",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 7 BB Kal, T. B Vrwrt d Hrsg, B I-Verz, SS 1-300 darin § MusBB 10 GG, S 300 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1802",
+    "norm": "~ K gibt MusB an",
+    "biblio": 100827,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 647,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1802",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1802. / Leipzig / bey A. F. Böhme",
+  "updated": "2026-06-11 10:18:54.653Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "w7quthh6g1872rh"
+  ],
+  "contents": [
+    "r3r9d6itn0601e5",
+    "0j6y6o4echh9t47",
+    "r7ffprcfl9zjc1h",
+    "6p852xbupon6xem",
+    "2l479gpo6r9sq2x",
+    "fu6weq8bwm8jly6",
+    "p38scnp5j4bag73",
+    "z6xm58c0jxw5cvt",
+    "hhrkj1kkaj06che",
+    "em0f11k1dmava9b",
+    "cpfmnwv11ug7it7",
+    "zccovpqxdcqq170",
+    "aibcw7ni90t0skh",
+    "1gmea9hz43tldoi",
+    "698td504uo8psll",
+    "6dt3mlk53j1ut61",
+    "hl0mgeezkurgcfh",
+    "nxmssedvelq1na5",
+    "zcy14ilfhlqi3lw",
+    "zhavrvwi3kn4k8i",
+    "ctufxkxtxewsspo",
+    "ldi7h52lzddifq8",
+    "pyk1qcod4u1jthu",
+    "pfsaglarz82hvr4",
+    "q3jglj0f9z56dls",
+    "zm9ywhxhi3d6gie",
+    "4n8snsi5ifrespn",
+    "f86juo0gpd29fdp",
+    "et6tqqyzbqj2u86",
+    "fz0ce4up8ifkedm",
+    "vyf1mg8urhpjwjs",
+    "9l4t84eh3u0fs2m",
+    "5bsyxgif5g4d8sa",
+    "w2gtwckd5rwpuv5",
+    "9spq1yjlfanp301",
+    "qnd1xfkox6wbyqm",
+    "od9kcqxr8ec37ga",
+    "xbr2ijp50npvvzj",
+    "2qhec81o3fmkhvo",
+    "lp87snanplptgia",
+    "n0d4ug3w1zw95wz",
+    "yjhet8l4reqinfh",
+    "zt49atg6p80iotn",
+    "hn6msye6b9pp2fx",
+    "3ooipbuy42r5ok6",
+    "2fh5xx4pvzoklbz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.550Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.550Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "030r762gino3z2h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.727Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.727Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "yov29nslrbbn6oh"
+    }
+  ]
+}

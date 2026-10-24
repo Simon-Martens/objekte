@@ -1,0 +1,262 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1844",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.300Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1784"
+      ],
+      "dateOfDeath": [
+        "1844"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "François-Louis Dejuinne"
+          ],
+          "creditText": [
+            "http://fr.academic.ru/dic.nsf/frwiki/180423"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fran%C3%A7ois-Louis%20Dejuinne%20%281786-1844%29%20-%20Clovis%20roi%20des%20Francs%20%28465-511%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fran%C3%A7ois-Louis%20Dejuinne%20%281786-1844%29%20-%20Clovis%20roi%20des%20Francs%20%28465-511%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois-Louis%20Dejuinne%20%281786-1844%29%20-%20Clovis%20roi%20des%20Francs%20%28465-511%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2008-04-06T09:58:43.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/132188120/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "132188120",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/132188120",
+      "oldAuthorityNumber": [
+        "(DE-588a)132188120",
+        "(DE-588c)7546379-9"
+      ],
+      "preferredName": "Dejuinne, François Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "François Louis"
+        ],
+        "surname": [
+          "Dejuinne"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        }
+      ],
+      "publication": [
+        "Dagorne, Richard: Girodet sous le regard de Dejuinne. - 2006"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb151000439"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no92025523"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29805045"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q3083506"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132188120/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fran%C3%A7ois-Louis_Dejuinne"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011614375X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/132188120"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hardy de Juinne, François-Louis de",
+        "Juinne, François-Louis de",
+        "Dejuinne, François-Louis",
+        "Juinne, François Louis de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "François Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Juinne"
+          ]
+        },
+        {
+          "forename": [
+            "François-Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Juinne"
+          ]
+        },
+        {
+          "forename": [
+            "François-Louis"
+          ],
+          "surname": [
+            "Dejuinne"
+          ]
+        },
+        {
+          "forename": [
+            "François-Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Hardy de Juinne"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "ascii_name",
+    "gnd_matched_at": "2026-06-11T11:12:12Z",
+    "gnd_query_biographical_data": "1786-1844",
+    "gnd_query_name": "dejuinne, francois louis"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 514,
+  "name": "Dejuinne, Francois Louis",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VIII, 566",
+  "updated": "2026-06-11 13:29:22.019Z",
+  "uri": "https://d-nb.info/gnd/132188120",
+  "editor": ""
+}

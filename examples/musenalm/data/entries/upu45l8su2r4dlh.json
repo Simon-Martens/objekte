@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Asträa, Taschenbuch für Freimaurer 1832",
+    "norm": "",
+    "biblio": 405287,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1539,
+  "parallel_title": "",
+  "place_statement": "Ilmenau (Voigt)",
+  "places": [
+    "k3pxge24b7tlxan"
+  ],
+  "preferred_title": "Asträa, Taschenbuch für Freimaurer 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 24, L/R 179",
+  "responsibility_statement": "Friedrich von Sydow",
+  "subtitle_statement": "",
+  "title_statement": "Astraea. / Taschenbuch für Freymaurer / auf / das Jahr 1832. / Herausgegeben / von / Friedrich von Sydow, / Königl. Preuss. Major a. D. / Sechster Jahrgang. / Ilmenau, / Druck und Verlag von Bernh. Friedr. Voigt",
+  "updated": "2026-06-11 10:18:54.613Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "h6ahpfr2b4bnktn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.930Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.930Z",
+      "agent": "6xjnjk3hecydoti",
+      "source_id": "gb6vu72osaqgflf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "68vz9513hfeiif2",
+      "source_id": "tglo5r5m58zjkxh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Graphik im Kalendarium August; paginiert 5. Illustration zu »Der böse Schein« von G. W. C. Starke INr 60859, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schein war gegen mich, mein / Herz war schuldlos",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 95",
+  "scans": [
+    "alm_947_60848_a1thoupjiy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Schein war gegen mich, mein / Herz war schuldlos",
+  "updated": "2008-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.816Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "0u7rgeikr3dzyzm"
+    }
+  ]
+}

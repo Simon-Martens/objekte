@@ -1,0 +1,668 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.337Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil."
+      ],
+      "dateOfBirth": [
+        "1777-04-30"
+      ],
+      "dateOfDeath": [
+        "1855-02-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Gottlieb Biermann / After Christian Albrecht Jensen"
+          ],
+          "creditText": [
+            "Gauß-Gesellschaft Göttingen e.V. (Foto: A. Wittmann)."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Friedrich%20Gauss.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Friedrich%20Gauss.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Carl%20Friedrich%20Gauss.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187181845",
+        "https://d-nb.info/gnd/128064072",
+        "https://d-nb.info/gnd/158775570",
+        "https://d-nb.info/gnd/175625026"
+      ],
+      "describedBy": {
+        "dateModified": "2023-06-09T14:40:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104234644/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1072539667",
+          "label": "Gauß, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072538466",
+          "label": "Gauß, Eugen"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104234644",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#28p",
+          "label": "Personen zu Mathematik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#21.5p",
+          "label": "Personen zu Physik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#20p",
+          "label": "Personen zu Astronomie, Weltraumforschung"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.2p",
+          "label": "Personen zu Geodäsie, Kartografie"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1072538466",
+          "label": "Gauß, Eugen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072539667",
+          "label": "Gauß, Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104234644",
+      "oldAuthorityNumber": [
+        "(DE-588)187181845",
+        "(DE-588)158775570",
+        "(DE-588a)158775570",
+        "(DE-588a)187181845",
+        "(DE-588)128064072",
+        "(DE-588c)4019466-8",
+        "(DE-588a)128064072",
+        "(DE-588a)159997186",
+        "(DE-588a)104234644",
+        "(DE-588a)159997151",
+        "(DE-588a)160360803",
+        "(DE-588)175625026",
+        "(DE-588a)160360889",
+        "(DE-588a)175625026",
+        "(DE-588a)159092094"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Gauß, Carl Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Friedrich"
+        ],
+        "surname": [
+          "Gauß"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037945-0",
+          "label": "Mathematiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156667-1",
+          "label": "Geodät"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003310-7",
+          "label": "Astronom"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045968-8",
+          "label": "Physiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Professor der Mathematik"
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1286926572",
+          "label": "Reiß, Michael"
+        }
+      ],
+      "publication": [
+        "Summatio quarundam serierum singularium",
+        "Theoria combinationis observationis erroribus minimis obnoxiae",
+        "Demonstratio nova theorematis omnem functionem algebraicam rationalem ...",
+        "Disquisitiones arithmeticae",
+        "Recherches arithmétiques",
+        "Methodus nova integralium valores per approximationem inveniendi",
+        "Theorematis arithmetici demonstratio nova",
+        "Demonstratio nova altera theorematis omnem functionem algebraicam ...",
+        "Beiträge zur Theorie der algebr. Gleichungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11904373v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79038533"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29534259"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q6722"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104234644/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/128064072"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158775570"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/175625026"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187181845"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Carl_Friedrich_Gauss"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Gau%C3%9F"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Carl_Friedrich_Gau%C3%9F"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121257962"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104234644"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104234644"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104234644.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104234644.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104234644"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/104234644"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Gauss, Carlo Federico",
+        "Gauß, Johann Carl Friedrich",
+        "Gauss, Carolus Fridericus",
+        "Gauss",
+        "Gauss, Carl F.",
+        "Gauss, Charles F.",
+        "Gauss, Carolo Friderico",
+        "Gauss, Charles-Frédéric",
+        "Gauß, Carolus F.",
+        "Gauß, Carl F.",
+        "Gauss, C. F.",
+        "Gauss, Frigyes Károly",
+        "Gauss, Carl Friedrich",
+        "Gauss, Charles Frédéric",
+        "Gauss, C.-F.",
+        "Gauss, Karl-Friedrich",
+        "Gaosi",
+        "Gauß, Karl F.",
+        "Gauss, Ch.-Fr.",
+        "Gauss, Karl Friedrich",
+        "Gauss, Carolus F.",
+        "Gauss, Karl",
+        "Kao-ssu, K'o-lü-ko",
+        "Gauß, Karl Friedrich",
+        "Gauss, Carlo F.",
+        "Gauss, C.F.",
+        "Gauss, Carolus Friedericus",
+        "Gauss, Karl Fridrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C.F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Frigyes Károly"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Frédéric"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl Friedrich"
+          ],
+          "surname": [
+            "Gauß"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "personalName": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Frédéric"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Fridrich"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "personalName": [
+            "Gaosi"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Gauß"
+          ]
+        },
+        {
+          "forename": [
+            "C.-F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus F."
+          ],
+          "surname": [
+            "Gauß"
+          ]
+        },
+        {
+          "forename": [
+            "Carolo Friderico"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Karl-Friedrich"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Ch.-Fr."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Gauß"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo Federico"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Charles F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "K'o-lü-ko"
+          ],
+          "surname": [
+            "Kao-ssu"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo F."
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Friedericus"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Fridericus"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Gauß"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Gauss"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Gau%C3%9F",
+          "label": "https://de.wikipedia.org/wiki/Carl_Friedrich_Gau%C3%9F"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:28:00Z",
+    "gnd_query_biographical_data": "1777-1855",
+    "gnd_query_name": "gauß, karl friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 836,
+  "name": "Gauß, Karl Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VIII, 430",
+  "updated": "2026-06-11 13:29:22.440Z",
+  "uri": "https://d-nb.info/gnd/104234644",
+  "editor": ""
+}

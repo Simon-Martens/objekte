@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 60995, Obj 4) s. Graphik INr 61015, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "im offenen Gericht angeklagt, zum Tode verdammt und sich weigernd, das Volk um Milderung des Urtheils zu bitten, wird gefragt: welche Strafe er sich selbst zuerkennen würde?",
+  "language": [],
+  "musenalm_id": 61003,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Sokrates",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Sokrates",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.998Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "d5iu6dy9lmy2m44"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "annotation": "10 Jgg: 1794-1803; 1794, 1795: Leipzig (Graff), 1795-1803: Leipzig (Fleischer); Hrsg: F. G. Leonhardi /) § Umschlag verso fehlt; §§ Musikbeigaben zu »Jagdgesängen« fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG §, VB, verso G, T, 3 BB Vrwrt d Hrsg, B I-Verz 8 BB Kal, S 1 nT, SS 3-294, B VrlgM, §§ MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1794",
+    "norm": "~",
+    "biblio": 404845,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1108,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Graff)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / Kalender / Für das Jahr / 1794. / Mit Kupfern / Leipzig / bei den Gebr. Graff",
+  "updated": "2026-06-11 10:18:55.629Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "bhwn7kyqaqqghdi"
+  ],
+  "contents": [
+    "66qc4s7727ohacj",
+    "y2e7eon85w3ben6",
+    "8oqp58grpqs2lcr",
+    "c2j4vgmvpim3mj9",
+    "ezpjem5bf2uhdjg",
+    "ff5y9ulng0xg7zx",
+    "tqy9bv3cowco4ch",
+    "t67wgkc65i99wmy",
+    "a3w1i2uu0d5wvq0",
+    "1x03vff2ldfvqym",
+    "ly7k0txfasgsx8f",
+    "6i23evh37p5anqz",
+    "lk0lm4v0x37601g",
+    "xizrqvxfe9t7xsf",
+    "6iaef03m59r3aih",
+    "3sdhvjbbuipivyx",
+    "g34x6x51p894nlj",
+    "e21xy3jeaa37pt0",
+    "xwqckyz3d805lbo",
+    "abfxy5xj4i9llqe",
+    "hnqgm6j8ql5y9p8",
+    "tmdwxbovkgmpm88",
+    "iqika85jtf9sokd",
+    "tlbu3v6jw0jrwam",
+    "3414hq429dapanl",
+    "7p40jeb35emplfm",
+    "vc4inj3druasce9",
+    "bg91uv6j8mm6mgh",
+    "kaixn49we9q3vv5",
+    "xc2ggbovw85f3lm",
+    "30cca32u97fj47g",
+    "bq9gn8lli2bmdk5",
+    "khvim6d8augu0uu",
+    "e4ztxtp95ysuj5s",
+    "wi90702ykl5r5pv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.824Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.824Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "4n33yuovobgko9d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.924Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.924Z",
+      "agent": "vzeibdcmd7xmhbm",
+      "source_id": "fa7pmjsg4jk9itm"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "annotation": "Jgg 1798-1803, (1800 nicht erschienen); 1798, 1799 Berlin (Vieweg); 1801-1803 Braunschweig (Vieweg); Hrsgg.: Angabe lediglich für Jg 1801: Friedrich Gentz, Jean Paul, Johann Heinrich Voß. /) Jg 1798 mit Goethes »Herrmann und Dorothea« /) beim vorliegenden Taschenbuch handelt es sich lt. L/R 50 um die  kartonierte Ausgabe mit Titelkupfer von Meil, Modekupfer (fehlt hier vermutllich) und den Graphiken im Kalendarium Schubert del., Darnstedt sc.: 1. 2. 7. 8. 9. 10)  s. a. Jg 1798 Luxusausgabe II.  alm-1085 /) s. a. eine bislang bibliogr. nicht erfasste Erscheinungsform des Taschenbuchs mit 12 Monatskupfern; s. alm-4154 /) ein unbekannter Druck von »Herrmann und Dorothea« in: Taschenkalender, Berner 1804 (Goethe: Herrmann und Dorothea) alm-1120 /) §1$§ vermutlich fehlt Modekupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, §1$§ G, T, 7 BB Kal darin 6 GG, zT, SS 1-174",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Vieweg) 1798 (Goethe: Herrmann und Dorothea) (kart. Ausgabe)",
+    "norm": "~ Paginierung der Graphiken im Kalendarium 1. 2. 7. 8. 9. 10.",
+    "biblio": 200742,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-08-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 612,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vieweg)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch (Vieweg) 1798 (Goethe: Herrmann und Dorothea) (kart. Ausgabe)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 52; K 106; L/R 49; Goed IV/3. 334, 68; Goed VIII. 49, 10; G 4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1798. / Herrmann und Dorothea / von / J. W. von Göthe. / Berlin / bey Friedrich Vieweg dem älteren",
+  "updated": "2026-06-11 10:18:55.458Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "qpx8jmk66io7yxb"
+  ],
+  "contents": [
+    "wpbj0re5utvk7y7",
+    "ih1l9sdky3ygd25",
+    "hxz43jr98ozlsu2",
+    "zzgzwcopkb35lgy",
+    "kf02c1c8q1xja3z",
+    "dwgub4bexyrb5wu",
+    "1m80q188pyfv2ml",
+    "3ohzr477e83o6fl",
+    "ydqo1t3hd0hvlzo",
+    "rmvpm317g980td0",
+    "dl31mibcnyg07qe",
+    "njbrs56l37co2s5",
+    "ptfrlwhz2qrll9h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "3dd0t464rudzb6w"
+    }
+  ]
+}

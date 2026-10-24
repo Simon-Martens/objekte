@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Hrsg",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Das Publikum erhält hier die Geschichte des vierten Feldzuges vom Jahre 1795",
+  "language": [],
+  "musenalm_id": 9072,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VorBemerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Posselt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VorBemerkung",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.308Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "eqw31hhdzqxbphy"
+    }
+  ]
+}

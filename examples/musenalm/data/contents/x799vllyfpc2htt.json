@@ -1,0 +1,45 @@
+{
+  "annotation": "auszufaltende Graphik /) s. Textbezug INr 96416, Obj 12; dort zus. Bezeichnung: Die Zeichnung ist vom Herrn Hofrath Becker",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Eingang ins Murggthal",
+  "language": [],
+  "musenalm_id": 96419,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eingang ins Murggthal…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Br. del. d'Argent sc.",
+  "scans": [
+    "alm_4097_96419_ys1xnzkbg6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.481Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "lj03m6km8kyvqvl"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Felsenkirche« von K. Geib INr 63249, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz del. Fleischmann sc.",
+  "scans": [
+    "alm_1036_63257_q95ag7u81j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.984Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "0paj09kem5lne9b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.984Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "jsf5bnb2nh1mtwd"
+    }
+  ]
+}

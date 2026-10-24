@@ -1,0 +1,112 @@
+{
+  "annotation": "",
+  "biographical_data": "18. Jh",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.372Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "describedBy": {
+        "dateModified": "2025-12-31T13:31:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/142737836/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "142737836",
+      "id": "https://d-nb.info/gnd/142737836",
+      "oldAuthorityNumber": [
+        "(DE-588a)142737836"
+      ],
+      "periodOfActivity": [
+        "1792"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Hoffmann, G. W.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "G. W."
+        ],
+        "surname": [
+          "Hoffmann"
+        ]
+      },
+      "publication": [
+        "Der erhabnen Lebens-Feyer Seiner Hochfürstlichen Durchlaucht Friedrich Albrechts des guten regierenden Fürsten zu Anhalt-Bernburg ... - 1792"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/160049555"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/142737836/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:46:45Z",
+    "gnd_query_biographical_data": "18. Jh",
+    "gnd_query_name": "hoffmann, g. w."
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1214,
+  "name": "Hoffmann, G. W.",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XVII, 255",
+  "updated": "2026-06-11 13:29:22.956Z",
+  "uri": "https://d-nb.info/gnd/142737836",
+  "editor": ""
+}

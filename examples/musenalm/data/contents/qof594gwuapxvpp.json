@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Mein Friedrich braucht bei seinem ganzen / Regierungswesen lauter Franzen.",
+  "language": [],
+  "musenalm_id": 62476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A.Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich",
+  "updated": "2009-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.142Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "2qc0g44i7hgk0ca"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 17 Xenien INr 45813-45829, Obj 220-236",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 219,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Xenien. / Motto: / Wer nicht alt wird bei jungen Jahren, / Wird ewige Jugend nicht bewahren. / (NachRahel)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Xenien. / Motto: / Wer nicht alt wird bei jungen Jahren, / Wird ewige Jugend nicht bewahren. / (NachRahel)",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.000Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "f3k29z7ojypgxr3"
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "annotation": "",
+  "biographical_data": "1816-1890",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.416Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5280829-4",
+          "label": "Loge Wilhelm zur Aufgehenden Sonne (Stuttgart)"
+        }
+      ],
+      "dateOfBirth": [
+        "1816-07-05"
+      ],
+      "dateOfDeath": [
+        "1890-06-20"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-25T21:09:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117164860/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Tost"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117037621",
+          "label": "Loewe, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136261698",
+          "label": "Löwe, Ferdinand"
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117741191",
+          "label": "Löwe, Sophie"
+        },
+        {
+          "forename": [
+            "Amalie"
+          ],
+          "surname": [
+            "Stubenrauch"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1046070886",
+          "label": "Löwe, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117166499",
+          "label": "Löwe, Lilla"
+        },
+        {
+          "forename": [
+            "Doris"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Sofie"
+          ],
+          "nameAddition": [
+            "Fürstin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Liechtenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Marie"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Josefine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Stubenrauch"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117164860",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117741191",
+          "label": "Löwe, Sophie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136261698",
+          "label": "Löwe, Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1046070886",
+          "label": "Löwe, Johanna"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117037621",
+          "label": "Loewe, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117166499",
+          "label": "Löwe, Lilla"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117164860",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)117164860",
+        "(DE-588c)7591775-0",
+        "(DE-588a)101249837"
+      ],
+      "periodOfActivity": [
+        "1840-1890"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Loewe, Feodor",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Feodor"
+        ],
+        "surname": [
+          "Loewe"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14309663z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2010190011"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "https://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no96011787"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22354240"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55134441"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117164860/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Feodor_Franz_Ludwig_L%C3%B6we"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000107181404"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117164860"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117164860"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117164860.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117164860"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Löwe, Franz Ludwig Feodor",
+        "Loewe, Fedor",
+        "Löwe, Franz Feodor",
+        "Loewe, Franz Ludwig Feodor",
+        "Löwe, Feodor",
+        "Löwe, Feod.",
+        "Loewe, Franz Ludwig Teodor",
+        "Löwe, J.",
+        "Löwe, Feodor Franz Ludwig"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz Ludwig Teodor"
+          ],
+          "surname": [
+            "Loewe"
+          ]
+        },
+        {
+          "forename": [
+            "Feodor Franz Ludwig"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ludwig Feodor"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Fedor"
+          ],
+          "surname": [
+            "Loewe"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Feodor"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ludwig Feodor"
+          ],
+          "surname": [
+            "Loewe"
+          ]
+        },
+        {
+          "forename": [
+            "Feod."
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Feodor"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Feodor_Franz_Ludwig_L%C3%B6we",
+          "label": "https://de.wikipedia.org/wiki/Feodor_Franz_Ludwig_L%C3%B6we"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:09:36Z",
+    "gnd_query_biographical_data": "1816-1890",
+    "gnd_query_name": "löwe, franz ludwig feodor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1672,
+  "name": "Löwe, Franz Ludwig Feodor",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1275; ADB XIX, 300",
+  "updated": "2026-06-11 13:29:23.652Z",
+  "uri": "https://d-nb.info/gnd/117164860",
+  "editor": ""
+}

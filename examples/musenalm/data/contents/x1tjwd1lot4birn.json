@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; paginiert 5. /) Illustration zu »Merkwürdige Belagerung von Metz. im J. 1522« INr 58441, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58430,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Belagerung von Metz. / S. 146",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_847_58430_0ow19kv6y9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Belagerung von Metz. / S. 146",
+  "updated": "2008-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.867Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "n3ftxrkj1yzft10"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.867Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "vof4gppxe86rovr"
+    }
+  ]
+}

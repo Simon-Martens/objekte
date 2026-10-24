@@ -1,0 +1,56 @@
+{
+  "annotation": "über der Graphik: Seite 35. /) Graphik Im Kalendarium April /) Illustration zu »Der Geburtstag« INr 111463, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111455,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hollbein Rossmäsler)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hollbein Rossmäsler",
+  "scans": [
+    "alm_4315_111455_kiw3hq61pp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-05-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.211Z",
+      "agent": "szo3356ebdd17zv",
+      "source_id": "nfblwyb05be4xvm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.211Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "tadlxtmqqxxxzj3"
+    }
+  ]
+}

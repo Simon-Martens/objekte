@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. »Ganz« an den Blättern 2-4 und 5-9 der Suite /) Graphik im Kalendarium Dezember; nummeriert 12.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106958,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BACCHUS JUVEN.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2155_106958_lu3p3fc7en.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BACCHUS JUVEN.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.075Z",
+      "agent": "4j6pez8cpuc0vx7",
+      "source_id": "v5cq82zjd9n3xfu"
+    }
+  ]
+}

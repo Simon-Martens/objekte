@@ -1,0 +1,478 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.395Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schulbesuch in Augsburg, Hofmeister bei Kammergerichtsassessor von Fahnenberg in Wetzlar, ab 14.1.1802 Kanzlist bei der allgemeinen Reichsversammlung in Regensburg, zuletzt k.k. Legationssekretär.",
+        "Wohl nicht identisch mit Benedikt Joseph Maria von Koller (1769-1797/8), mit dem er oft verwechselt wird",
+        "Professor",
+        "Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1767-08-26"
+      ],
+      "dateOfDeath": [
+        "1817-09-04"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1050484525"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T20:00:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116314850/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116314850",
+      "id": "https://d-nb.info/gnd/116314850",
+      "oldAuthorityNumber": [
+        "(DE-588a)116314850",
+        "(DE-588a)126314578",
+        "(DE-588)1050484525"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048989-9",
+          "label": "Regensburg"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Binsdorf (Vorderösterreich)"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Koller, Benedikt Josef Maria von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Benedikt Josef Maria"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Koller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller",
+        "Gesandschaftskommissär",
+        "Kanzlist",
+        "Hofmeister"
+      ],
+      "publication": [
+        "Die Wette, ein Schauspiel in 3 Aufzügen 1791",
+        "Dramatische Beiträge",
+        "Abhandlung über die Priesterweihe. - [ca. 1780]",
+        "Vorurtheil und Liebe, ein Sittengemählde in 3 Aufzügen 1792",
+        "Der Kammerhusar",
+        "Entwurf zur Geschichte und Literatur der Aesthetik",
+        "Gedichte",
+        "Entwurf zur Geschichte und Literatur der Aesthetik, von Baumgarten bis auf die neueste Zeit, 1799",
+        "Der Kammerhusar, ein Schauspiel in 2 Aufzügen 1797",
+        "Wegweiser in der Stadt Regensburg und ihrer Gegend 1802",
+        "Conrad Herzog von Zaeringen, ein vaterländ. Schauspiel in 5 Aufzügen 1800",
+        "Verbrechen aus Liebe, ein dramatisches Gedicht in 3 Aufzügen - 1793",
+        "Der Oculist, ein Lustspiel in 3 Aufzügen 1800",
+        "Konrad Herzog von Zäringen",
+        "Donaureise von Regensburg nach Wien 1802",
+        "Ernst und Scherz des Verfassers vom travestirten Herkules",
+        "Herkules",
+        "Konvenienz und Pflicht",
+        "Erzeugnisse aus dem Gebiete des Wahren und Schönen",
+        "Schauspiele. Leipzig 1810",
+        "Aphorismen für Schauspieler und Freunde der dramatischen Kunst",
+        "Obrist Steinau, ein häusliches Lustspiel in 3 Aufzügen 1794",
+        "Die doppelte männliche Rache, oder das Abentheuer, ein Drama in 2 Aufzügen 1790",
+        "Convenienz und Pflicht, ein dramat. Gemählde 1796"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12427173q"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74599945"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q816963"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050484525"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116314850/about"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Benedikt_Josef_von_Koller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000078584107"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116314850"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116314850"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_K/Koller_Benedikt-Joseph-Maria_1767_1817.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116314850.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116314850"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Koller, Benedikt Josef",
+        "Koller, Joseph von",
+        "Koller, Benedikt Joseph",
+        "Koller, Josef",
+        "Koller, Benedikt Josef von",
+        "Koller, Benedikt Joseph Maria von",
+        "Koller, Benedict Joseph Maria von",
+        "Koller, Benedict Joseph von",
+        "Koller, J.",
+        "Koller, Benedict Josef von",
+        "Koller, Joseph",
+        "Koller, Benedict Josef",
+        "Koller, Benedikt Joseph Maria",
+        "Koller, I.",
+        "Koller, Benedict Joseph, Regensburg",
+        "Koller, Benedikt Josef Maria",
+        "Koller, Benedict Josef Maria von",
+        "Koller, B . J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Benedikt Joseph Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikt Joseph"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedict Joseph"
+          ],
+          "nameAddition": [
+            "Regensburg"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedict Joseph Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikt Joseph Maria"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedict Josef"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikt Josef"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedict Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedict Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikt Josef Maria"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedict Josef Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "B . J."
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Koller"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikt Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koller"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:58:30Z",
+    "gnd_query_biographical_data": "1767-1817",
+    "gnd_query_name": "koller, benedict joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1450,
+  "name": "Koller, Benedict Joseph von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 295",
+  "updated": "2026-06-11 13:29:23.305Z",
+  "uri": "https://d-nb.info/gnd/116314850",
+  "editor": ""
+}

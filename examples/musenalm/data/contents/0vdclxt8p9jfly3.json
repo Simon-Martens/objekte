@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78243,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1789. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del. D. Berger sc.",
+  "scans": [
+    "alm_928_78243_sbsugkkyjr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1789. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.920Z",
+      "agent": "mmq9ql2t3b3zqca",
+      "source_id": "ehbb3oucnc7lqfv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.920Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "y9aqaad2u89ra6s"
+    }
+  ]
+}

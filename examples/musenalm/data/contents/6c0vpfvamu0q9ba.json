@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Lieder (Sammlung INr 68116, Obj 133)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Siehe, wie die Jäger fliehen, / Wie die schnellen Reiter eilen.",
+  "language": [],
+  "musenalm_id": 68120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Laß mich ziehen. / Nach einem lithauischen Volksliede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Steinmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Laß mich ziehen. / Nach einem lithauischen Volksliede",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.076Z",
+      "agent": "jxsklfwb6yipx9m",
+      "source_id": "6bxkqujuid8zibq"
+    }
+  ]
+}

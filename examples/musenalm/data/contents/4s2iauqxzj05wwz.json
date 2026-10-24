@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Der Zauberring« von Fouqué. s. Textbezug INr 26292, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26291,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zauberring von de la Motte Fouqué. / Th. III. S. 157",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Rist sc.",
+  "scans": [
+    "alm_346_26291_3ez44m3nry.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Zauberring von de la Motte Fouqué. / Th. III. S. 157",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.046Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "xk6p2um5g2pt034"
+    }
+  ]
+}

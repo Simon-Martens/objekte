@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Gedicht s. INr 46553, Obj 4,01 /) mit einer Illustration s. Titelportrait INr 79466, Obj 0,2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Die allgemeine Theilnahme, welche der am 9ten November 1799 erfolgte, unerwartete Todesfall der Durchlauchtigsten Fürstin und Frau Juliane Wilhelmine Louise, verwittweten Gräfin von Schaumburg Lippe, gebohrnen Landgräfin von Hessen Philipsthal,",
+  "language": [],
+  "musenalm_id": 46494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juliane / Ein biographisches Fragment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Juliane / Ein biographisches Fragment",
+  "updated": "2006-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.291Z",
+      "agent": "o2pvd0n9c0ulrf4",
+      "source_id": "g9j3ij2oy5pasaz"
+    }
+  ]
+}

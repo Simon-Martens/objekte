@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 67307, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67302,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. G. Freiherr von Seutter / Director des königl. würtembergischen Forstraths, des Ordens / der würtembergischen und baierischen Krone Ritter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Petzold del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1150_67302_rbpg21po64.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. G. Freiherr von Seutter / Director des königl. würtembergischen Forstraths, des Ordens / der würtembergischen und baierischen Krone Ritter",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.191Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "ac3pwxh80rj7cjs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung vom 1. Blatt der Suite /) Leben Gözens von Berlichingen Teil 2 (Sammlung INr 21728, Obj 10), Graphik im Kalendarium paginiert 6.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21733,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Göz in Thurn zu Heilbronn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner",
+  "scans": [
+    "alm_293_21733_6y3476skyb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Göz in Thurn zu Heilbronn",
+  "updated": "2002-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.023Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "12246pglp591ini"
+    }
+  ]
+}

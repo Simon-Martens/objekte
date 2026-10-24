@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 79965, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Es ist kein Traum, des Berges Höhn / Erklomm mein Fuß, ich hör', ich sehe / Des Waldes lang entbehrte Pracht,",
+  "language": [],
+  "musenalm_id": 79969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Feyer der Genesung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. d. Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Feyer der Genesung",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.784Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "9vrzfn291x2pew2"
+    }
+  ]
+}

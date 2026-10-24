@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77561, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "391",
+  "incipit_statement": "Es dehnt sich die Haide wohl auf und ab, / Es schwanken die Birken im Wind,",
+  "language": [],
+  "musenalm_id": 77563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Haide 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Haide 1832",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.741Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "eknby52jfnzjcyv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Vrwt zu »Die eifersüchtige Frau« von Kotzebue (INr 123911, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.464Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Das alte englische Schauspiel, aus welchem ich die Scene der Eifersucht, und sonst nichts, entlehnt habe, [...] hat fünf Acte, [...] wovon deutsche Leser sich überzeugen können, wenn sie [...] nachzuschlagen sich bemühen wollen.",
+  "language": [],
+  "musenalm_id": 123912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort #",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.773Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.773Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "bzfgfy0rcb41t88"
+    }
+  ]
+}

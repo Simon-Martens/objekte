@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Lokerer Grund nur bringt uns unser täglich / Brod: je tiefere Furchen, desto reichre / Aerndte",
+  "language": [],
+  "musenalm_id": 30921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trübsal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haschka",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Trübsal",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.928Z",
+      "agent": "j63e4oki0d4f74a",
+      "source_id": "ojm2iebjpdss6bv"
+    }
+  ]
+}

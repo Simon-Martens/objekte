@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Grab der Mutter« von W. Blumenhagen INr 30399, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab der Mutter / von Wilh. Blumenhagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. u. gest. v. Schwertgeburt",
+  "scans": [
+    "alm_398_30400_cenqpzjl2c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab der Mutter / von Wilh. Blumenhagen",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.532Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "elj3iajiebd8a24"
+    }
+  ]
+}

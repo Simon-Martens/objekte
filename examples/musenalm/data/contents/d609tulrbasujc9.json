@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Der Frühzeitige« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111108, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (B. Sonderland del. Preisel & Geyer sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Sonderland del. Preisel & Geyer sc.",
+  "scans": [
+    "alm_3482_111109_toboip5qz0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.393Z",
+      "agent": "k9ac0a5lkd5h6nx",
+      "source_id": "atnuh0864qfck3m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.393Z",
+      "agent": "9s6c9wuymvvgbhx",
+      "source_id": "negu5ea84mvvrew"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.393Z",
+      "agent": "qy6yej73pl7anzc",
+      "source_id": "w1d6xvjsrkm3f1s"
+    }
+  ]
+}

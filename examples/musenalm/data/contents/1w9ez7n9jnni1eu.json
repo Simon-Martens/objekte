@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57722, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Oft an schwülen Sommertagen / Bei der Sonne grellstem Schein,",
+  "language": [],
+  "musenalm_id": 57723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Nahesehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Nahesehen",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.921Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "v1r27ed0bcgi7ee"
+    }
+  ]
+}

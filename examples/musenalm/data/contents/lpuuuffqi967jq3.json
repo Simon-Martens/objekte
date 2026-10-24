@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; paginiert 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97055,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giebichenstein bey Halle. / Giebichenstein près de Halle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_3987_97055_s9ts4vfc1u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Giebichenstein bey Halle. / Giebichenstein près de Halle",
+  "updated": "2013-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.436Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "r5heb5a4bytjgvs"
+    }
+  ]
+}

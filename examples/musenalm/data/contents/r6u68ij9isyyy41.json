@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Es steigt hinan die Stiegen der Harfner / altersschwer, / Es öffnet sich die Halle, draus leuchtet's seltsam her,",
+  "language": [],
+  "musenalm_id": 20118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zaubers Unsegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zaubers Unsegen",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.796Z",
+      "agent": "xrm3e2g6mht03kn",
+      "source_id": "4v0oaicptre2tjk"
+    }
+  ]
+}

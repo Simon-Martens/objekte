@@ -1,0 +1,56 @@
+{
+  "annotation": "nummeriert V. /) Illustration zu »Kaspar der Thoringer«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105430,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaspar! denkt ans Vaterland / und Friede. / V. Aufz. VI. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Liebe sc.",
+  "scans": [
+    "alm_3262_105430_kg718zf3ez.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaspar! denkt ans Vaterland / und Friede. / V. Aufz. VI. Auftr.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.228Z",
+      "agent": "v0k80momy67j3zt",
+      "source_id": "4j2k7wwsq97rguz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.228Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "expzatuxcxgd8zy"
+    }
+  ]
+}

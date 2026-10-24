@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Illustration zu »Die Freunde als Nebenbuhler« von Kurländer (INr 125118, Obj 8); # Bezeichnung am ersten Blatt der Suite (INr 125112, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freunde als Nebenbuhler. 1 Act, 4 Scene. / Clothilde. / »Sollte ich das Mädchen im Schlosse / seyn? Ich wage nicht die Augen / aufzuschlagen.«",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schröter j sc",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freunde als Nebenbuhler. 1 Act, 4 Scene. / Clothilde. / »Sollte ich das Mädchen im Schlosse / seyn? Ich wage nicht die Augen / aufzuschlagen.«",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.867Z",
+      "agent": "nks9aoyh19lpabu",
+      "source_id": "ghg5ft4cgdfv4y2"
+    }
+  ]
+}

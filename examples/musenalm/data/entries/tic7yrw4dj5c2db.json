@@ -1,0 +1,95 @@
+{
+  "annotation": "3 Jgg 1809-1811; Leipzig (Göschen)  2. Titel: Taschenbuch der neuesten Kriegsbegebenheiten für gebildete Leser aller Stände Erster Jahrgang 1809. Mit kolorirten Kupfern und 1 Charte. Leipzig bei Georg Joachim Göschen 1809. /) Die Reihe auch als Reprint, 3 Bde. mit einem Bd. Kommentar: Edition Leipzig (Leipzig) 1984 /) § auch im Reprint fehlt die Karte von Finnland",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S III T, SS V-VIII Vrwrt d Hrsg, SS IX, X G-Verz, S I-Verz, nT, 12 BB Kalendarium , ar: SS 1-287, 7 GG, ar1: SS 1-80, 2 BB VrlgM, 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kriegs-Kalender 1809 [Jahrbuch der Weltbegebenheiten] 1809",
+    "norm": "~+++ Reprint (T) § Karte von Finnland fehlt",
+    "biblio": 409164,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2206,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kriegs-Kalender 1809 [Jahrbuch der Weltbegebenheiten] 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 73; L/R 21",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kriegs-Kalender / für / gebildete Leser aller Stände / Erster Jahrgang 1809. / Mit kolorirten Kupfern und 1 Charte. / Leipzig / bei Georg Joachim Göschen 1809",
+  "updated": "2026-06-11 10:18:55.909Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "878v907s2lupng1"
+  ],
+  "contents": [
+    "ubn3ugnh65a8dr6",
+    "nuvfmz8om3daf9p",
+    "h1uljl59gnyis10",
+    "avjk899q828g465",
+    "koessdf86fzwt55",
+    "fz1mj9nwfn7oxs3",
+    "q9x4guc12ilhedh",
+    "qyxkmz2bzd1dez4",
+    "5mte20583urjtmn",
+    "8k0t6hizemaocnj",
+    "7progsb7jn6vh4e",
+    "3i9o3hnmiagp9aw",
+    "g113wj143ev4ir4",
+    "cp3ij12gd4cacuw",
+    "pvqfh6x1jo3vett",
+    "kd5t2m9nbhc8i4v",
+    "8sso9i6vamu048v",
+    "ot1o9njl8fr27db",
+    "0v7vo38j4rxjb5t",
+    "3t6lbyih4fn89ya",
+    "gmrxstrshbzjgj1",
+    "25g4b92ydddcdxy",
+    "d4iiq88yaedg851",
+    "c2bbhw6qjw5dwf2",
+    "n9pgeryu4phldy8",
+    "zwaeunipxfe568b",
+    "x26au885hftvuyo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.919Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.919Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "umathwt8o40u7c3"
+    }
+  ]
+}

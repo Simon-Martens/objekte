@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration, s. Graphik INr 123061, Obj 16; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit Anmerkung (INr 123081, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Da bin ich eine Weile herumgelaufen, / Und habe geklopft, bald dort, bald hier; / Umsonst! meinen Hahn will Niemand kaufen.",
+  "language": [],
+  "musenalm_id": 123060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hahnenschlag / Schausplel (sic!) in Einem Akt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hahnenschlag / Schausplel (sic!) in Einem Akt",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.782Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "lvkefyqmrcxuhbj"
+    }
+  ]
+}

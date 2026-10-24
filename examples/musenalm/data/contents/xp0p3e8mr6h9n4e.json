@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 100 Gedichten in 3 Gruppen mit einem einleitenden Gedicht INr 69070-69171 69201, Obj 25-127",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder aus Neapel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder aus Neapel",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.254Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "77k1ugwtbjp52mb"
+    }
+  ]
+}

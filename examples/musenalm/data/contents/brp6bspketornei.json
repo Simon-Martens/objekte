@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien auf das Jahr 1817 (Sammlung Inr 39871, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "485",
+  "incipit_statement": "Zwei Brüder sind's von gleichem Schlag, / Die sich auf's Korn genommen.",
+  "language": [],
+  "musenalm_id": 39872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Doppel-Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Doppel-Räthsel",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.975Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "5kiu6mbjqr9fy6e"
+    }
+  ]
+}

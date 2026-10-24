@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102214, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Wenn sich ein Wetter nähert / Mit schwerem Donnergang,",
+  "language": [],
+  "musenalm_id": 102220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Rath",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.133Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "dtxracdqefy087w"
+    }
+  ]
+}

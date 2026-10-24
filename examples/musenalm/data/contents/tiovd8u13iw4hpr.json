@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Das Bestreben, der Urania durch Aussetzung gewisser Preise einen gediegenern Inhalt,",
+  "language": [],
+  "musenalm_id": 9306,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pogramm, / über die Preisaufgaben zur Urania auf das / Jahr 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Brockhaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pogramm, / über die Preisaufgaben zur Urania auf das / Jahr 1822",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.515Z",
+      "agent": "manlqagw1uz9rp2",
+      "source_id": "5xtbftek14sexi4"
+    }
+  ]
+}

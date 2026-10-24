@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder. Den heiligen Schatten meines verklärten Freundes! (Sammlung INr 129930, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Dumpf und bang / Tönt der Sterbeglocke Klang / Vom verfall'nen Thurme nieder,",
+  "language": [],
+  "musenalm_id": 129932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Wie die Sterbglocke läutete",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hugo vom Schwarzthale",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Wie die Sterbglocke läutete",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.025Z",
+      "agent": "wgv00y69o1rn8le",
+      "source_id": "e6jyfp60eznak0z"
+    }
+  ]
+}

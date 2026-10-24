@@ -1,0 +1,285 @@
+{
+  "annotation": "",
+  "biographical_data": "1787-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.511Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Maler, Litograph",
+        "München (Wirkungsort); Dt. Maler, Lithograph und Erfinder"
+      ],
+      "dateOfBirth": [
+        "1787"
+      ],
+      "dateOfDeath": [
+        "1854"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1090164661"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-18T18:40:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117292842/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117292842",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117292842",
+      "oldAuthorityNumber": [
+        "(DE-588a)117292842",
+        "(DE-588)1090164661"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4042434-0",
+          "label": "Nördlingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Wenng, Karl Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Heinrich"
+        ],
+        "surname": [
+          "Wenng"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        }
+      ],
+      "publication": [
+        "Plan Der Neustadt Athen",
+        "Der Rhein-Kreis des Königreichs Bayern",
+        "Der Isar-Kreis des Königreichs Bayern",
+        "Der Ober-Main-Kreis des Königreichs Bayern",
+        "Post- und Reisekarte Von Italien und den nördlich angrenzenden Alpen-Ländern. - s.a. [1844]",
+        "Der Ober-Donau-Kreis des Königreichs Bayern",
+        "Post- und Reise-Karte von Italien und den nördlich angrenzenden Alpen-Ländern",
+        "Wand-Karte von Asien, Europa und der nord-östlichen Küste von Africa",
+        "Der Rheinkreis des Königreichs Bayern. - [ca. 1830]",
+        "Der Unter-Main-Kreis des Königreichs Bayern",
+        "Plan über die Verbreitung der Cholera in der Koenigl. Haupt und Residenz Stadt München",
+        "Der Rezat-Kreis des Königreichs Bayern"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77089533"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1038715"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090164661"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117292842/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Heinrich_Wenng"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000010675483"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117292842"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117292842"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Weng, Carl Heinrich",
+        "Wenng, Karl",
+        "Wenng, Carl Heinrich",
+        "Wenng, Carl",
+        "Weng, Karl Heinrich",
+        "Wenng, C. H.",
+        "Wenng, C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C. H."
+          ],
+          "surname": [
+            "Wenng"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Heinrich"
+          ],
+          "surname": [
+            "Weng"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Heinrich"
+          ],
+          "surname": [
+            "Weng"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Wenng"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Wenng"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Wenng"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Heinrich"
+          ],
+          "surname": [
+            "Wenng"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Heinrich_Wenng",
+          "label": "https://de.wikipedia.org/wiki/Carl_Heinrich_Wenng"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:20:39Z",
+    "gnd_query_biographical_data": "1787-1850",
+    "gnd_query_name": "wenng, carl heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3106,
+  "name": "Wenng, Carl Heinrich",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXV, 379",
+  "updated": "2026-06-11 13:29:25.695Z",
+  "uri": "https://d-nb.info/gnd/117292842",
+  "editor": ""
+}

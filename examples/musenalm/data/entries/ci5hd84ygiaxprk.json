@@ -1,0 +1,107 @@
+{
+  "annotation": "unter dem I- Verz: Gedruckt bei A. Strauß's sel. Witwe &Sommer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 6 GG, nT, SS 3-142, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1845",
+    "norm": "~",
+    "biblio": 405432,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1911,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA / Almanach für das Jahr 1845. / WIEN, / fünf und zwanzigster Jahrgang. / WIEN, / bei Franz Riedls sel. Wittwe & Sohn",
+  "updated": "2026-06-11 10:18:55.706Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "oq5qc1hzdcs8qev"
+  ],
+  "contents": [
+    "jpslycwko8ged11",
+    "ailiwxnwvtjyyur",
+    "k6cpqh2zy7tj759",
+    "huftw2vsuown39p",
+    "l07jh4dn2bnqdnv",
+    "evfla9guvsn4s5h",
+    "qii8zqu8nex4lyw",
+    "b259hwtef9nu2ho",
+    "bi4d87zvyr888is",
+    "7m44525b8mqxeg0",
+    "xd5k78wc9kzmxgg",
+    "w9x9qwytg1pg3ab",
+    "zibpns8jrlfvjg2",
+    "nyr4wknrzqtvlzj",
+    "eac4xad8d0pua3n",
+    "j9441t551zf6i6r",
+    "4pko5henqns1kbn",
+    "2p12m9qe1kai5gy",
+    "f9ec0yqrx2eqgvj",
+    "t9iesx2k5h0bz3e",
+    "jabhbf8pok8z594",
+    "89ztndqnyfcadz5",
+    "epl46fhkmca4u34",
+    "n3pjj9ptu8knrhh",
+    "u7bq2exvbuksh74",
+    "836dgqkn7l8gxe1",
+    "x3qsxkpqasxhm44",
+    "32r5aghupflvilx",
+    "2nhbmn1qsn553c8",
+    "81l1ugv0zostdh9",
+    "r6bgyf3bpw3n6kz",
+    "1qvnoiue5vh9fat",
+    "p6x7golxtkwn4xo",
+    "1wq4r8eswgik9rt",
+    "mzylmxdi8a8i60d",
+    "byzasa65klm9re4",
+    "7c2w0oxhjir576q",
+    "wjdat6nexw59y5l",
+    "ltxtkrn9zginqtk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "0vs5i8gm6v2lrte"
+    }
+  ]
+}

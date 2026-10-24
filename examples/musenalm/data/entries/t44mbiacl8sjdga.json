@@ -1,0 +1,55 @@
+{
+  "annotation": "Heidi: https://doi.org/10.11588/diglit.24133#0007",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.425Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.\nReihentitel aus AlmNeu.xml als neue Reihe angelegt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-06-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4894,
+  "parallel_title": "",
+  "place_statement": "Zürich",
+  "places": [],
+  "preferred_title": "Taschenbüchlein für liebe Reisende oder Andenken von an 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Lavater",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBÜCHLEIN / FÜR / LIEBE REISENDE, / ODER / ANDENKEN / VON / AN / 1790",
+  "updated": "2025-06-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "285tqx7we3c0e12",
+    "ykhraboj864ad4o"
+  ],
+  "contents": [
+    "a8jmmei2qf5a2vd",
+    "avj407ucpowjkug"
+  ],
+  "agents": []
+}

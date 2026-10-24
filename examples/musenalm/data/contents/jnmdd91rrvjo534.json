@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 33 /) s. Textbezug INr 130860, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lockwitzer Schloß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther d. et s.",
+  "scans": [
+    "alm_3702_130848_vhlpwo4l00.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lockwitzer Schloß",
+  "updated": "2011-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.053Z",
+      "agent": "k3qfb3024y59h2x",
+      "source_id": "xu2r8ecisuzvq75"
+    }
+  ]
+}

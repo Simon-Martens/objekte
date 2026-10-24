@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung eines Gedichts von Heinrich de Marces /) Photos 76032,01; 76032,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Lieblich prangt der Blumen Fülle zart umwebt von grüner Blätter Hülle;",
+  "language": [],
+  "musenalm_id": 76032,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieblich prangt der Blumen Fülle zart umwebt von grüner Blätter Hülle;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. C. Reinicke",
+  "scans": [
+    "alm_3280_76032_01_y53e7767qu.jpg",
+    "alm_3280_76032_02_rwj7kuac26.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.549Z",
+      "agent": "hmzypuwafp281gf",
+      "source_id": "5bnwjqbaa5w7d2m"
+    }
+  ]
+}

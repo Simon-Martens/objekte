@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "In einer schauerlichen Winternacht saß in dem warmen freundlichen Gemach ein muntrer Mädchen-Kreis beisammen,",
+  "language": [],
+  "musenalm_id": 98456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winterabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Winterabend",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.701Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "gcefwdrkioixlly"
+    }
+  ]
+}

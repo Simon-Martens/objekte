@@ -1,0 +1,121 @@
+{
+  "annotation": "im Lederetui mit Bleistift",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, 36 SS Kal darin 6 GG, T, SS 1–92, I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Modealmanach für Damen 1826",
+    "norm": "~",
+    "biblio": 409525,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-03-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4506,
+  "parallel_title": "",
+  "place_statement": "Wien (Müller)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Modealmanach für Damen 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 79, nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Mode / ALMANACH / für / Damen / 1826 / WIEN / bey Georg Müller, bürgl. Buchbinder / in der Singerstrasse im Curhaus",
+  "updated": "2026-06-11 10:18:56.019Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "952i7txa0bbgmty"
+  ],
+  "contents": [
+    "tsbozumaxr5osk7",
+    "b7aw670m8za5knj",
+    "me1zctg3ikm8wbr",
+    "wxsm23bejp38rho",
+    "xku9qkvyowyfb7e",
+    "wm2rsup1ohd54ez",
+    "zabm4dn789jjdk2",
+    "824wzvx5yoqd366",
+    "wcbk54scvaihkmt",
+    "apuy4qv2379vzin",
+    "xya3wld3jbcri7t",
+    "sjnzj4adb9yr8b6",
+    "amz0spvwihcou6y",
+    "6mfrwlyah6j5ah4",
+    "3r1p79a6zzddr1f",
+    "vnmex1nfgl1vd8i",
+    "y31o9vvvpo5ol7p",
+    "73bcx8yg1tscy52",
+    "cuxt1gpy5isyaug",
+    "es9c1y2yc1x9ioa",
+    "qmw5quxs9z2dye1",
+    "1sz74bhf5c0tm18",
+    "4kpimu8omnb7kcw",
+    "68g0ueh2xqiu07i",
+    "yymy7t2h19z9ow6",
+    "lufsr84q9ek6sk7",
+    "nvhyxj9ro8omjb3",
+    "9eakw6zjbrsn4ly",
+    "9jnuq618737zt2b",
+    "h9wwnppzkg4r57v",
+    "mohkpu4zfugn40b",
+    "kghrw7bmp1e2uix",
+    "7u31toic5c51ljd",
+    "58yx68siw440wyd",
+    "hjgngmbm9iiexfm",
+    "1bwip7dcxhgdf41",
+    "7mvn0kkzkonmv0e",
+    "q8eudijl2tp3vrx",
+    "vjnxspu12crtlnj",
+    "aax5o8g3cdplhkq",
+    "pg80ilzj6bx1hs4",
+    "0or5plbudzi0uqf",
+    "e91b3k9b4x0xpa3",
+    "7zk8aydmji0ta8z",
+    "m8ypp4l1icxas1l",
+    "966cez17lzx51xd",
+    "syltaje3joe037k",
+    "bz29msy2rfak4u5",
+    "xowaupjehz4srla",
+    "fkxg50owlfy6hbc",
+    "1vjp8qc7exe7gny",
+    "vwch2m02p1zmw6e",
+    "24mvxa20zn8x5sv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "43dc49qggw0zi4h"
+    }
+  ]
+}

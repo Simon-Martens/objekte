@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Getrennt von ihrem Koridon, / Den lieblichsten Cytheren Sohn / Eilt Lottchen in des Waldes Schatten,",
+  "language": [],
+  "musenalm_id": 88386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lottchens Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lottchens Wunsch",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.155Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "nqgx31zgmitzbzf"
+    }
+  ]
+}

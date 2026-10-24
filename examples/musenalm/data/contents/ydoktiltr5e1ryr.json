@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92576,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Franzensbrücke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Perger del. J. Blaschke sc.",
+  "scans": [
+    "alm_4016_92576_rloxvf0qpu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Franzensbrücke",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.390Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "o5thc7vgh60omxs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.390Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "zvb7iji4lpflzgl"
+    }
+  ]
+}

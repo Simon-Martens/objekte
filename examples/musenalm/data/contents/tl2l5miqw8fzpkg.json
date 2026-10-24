@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67156, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Zu Berlin in dem Garten des Palais, welches dem Cabinetsminister Reichsgrafen von Finkenstein, und jetzt seinem Schwiegersohne dem Etatsminister von Voß gehöret, stehet eine etwa 40 jährige Birke,",
+  "language": [],
+  "musenalm_id": 67183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Merkwürdige Birke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf von Mellin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Merkwürdige Birke",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.250Z",
+      "agent": "aauh6wvabz0cll5",
+      "source_id": "utfeyj16kw7qb5x"
+    }
+  ]
+}

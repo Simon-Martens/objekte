@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Vor dem Kriege von 1814 lag das Jägerbataillon, bei welchem ich als Officier stand, in dem freundlichen Städtchen St-gen im Flachlande des gesegneten Niederbaierns.",
+  "language": [],
+  "musenalm_id": 69840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Die Fuchsjagd im Backofen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Seyfarth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Die Fuchsjagd im Backofen",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "o21hxq359ew0vra",
+      "source_id": "39xfnmddyf868dl"
+    }
+  ]
+}

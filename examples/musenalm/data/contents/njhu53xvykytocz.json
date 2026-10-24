@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium # Titel aus dem G-Verz INr 43223, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diana entdeckt die Schwangerschaft der Nymphe Callisto #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt in Rom p. Schnell sc.",
+  "scans": [
+    "alm_566_43209_vmcsx5zyrl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diana entdeckt die Schwangerschaft der Nymphe Callisto #",
+  "updated": "2006-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.318Z",
+      "agent": "vbyfdjf3wft42hq",
+      "source_id": "eol9j6ol3h5r0zc"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Neunzehn Serbische Lieder (Sammlung INr 55699, Obj 88) Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Wein trinken serbische Hauptleute / Am Ufer längst dem Strome Satar,",
+  "language": [],
+  "musenalm_id": 55717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] Brüder Grimm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18.",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.793Z",
+      "agent": "3grzeu7khs4sl5r",
+      "source_id": "cuqziprmrvgc003"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.792Z",
+      "agent": "hzws8t1sn4cz0f6",
+      "source_id": "h9m3m9r2r9rc1z3"
+    }
+  ]
+}

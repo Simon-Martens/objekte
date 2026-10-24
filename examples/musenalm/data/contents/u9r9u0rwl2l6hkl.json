@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 23 Gedichten INr 27166-27188, Obj 28-50",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klagen / einer Gattin um ihren Gatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Kannegießer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klagen / einer Gattin um ihren Gatten",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.450Z",
+      "agent": "vmqur31l5jqxgmx",
+      "source_id": "6i68k95p7izsh0z"
+    }
+  ]
+}

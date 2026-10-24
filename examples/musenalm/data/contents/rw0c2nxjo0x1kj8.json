@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Blumenlieder (Sammlung INr 81266, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "O laßt mich nur bei Blumen sein, / Bei Rosen und bei Nelken.",
+  "language": [],
+  "musenalm_id": 81267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Bei Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Bei Blumen",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.897Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "2fx79entut2d13x"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, S I T, S III-IV-Verz, S IV G-Verz, SS V- VI, SS 1-331 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iris (Mailath, Saphir) 1848",
+    "norm": "~",
+    "biblio": 100279,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 775,
+  "parallel_title": "",
+  "place_statement": "Pesth (Heckenast); Leipzig (Wigand)",
+  "places": [
+    "d7kbujq7399g22j",
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Iris (Mailath, Saphir) 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 67; L/R 100",
+  "responsibility_statement": "Johann Graf Mailáth",
+  "subtitle_statement": "",
+  "title_statement": "IRIS. / Deutscher Almanach / für / 1848. / Herausgegeben / von / Johann Grafen Mailáth. / Neue Folge. / Zweiter Jahrgang. / Mit 6 Stahlstichen. / Pesth. / Verlag von Gustav Heckenast. / Leipzig, bei Georg Wigand",
+  "updated": "2026-06-11 10:18:55.716Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "itvefkbmwsqi6pf"
+  ],
+  "contents": [
+    "drkcmyt2xeq2u4k",
+    "4wfpwfrrgatujq5",
+    "2xhyirvp8wysauw",
+    "2e8bbxv9ez2d00c",
+    "maxsrt35p8di7xk",
+    "6ox0tknq0xlp20z",
+    "s92p238zvd8ni3j",
+    "ya40a2bcrwxil7o",
+    "n4ufj3rw28xqguh",
+    "i0ybqddtrl489el",
+    "ks9j6c8bih8higz",
+    "wt809gjkvxcih67",
+    "3bgaip434e0ktss",
+    "vd6bodl9yfrtgx6",
+    "6krx49bllnmpikg",
+    "yxrfyo8lhb6zpyq",
+    "wj9ubcruu8ziwko",
+    "6rh7nf07sdfjerx",
+    "al9oub27lsx86yi",
+    "if2lej7f3dg9hsk",
+    "2byho77kxammc02",
+    "6v55mx575a1onyh",
+    "qqwybe1mdo41y57",
+    "b4m198l739fc8b6",
+    "r6ifp5o1c95pp9i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.777Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.777Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "364buukwwonx424"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.979Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.979Z",
+      "agent": "q7zyxdz5dehimfg",
+      "source_id": "e9xqk20r2q4gy7v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "k8e1epqeqxplo0k",
+      "source_id": "ign2ssfvyunrt7w"
+    }
+  ]
+}

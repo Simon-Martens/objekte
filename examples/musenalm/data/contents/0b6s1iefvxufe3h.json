@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechstes Jahr (Sammlung INr 48723, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Klagt mit mir die arme kleine Guste, / Die ihr Liebstes heut verlieren muste.",
+  "language": [],
+  "musenalm_id": 48725,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie, / als Gustchen entwöhnt wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie, / als Gustchen entwöhnt wurde",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.001Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "qqi0xpx94187wos"
+    }
+  ]
+}

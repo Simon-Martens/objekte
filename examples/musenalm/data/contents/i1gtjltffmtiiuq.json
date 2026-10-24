@@ -1,0 +1,45 @@
+{
+  "annotation": "Thema I. (Sammlung INr 51285, Obj 33) Variazionen (Sammlung INr 51284, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Aus dem schirmenden Gehege, / Das umschliesst des Vaters Haus / Ging ich armes Kind heraus,",
+  "language": [],
+  "musenalm_id": 51286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Verirrte. / Linde säuseln kühle Lüfte, / Und im süssen Himmelsglanze, / Bilden spielend sich zum Kranze / Töne, Worte, Farb' und Düfte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "PELLEGRIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Verirrte. / Linde säuseln kühle Lüfte, / Und im süssen Himmelsglanze, / Bilden spielend sich zum Kranze / Töne, Worte, Farb' und Düfte",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.587Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "3crgah7188eaiqd"
+    }
+  ]
+}

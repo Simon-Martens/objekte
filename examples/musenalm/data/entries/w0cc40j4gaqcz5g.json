@@ -1,0 +1,87 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, G, 11 BB Kal darin 7 GG, Kr, ar: SS 1 -127 Tab, SS 129-318, ar1: SS 1-42 Tab, SS 43- 64 G-Verz, 82 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1806",
+    "norm": "~",
+    "biblio": 100313,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2188,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärischer 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Gemein-Jahr 1806. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.896Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "26sengwfze6d3fl"
+  ],
+  "contents": [
+    "o0vktmfnh7xk1t1",
+    "wpcmz8zkj6tf5eb",
+    "o7yrlqi5ptvirva",
+    "ak6u1pzr9unh3j6",
+    "9azoazbuab89sm7",
+    "chxcerob6pf1fpe",
+    "z0izmacxnk9dtny",
+    "v76y6unjknhjq6p",
+    "7woh8xw54g4dlzc",
+    "5i2q7d1xcem1d5a",
+    "dho4lowxt1ljcri",
+    "ncb6p87s6i9frtx",
+    "3g5dz6vbvm6kwl8",
+    "lh7rifc1q60zdyx",
+    "x79nj8sf55211py",
+    "xk9y9gd2cv1li3t",
+    "szyh4jka2dv0bhr",
+    "cc653i0gqh7h4ux",
+    "26e2nplb1548i27"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "vt6z0xyvtiqk79v"
+    }
+  ]
+}

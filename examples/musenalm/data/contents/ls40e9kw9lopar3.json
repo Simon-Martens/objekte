@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Anekdoten (Sammlung INr 67552, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ein Großsprecher in den Fächern der Wissenschaft saß vor einem Jahre den Fußtritt eines Ochsen für die Fährte eines starken Hirsches an.",
+  "language": [],
+  "musenalm_id": 67572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freih. v. d. Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19.",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.199Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "xzq0wipwef9jobf"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "annotation": "KVK Hebis: Wien, 1794-1796",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater Almanach (Wien Sonnleithner) 1795",
+    "norm": "",
+    "biblio": 409673,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-11-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4603,
+  "parallel_title": "",
+  "place_statement": "Wien ( Camesina & Comp.)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Theater Almanach (Wien Sonnleithner) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / THEATER / ALMANACH / für das Jahr / 1795. / WIEN, / bey Jos. Camesina & Comp.",
+  "updated": "2026-06-11 10:18:55.146Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "9oquz673o0vaqq4"
+  ],
+  "contents": [
+    "wi9gamvy4dmq7kt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.392Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.392Z",
+      "agent": "v2707y6y5mu8c55",
+      "source_id": "64oxsvvdo64g3sr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.648Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.648Z",
+      "agent": "1ecf8wz8xbirlv6",
+      "source_id": "cens8z5w1rrozgc"
+    }
+  ]
+}

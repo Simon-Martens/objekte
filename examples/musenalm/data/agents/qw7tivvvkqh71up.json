@@ -1,0 +1,473 @@
+{
+  "annotation": "",
+  "biographical_data": "1544-1595",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/138091153",
+          "label": "Vandali, Giovanni Antonio"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Ital. Dichter"
+      ],
+      "dateOfBirth": [
+        "1544-03-11"
+      ],
+      "dateOfDeath": [
+        "1595-04-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jacopo Bassano"
+          ],
+          "creditText": [
+            "Sotheby's"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Torquato%20Tasso%2C%20aged%2022%2C%20by%20Jacopo%20da%20Ponte%2C%20called%20Jacopo%20Bassano%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Torquato%20Tasso%2C%20aged%2022%2C%20by%20Jacopo%20da%20Ponte%2C%20called%20Jacopo%20Bassano%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Torquato%20Tasso%2C%20aged%2022%2C%20by%20Jacopo%20da%20Ponte%2C%20called%20Jacopo%20Bassano%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1037197763",
+        "https://d-nb.info/gnd/105557395X",
+        "https://d-nb.info/gnd/185868088"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118620916/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118867687",
+          "label": "Tasso, Bernardo"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118620916",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/138091153",
+          "label": "Vandali, Giovanni Antonio"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118867687",
+          "label": "Tasso, Bernardo"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118620916",
+      "oldAuthorityNumber": [
+        "(DE-588)105557395X",
+        "(DE-588)185868088",
+        "(DE-588a)185868088",
+        "(DE-588a)13462887X",
+        "(DE-101c)310318874",
+        "(DE-588)1037197763",
+        "(DE-588a)118620916",
+        "(DE-588c)4059101-3"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4140588-2",
+          "label": "Sorrent"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "preferredName": "Tasso, Torquato",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Torquato"
+        ],
+        "surname": [
+          "Tasso"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Tasso, Torquato: Gottfried von Bulljon. Oder Erlösetes Jerusalem",
+        "Tasso, Torquato: Opere",
+        "Tasso, Torquato: Delle Rime, e Prose",
+        "Tasso, Torquato: Scielta delle Rime",
+        "Tasso, Torquato: L'Aminta",
+        "Tasso, Torquato: Versi inediti",
+        "Tasso, Torquato: Der adeliche Hausvater ...",
+        "Tasso, Torquato: Delle opere non più stampate",
+        "Tasso, Torquato: Raccolta di varie poesie"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79082132"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/4936996"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q168962"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1037197763"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/105557395X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118620916/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185868088"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118620916"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Torquato_Tasso"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Torquato_Tasso"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Torquato_Tasso"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Torquato_Tasso"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012118517X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118620916"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118620916"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118620916"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118620916"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Tasse",
+        "Tassus, Torquatus",
+        "Tasso, Torqvato",
+        "LeTasse",
+        "Taso, Torquato",
+        "Tasse, Torquato",
+        "Tasso, Torquatto",
+        "Ṭaso, Ṭorḳṿaṭo",
+        "Tasso, Torkvato",
+        "Le Tasse",
+        "Taso, T.",
+        "Tasso",
+        "Tasso, Torcuato",
+        "Tasso, Torkuato"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "T."
+          ],
+          "surname": [
+            "Taso"
+          ]
+        },
+        {
+          "personalName": [
+            "Tasso"
+          ]
+        },
+        {
+          "forename": [
+            "Torquatto"
+          ],
+          "surname": [
+            "Tasso"
+          ]
+        },
+        {
+          "forename": [
+            "Torqvato"
+          ],
+          "surname": [
+            "Tasso"
+          ]
+        },
+        {
+          "personalName": [
+            "LeTasse"
+          ]
+        },
+        {
+          "forename": [
+            "Ṭorḳṿaṭo"
+          ],
+          "surname": [
+            "Ṭaso"
+          ]
+        },
+        {
+          "forename": [
+            "Torquato"
+          ],
+          "surname": [
+            "Tasse"
+          ]
+        },
+        {
+          "personalName": [
+            "Tasse"
+          ]
+        },
+        {
+          "personalName": [
+            "Le Tasse"
+          ]
+        },
+        {
+          "forename": [
+            "Torkvato"
+          ],
+          "surname": [
+            "Tasso"
+          ]
+        },
+        {
+          "forename": [
+            "Torcuato"
+          ],
+          "surname": [
+            "Tasso"
+          ]
+        },
+        {
+          "forename": [
+            "Torquato"
+          ],
+          "surname": [
+            "Taso"
+          ]
+        },
+        {
+          "forename": [
+            "Torquatus"
+          ],
+          "surname": [
+            "Tassus"
+          ]
+        },
+        {
+          "forename": [
+            "Torkuato"
+          ],
+          "surname": [
+            "Tasso"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Torquato_Tasso",
+          "label": "https://de.wikipedia.org/wiki/Torquato_Tasso"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:08:15Z",
+    "gnd_query_biographical_data": "1544-1595",
+    "gnd_query_name": "tasso, torquato"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2856,
+  "name": "Tasso, Torquato",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Brockh (13.) XV, 488",
+  "updated": "2026-06-11 13:29:25.354Z",
+  "uri": "https://d-nb.info/gnd/118620916",
+  "editor": ""
+}

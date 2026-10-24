@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Die Mutter putzt den Tannenbaum / Noch spät um Mitternacht;",
+  "language": [],
+  "musenalm_id": 80734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mutter Christnachttraum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roswitha Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mutter Christnachttraum",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.013Z",
+      "agent": "3xtuaei5ajd8iii",
+      "source_id": "tzc63hvpg8v1v73"
+    }
+  ]
+}

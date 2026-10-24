@@ -1,0 +1,47 @@
+{
+  "annotation": "Vetonung des Gedichts »Das Mädchen aus der Fremde« von Fr. Schiller INr 47414, Obj 11; s. Anm. dort",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen in der Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Tag",
+  "scans": [
+    "alm_643_47415_qxqcb70s2y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen in der Fremde",
+  "updated": "2007-01-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.615Z",
+      "agent": "mxi7h5rzgqwc6st",
+      "source_id": "nl45twtot0z1dvb"
+    }
+  ]
+}

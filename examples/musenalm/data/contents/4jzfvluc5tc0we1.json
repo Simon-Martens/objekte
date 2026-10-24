@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 85772, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wohl dem, der heut in der warmen Stube sitzt, wie wir! - sagte der Oberförster und dehnte sich behaglich im lieben ledernen Sorgstuhle.",
+  "language": [],
+  "musenalm_id": 85785,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Weisflog",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vater",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.219Z",
+      "agent": "iv41ps6uccpba1n",
+      "source_id": "g4e6lnch2jo0v4e"
+    }
+  ]
+}

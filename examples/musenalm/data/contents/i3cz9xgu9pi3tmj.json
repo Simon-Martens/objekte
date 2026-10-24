@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Sie wundern sich, liebe Elisa, über das Schicksal so mancher Ihrer Gesellschafterinnen, die bei allem äußern Liebreize dennoch auf die schönen beglückenden Freuden einer wahren Liebe Verzicht leisten müssen,",
+  "language": [],
+  "musenalm_id": 132203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was fesselt die Männer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. A. Kerndörffer, Doktor d. Philos.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was fesselt die Männer",
+  "updated": "2013-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.088Z",
+      "agent": "jbbfx5lvloouivi",
+      "source_id": "7ia4on6tx3arld3"
+    }
+  ]
+}

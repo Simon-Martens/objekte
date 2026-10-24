@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Die Wellen lispeln an Neapels Küste, / Als brächten Kunde sie vom Nachbarstrand.",
+  "language": [],
+  "musenalm_id": 58014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Improvisation. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Eduard Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Improvisation. / Gedicht",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.740Z",
+      "agent": "emg65x4ze46kant",
+      "source_id": "452dexjwe36ziy4"
+    }
+  ]
+}

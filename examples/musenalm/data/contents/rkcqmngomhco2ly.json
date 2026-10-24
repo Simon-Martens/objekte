@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Wir Männer stecken voller Mängel; / Es leugne wer es will!",
+  "language": [],
+  "musenalm_id": 63118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lobspruch des schönen Geschlechts. / 1747",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leßing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lobspruch des schönen Geschlechts. / 1747",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.177Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "bp0omg0vhhmhqpy"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug (Gedicht) INr 95098, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95094,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. Corbould pinx. Ch. Hoffmeister sculp. Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Corbould pinx. Ch. Hoffmeister sculp. Wien",
+  "scans": [
+    "alm_1879_95094_m7fi7g6kdp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.687Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "3t7mibq6i5zgite"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.687Z",
+      "agent": "6ui87o3eww6g9wa",
+      "source_id": "n6t5z3xtyqiova0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Neunzehn Lyrische Gedichte (Sammlung INr 50315, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Nicht zu schamhaft säum' an dem Sonnenfenster / Aufzublühn, jungfäuliches Sinaröslein;",
+  "language": [],
+  "musenalm_id": 50334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIX. / An die Sinarose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIX. / An die Sinarose",
+  "updated": "2007-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.501Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "5ka8vepnhxiu1hf"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Vermischte Gedichte (Sammlung INr 29844, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Ich sehe Glanz, und weihevolle Töne / umfangen mich, wie eine heil'ge Macht.",
+  "language": [],
+  "musenalm_id": 29845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Genius des 20sten Mai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Genius des 20sten Mai",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.267Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "191xmsn7ivedbff"
+    }
+  ]
+}

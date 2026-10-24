@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung und Nachweisung der Kupfer (Sammlung INr 59313, Obj 50) s. Graphik Im Kalendarium INr 59268, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Während dem in seel'gen Stunden, / unter mitternächt'gem Schleier,",
+  "language": [],
+  "musenalm_id": 59315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romeo und Juliette. Zweiter Abschnitt. / Abth. 5. letzt.  Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romeo und Juliette. Zweiter Abschnitt. / Abth. 5. letzt.  Auftr.",
+  "updated": "2008-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.796Z",
+      "agent": "j34hzsrw81cdjdh",
+      "source_id": "m460uz2zfp95yfx"
+    }
+  ]
+}

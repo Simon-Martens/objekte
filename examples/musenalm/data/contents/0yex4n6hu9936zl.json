@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »Die Schwestern auf Corcyra« von A. v. Helvig INr 90928, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mir hat Natur der Stimme Klang versagend / Zu stummer Trauer diese Brust verdammt. / 1e. Abth. 3r. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Am. v. Imhof del. Hoessel sc.",
+  "scans": [
+    "alm_4012_90929_ncoiv5o550.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mir hat Natur der Stimme Klang versagend / Zu stummer Trauer diese Brust verdammt. / 1e. Abth. 3r. Auftr.",
+  "updated": "2013-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.265Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "hm0p8274b3n7jx1"
+    }
+  ]
+}

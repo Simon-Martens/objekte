@@ -1,0 +1,45 @@
+{
+  "annotation": "Auf der Reise (Sammlung INr 45400, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "So weich und warm / Hegt dich kein Arm, / Als wenn die Mutter dich umfängt.",
+  "language": [],
+  "musenalm_id": 45409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Heimweh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Heimweh",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.522Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "3n04skfvgi4vu4b"
+    }
+  ]
+}

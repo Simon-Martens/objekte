@@ -1,0 +1,336 @@
+{
+  "annotation": "",
+  "biographical_data": "1760-1830",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.232Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1760-11-23"
+      ],
+      "dateOfDeath": [
+        "1830-04-12"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1033724033"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T12:42:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116257431/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116257431",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116257431",
+      "oldAuthorityNumber": [
+        "(DE-588)1033724033",
+        "(DE-588a)116257431",
+        "(DE-588a)12784161X",
+        "(DE-588c)7583298-7",
+        "(DE-588a)100004350"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4090674-7",
+          "label": "Demmin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002084-8",
+          "label": "Anklam"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043457-6",
+          "label": "Oldenburg (Oldenburg)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021965-3",
+          "label": "Greifswald"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021965-3",
+          "label": "Greifswald"
+        }
+      ],
+      "preferredName": "Ahlwardt, Christian Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Wilhelm"
+        ],
+        "surname": [
+          "Ahlwardt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4451607-1",
+          "label": "Privatgelehrter"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Gymnasialrektor",
+        "Schulrektor",
+        "Philologe",
+        "Universitätsprofessor"
+      ],
+      "publication": [
+        "Callimachus: Hymnen und Epigrammen",
+        "Ariosto, Ludovico: Satiren",
+        "Chrestomathia Portugueza para o uso dos Principiantes",
+        "Quaestiones metricae",
+        "Galische Sprachlehre",
+        "Bemerkungen über den Oisianischen Vers",
+        "Macpherson, James: Ossians Gedichte",
+        "Pindarus: Carmina",
+        "Zur Erklärung der Idyllen Theokrits",
+        "Ariosto, Ludovico: [Satiren]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031621"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/72140507"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q100672"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1033724033"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116257431/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Wilhelm_Ahlwardt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Wilhelm_Ahlwardt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055359871"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116257431"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116257431"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116257431.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116257431"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Ahlwardt, Christian W.",
+        "Ahlwardt, C. W.",
+        "Ahlwardt, Christ. Guilielmus",
+        "Ahlwardt, Chr. Wilhelm",
+        "Ahlwardt, Christianus Guilielmus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Chr. Wilhelm"
+          ],
+          "surname": [
+            "Ahlwardt"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "surname": [
+            "Ahlwardt"
+          ]
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "surname": [
+            "Ahlwardt"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Guilielmus"
+          ],
+          "surname": [
+            "Ahlwardt"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Guilielmus"
+          ],
+          "surname": [
+            "Ahlwardt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Wilhelm_Ahlwardt",
+          "label": "https://de.wikipedia.org/wiki/Christian_Wilhelm_Ahlwardt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:47:45Z",
+    "gnd_query_biographical_data": "1760-1830",
+    "gnd_query_name": "ahlwardt, christian wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 21,
+  "name": "Ahlwardt, Christian Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 740",
+  "updated": "2026-06-11 13:29:21.294Z",
+  "uri": "https://d-nb.info/gnd/116257431",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Eine Episode aus der Iskander-Geschichte (Sammlung INr 27728, Obj 78) /) Aus Nisami's Iskandername (Alexanders-Buch) (Sammlung INr 27718, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "464",
+  "incipit_statement": "Gesegnet sey der königliche Baum, / Der müden Wandrer bietet kühlen Raum,",
+  "language": [],
+  "musenalm_id": 27732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie Sikander aus dem Zenkenkriege zurückkehrt / und Iskanderia baut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie Sikander aus dem Zenkenkriege zurückkehrt / und Iskanderia baut",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.273Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "w7zs1x6s1kyit6c"
+    }
+  ]
+}

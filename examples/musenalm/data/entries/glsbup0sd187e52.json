@@ -1,0 +1,67 @@
+{
+  "annotation": "Standort: Bad. Landesbibliothek Karlsruhe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Genealogisches (Gottschalck) 1842",
+    "norm": "",
+    "biblio": 100709,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2947,
+  "parallel_title": "",
+  "place_statement": "Dresden (Wagner)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Taschenbuch, Genealogisches (Gottschalck) 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 121; nicht bei L/R",
+  "responsibility_statement": "Friedrich Gottschalck",
+  "subtitle_statement": "",
+  "title_statement": "Genealogisches / Taschenbuch / für das Jahr / 1842. / Von / Friedrich Gottschalck. / Zwölfter Jahrgang. / Dresden, / G. K. Wagner'sche Buchhandlung. / (H. M. Gottschalck.)",
+  "updated": "2026-06-11 10:18:54.790Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "50d8qr0a0ux1i4j"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.180Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.180Z",
+      "agent": "7jsfpvc4q2nstil",
+      "source_id": "xg9279a9m1pxm0o"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Freundschaft! Ahndung himmlischer Liebe! deine / Palme grünt - wenn die Laube irdischer Liebe / verwelkt,",
+  "language": [],
+  "musenalm_id": 10098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundschaft! Ahndung himmlischer Liebe! deine / Palme grünt - wenn die Laube irdischer Liebe / verwelkt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.765Z",
+      "agent": "fby2gdha04397wg",
+      "source_id": "4l4pl3v5os2eauw"
+    }
+  ]
+}

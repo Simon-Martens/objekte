@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Nazional-Garde Almanach 1816",
+    "norm": "",
+    "biblio": 409344,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-12-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4361,
+  "parallel_title": "",
+  "place_statement": "München (Zaengl)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Nazional-Garde Almanach 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; K 90; L/R 181",
+  "responsibility_statement": "Lipowsky",
+  "subtitle_statement": "",
+  "title_statement": "NazionalGarde / ALMANACH / für das / Königreich / Baiern / 1816. / von Lipowsky / MÜNCHEN / aus den Pressen und im Verlage / des / Joseph Zaengl",
+  "updated": "2026-06-11 10:18:55.961Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "a868xn97u6ek6y9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.372Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.372Z",
+      "agent": "46kejxdgsiggk3k",
+      "source_id": "kw2dbtacve6c628"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.191Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.191Z",
+      "agent": "rc78ajrthxqwzin",
+      "source_id": "qhjax087q7uta6u"
+    }
+  ]
+}

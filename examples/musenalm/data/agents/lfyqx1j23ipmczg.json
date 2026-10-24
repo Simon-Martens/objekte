@@ -1,0 +1,403 @@
+{
+  "annotation": "",
+  "biographical_data": "1742-1803",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.343Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1742-08-20"
+      ],
+      "dateOfDeath": [
+        "1803-03-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Daniel Nikolaus Chodowiecki"
+          ],
+          "creditText": [
+            "Bildindex der Kunst und Architektur: object 30100536&nbsp;– image file mi09889g06a.jpg.Transferred from de.wikipedia to Commons. (Original text: Bildindex der Kunst und Architektur, Objekt 30100536)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Gottlieb%20Geyser.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Gottlieb%20Geyser.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Gottlieb%20Geyser.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1243920734"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-29T15:15:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11661451X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Geyser"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Oeser"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116614579",
+          "label": "Geyser, Wilhelmine"
+        },
+        {
+          "forename": [
+            "Samuel Gottfried"
+          ],
+          "surname": [
+            "Geyser"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/131929453",
+          "label": "Geyser, Friedrich Christian Gottlieb"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102207240",
+          "label": "Geyser, Gottlieb Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11661451X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/131929453",
+          "label": "Geyser, Friedrich Christian Gottlieb"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102207240",
+          "label": "Geyser, Gottlieb Wilhelm"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118786792",
+          "label": "Oeser, Adam Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11661451X",
+      "oldAuthorityNumber": [
+        "(DE-588a)11661451X",
+        "(DE-588)1243920734"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021441-2",
+          "label": "Görlitz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4380230-8",
+          "label": "Leipzig-Eutritzsch"
+        }
+      ],
+      "preferredName": "Geyser, Christian Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Gottlieb"
+        ],
+        "surname": [
+          "Geyser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4299716-1",
+          "label": "Miniaturist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunstmaler"
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118786792",
+          "label": "Oeser, Adam Friedrich"
+        }
+      ],
+      "publication": [
+        "Neue Carte Von Europa. - 1782"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007054203"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27330176"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1079938"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11661451X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1243920734"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Gottlieb_Geyser"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Gottlieb_Geyser"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122777425"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11661451X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11661451X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11661451X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11661451X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11661451X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Geyser",
+        "G.",
+        "Geyser, Christian Gottlob",
+        "Geyser, Christian G.",
+        "Geyser, ...",
+        "Geyser, C. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Gottlob"
+          ],
+          "surname": [
+            "Geyser"
+          ]
+        },
+        {
+          "personalName": [
+            "G."
+          ]
+        },
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Geyser"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "surname": [
+            "Geyser"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Geyser"
+          ]
+        },
+        {
+          "personalName": [
+            "Geyser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Gottlieb_Geyser",
+          "label": "https://de.wikipedia.org/wiki/Christian_Gottlieb_Geyser"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:30:18Z",
+    "gnd_query_biographical_data": "1742-1803",
+    "gnd_query_name": "geyser, christian gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 882,
+  "name": "Geyser, Christian Gottlieb",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIII, 514",
+  "updated": "2026-06-11 13:29:22.513Z",
+  "uri": "https://d-nb.info/gnd/11661451X",
+  "editor": ""
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "KVK-GBV gibt Jgg 1786-1859 an /) Format 5,5 x 8,5",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 52 SS Kal darin 3 GG, 11 SS, SS 1-16",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1816",
+    "norm": "~",
+    "biblio": 407513,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-05-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4098,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "F. P. Nuppnau",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Schalt-Jahr 1816. / Von / F. P. Nuppnau, / Lehrer an der Michaelis-Schule / in Hamburg. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler",
+  "updated": "2026-06-11 10:18:55.213Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "zg4lbz0p5bzdkjm"
+  ],
+  "contents": [
+    "uak2zx5s98fhd1z",
+    "moaor30auk1s8o5",
+    "dlnzpw2lvfys3ir",
+    "iptev23fpupq0yz",
+    "uyuequwchvkfy52",
+    "1h79vkr3xwsxb3t",
+    "epeuhwet1lrfqgp",
+    "wecfelld2kmdye6",
+    "nlfgjbqtxylx1wn",
+    "uvduamo0iq7knds",
+    "6vafq74wjpg7ixp",
+    "i28qe763brolzvo",
+    "wfde8mwb75wro7u",
+    "jm69bv8fv9ebti1",
+    "ek8k1sjvy878u2x",
+    "g7touutziawboge",
+    "ib41b7esb9lvo75"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "gs4un6n2mvt0s65",
+      "source_id": "568rzrmrwm2dgn6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.334Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.334Z",
+      "agent": "jmk7s1t2orsqisu",
+      "source_id": "jwkei9jkawyrpvo"
+    }
+  ]
+}

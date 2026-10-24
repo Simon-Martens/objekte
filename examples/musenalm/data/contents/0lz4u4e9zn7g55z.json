@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Sei herzlich willkommen, du Geber der Freude, / Willkommen mit all deinen Gaben!",
+  "language": [],
+  "musenalm_id": 11254,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "102. / Herbstliedchen. / Nach der Musik von Vigano's Favorittanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "102. / Herbstliedchen. / Nach der Musik von Vigano's Favorittanze",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.542Z",
+      "agent": "sg73x8kcyc2ixxl",
+      "source_id": "71ymq9q2jj5tl1k"
+    }
+  ]
+}

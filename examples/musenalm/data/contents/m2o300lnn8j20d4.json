@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Es ist nicht anders, geliebter Oheim, ich bin wieder auf der Reise, und kann gar nicht mal sagen, wann oder wo sie endigen wird.",
+  "language": [],
+  "musenalm_id": 1980,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mondsüchtige. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mondsüchtige. / Novelle",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.999Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "0z0s78zk48967yp"
+    }
+  ]
+}

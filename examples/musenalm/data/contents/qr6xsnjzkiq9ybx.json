@@ -1,0 +1,43 @@
+{
+  "annotation": "Motto des Almanachs aus Klopstocks »Frühlingsfeier«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Aber du Frühlingswürmchen, / Das grünlich golden neben mir spielt, / Du lebst; und bist vielleicht / Ach! nicht unsterblich!",
+  "language": [],
+  "musenalm_id": 52480,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aber du Frühlingswürmchen, / Das grünlich golden neben mir spielt, / Du lebst; und bist vielleicht / Ach! nicht unsterblich!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.538Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "z5716lr5b9v7d8f"
+    }
+  ]
+}

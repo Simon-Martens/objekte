@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Der Brauer von Gent. Erzählung aus den Zeiten der flandrischen Unruhen zu Ende des 14ten Jahrhunderts« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110844, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110850,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philipp Artevelde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Retzsch gez. Fr. Stöber gest. in Stahl. Wien",
+  "scans": [
+    "alm_3468_110850_2j6ktxc5ul.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philipp Artevelde",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.344Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "a84kxuizfsybjnl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.344Z",
+      "agent": "hza9adcqx5d0fys",
+      "source_id": "g9y597okise6h6v"
+    }
+  ]
+}

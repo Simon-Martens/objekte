@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69993,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HERR VON VOLTAIRE / Nach dem vom Könige von Preussen der Berliner / Academie geschenkten Brustbilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sc.",
+  "scans": [
+    "alm_793_69993_c39wm6azc0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HERR VON VOLTAIRE / Nach dem vom Könige von Preussen der Berliner / Academie geschenkten Brustbilde",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.520Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "j0v374471cxpr2c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.520Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "oszgz3ow8wm1cgd"
+    }
+  ]
+}

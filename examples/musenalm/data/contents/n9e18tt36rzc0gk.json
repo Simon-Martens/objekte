@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert VI. /) Graphik im Kalendarium August /) Illustration zu »Scenen aus der Familie Ehrenberg. 1. Charlotte Waller« INr 48081, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79916,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sieh Mütterchen, was ich Dir mit bringe!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert d. Fr. Bolt sc. 1810",
+  "scans": [
+    "alm_656_79916_qqtgha55nb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sieh Mütterchen, was ich Dir mit bringe!",
+  "updated": "2007-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.954Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "4eshgo9ulz94wq9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.954Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "xroy7185usudaud"
+    }
+  ]
+}

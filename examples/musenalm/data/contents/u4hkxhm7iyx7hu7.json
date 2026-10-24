@@ -1,0 +1,45 @@
+{
+  "annotation": "Neujahrswünsche (Sammlung INr 16543, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Wohin man blickt, ist Schererey, / Und Keinem ist behaglich dabey:",
+  "language": [],
+  "musenalm_id": 16546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / An den Freyherrn v. *** / welcher eine große Schäferey hat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / An den Freyherrn v. *** / welcher eine große Schäferey hat",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.588Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "1qnmcurjiyyi5iy"
+    }
+  ]
+}

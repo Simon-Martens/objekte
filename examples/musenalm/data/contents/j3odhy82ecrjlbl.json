@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Du arme Mutter! .... Todt dein Kind! / Doch sieh, der Engel, der's geraubt / Umfacht mit seinem Fittig lind,",
+  "language": [],
+  "musenalm_id": 95424,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Eine Rose eine Cypresse]. / Die Cypresse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. A. Knoll",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Eine Rose eine Cypresse]. / Die Cypresse",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.478Z",
+      "agent": "oqavxmzabvmo0s1",
+      "source_id": "wai0t7a1g5mu23e"
+    }
+  ]
+}

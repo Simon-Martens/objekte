@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 83979, Obj 6) s. Graphik INr 83991, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der junge Bursche und sein altes Pferd / Nach schwerem Arbeitsritt sich Rast gewährt;",
+  "language": [],
+  "musenalm_id": 83984,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Die Erfrischung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Die Erfrischung",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.983Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "d66tp3wcpvo25iz"
+    }
+  ]
+}

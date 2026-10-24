@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Hoch auf dem Wall hatte, den Anstalten der Schutzwehr und der Verheerung, der Torschreiber Ehrenfried ein Fleckchen Erde abgewonnen,",
+  "language": [],
+  "musenalm_id": 29730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Die Kürbislaube. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lina Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Die Kürbislaube. / Erzählung",
+  "updated": "2002-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.556Z",
+      "agent": "mkz3b0l4gdht2nh",
+      "source_id": "u4iqfsquigs07f5"
+    }
+  ]
+}

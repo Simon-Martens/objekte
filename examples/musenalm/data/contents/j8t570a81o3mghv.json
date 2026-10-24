@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Durch Wälder und Thäler, durch Haiden und Wüsten, / Auf öden Gestaden, auf sandigen Küsten, / Vom lauten Getöse der Menge verbannt,",
+  "language": [],
+  "musenalm_id": 86730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.284Z",
+      "agent": "ett5544anganpff",
+      "source_id": "c0ihuz6a330dkf8"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "annotation": "mit kol. Illustrationen; 1811–? (Jgg. 1816f. nicht vorhanden): Wien und Triest, bei Joseph Geistinger; 1818: Wien bei Wallishausser; 1819–1840: Lepzig bei Baumgärtner",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, nT, I-Verz, S 1–224, Kal",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für Gesellschaftstheater 1811",
+    "norm": "~",
+    "biblio": 405194,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-01-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4694,
+  "parallel_title": "",
+  "place_statement": "Wien und Triest (Geistinger)",
+  "places": [
+    "31n865keags4n1n",
+    "dp43n1va7to3kqu"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für Gesellschaftstheater 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18 u. 76; L/R 123; Goed VIII. 128, 7; Goed III. 813",
+  "responsibility_statement": "F. A. von Kurländer",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Spiele / für Gesellschaftstheater. / Wien und Triest, / im Verlag bei Geistinger. / 1811",
+  "updated": "2026-06-11 10:18:55.137Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "g4gf2j03uaa3tne"
+  ],
+  "contents": [
+    "a8bau580op3zfzr",
+    "i49pvu6y9rw2ss9",
+    "w45nxikjggm0rk6",
+    "iythrdmim6r6ojo",
+    "rvnbng3prhv1r41",
+    "cqo4b9q6mviebnn",
+    "11i1ky77wrae6d0",
+    "st79apn066tm9kp",
+    "wqf0ucvz5unyhfg",
+    "02rmx4zi12w6dil",
+    "9ilv66uqb8m9b2z",
+    "z1marpisw8uteul",
+    "lp5sdz188bpzpf5",
+    "wqaek0iwe1osxxy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.888Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.888Z",
+      "agent": "fhg4akhxy4ralg4",
+      "source_id": "a3i84aadcms4s5u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.408Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.408Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "swy5qobtyig6xiy"
+    }
+  ]
+}

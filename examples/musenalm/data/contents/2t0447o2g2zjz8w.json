@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Oktober, nummeriert 10 /) Illustration zu »Centifolium stultorum« von Abraham a Santa Clara d. i. Ulrich Megerle; s. Textbezug INr 129076, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129052,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Complementir-Narr. / Fou-complimenteur",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Rosmaesler sc.",
+  "scans": [
+    "alm_157_129052_tbdy7r2hkp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Complementir-Narr. / Fou-complimenteur",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.001Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ulu5sy1w2qh46xm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.001Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "wbr55e9g8ebzbwp"
+    }
+  ]
+}

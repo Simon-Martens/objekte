@@ -1,0 +1,45 @@
+{
+  "annotation": "Übersetzung des vorstehenden Beitrags INr 128679, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Auf einem Floß / Sah ich das größte Paar hienieden; / Auf einem Floß / Sah ich ein Bild, so hehr als groß;",
+  "language": [],
+  "musenalm_id": 128680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutsch",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.930Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "g1ntk3jzo6x3i00"
+    }
+  ]
+}

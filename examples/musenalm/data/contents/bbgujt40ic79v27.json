@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Poetische Kleinigkeiten (INr 93436, Obj 121)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Da ich nun deine Schändlichkeit erfahre, / Könnt' ich wohl auch, wie viele Andre, weinen,",
+  "language": [],
+  "musenalm_id": 93450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ich Marien ihre Haare zurücksandte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ich Marien ihre Haare zurücksandte",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.308Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "gvappjj4ltmyot4"
+    }
+  ]
+}

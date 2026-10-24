@@ -1,0 +1,98 @@
+{
+  "annotation": "§ Bindefehler: S 11 und 13 zu »Das Fest der Geburt« INr 124485 an falscher Stelle eingebunden, s. Anmerkungen an den Objekten §$ vermutl. fehlt Musikbeigabe /) 2. Titel lautet: Dramatische Spiele / zur / Feier / häuslicher Feste. / von / August Rublack. / Erste Lieferung, / mit einer Musikbeilage. / Dresden, 1819. / bei Paul Gottlob Hilscher",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S, T, S I T, SS III-V W, SS VII-X Vrwrt d Hrsg, S XI I-Verz, S C, SS 1-120 §§",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dramatischer Spiele zur Feier häuslicher Feste (Rublack) 1820",
+    "norm": "~",
+    "biblio": 410558,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4695,
+  "parallel_title": "",
+  "place_statement": "Dresden (Hilscher)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Taschenbuch dramatischer Spiele zur Feier häuslicher Feste (Rublack) 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 147; nicht bei L/R; Goed VI. 414, 39",
+  "responsibility_statement": "August Rublack",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / Dramatischer Spiele / zur / Feier häuslicher Feste / von / August Rublack. / Erste Lieferung / auf das Jahr 1820. / Dresden, / bey P. G. Hilscher. / 1819",
+  "updated": "2026-06-11 10:18:55.823Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "id2bty3hlp9xms4"
+  ],
+  "contents": [
+    "ki6e5c2jmbptlr1",
+    "m682x10zo4sr30g",
+    "xpx0u3up01do5mb",
+    "94cgbygbbukp8cv",
+    "93554ibyun5d5oj",
+    "nxa5jvm7jgdrz7f",
+    "xehwd9x6drsz330",
+    "vryae8xvih0kiv4",
+    "ytzjpklz02d9d5e",
+    "9ubz6rbrrw6drnf",
+    "v796ocaiujlp6vh",
+    "vxsqy4b9yicipyc",
+    "3t1l4dqnjy0sr5s",
+    "2txj8ia0qxsbccy",
+    "0yvs6s180a702ru",
+    "3z8nalz10k6qvhg",
+    "ab4fmxqum8n5yu4",
+    "9ufdniuea5itm4a",
+    "fek300198l1hmsk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.408Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.408Z",
+      "agent": "rgzpulaw84h7q7x",
+      "source_id": "91q5y292v3ccjsb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.012Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.012Z",
+      "agent": "37n7p2hewzwh108",
+      "source_id": "jl3062f6zxj7lhw"
+    }
+  ]
+}
